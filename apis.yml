@@ -1,0 +1,32 @@
+aid: tvdb
+name: TVDB
+description: "Television data"
+url: https://thetvdb.com/api-information
+specificationVersion: '0.20'
+created: '2026-05-28'
+modified: '2026-05-28'
+x-source: public-apis/public-apis
+x-category: "Video"
+x-tier: 3
+x-tier-reason: bulk-registered-from-public-apis
+tags:
+  - Video
+  - Public APIs
+apis:
+  - name: TVDB
+    description: "Television data"
+    humanURL: https://thetvdb.com/api-information
+    baseURL: https://thetvdb.com/api-information
+    tags:
+      - Video
+    properties:
+      - type: Documentation
+        url: https://thetvdb.com/api-information
+common:
+  - type: Website
+    url: https://thetvdb.com/api-information
+  - type: PublicAPIsListing
+    url: https://github.com/public-apis/public-apis
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
