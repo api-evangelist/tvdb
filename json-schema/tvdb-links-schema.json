@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-links-schema.json",
+  "title": "Links",
+  "description": "Links for next, previous and current record",
+  "properties": {
+    "prev": {
+      "type": "string",
+      "nullable": true,
+      "example": "example"
+    },
+    "self": {
+      "type": "string",
+      "nullable": true,
+      "example": "example"
+    },
+    "next": {
+      "type": "string",
+      "example": "example"
+    },
+    "total_items": {
+      "type": "integer",
+      "example": 1
+    },
+    "page_size": {
+      "type": "integer",
+      "example": 1
+    }
+  },
+  "type": "object"
+}

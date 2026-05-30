@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-production-country-schema.json",
+  "title": "ProductionCountry",
+  "description": "Production country record",
+  "properties": {
+    "id": {
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "ID",
+      "example": 12345
+    },
+    "country": {
+      "type": "string",
+      "example": "usa"
+    },
+    "name": {
+      "type": "string",
+      "example": "Example Name"
+    }
+  },
+  "type": "object"
+}

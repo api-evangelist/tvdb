@@ -1,0 +1,111 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: TVDB API V4 — User info
+  description: 'TVDB API V4 — User info. 2 operations. Lead operation: Get User Info. Self-contained Naftiko capability covering one TheTVDB business surface.'
+  tags:
+  - TheTVDB
+  - Television
+  - User info
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+- namespace: env
+  keys:
+    TVDB_BEARER_TOKEN: TVDB_BEARER_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: v4-user-info
+    baseUri: 'https://api4.thetvdb.com/v4'
+    description: TVDB API V4 — User info business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.TVDB_BEARER_TOKEN}}'
+    resources:
+    - name: user
+      path: /user
+      operations:
+      - name: getUserInfo
+        method: GET
+        description: TheTVDB Get User Info
+        inputParameters: []
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: user-id
+      path: /user/{id}
+      operations:
+      - name: getUserInfoById
+        method: GET
+        description: TheTVDB Get User Info by Id
+        inputParameters:
+        - name: id
+          in: path
+          type: number
+          required: true
+          description: id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: v4-user-info-rest
+    port: 8080
+    description: REST adapter for TVDB API V4 — User info. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/user
+      name: user
+      description: REST surface for user.
+      operations:
+      - method: GET
+        name: getUserInfo
+        description: TheTVDB Get User Info
+        call: v4-user-info.getUserInfo
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user/{id}
+      name: user-id
+      description: REST surface for user-id.
+      operations:
+      - method: GET
+        name: getUserInfoById
+        description: TheTVDB Get User Info by Id
+        call: v4-user-info.getUserInfoById
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: v4-user-info-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for TVDB API V4 — User info. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: get-user-info
+      description: TheTVDB Get User Info
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-user-info.getUserInfo
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-user-info-id
+      description: TheTVDB Get User Info by Id
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-user-info.getUserInfoById
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

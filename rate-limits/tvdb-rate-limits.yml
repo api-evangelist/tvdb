@@ -1,0 +1,85 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: TheTVDB
+providerId: tvdb
+created: '2026-05-30'
+modified: '2026-05-30'
+reconciled: false
+tags:
+  - Rate Limiting
+  - Television
+  - Movies
+  - Metadata
+description: >-
+  TheTVDB does not publish explicit per-second / per-minute rate limits in
+  either its API information page or the v4-api repository. Instead, the
+  provider's guidance is architectural: maintain a local copy of the database,
+  use the /updates endpoint to stay in sync, or front the API with a caching
+  proxy. End-user direct access is allowed but the provider expects developers
+  to design responsibly. Heavy or unfair traffic patterns can result in keys
+  being revoked or commercial terms being renegotiated. The provider reserves
+  the right to change interfaces, fees, and licensing terms at any point
+  without notice.
+sources:
+  - https://thetvdb.com/api-information
+  - https://github.com/thetvdb/v4-api
+  - https://thetvdb.github.io/v4-api/
+responseCodes:
+  unauthorized: 401
+  forbidden: 403
+  notFound: 404
+  throttled: 429
+limits:
+  - name: Documented request-rate limits
+    scope: account/key
+    metric: varies
+    limit: 'not publicly documented — see https://thetvdb.com/api-information'
+    notes: TheTVDB does not publish numeric request-rate limits. Architectural guidance recommends a local DB copy or caching proxy for heavy use.
+  - name: JWT bearer token lifetime
+    scope: account/key
+    metric: token_lifetime
+    limit: 1
+    timeFrame: month
+    notes: Tokens returned by /login are valid for one month, after which a new /login call is required.
+  - name: TLS minimum version
+    scope: connection
+    metric: tls_version
+    limit: 'TLSv1.2'
+    notes: Enforced on all API requests. Older TLS versions are rejected at the transport layer.
+policies:
+  - name: Maintain a local database copy
+    description: >-
+      TheTVDB strongly recommends developers iterate every record once and
+      maintain a local copy, then poll /updates to track changes. This is the
+      preferred approach for high-volume consumers.
+  - name: Use a caching proxy
+    description: >-
+      For projects without dedicated DB hosting, run a caching proxy (e.g.
+      squid) between the user and the TheTVDB API. Set TTLs per endpoint based
+      on data freshness needs.
+  - name: Cache heavily-stable reference endpoints
+    description: >-
+      Cache for at least one week (or longer) any responses from /artwork/types,
+      /artwork/statuses, /awards/categories, /content/ratings, /entities,
+      /genders, /genres, /inspiration/types, /languages, /movies/statuses,
+      /people/types, /series/statuses, /sources/types, and /seasons/types.
+  - name: Handle merge-deletion updates
+    description: >-
+      /updates events for deletions may include mergeToType and mergeToId.
+      When present, migrate any local user-generated data (follower counts,
+      ratings) from the deleted record to the surviving record.
+  - name: Bearer token rotation
+    description: >-
+      Reuse the JWT bearer for the full one-month token lifetime; do not call
+      /login on every request.
+  - name: Attribution requirement
+    description: >-
+      End-user-facing surfaces must display "Metadata provided by TheTVDB"
+      with a direct link to TheTVDB.com. Command-line tools and developer
+      libraries may instead carry attribution in their documentation.
+  - name: Provider may revoke or renegotiate
+    description: >-
+      TheTVDB reserves the right to change interfaces, fees, or licensing
+      terms at any point without notice. Build for graceful degradation and
+      keep contact information current.

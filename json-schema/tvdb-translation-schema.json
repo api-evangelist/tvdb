@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-translation-schema.json",
+  "title": "Translation",
+  "description": "translation record",
+  "properties": {
+    "aliases": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "example": [
+        "example"
+      ]
+    },
+    "isAlias": {
+      "type": "boolean",
+      "example": true
+    },
+    "isPrimary": {
+      "type": "boolean",
+      "example": true
+    },
+    "language": {
+      "type": "string",
+      "x-go-name": "Language",
+      "example": "eng"
+    },
+    "name": {
+      "type": "string",
+      "example": "Example Name"
+    },
+    "overview": {
+      "type": "string",
+      "example": "A descriptive paragraph of text."
+    },
+    "tagline": {
+      "type": "string",
+      "description": "Only populated for movie translations.  We disallow taglines without a title.",
+      "example": "example"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,533 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-people-extended-record-schema.json",
+  "title": "PeopleExtendedRecord",
+  "description": "extended people record",
+  "properties": {
+    "aliases": {
+      "items": {
+        "description": "An alias model, which can be associated with a series, season, movie, person, or list.",
+        "properties": {
+          "language": {
+            "type": "string",
+            "maximum": 4,
+            "description": "A 3-4 character string indicating the language of the alias, as defined in Language.",
+            "example": "eng"
+          },
+          "name": {
+            "type": "string",
+            "maximum": 100,
+            "description": "A string containing the alias itself.",
+            "example": "Example Name"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "x-go-name": "Aliases"
+    },
+    "awards": {
+      "items": {
+        "description": "base award record",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 12345
+          },
+          "name": {
+            "type": "string",
+            "example": "Example Name"
+          }
+        },
+        "type": "object",
+        "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+      },
+      "type": "array",
+      "x-go-name": "Awards"
+    },
+    "biographies": {
+      "items": {
+        "description": "biography record",
+        "properties": {
+          "biography": {
+            "type": "string",
+            "x-go-name": "Biography",
+            "example": "example"
+          },
+          "language": {
+            "type": "string",
+            "x-go-name": "Language",
+            "example": "eng"
+          }
+        },
+        "type": "object",
+        "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+      },
+      "type": "array",
+      "x-go-name": "Biographies"
+    },
+    "birth": {
+      "type": "string",
+      "example": "example"
+    },
+    "birthPlace": {
+      "type": "string",
+      "example": "example"
+    },
+    "characters": {
+      "items": {
+        "description": "character record",
+        "properties": {
+          "aliases": {
+            "items": {
+              "description": "An alias model, which can be associated with a series, season, movie, person, or list.",
+              "properties": {
+                "language": {
+                  "type": "string",
+                  "maximum": 4,
+                  "description": "A 3-4 character string indicating the language of the alias, as defined in Language.",
+                  "example": "eng"
+                },
+                "name": {
+                  "type": "string",
+                  "maximum": 100,
+                  "description": "A string containing the alias itself.",
+                  "example": "Example Name"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array",
+            "x-go-name": "Aliases"
+          },
+          "episode": {
+            "description": "base record info",
+            "properties": {
+              "image": {
+                "type": "string",
+                "x-go-name": "Image",
+                "example": "https://artworks.thetvdb.com/banners/example.jpg"
+              },
+              "name": {
+                "type": "string",
+                "x-go-name": "Name",
+                "example": "Example Name"
+              },
+              "year": {
+                "type": "string",
+                "example": "2024"
+              }
+            },
+            "type": "object",
+            "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+          },
+          "episodeId": {
+            "type": "integer",
+            "nullable": true,
+            "example": 12345
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer",
+            "x-go-name": "ID",
+            "example": 12345
+          },
+          "image": {
+            "type": "string",
+            "example": "https://artworks.thetvdb.com/banners/example.jpg"
+          },
+          "isFeatured": {
+            "type": "boolean",
+            "x-go-name": "IsFeatured",
+            "example": true
+          },
+          "movieId": {
+            "type": "integer",
+            "nullable": true,
+            "example": 12345
+          },
+          "movie": {
+            "description": "base record info",
+            "properties": {
+              "image": {
+                "type": "string",
+                "x-go-name": "Image",
+                "example": "https://artworks.thetvdb.com/banners/example.jpg"
+              },
+              "name": {
+                "type": "string",
+                "x-go-name": "Name",
+                "example": "Example Name"
+              },
+              "year": {
+                "type": "string",
+                "example": "2024"
+              }
+            },
+            "type": "object",
+            "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+          },
+          "name": {
+            "type": "string",
+            "example": "Example Name"
+          },
+          "nameTranslations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "x-go-name": "NameTranslations",
+            "example": [
+              "example"
+            ]
+          },
+          "overviewTranslations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "x-go-name": "OverviewTranslations",
+            "example": [
+              "example"
+            ]
+          },
+          "peopleId": {
+            "type": "integer",
+            "example": 12345
+          },
+          "personImgURL": {
+            "type": "string",
+            "example": "https://artworks.thetvdb.com/banners/example.jpg"
+          },
+          "peopleType": {
+            "type": "string",
+            "example": "example"
+          },
+          "seriesId": {
+            "type": "integer",
+            "nullable": true,
+            "example": 12345
+          },
+          "series": {
+            "description": "base record info",
+            "properties": {
+              "image": {
+                "type": "string",
+                "x-go-name": "Image",
+                "example": "https://artworks.thetvdb.com/banners/example.jpg"
+              },
+              "name": {
+                "type": "string",
+                "x-go-name": "Name",
+                "example": "Example Name"
+              },
+              "year": {
+                "type": "string",
+                "example": "2024"
+              }
+            },
+            "type": "object",
+            "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+          },
+          "sort": {
+            "format": "int64",
+            "type": "integer",
+            "x-go-name": "Sort",
+            "example": 12345
+          },
+          "tagOptions": {
+            "items": {
+              "description": "tag option record",
+              "properties": {
+                "helpText": {
+                  "type": "string",
+                  "example": "example"
+                },
+                "id": {
+                  "format": "int64",
+                  "type": "integer",
+                  "x-go-name": "ID",
+                  "example": 12345
+                },
+                "name": {
+                  "type": "string",
+                  "x-go-name": "Name",
+                  "example": "Example Name"
+                },
+                "tag": {
+                  "format": "int64",
+                  "type": "integer",
+                  "x-go-name": "Tag",
+                  "example": 12345
+                },
+                "tagName": {
+                  "type": "string",
+                  "x-go-name": "TagName",
+                  "example": "example"
+                }
+              },
+              "type": "object",
+              "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+            },
+            "type": "array",
+            "x-go-name": "TagOptions"
+          },
+          "type": {
+            "format": "int64",
+            "type": "integer",
+            "x-go-name": "Type",
+            "example": 12345
+          },
+          "url": {
+            "type": "string",
+            "x-go-name": "URL",
+            "example": "https://artworks.thetvdb.com/banners/example.jpg"
+          },
+          "personName": {
+            "type": "string",
+            "example": "example"
+          }
+        },
+        "type": "object",
+        "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+      },
+      "type": "array",
+      "x-go-name": "Characters"
+    },
+    "death": {
+      "type": "string",
+      "example": "example"
+    },
+    "gender": {
+      "type": "integer",
+      "example": 1
+    },
+    "id": {
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "ID",
+      "example": 12345
+    },
+    "image": {
+      "type": "string",
+      "example": "https://artworks.thetvdb.com/banners/example.jpg"
+    },
+    "lastUpdated": {
+      "type": "string",
+      "example": "2024-01-15"
+    },
+    "name": {
+      "type": "string",
+      "example": "Example Name"
+    },
+    "nameTranslations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-go-name": "NameTranslations",
+      "example": [
+        "example"
+      ]
+    },
+    "overviewTranslations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-go-name": "OverviewTranslations",
+      "example": [
+        "example"
+      ]
+    },
+    "races": {
+      "items": {
+        "description": "race record",
+        "type": "object",
+        "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+      },
+      "type": "array",
+      "x-go-name": "Races"
+    },
+    "remoteIds": {
+      "items": {
+        "description": "remote id record",
+        "properties": {
+          "id": {
+            "type": "string",
+            "x-go-name": "ID",
+            "example": "abc123"
+          },
+          "type": {
+            "format": "int64",
+            "type": "integer",
+            "x-go-name": "Type",
+            "example": 12345
+          },
+          "sourceName": {
+            "type": "string",
+            "x-go-name": "SourceName",
+            "example": "example"
+          }
+        },
+        "type": "object",
+        "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+      },
+      "type": "array",
+      "x-go-name": "RemoteIDs"
+    },
+    "score": {
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "Score",
+      "example": 100
+    },
+    "slug": {
+      "type": "string",
+      "example": "example-slug"
+    },
+    "tagOptions": {
+      "items": {
+        "description": "tag option record",
+        "properties": {
+          "helpText": {
+            "type": "string",
+            "example": "example"
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer",
+            "x-go-name": "ID",
+            "example": 12345
+          },
+          "name": {
+            "type": "string",
+            "x-go-name": "Name",
+            "example": "Example Name"
+          },
+          "tag": {
+            "format": "int64",
+            "type": "integer",
+            "x-go-name": "Tag",
+            "example": 12345
+          },
+          "tagName": {
+            "type": "string",
+            "x-go-name": "TagName",
+            "example": "example"
+          }
+        },
+        "type": "object",
+        "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+      },
+      "type": "array",
+      "x-go-name": "TagOptions"
+    },
+    "translations": {
+      "description": "translation extended record",
+      "properties": {
+        "nameTranslations": {
+          "items": {
+            "description": "translation record",
+            "properties": {
+              "aliases": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array",
+                "example": [
+                  "example"
+                ]
+              },
+              "isAlias": {
+                "type": "boolean",
+                "example": true
+              },
+              "isPrimary": {
+                "type": "boolean",
+                "example": true
+              },
+              "language": {
+                "type": "string",
+                "x-go-name": "Language",
+                "example": "eng"
+              },
+              "name": {
+                "type": "string",
+                "example": "Example Name"
+              },
+              "overview": {
+                "type": "string",
+                "example": "A descriptive paragraph of text."
+              },
+              "tagline": {
+                "type": "string",
+                "description": "Only populated for movie translations.  We disallow taglines without a title.",
+                "example": "example"
+              }
+            },
+            "type": "object",
+            "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+          },
+          "type": "array"
+        },
+        "overviewTranslations": {
+          "items": {
+            "description": "translation record",
+            "properties": {
+              "aliases": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array",
+                "example": [
+                  "example"
+                ]
+              },
+              "isAlias": {
+                "type": "boolean",
+                "example": true
+              },
+              "isPrimary": {
+                "type": "boolean",
+                "example": true
+              },
+              "language": {
+                "type": "string",
+                "x-go-name": "Language",
+                "example": "eng"
+              },
+              "name": {
+                "type": "string",
+                "example": "Example Name"
+              },
+              "overview": {
+                "type": "string",
+                "example": "A descriptive paragraph of text."
+              },
+              "tagline": {
+                "type": "string",
+                "description": "Only populated for movie translations.  We disallow taglines without a title.",
+                "example": "example"
+              }
+            },
+            "type": "object",
+            "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+          },
+          "type": "array"
+        },
+        "alias": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "example": [
+            "example"
+          ]
+        }
+      },
+      "type": "object"
+    }
+  },
+  "type": "object"
+}

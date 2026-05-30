@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-artwork-type-schema.json",
+  "title": "ArtworkType",
+  "description": "artwork type record",
+  "properties": {
+    "height": {
+      "format": "int64",
+      "type": "integer",
+      "example": 12345
+    },
+    "id": {
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "ID",
+      "example": 12345
+    },
+    "imageFormat": {
+      "type": "string",
+      "x-go-name": "ImageFormat",
+      "example": "example"
+    },
+    "name": {
+      "type": "string",
+      "x-go-name": "Name",
+      "example": "Example Name"
+    },
+    "recordType": {
+      "type": "string",
+      "x-go-name": "RecordType",
+      "example": "example"
+    },
+    "slug": {
+      "type": "string",
+      "x-go-name": "Slug",
+      "example": "example-slug"
+    },
+    "thumbHeight": {
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "ThumbHeight",
+      "example": 12345
+    },
+    "thumbWidth": {
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "ThumbWidth",
+      "example": 12345
+    },
+    "width": {
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "Width",
+      "example": 12345
+    }
+  },
+  "type": "object"
+}

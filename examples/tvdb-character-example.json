@@ -1,0 +1,52 @@
+{
+  "aliases": [
+    {
+      "language": "eng",
+      "name": "Example Name"
+    }
+  ],
+  "episode": {
+    "image": "https://artworks.thetvdb.com/banners/example.jpg",
+    "name": "Example Name",
+    "year": "2024"
+  },
+  "episodeId": 12345,
+  "id": 12345,
+  "image": "https://artworks.thetvdb.com/banners/example.jpg",
+  "isFeatured": true,
+  "movieId": 12345,
+  "movie": {
+    "image": "https://artworks.thetvdb.com/banners/example.jpg",
+    "name": "Example Name",
+    "year": "2024"
+  },
+  "name": "Example Name",
+  "nameTranslations": [
+    "example"
+  ],
+  "overviewTranslations": [
+    "example"
+  ],
+  "peopleId": 12345,
+  "personImgURL": "https://artworks.thetvdb.com/banners/example.jpg",
+  "peopleType": "example",
+  "seriesId": 12345,
+  "series": {
+    "image": "https://artworks.thetvdb.com/banners/example.jpg",
+    "name": "Example Name",
+    "year": "2024"
+  },
+  "sort": 12345,
+  "tagOptions": [
+    {
+      "helpText": "example",
+      "id": 12345,
+      "name": "Example Name",
+      "tag": 12345,
+      "tagName": "example"
+    }
+  ],
+  "type": 12345,
+  "url": "https://artworks.thetvdb.com/banners/example.jpg",
+  "personName": "example"
+}

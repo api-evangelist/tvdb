@@ -1,0 +1,244 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: TVDB API V4 — Seasons
+  description: 'TVDB API V4 — Seasons. 5 operations. Lead operation: Get All Seasons. Self-contained Naftiko capability covering one TheTVDB business surface.'
+  tags:
+  - TheTVDB
+  - Television
+  - Seasons
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+- namespace: env
+  keys:
+    TVDB_BEARER_TOKEN: TVDB_BEARER_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: v4-seasons
+    baseUri: 'https://api4.thetvdb.com/v4'
+    description: TVDB API V4 — Seasons business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.TVDB_BEARER_TOKEN}}'
+    resources:
+    - name: seasons
+      path: /seasons
+      operations:
+      - name: getAllSeasons
+        method: GET
+        description: TheTVDB Get All Seasons
+        inputParameters:
+        - name: page
+          in: query
+          type: number
+          required: false
+          description: page number
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: seasons-id
+      path: '/seasons/{id}'
+      operations:
+      - name: getSeasonBase
+        method: GET
+        description: TheTVDB Get Season Base
+        inputParameters:
+        - name: id
+          in: path
+          type: number
+          required: true
+          description: id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: seasons-id-extended
+      path: '/seasons/{id}/extended'
+      operations:
+      - name: getSeasonExtended
+        method: GET
+        description: TheTVDB Get Season Extended
+        inputParameters:
+        - name: id
+          in: path
+          type: number
+          required: true
+          description: id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: seasons-types
+      path: '/seasons/types'
+      operations:
+      - name: getSeasonTypes
+        method: GET
+        description: TheTVDB Get Season Types
+        inputParameters: []
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: seasons-id-translations-language
+      path: '/seasons/{id}/translations/{language}'
+      operations:
+      - name: getSeasonTranslation
+        method: GET
+        description: TheTVDB Get Season Translation
+        inputParameters:
+        - name: id
+          in: path
+          type: number
+          required: true
+          description: id
+        - name: language
+          in: path
+          type: string
+          required: true
+          description: language
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: v4-seasons-rest
+    port: 8080
+    description: REST adapter for TVDB API V4 — Seasons. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/seasons
+      name: seasons
+      description: REST surface for seasons.
+      operations:
+      - method: GET
+        name: getAllSeasons
+        description: TheTVDB Get All Seasons
+        call: v4-seasons.getAllSeasons
+        with:
+          page: rest.page
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/seasons/{id}
+      name: seasons-id
+      description: REST surface for seasons-id.
+      operations:
+      - method: GET
+        name: getSeasonBase
+        description: TheTVDB Get Season Base
+        call: v4-seasons.getSeasonBase
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/seasons/{id}/extended
+      name: seasons-id-extended
+      description: REST surface for seasons-id-extended.
+      operations:
+      - method: GET
+        name: getSeasonExtended
+        description: TheTVDB Get Season Extended
+        call: v4-seasons.getSeasonExtended
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/seasons/types
+      name: seasons-types
+      description: REST surface for seasons-types.
+      operations:
+      - method: GET
+        name: getSeasonTypes
+        description: TheTVDB Get Season Types
+        call: v4-seasons.getSeasonTypes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/seasons/{id}/translations/{language}
+      name: seasons-id-translations-language
+      description: REST surface for seasons-id-translations-language.
+      operations:
+      - method: GET
+        name: getSeasonTranslation
+        description: TheTVDB Get Season Translation
+        call: v4-seasons.getSeasonTranslation
+        with:
+          id: rest.id
+          language: rest.language
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: v4-seasons-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for TVDB API V4 — Seasons. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: get-seasons
+      description: TheTVDB Get All Seasons
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-seasons.getAllSeasons
+      with:
+        page: tools.page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-season-base
+      description: TheTVDB Get Season Base
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-seasons.getSeasonBase
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-season-extended
+      description: TheTVDB Get Season Extended
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-seasons.getSeasonExtended
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-season-types
+      description: TheTVDB Get Season Types
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-seasons.getSeasonTypes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-season-translation
+      description: TheTVDB Get Season Translation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-seasons.getSeasonTranslation
+      with:
+        id: tools.id
+        language: tools.language
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,694 @@
+vocabulary: 1.0.0
+info:
+  provider: TheTVDB
+  description: Unified vocabulary describing TheTVDB v4 API operational surface (67 operations across 29 tag groups) and the Naftiko capability dimension that composes those operations into reusable workflows
+    for TV/movie metadata consumption.
+  created: '2026-05-30'
+  modified: '2026-05-30'
+operational:
+  apis:
+  - name: TheTVDB v4 API
+    namespace: tvdb-v4
+    version: 4.7.10
+    baseUrl: https://api4.thetvdb.com/v4
+    status: active
+    authentication: JWT Bearer (acquire via /login with apikey + optional pin)
+  resources:
+  - name: artwork
+    actions:
+    - get
+    operationCount: 4
+  - name: awards
+    actions:
+    - get
+    operationCount: 5
+  - name: characters
+    actions:
+    - get
+    operationCount: 1
+  - name: companies
+    actions:
+    - get
+    operationCount: 3
+  - name: content
+    actions:
+    - get
+    operationCount: 1
+  - name: countries
+    actions:
+    - get
+    operationCount: 1
+  - name: entities
+    actions:
+    - get
+    operationCount: 1
+  - name: episodes
+    actions:
+    - get
+    operationCount: 4
+  - name: genders
+    actions:
+    - get
+    operationCount: 1
+  - name: genres
+    actions:
+    - get
+    operationCount: 2
+  - name: inspiration
+    actions:
+    - get
+    operationCount: 1
+  - name: languages
+    actions:
+    - get
+    operationCount: 1
+  - name: lists
+    actions:
+    - get
+    operationCount: 5
+  - name: login
+    actions:
+    - login
+    operationCount: 1
+  - name: movies
+    actions:
+    - get
+    operationCount: 7
+  - name: people
+    actions:
+    - get
+    operationCount: 5
+  - name: search
+    actions:
+    - get
+    operationCount: 2
+  - name: seasons
+    actions:
+    - get
+    operationCount: 5
+  - name: series
+    actions:
+    - get
+    operationCount: 11
+  - name: sources
+    actions:
+    - get
+    operationCount: 1
+  - name: updates
+    actions:
+    - updates
+    operationCount: 1
+  - name: user
+    actions:
+    - create
+    - get
+    operationCount: 4
+  actions:
+  - verb: create
+    pattern: write
+  - verb: get
+    pattern: read
+  - verb: login
+    pattern: write
+  - verb: updates
+    pattern: write
+  tags:
+  - Artwork
+  - Artwork Statuses
+  - Artwork Types
+  - Award Categories
+  - Awards
+  - Characters
+  - Companies
+  - Content Ratings
+  - Countries
+  - Entity Types
+  - Episodes
+  - Favorites
+  - Genders
+  - Genres
+  - InspirationTypes
+  - Languages
+  - Lists
+  - Login
+  - Movie Statuses
+  - Movies
+  - People
+  - People Types
+  - Search
+  - Seasons
+  - Series
+  - Series Statuses
+  - Source Types
+  - Updates
+  - User info
+  schemas:
+    core:
+    - Alias
+    - Biography
+    - Character
+    - Company
+    - ParentCompany
+    - CompanyRelationShip
+    - ContentRating
+    - Country
+    - Gender
+    - Language
+    - RecordInfo
+    - SearchResult
+    - SeriesAirsDays
+    - Trailer
+    - Inspiration
+    - ProductionCountry
+    - Companies
+    base_records:
+    - ArtworkBaseRecord
+    - AwardBaseRecord
+    - AwardCategoryBaseRecord
+    - AwardNomineeBaseRecord
+    - EpisodeBaseRecord
+    - GenreBaseRecord
+    - ListBaseRecord
+    - MovieBaseRecord
+    - PeopleBaseRecord
+    - SeasonBaseRecord
+    - SeriesBaseRecord
+    - StudioBaseRecord
+    extended_records:
+    - ArtworkExtendedRecord
+    - AwardCategoryExtendedRecord
+    - AwardExtendedRecord
+    - EpisodeExtendedRecord
+    - ListExtendedRecord
+    - MovieExtendedRecord
+    - PeopleExtendedRecord
+    - SeasonExtendedRecord
+    - SeriesExtendedRecord
+    - TranslationExtended
+    reference:
+    - ArtworkStatus
+    - ArtworkType
+    - CompanyType
+    - Entity
+    - EntityType
+    - EntityUpdate
+    - PeopleType
+    - Race
+    - Release
+    - RemoteID
+    - SearchByRemoteIdResult
+    - SeasonType
+    - SourceType
+    - Status
+    - InspirationType
+    - Links
+    user_data:
+    - Favorites
+    - FavoriteRecord
+    - Tag
+    - TagOption
+    - Translation
+    - TranslationSimple
+    - TagOptionEntity
+    - UserInfo
+  parameters:
+    pagination:
+    - page
+    - offset
+    - limit
+    identifiers:
+    - id
+    - slug
+    - remoteId
+    filters:
+    - meta
+    - language
+    - short
+    - company
+    - contentRating
+    - country
+    - genre
+    - lang
+    - sort
+    - status
+    - year
+    - query
+    - q
+    - type
+    - director
+    - primaryType
+    - network
+    - remote_id
+    - remoteId
+    - season-type
+    - season
+    - episodeNumber
+    - airDate
+    - sortType
+    - since
+    - action
+  authentication:
+    schemes:
+    - name: bearerAuth
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      acquireVia: /login (apikey + optional pin)
+    tokenLifetime: 1 month
+    tlsMinimum: TLSv1.2
+capability:
+  workflows:
+  - name: "TVDB API V4 \u2014 Artwork Statuses"
+    file: capabilities/v4-artwork-statuses.yaml
+    description: "TVDB API V4 \u2014 Artwork Statuses. 1 operations. Lead operation: Get All Artwork Statuses. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 1
+    restNamespace: v4-artwork-statuses-rest
+    mcpNamespace: v4-artwork-statuses-mcp
+    mcpToolCount: 1
+  - name: "TVDB API V4 \u2014 Artwork Types"
+    file: capabilities/v4-artwork-types.yaml
+    description: "TVDB API V4 \u2014 Artwork Types. 1 operations. Lead operation: Get All Artwork Types. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 1
+    restNamespace: v4-artwork-types-rest
+    mcpNamespace: v4-artwork-types-mcp
+    mcpToolCount: 1
+  - name: "TVDB API V4 \u2014 Artwork"
+    file: capabilities/v4-artwork.yaml
+    description: "TVDB API V4 \u2014 Artwork. 2 operations. Lead operation: Get Artwork Base. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 2
+    restNamespace: v4-artwork-rest
+    mcpNamespace: v4-artwork-mcp
+    mcpToolCount: 2
+  - name: "TVDB API V4 \u2014 Award Categories"
+    file: capabilities/v4-award-categories.yaml
+    description: "TVDB API V4 \u2014 Award Categories. 2 operations. Lead operation: Get Award Category. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 2
+    restNamespace: v4-award-categories-rest
+    mcpNamespace: v4-award-categories-mcp
+    mcpToolCount: 2
+  - name: "TVDB API V4 \u2014 Awards"
+    file: capabilities/v4-awards.yaml
+    description: "TVDB API V4 \u2014 Awards. 3 operations. Lead operation: Get All Awards. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 3
+    restNamespace: v4-awards-rest
+    mcpNamespace: v4-awards-mcp
+    mcpToolCount: 3
+  - name: "TVDB API V4 \u2014 Characters"
+    file: capabilities/v4-characters.yaml
+    description: "TVDB API V4 \u2014 Characters. 1 operations. Lead operation: Get Character Base. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 1
+    restNamespace: v4-characters-rest
+    mcpNamespace: v4-characters-mcp
+    mcpToolCount: 1
+  - name: "TVDB API V4 \u2014 Companies"
+    file: capabilities/v4-companies.yaml
+    description: "TVDB API V4 \u2014 Companies. 3 operations. Lead operation: Get All Companies. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 3
+    restNamespace: v4-companies-rest
+    mcpNamespace: v4-companies-mcp
+    mcpToolCount: 3
+  - name: "TVDB API V4 \u2014 Content Ratings"
+    file: capabilities/v4-content-ratings.yaml
+    description: "TVDB API V4 \u2014 Content Ratings. 1 operations. Lead operation: Get All Content Ratings. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 1
+    restNamespace: v4-content-ratings-rest
+    mcpNamespace: v4-content-ratings-mcp
+    mcpToolCount: 1
+  - name: "TVDB API V4 \u2014 Countries"
+    file: capabilities/v4-countries.yaml
+    description: "TVDB API V4 \u2014 Countries. 1 operations. Lead operation: Get All Countries. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 1
+    restNamespace: v4-countries-rest
+    mcpNamespace: v4-countries-mcp
+    mcpToolCount: 1
+  - name: "TVDB API V4 \u2014 Entity Types"
+    file: capabilities/v4-entity-types.yaml
+    description: "TVDB API V4 \u2014 Entity Types. 1 operations. Lead operation: Get Entity Types. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 1
+    restNamespace: v4-entity-types-rest
+    mcpNamespace: v4-entity-types-mcp
+    mcpToolCount: 1
+  - name: "TVDB API V4 \u2014 Episodes"
+    file: capabilities/v4-episodes.yaml
+    description: "TVDB API V4 \u2014 Episodes. 4 operations. Lead operation: Get All Episodes. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 4
+    restNamespace: v4-episodes-rest
+    mcpNamespace: v4-episodes-mcp
+    mcpToolCount: 4
+  - name: "TVDB API V4 \u2014 Favorites"
+    file: capabilities/v4-favorites.yaml
+    description: "TVDB API V4 \u2014 Favorites. 2 operations. Lead operation: Get User Favorites. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 2
+    restNamespace: v4-favorites-rest
+    mcpNamespace: v4-favorites-mcp
+    mcpToolCount: 2
+  - name: "TVDB API V4 \u2014 Genders"
+    file: capabilities/v4-genders.yaml
+    description: "TVDB API V4 \u2014 Genders. 1 operations. Lead operation: Get All Genders. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 1
+    restNamespace: v4-genders-rest
+    mcpNamespace: v4-genders-mcp
+    mcpToolCount: 1
+  - name: "TVDB API V4 \u2014 Genres"
+    file: capabilities/v4-genres.yaml
+    description: "TVDB API V4 \u2014 Genres. 2 operations. Lead operation: Get All Genres. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 2
+    restNamespace: v4-genres-rest
+    mcpNamespace: v4-genres-mcp
+    mcpToolCount: 2
+  - name: "TVDB API V4 \u2014 InspirationTypes"
+    file: capabilities/v4-inspirationtypes.yaml
+    description: "TVDB API V4 \u2014 InspirationTypes. 1 operations. Lead operation: Get All Inspiration Types. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 1
+    restNamespace: v4-inspirationtypes-rest
+    mcpNamespace: v4-inspirationtypes-mcp
+    mcpToolCount: 1
+  - name: "TVDB API V4 \u2014 Languages"
+    file: capabilities/v4-languages.yaml
+    description: "TVDB API V4 \u2014 Languages. 1 operations. Lead operation: Get All Languages. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 1
+    restNamespace: v4-languages-rest
+    mcpNamespace: v4-languages-mcp
+    mcpToolCount: 1
+  - name: "TVDB API V4 \u2014 Lists"
+    file: capabilities/v4-lists.yaml
+    description: "TVDB API V4 \u2014 Lists. 5 operations. Lead operation: Get All Lists. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 5
+    restNamespace: v4-lists-rest
+    mcpNamespace: v4-lists-mcp
+    mcpToolCount: 5
+  - name: "TVDB API V4 \u2014 Login"
+    file: capabilities/v4-login.yaml
+    description: "TVDB API V4 \u2014 Login. 1 operations. Lead operation: Create an Auth Token. the Token Has One Month Validation Length. Self-contained Naftiko capability covering one TheTVDB business\
+      \ surface."
+    operationCount: 1
+    restNamespace: v4-login-rest
+    mcpNamespace: v4-login-mcp
+    mcpToolCount: 1
+  - name: "TVDB API V4 \u2014 Movie Statuses"
+    file: capabilities/v4-movie-statuses.yaml
+    description: "TVDB API V4 \u2014 Movie Statuses. 1 operations. Lead operation: Get All Movie Statuses. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 1
+    restNamespace: v4-movie-statuses-rest
+    mcpNamespace: v4-movie-statuses-mcp
+    mcpToolCount: 1
+  - name: "TVDB API V4 \u2014 Movies"
+    file: capabilities/v4-movies.yaml
+    description: "TVDB API V4 \u2014 Movies. 6 operations. Lead operation: Get All Movie. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 6
+    restNamespace: v4-movies-rest
+    mcpNamespace: v4-movies-mcp
+    mcpToolCount: 6
+  - name: "TVDB API V4 \u2014 People Types"
+    file: capabilities/v4-people-types.yaml
+    description: "TVDB API V4 \u2014 People Types. 1 operations. Lead operation: Get All People Types. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 1
+    restNamespace: v4-people-types-rest
+    mcpNamespace: v4-people-types-mcp
+    mcpToolCount: 1
+  - name: "TVDB API V4 \u2014 People"
+    file: capabilities/v4-people.yaml
+    description: "TVDB API V4 \u2014 People. 4 operations. Lead operation: Get All People. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 4
+    restNamespace: v4-people-rest
+    mcpNamespace: v4-people-mcp
+    mcpToolCount: 4
+  - name: "TVDB API V4 \u2014 Search"
+    file: capabilities/v4-search.yaml
+    description: "TVDB API V4 \u2014 Search. 2 operations. Lead operation: Get Search Results. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 2
+    restNamespace: v4-search-rest
+    mcpNamespace: v4-search-mcp
+    mcpToolCount: 2
+  - name: "TVDB API V4 \u2014 Seasons"
+    file: capabilities/v4-seasons.yaml
+    description: "TVDB API V4 \u2014 Seasons. 5 operations. Lead operation: Get All Seasons. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 5
+    restNamespace: v4-seasons-rest
+    mcpNamespace: v4-seasons-mcp
+    mcpToolCount: 5
+  - name: "TVDB API V4 \u2014 Series Statuses"
+    file: capabilities/v4-series-statuses.yaml
+    description: "TVDB API V4 \u2014 Series Statuses. 1 operations. Lead operation: Get All Series Statuses. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 1
+    restNamespace: v4-series-statuses-rest
+    mcpNamespace: v4-series-statuses-mcp
+    mcpToolCount: 1
+  - name: "TVDB API V4 \u2014 Series"
+    file: capabilities/v4-series.yaml
+    description: "TVDB API V4 \u2014 Series. 10 operations. Lead operation: Get All Series. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 10
+    restNamespace: v4-series-rest
+    mcpNamespace: v4-series-mcp
+    mcpToolCount: 10
+  - name: "TVDB API V4 \u2014 Source Types"
+    file: capabilities/v4-source-types.yaml
+    description: "TVDB API V4 \u2014 Source Types. 1 operations. Lead operation: Get All Source Types. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 1
+    restNamespace: v4-source-types-rest
+    mcpNamespace: v4-source-types-mcp
+    mcpToolCount: 1
+  - name: "TVDB API V4 \u2014 Updates"
+    file: capabilities/v4-updates.yaml
+    description: "TVDB API V4 \u2014 Updates. 1 operations. Lead operation: Updates. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 1
+    restNamespace: v4-updates-rest
+    mcpNamespace: v4-updates-mcp
+    mcpToolCount: 1
+  - name: "TVDB API V4 \u2014 User info"
+    file: capabilities/v4-user-info.yaml
+    description: "TVDB API V4 \u2014 User info. 2 operations. Lead operation: Get User Info. Self-contained Naftiko capability covering one TheTVDB business surface."
+    operationCount: 2
+    restNamespace: v4-user-info-rest
+    mcpNamespace: v4-user-info-mcp
+    mcpToolCount: 2
+  personas:
+  - id: media-center-developer
+    name: Media Center Developer
+    description: Builds Kodi/Plex/Jellyfin plugins consuming TheTVDB metadata
+    workflows:
+    - capabilities/v4-artwork-statuses.yaml
+    - capabilities/v4-artwork-types.yaml
+    - capabilities/v4-artwork.yaml
+    - capabilities/v4-episodes.yaml
+    - capabilities/v4-movies.yaml
+    - capabilities/v4-seasons.yaml
+    - capabilities/v4-series-statuses.yaml
+    - capabilities/v4-series.yaml
+  - id: metadata-aggregator
+    name: Metadata Aggregator
+    description: Maintains a synced copy of TheTVDB data via the /updates endpoint
+    workflows:
+    - capabilities/v4-updates.yaml
+  - id: discovery-builder
+    name: Discovery / Recommendations Builder
+    description: Uses search, genres, ratings, and people data to power discovery UIs
+    workflows:
+    - capabilities/v4-awards.yaml
+    - capabilities/v4-genres.yaml
+    - capabilities/v4-people-types.yaml
+    - capabilities/v4-people.yaml
+    - capabilities/v4-search.yaml
+  - id: subscriber-app
+    name: Subscriber App
+    description: Apps using subscriber-supported keys; each end user holds a $12/year TheTVDB subscription
+    workflows:
+    - capabilities/v4-login.yaml
+  domains:
+  - name: Content Catalog
+    resources:
+    - series
+    - movies
+    - episodes
+    - seasons
+    - lists
+  - name: People & Companies
+    resources:
+    - people
+    - companies
+    - characters
+    - awards
+  - name: Reference Data
+    resources:
+    - genres
+    - languages
+    - countries
+    - content
+    - sources
+    - inspiration
+    - genders
+  - name: Discovery
+    resources:
+    - search
+  - name: Synchronization
+    resources:
+    - updates
+  - name: User
+    resources:
+    - user
+    - favorites
+  - name: Identity
+    resources:
+    - login
+  binds:
+  - env: TVDB_BEARER_TOKEN
+    description: JWT bearer token returned from /login, valid for one month
+    usedBy: all consume blocks
+crossReference:
+- resource: artwork
+  operations:
+  - getArtworkBase
+  - getArtworkExtended
+  - getAllArtworkStatuses
+  - getAllArtworkTypes
+  capabilities:
+  - capabilities/v4-artwork-statuses.yaml
+  - capabilities/v4-artwork-types.yaml
+  - capabilities/v4-artwork.yaml
+- resource: awards
+  operations:
+  - getAllAwards
+  - getAward
+  - getAwardExtended
+  - getAwardCategory
+  - getAwardCategoryExtended
+  capabilities:
+  - capabilities/v4-awards.yaml
+- resource: characters
+  operations:
+  - getCharacterBase
+  capabilities:
+  - capabilities/v4-characters.yaml
+- resource: companies
+  operations:
+  - getAllCompanies
+  - getCompanyTypes
+  - getCompany
+  capabilities:
+  - capabilities/v4-companies.yaml
+- resource: content
+  operations:
+  - getAllContentRatings
+  capabilities:
+  - capabilities/v4-content-ratings.yaml
+- resource: countries
+  operations:
+  - getAllCountries
+  capabilities:
+  - capabilities/v4-countries.yaml
+- resource: entities
+  operations:
+  - getEntityTypes
+  capabilities: []
+- resource: episodes
+  operations:
+  - getAllEpisodes
+  - getEpisodeBase
+  - getEpisodeExtended
+  - getEpisodeTranslation
+  capabilities:
+  - capabilities/v4-episodes.yaml
+- resource: genders
+  operations:
+  - getAllGenders
+  capabilities:
+  - capabilities/v4-genders.yaml
+- resource: genres
+  operations:
+  - getAllGenres
+  - getGenreBase
+  capabilities:
+  - capabilities/v4-genres.yaml
+- resource: inspiration
+  operations:
+  - getAllInspirationTypes
+  capabilities:
+  - capabilities/v4-inspirationtypes.yaml
+- resource: languages
+  operations:
+  - getAllLanguages
+  capabilities:
+  - capabilities/v4-languages.yaml
+- resource: lists
+  operations:
+  - getAllLists
+  - getList
+  - getListBySlug
+  - getListExtended
+  - getListTranslation
+  capabilities:
+  - capabilities/v4-lists.yaml
+- resource: login
+  operations:
+  - login
+  capabilities:
+  - capabilities/v4-login.yaml
+- resource: movies
+  operations:
+  - getAllMovie
+  - getMovieBase
+  - getMovieExtended
+  - getMoviesFilter
+  - getMovieBaseBySlug
+  - getMovieTranslation
+  - getAllMovieStatuses
+  capabilities:
+  - capabilities/v4-movies.yaml
+- resource: people
+  operations:
+  - getAllPeople
+  - getPeopleBase
+  - getPeopleExtended
+  - getPeopleTranslation
+  - getAllPeopleTypes
+  capabilities:
+  - capabilities/v4-people-types.yaml
+  - capabilities/v4-people.yaml
+- resource: search
+  operations:
+  - getSearchResults
+  - getSearchResultsByRemoteId
+  capabilities:
+  - capabilities/v4-search.yaml
+- resource: seasons
+  operations:
+  - getAllSeasons
+  - getSeasonBase
+  - getSeasonExtended
+  - getSeasonTypes
+  - getSeasonTranslation
+  capabilities:
+  - capabilities/v4-seasons.yaml
+- resource: series
+  operations:
+  - getAllSeries
+  - getSeriesBase
+  - getSeriesArtworks
+  - getSeriesNextAired
+  - getSeriesExtended
+  - getSeriesEpisodes
+  - getSeriesSeasonEpisodesTranslated
+  - getSeriesFilter
+  - getSeriesBaseBySlug
+  - getSeriesTranslation
+  - getAllSeriesStatuses
+  capabilities:
+  - capabilities/v4-series-statuses.yaml
+  - capabilities/v4-series.yaml
+- resource: sources
+  operations:
+  - getAllSourceTypes
+  capabilities: []
+- resource: updates
+  operations:
+  - updates
+  capabilities:
+  - capabilities/v4-updates.yaml
+- resource: user
+  operations:
+  - getUserInfo
+  - getUserInfoById
+  - getUserFavorites
+  - createUserFavorites
+  capabilities:
+  - capabilities/v4-user-info.yaml

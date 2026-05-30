@@ -1,0 +1,164 @@
+{
+  "id": 12345,
+  "image": "https://artworks.thetvdb.com/banners/example.jpg",
+  "imageType": 1,
+  "lastUpdated": "2024-01-15",
+  "name": "Example Name",
+  "nameTranslations": [
+    "example"
+  ],
+  "number": 12345,
+  "overviewTranslations": [
+    "example"
+  ],
+  "companies": {
+    "studio": [
+      {
+        "activeDate": "2024-01-15",
+        "aliases": [
+          null
+        ],
+        "country": "usa",
+        "id": 12345,
+        "inactiveDate": "2024-01-15",
+        "name": "Example Name",
+        "nameTranslations": [
+          "example"
+        ],
+        "overviewTranslations": [
+          "example"
+        ],
+        "primaryCompanyType": 12345,
+        "slug": "example-slug",
+        "parentCompany": {
+          "id": null,
+          "name": null,
+          "relation": null
+        },
+        "tagOptions": [
+          null
+        ]
+      }
+    ],
+    "network": [
+      {
+        "activeDate": "2024-01-15",
+        "aliases": [
+          null
+        ],
+        "country": "usa",
+        "id": 12345,
+        "inactiveDate": "2024-01-15",
+        "name": "Example Name",
+        "nameTranslations": [
+          "example"
+        ],
+        "overviewTranslations": [
+          "example"
+        ],
+        "primaryCompanyType": 12345,
+        "slug": "example-slug",
+        "parentCompany": {
+          "id": null,
+          "name": null,
+          "relation": null
+        },
+        "tagOptions": [
+          null
+        ]
+      }
+    ],
+    "production": [
+      {
+        "activeDate": "2024-01-15",
+        "aliases": [
+          null
+        ],
+        "country": "usa",
+        "id": 12345,
+        "inactiveDate": "2024-01-15",
+        "name": "Example Name",
+        "nameTranslations": [
+          "example"
+        ],
+        "overviewTranslations": [
+          "example"
+        ],
+        "primaryCompanyType": 12345,
+        "slug": "example-slug",
+        "parentCompany": {
+          "id": null,
+          "name": null,
+          "relation": null
+        },
+        "tagOptions": [
+          null
+        ]
+      }
+    ],
+    "distributor": [
+      {
+        "activeDate": "2024-01-15",
+        "aliases": [
+          null
+        ],
+        "country": "usa",
+        "id": 12345,
+        "inactiveDate": "2024-01-15",
+        "name": "Example Name",
+        "nameTranslations": [
+          "example"
+        ],
+        "overviewTranslations": [
+          "example"
+        ],
+        "primaryCompanyType": 12345,
+        "slug": "example-slug",
+        "parentCompany": {
+          "id": null,
+          "name": null,
+          "relation": null
+        },
+        "tagOptions": [
+          null
+        ]
+      }
+    ],
+    "special_effects": [
+      {
+        "activeDate": "2024-01-15",
+        "aliases": [
+          null
+        ],
+        "country": "usa",
+        "id": 12345,
+        "inactiveDate": "2024-01-15",
+        "name": "Example Name",
+        "nameTranslations": [
+          "example"
+        ],
+        "overviewTranslations": [
+          "example"
+        ],
+        "primaryCompanyType": 12345,
+        "slug": "example-slug",
+        "parentCompany": {
+          "id": null,
+          "name": null,
+          "relation": null
+        },
+        "tagOptions": [
+          null
+        ]
+      }
+    ]
+  },
+  "seriesId": 12345,
+  "type": {
+    "alternateName": "example",
+    "id": 12345,
+    "name": "Example Name",
+    "type": "example"
+  },
+  "year": "2024"
+}

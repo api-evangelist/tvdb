@@ -1,0 +1,62 @@
+{
+  "aliases": [
+    "example"
+  ],
+  "companies": [
+    "example"
+  ],
+  "companyType": "example",
+  "country": "usa",
+  "director": "example",
+  "first_air_time": "example",
+  "genres": [
+    "example"
+  ],
+  "id": "abc123",
+  "image_url": "https://artworks.thetvdb.com/banners/example.jpg",
+  "name": "Example Name",
+  "is_official": true,
+  "name_translated": "example",
+  "network": "example",
+  "objectID": "abc123",
+  "officialList": "example",
+  "overview": "A descriptive paragraph of text.",
+  "overviews": {
+    "ara": "\u062a\u062f\u0648\u0631 \u0642\u0635\u0629 \u0627\u0644\u0645\u0633\u0644\u0633\u0644 \u062d\u0648\u0644...",
+    "ces": "B\u011bhem letu \u010d. 815 spole\u010dnosti Oceanic...",
+    "deu": "Im Bruchteil einer Sekunde ger\u00e4t das Leben..."
+  },
+  "overview_translated": [
+    "example"
+  ],
+  "poster": "example",
+  "posters": [
+    "example"
+  ],
+  "primary_language": "example",
+  "remote_ids": [
+    {
+      "id": "abc123",
+      "type": 12345,
+      "sourceName": "example"
+    }
+  ],
+  "status": "Continuing",
+  "slug": "example-slug",
+  "studios": [
+    "example"
+  ],
+  "title": "example",
+  "thumbnail": "example",
+  "translations": {
+    "ara": "\u062a\u062f\u0648\u0631 \u0642\u0635\u0629 \u0627\u0644\u0645\u0633\u0644\u0633\u0644 \u062d\u0648\u0644...",
+    "ces": "B\u011bhem letu \u010d. 815 spole\u010dnosti Oceanic...",
+    "deu": "Im Bruchteil einer Sekunde ger\u00e4t das Leben..."
+  },
+  "translationsWithLang": [
+    "example"
+  ],
+  "tvdb_id": "abc123",
+  "type": "example",
+  "year": "2024"
+}

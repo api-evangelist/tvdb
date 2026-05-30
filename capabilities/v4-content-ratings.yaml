@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: TVDB API V4 — Content Ratings
+  description: 'TVDB API V4 — Content Ratings. 1 operations. Lead operation: Get All Content Ratings. Self-contained Naftiko capability covering one TheTVDB business surface.'
+  tags:
+  - TheTVDB
+  - Television
+  - Content Ratings
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+- namespace: env
+  keys:
+    TVDB_BEARER_TOKEN: TVDB_BEARER_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: v4-content-ratings
+    baseUri: 'https://api4.thetvdb.com/v4'
+    description: TVDB API V4 — Content Ratings business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.TVDB_BEARER_TOKEN}}'
+    resources:
+    - name: content-ratings
+      path: /content/ratings
+      operations:
+      - name: getAllContentRatings
+        method: GET
+        description: TheTVDB Get All Content Ratings
+        inputParameters: []
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: v4-content-ratings-rest
+    port: 8080
+    description: REST adapter for TVDB API V4 — Content Ratings. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/content/ratings
+      name: content-ratings
+      description: REST surface for content-ratings.
+      operations:
+      - method: GET
+        name: getAllContentRatings
+        description: TheTVDB Get All Content Ratings
+        call: v4-content-ratings.getAllContentRatings
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: v4-content-ratings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for TVDB API V4 — Content Ratings. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: get-content-ratings
+      description: TheTVDB Get All Content Ratings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-content-ratings.getAllContentRatings
+      outputParameters:
+      - type: object
+        mapping: $.

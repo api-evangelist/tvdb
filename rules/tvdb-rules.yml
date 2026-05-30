@@ -1,0 +1,371 @@
+extends:
+  - spectral:oas
+
+# Spectral ruleset for TheTVDB v4 API
+# Codifies the conventions observed in https://github.com/thetvdb/v4-api/blob/main/docs/swagger.yml
+
+rules:
+
+  # ---------- INFO / METADATA ----------
+
+  tvdb-info-title-prefix:
+    description: API title should reference TVDB
+    message: "Info title '{{value}}' should include 'TVDB'"
+    severity: warn
+    given: "$.info.title"
+    then:
+      function: pattern
+      functionOptions:
+        match: "TVDB"
+
+  tvdb-info-description-required:
+    description: API info must include a description
+    severity: warn
+    given: "$.info"
+    then:
+      field: description
+      function: defined
+
+  tvdb-info-version-required:
+    description: API info must include a version
+    severity: error
+    given: "$.info"
+    then:
+      field: version
+      function: defined
+
+  # ---------- OPENAPI VERSION ----------
+
+  tvdb-openapi-version:
+    description: Specs must declare OpenAPI 3.0.x
+    message: "OpenAPI version '{{value}}' should be 3.0.x"
+    severity: warn
+    given: "$.openapi"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^3\\.0\\."
+
+  # ---------- SERVERS ----------
+
+  tvdb-servers-defined:
+    description: At least one server must be defined
+    severity: error
+    given: "$"
+    then:
+      field: servers
+      function: defined
+
+  tvdb-server-https:
+    description: All servers must use HTTPS
+    message: "Server URL '{{value}}' must use HTTPS"
+    severity: error
+    given: "$.servers[*].url"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://"
+
+  tvdb-server-base-url:
+    description: Production server should be api4.thetvdb.com
+    message: "Server URL '{{value}}' should target api4.thetvdb.com"
+    severity: warn
+    given: "$.servers[*].url"
+    then:
+      function: pattern
+      functionOptions:
+        match: "thetvdb\\.com"
+
+  # ---------- PATHS — NAMING CONVENTIONS ----------
+
+  tvdb-path-snake-or-lowercase:
+    description: Paths must use lowercase with optional snake_case segments (no camelCase or PascalCase resource names)
+    message: "Path '{{property}}' must be lowercase (snake_case allowed)"
+    severity: warn
+    given: "$.paths.*~"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^/[a-z0-9{}/_-]+$"
+
+  tvdb-path-no-trailing-slash:
+    description: Paths must not end with a trailing slash
+    message: "Path '{{property}}' must not end with '/'"
+    severity: error
+    given: "$.paths.*~"
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: ".+/$"
+
+  tvdb-path-no-query-string:
+    description: Paths must not include query strings (use parameters instead)
+    message: "Path '{{property}}' must not contain '?'"
+    severity: error
+    given: "$.paths.*~"
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "\\?"
+
+  # ---------- OPERATIONS ----------
+
+  tvdb-operation-id-required:
+    description: All operations must have an operationId
+    message: "Operation must have an operationId"
+    severity: error
+    given: "$.paths[*][get,post,put,patch,delete].operationId"
+    then:
+      function: truthy
+
+  tvdb-operation-id-camel-case:
+    description: operationId values must use camelCase
+    message: "operationId '{{value}}' must be camelCase"
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]*$"
+
+  tvdb-operation-summary-required:
+    description: All operations must have a summary
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: summary
+      function: defined
+
+  tvdb-summary-prefix:
+    description: Operation summaries should begin with 'TheTVDB'
+    message: "Summary '{{value}}' should start with 'TheTVDB'"
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^TheTVDB "
+
+  tvdb-summary-title-case:
+    description: Operation summaries must start with an uppercase letter (Title Case)
+    message: "Summary '{{value}}' should use Title Case"
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z]"
+
+  tvdb-operation-tags-required:
+    description: All operations must declare at least one tag
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: tags
+      function: defined
+
+  # ---------- TAGS ----------
+
+  tvdb-tag-title-case:
+    description: Operation tag names should use Title Case
+    message: "Tag '{{value}}' should start with an uppercase letter"
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete].tags[*]"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z]"
+
+  # ---------- PARAMETERS ----------
+
+  tvdb-parameter-description-required:
+    description: All parameters should have a description
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete].parameters[*]"
+    then:
+      field: description
+      function: defined
+
+  tvdb-parameter-schema-required:
+    description: All parameters must declare a schema with a type
+    severity: error
+    given: "$.paths[*][get,post,put,patch,delete].parameters[*]"
+    then:
+      field: schema
+      function: defined
+
+  tvdb-pagination-page-parameter:
+    description: Use the 'page' query parameter for paginated list endpoints (snake_case lowercase)
+    message: "Pagination parameters should be named 'page'"
+    severity: hint
+    given: "$.paths[*][get].parameters[?(@.in == 'query' && (@.name == 'pageNum' || @.name == 'pagenum'))]"
+    then:
+      function: falsy
+
+  # ---------- REQUEST BODIES ----------
+
+  tvdb-request-body-json:
+    description: Request bodies must use application/json
+    severity: warn
+    given: "$.paths[*][post,put,patch].requestBody.content"
+    then:
+      field: "application/json"
+      function: defined
+
+  # ---------- RESPONSES ----------
+
+  tvdb-response-2xx-required:
+    description: Every operation must define a successful 2xx response
+    severity: error
+    given: "$.paths[*][get,post,put,patch,delete].responses"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          anyOf:
+            - required: ['200']
+            - required: ['201']
+            - required: ['202']
+            - required: ['204']
+
+  tvdb-response-401-defined:
+    description: Authenticated endpoints should document a 401 Unauthorized response
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete].responses"
+    then:
+      field: '401'
+      function: defined
+
+  tvdb-response-json-content:
+    description: 2xx responses must return application/json
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete].responses['200','201','202'].content"
+    then:
+      field: "application/json"
+      function: defined
+
+  tvdb-response-description-required:
+    description: All responses must have a description
+    severity: error
+    given: "$.paths[*][get,post,put,patch,delete].responses[*]"
+    then:
+      field: description
+      function: defined
+
+  # ---------- SCHEMAS — PROPERTY NAMING ----------
+
+  tvdb-schema-property-snake-or-camel:
+    description: Schema property names should be lowercase, snake_case, or camelCase
+    message: "Property '{{property}}' should use snake_case or camelCase"
+    severity: hint
+    given: "$.components.schemas[*].properties.*~"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9_]*$"
+
+  tvdb-schema-id-int64:
+    description: Identifier properties named 'id' should use integer format int64
+    severity: hint
+    given: "$.components.schemas[*].properties.id"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          properties:
+            type:
+              const: integer
+
+  tvdb-schema-score-numeric:
+    description: "'score' properties must be numeric (used for relative popularity sorting)"
+    severity: warn
+    given: "$.components.schemas[*].properties.score"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          properties:
+            type:
+              enum: [integer, number]
+
+  # ---------- SECURITY ----------
+
+  tvdb-global-security-defined:
+    description: Global security must be defined (TheTVDB uses JWT bearer)
+    severity: error
+    given: "$"
+    then:
+      field: security
+      function: defined
+
+  tvdb-bearer-auth-scheme:
+    description: A 'bearerAuth' security scheme must be defined under components.securitySchemes
+    severity: error
+    given: "$.components.securitySchemes"
+    then:
+      field: bearerAuth
+      function: defined
+
+  tvdb-bearer-jwt-format:
+    description: The bearerAuth security scheme must specify type 'http', scheme 'bearer', bearerFormat 'JWT'
+    severity: warn
+    given: "$.components.securitySchemes.bearerAuth"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          properties:
+            type:
+              const: http
+            scheme:
+              const: bearer
+            bearerFormat:
+              const: JWT
+          required: [type, scheme, bearerFormat]
+
+  tvdb-login-unsecured:
+    description: The /login endpoint must override global security with [] (no auth required to obtain a token)
+    severity: warn
+    given: "$.paths['/login'].post"
+    then:
+      field: security
+      function: defined
+
+  # ---------- HTTP METHOD CONVENTIONS ----------
+
+  tvdb-get-no-request-body:
+    description: GET operations must not have a request body
+    severity: error
+    given: "$.paths[*].get"
+    then:
+      field: requestBody
+      function: falsy
+
+  tvdb-delete-no-request-body:
+    description: DELETE operations should not have a request body
+    severity: warn
+    given: "$.paths[*].delete"
+    then:
+      field: requestBody
+      function: falsy
+
+  # ---------- GENERAL QUALITY ----------
+
+  tvdb-no-empty-descriptions:
+    description: Descriptions must not be empty
+    severity: warn
+    given: "$..description"
+    then:
+      function: truthy
+
+  tvdb-microcks-operation-defined:
+    description: Operations should define x-microcks-operation for mock server compatibility
+    severity: hint
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: x-microcks-operation
+      function: defined

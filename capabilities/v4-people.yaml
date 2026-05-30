@@ -1,0 +1,218 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: TVDB API V4 — People
+  description: 'TVDB API V4 — People. 4 operations. Lead operation: Get All People. Self-contained Naftiko capability covering one TheTVDB business surface.'
+  tags:
+  - TheTVDB
+  - Television
+  - People
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+- namespace: env
+  keys:
+    TVDB_BEARER_TOKEN: TVDB_BEARER_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: v4-people
+    baseUri: 'https://api4.thetvdb.com/v4'
+    description: TVDB API V4 — People business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.TVDB_BEARER_TOKEN}}'
+    resources:
+    - name: people
+      path: '/people'
+      operations:
+      - name: getAllPeople
+        method: GET
+        description: TheTVDB Get All People
+        inputParameters:
+        - name: page
+          in: query
+          type: number
+          required: false
+          description: page number
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: people-id
+      path: '/people/{id}'
+      operations:
+      - name: getPeopleBase
+        method: GET
+        description: TheTVDB Get People Base
+        inputParameters:
+        - name: id
+          in: path
+          type: number
+          required: true
+          description: id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: people-id-extended
+      path: '/people/{id}/extended'
+      operations:
+      - name: getPeopleExtended
+        method: GET
+        description: TheTVDB Get People Extended
+        inputParameters:
+        - name: id
+          in: path
+          type: number
+          required: true
+          description: id
+        - name: meta
+          in: query
+          type: string
+          required: false
+          description: meta
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: people-id-translations-language
+      path: '/people/{id}/translations/{language}'
+      operations:
+      - name: getPeopleTranslation
+        method: GET
+        description: TheTVDB Get People Translation
+        inputParameters:
+        - name: id
+          in: path
+          type: number
+          required: true
+          description: id
+        - name: language
+          in: path
+          type: string
+          required: true
+          description: language
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: v4-people-rest
+    port: 8080
+    description: REST adapter for TVDB API V4 — People. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/people
+      name: people
+      description: REST surface for people.
+      operations:
+      - method: GET
+        name: getAllPeople
+        description: TheTVDB Get All People
+        call: v4-people.getAllPeople
+        with:
+          page: rest.page
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/people/{id}
+      name: people-id
+      description: REST surface for people-id.
+      operations:
+      - method: GET
+        name: getPeopleBase
+        description: TheTVDB Get People Base
+        call: v4-people.getPeopleBase
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/people/{id}/extended
+      name: people-id-extended
+      description: REST surface for people-id-extended.
+      operations:
+      - method: GET
+        name: getPeopleExtended
+        description: TheTVDB Get People Extended
+        call: v4-people.getPeopleExtended
+        with:
+          id: rest.id
+          meta: rest.meta
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/people/{id}/translations/{language}
+      name: people-id-translations-language
+      description: REST surface for people-id-translations-language.
+      operations:
+      - method: GET
+        name: getPeopleTranslation
+        description: TheTVDB Get People Translation
+        call: v4-people.getPeopleTranslation
+        with:
+          id: rest.id
+          language: rest.language
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: v4-people-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for TVDB API V4 — People. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: get-people
+      description: TheTVDB Get All People
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-people.getAllPeople
+      with:
+        page: tools.page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-people-base
+      description: TheTVDB Get People Base
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-people.getPeopleBase
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-people-extended
+      description: TheTVDB Get People Extended
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-people.getPeopleExtended
+      with:
+        id: tools.id
+        meta: tools.meta
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-people-translation
+      description: TheTVDB Get People Translation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-people.getPeopleTranslation
+      with:
+        id: tools.id
+        language: tools.language
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,38 @@
+{
+  "activeDate": "2024-01-15",
+  "aliases": [
+    {
+      "language": "eng",
+      "name": "Example Name"
+    }
+  ],
+  "country": "usa",
+  "id": 12345,
+  "inactiveDate": "2024-01-15",
+  "name": "Example Name",
+  "nameTranslations": [
+    "example"
+  ],
+  "overviewTranslations": [
+    "example"
+  ],
+  "primaryCompanyType": 12345,
+  "slug": "example-slug",
+  "parentCompany": {
+    "id": 12345,
+    "name": "Example Name",
+    "relation": {
+      "id": 12345,
+      "typeName": "example"
+    }
+  },
+  "tagOptions": [
+    {
+      "helpText": "example",
+      "id": 12345,
+      "name": "Example Name",
+      "tag": 12345,
+      "tagName": "example"
+    }
+  ]
+}

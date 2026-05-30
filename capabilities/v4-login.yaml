@@ -1,0 +1,78 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: TVDB API V4 — Login
+  description: 'TVDB API V4 — Login. 1 operations. Lead operation: Create an Auth Token. the Token Has One Month Validation Length. Self-contained Naftiko capability covering one TheTVDB business surface.'
+  tags:
+  - TheTVDB
+  - Television
+  - Login
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+- namespace: env
+  keys:
+    TVDB_BEARER_TOKEN: TVDB_BEARER_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: v4-login
+    baseUri: 'https://api4.thetvdb.com/v4'
+    description: TVDB API V4 — Login business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.TVDB_BEARER_TOKEN}}'
+    resources:
+    - name: login
+      path: /login
+      operations:
+      - name: login
+        method: POST
+        description: TheTVDB Create an Auth Token. the Token Has One Month Validation Length.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request body payload
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: v4-login-rest
+    port: 8080
+    description: REST adapter for TVDB API V4 — Login. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/login
+      name: login
+      description: REST surface for login.
+      operations:
+      - method: POST
+        name: login
+        description: TheTVDB Create an Auth Token. the Token Has One Month Validation Length.
+        call: v4-login.login
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: v4-login-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for TVDB API V4 — Login. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: create-auth-token-token-has
+      description: TheTVDB Create an Auth Token. the Token Has One Month Validation Length.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: v4-login.login
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

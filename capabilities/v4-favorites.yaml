@@ -1,0 +1,104 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: TVDB API V4 — Favorites
+  description: 'TVDB API V4 — Favorites. 2 operations. Lead operation: Get User Favorites. Self-contained Naftiko capability covering one TheTVDB business surface.'
+  tags:
+  - TheTVDB
+  - Television
+  - Favorites
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+- namespace: env
+  keys:
+    TVDB_BEARER_TOKEN: TVDB_BEARER_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: v4-favorites
+    baseUri: 'https://api4.thetvdb.com/v4'
+    description: TVDB API V4 — Favorites business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.TVDB_BEARER_TOKEN}}'
+    resources:
+    - name: user-favorites
+      path: /user/favorites
+      operations:
+      - name: getUserFavorites
+        method: GET
+        description: TheTVDB Get User Favorites
+        inputParameters: []
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createUserFavorites
+        method: POST
+        description: TheTVDB Create User Favorites
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: false
+          description: Request body payload
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: v4-favorites-rest
+    port: 8080
+    description: REST adapter for TVDB API V4 — Favorites. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/user/favorites
+      name: user-favorites
+      description: REST surface for user-favorites.
+      operations:
+      - method: GET
+        name: getUserFavorites
+        description: TheTVDB Get User Favorites
+        call: v4-favorites.getUserFavorites
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createUserFavorites
+        description: TheTVDB Create User Favorites
+        call: v4-favorites.createUserFavorites
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: v4-favorites-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for TVDB API V4 — Favorites. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: get-user-favorites
+      description: TheTVDB Get User Favorites
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-favorites.getUserFavorites
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-user-favorites
+      description: TheTVDB Create User Favorites
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: v4-favorites.createUserFavorites
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

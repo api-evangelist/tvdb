@@ -1,0 +1,77 @@
+{
+  "aliases": [
+    {
+      "language": "eng",
+      "name": "Example Name"
+    }
+  ],
+  "averageRuntime": 1,
+  "country": "usa",
+  "defaultSeasonType": 12345,
+  "episodes": [
+    {
+      "absoluteNumber": 1,
+      "aired": "example",
+      "airsAfterSeason": 1,
+      "airsBeforeEpisode": 1,
+      "airsBeforeSeason": 1,
+      "finaleType": "example",
+      "id": 12345,
+      "image": "https://artworks.thetvdb.com/banners/example.jpg",
+      "imageType": 1,
+      "isMovie": 12345,
+      "lastUpdated": "2024-01-15",
+      "linkedMovie": 1,
+      "name": "Example Name",
+      "nameTranslations": [
+        "example"
+      ],
+      "number": 1,
+      "overview": "A descriptive paragraph of text.",
+      "overviewTranslations": [
+        "example"
+      ],
+      "runtime": 1,
+      "seasonNumber": 1,
+      "seasons": [
+        {
+          "id": null,
+          "image": null,
+          "imageType": null,
+          "lastUpdated": null,
+          "name": null,
+          "nameTranslations": null,
+          "number": null,
+          "overviewTranslations": null,
+          "companies": null,
+          "seriesId": null,
+          "type": null,
+          "year": null
+        }
+      ],
+      "seriesId": 12345,
+      "seasonName": "example",
+      "year": "2024"
+    }
+  ],
+  "firstAired": "example",
+  "id": 12345,
+  "image": "https://artworks.thetvdb.com/banners/example.jpg",
+  "isOrderRandomized": true,
+  "lastAired": "example",
+  "lastUpdated": "2024-01-15",
+  "name": "Example Name",
+  "nameTranslations": [
+    "example"
+  ],
+  "nextAired": "example",
+  "originalCountry": "example",
+  "originalLanguage": "example",
+  "overviewTranslations": [
+    "example"
+  ],
+  "score": 100,
+  "slug": "example-slug",
+  "status": "Continuing",
+  "year": "2024"
+}

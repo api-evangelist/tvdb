@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-structure/tvdb-artwork-base-record-structure.json",
+  "name": "ArtworkBaseRecord",
+  "description": "base artwork record",
+  "properties": {
+    "height": {
+      "type": "int64",
+      "x-go-name": "Height",
+      "example": 12345
+    },
+    "id": {
+      "type": "int32",
+      "example": 12345
+    },
+    "image": {
+      "type": "string",
+      "x-go-name": "Image",
+      "example": "https://artworks.thetvdb.com/banners/example.jpg"
+    },
+    "includesText": {
+      "type": "boolean",
+      "example": true
+    },
+    "language": {
+      "type": "string",
+      "example": "eng"
+    },
+    "score": {
+      "type": "double",
+      "example": 100
+    },
+    "thumbnail": {
+      "type": "string",
+      "x-go-name": "Thumbnail",
+      "example": "example"
+    },
+    "type": {
+      "type": "int64",
+      "x-go-name": "Type",
+      "description": "The artwork type corresponds to the ids from the /artwork/types endpoint.",
+      "example": 12345
+    },
+    "width": {
+      "type": "int64",
+      "x-go-name": "Width",
+      "example": 12345
+    }
+  },
+  "type": "object"
+}

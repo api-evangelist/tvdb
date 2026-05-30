@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-remote-id-schema.json",
+  "title": "RemoteID",
+  "description": "remote id record",
+  "properties": {
+    "id": {
+      "type": "string",
+      "x-go-name": "ID",
+      "example": "abc123"
+    },
+    "type": {
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "Type",
+      "example": 12345
+    },
+    "sourceName": {
+      "type": "string",
+      "x-go-name": "SourceName",
+      "example": "example"
+    }
+  },
+  "type": "object"
+}

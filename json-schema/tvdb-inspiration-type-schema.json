@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-inspiration-type-schema.json",
+  "title": "InspirationType",
+  "description": "Movie inspiration type record",
+  "properties": {
+    "id": {
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "ID",
+      "example": 12345
+    },
+    "name": {
+      "type": "string",
+      "example": "Example Name"
+    },
+    "description": {
+      "type": "string",
+      "example": "A descriptive paragraph of text."
+    },
+    "reference_name": {
+      "type": "string",
+      "example": "example"
+    },
+    "url": {
+      "type": "string",
+      "example": "https://artworks.thetvdb.com/banners/example.jpg"
+    }
+  },
+  "type": "object"
+}

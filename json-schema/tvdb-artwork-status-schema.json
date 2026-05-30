@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-artwork-status-schema.json",
+  "title": "ArtworkStatus",
+  "description": "artwork status record",
+  "properties": {
+    "id": {
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "ID",
+      "example": 12345
+    },
+    "name": {
+      "type": "string",
+      "example": "Example Name"
+    }
+  },
+  "type": "object"
+}

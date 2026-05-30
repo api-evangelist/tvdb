@@ -1,0 +1,31 @@
+{
+  "episodeId": 12345,
+  "height": 12345,
+  "id": 12345,
+  "image": "https://artworks.thetvdb.com/banners/example.jpg",
+  "includesText": true,
+  "language": "eng",
+  "movieId": 12345,
+  "networkId": 12345,
+  "peopleId": 12345,
+  "score": 100,
+  "seasonId": 12345,
+  "seriesId": 12345,
+  "seriesPeopleId": 12345,
+  "status": "Continuing",
+  "tagOptions": [
+    {
+      "helpText": "example",
+      "id": 12345,
+      "name": "Example Name",
+      "tag": 12345,
+      "tagName": "example"
+    }
+  ],
+  "thumbnail": "example",
+  "thumbnailHeight": 12345,
+  "thumbnailWidth": 12345,
+  "type": 12345,
+  "updatedAt": "2024-01-15",
+  "width": 12345
+}

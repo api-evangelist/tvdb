@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-structure/tvdb-favorites-structure.json",
+  "name": "Favorites",
+  "description": "User favorites record",
+  "properties": {
+    "series": {
+      "items": {
+        "type": "int32"
+      },
+      "type": "array",
+      "x-go-name": "series",
+      "example": [
+        1
+      ]
+    },
+    "movies": {
+      "items": {
+        "type": "int32"
+      },
+      "type": "array",
+      "x-go-name": "movies",
+      "example": [
+        1
+      ]
+    },
+    "episodes": {
+      "items": {
+        "type": "int32"
+      },
+      "type": "array",
+      "x-go-name": "episodes",
+      "example": [
+        1
+      ]
+    },
+    "artwork": {
+      "items": {
+        "type": "int32"
+      },
+      "type": "array",
+      "x-go-name": "artwork",
+      "example": [
+        1
+      ]
+    },
+    "people": {
+      "items": {
+        "type": "int32"
+      },
+      "type": "array",
+      "x-go-name": "people",
+      "example": [
+        1
+      ]
+    },
+    "lists": {
+      "items": {
+        "type": "int32"
+      },
+      "type": "array",
+      "x-go-name": "list",
+      "example": [
+        1
+      ]
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-status-schema.json",
+  "title": "Status",
+  "description": "status record",
+  "properties": {
+    "id": {
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "ID",
+      "nullable": true,
+      "example": 12345
+    },
+    "keepUpdated": {
+      "type": "boolean",
+      "x-go-name": "KeepUpdated",
+      "example": "2024-01-15"
+    },
+    "name": {
+      "type": "string",
+      "x-go-name": "Name",
+      "example": "Example Name"
+    },
+    "recordType": {
+      "type": "string",
+      "x-go-name": "RecordType",
+      "example": "example"
+    }
+  },
+  "type": "object"
+}

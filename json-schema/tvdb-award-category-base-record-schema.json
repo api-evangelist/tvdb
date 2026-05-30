@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-award-category-base-record-schema.json",
+  "title": "AwardCategoryBaseRecord",
+  "description": "base award category record",
+  "properties": {
+    "allowCoNominees": {
+      "type": "boolean",
+      "x-go-name": "AllowCoNominees",
+      "example": true
+    },
+    "award": {
+      "description": "base award record",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "example": 12345
+        },
+        "name": {
+          "type": "string",
+          "example": "Example Name"
+        }
+      },
+      "type": "object",
+      "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+    },
+    "forMovies": {
+      "type": "boolean",
+      "x-go-name": "ForMovies",
+      "example": true
+    },
+    "forSeries": {
+      "type": "boolean",
+      "x-go-name": "ForSeries",
+      "example": true
+    },
+    "id": {
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "ID",
+      "example": 12345
+    },
+    "name": {
+      "type": "string",
+      "example": "Example Name"
+    }
+  },
+  "type": "object"
+}

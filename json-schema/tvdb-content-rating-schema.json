@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-content-rating-schema.json",
+  "title": "ContentRating",
+  "description": "content rating record",
+  "properties": {
+    "id": {
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "ID",
+      "example": 12345
+    },
+    "name": {
+      "type": "string",
+      "x-go-name": "Name",
+      "example": "Example Name"
+    },
+    "description": {
+      "type": "string",
+      "example": "A descriptive paragraph of text."
+    },
+    "country": {
+      "type": "string",
+      "example": "usa"
+    },
+    "contentType": {
+      "type": "string",
+      "example": "example"
+    },
+    "order": {
+      "type": "integer",
+      "example": 1
+    },
+    "fullName": {
+      "type": "string",
+      "example": "example"
+    }
+  },
+  "type": "object"
+}

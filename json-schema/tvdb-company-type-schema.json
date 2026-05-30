@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-company-type-schema.json",
+  "title": "CompanyType",
+  "description": "A company type record",
+  "properties": {
+    "companyTypeId": {
+      "type": "integer",
+      "example": 12345
+    },
+    "companyTypeName": {
+      "type": "string",
+      "example": "example"
+    }
+  },
+  "type": "object"
+}

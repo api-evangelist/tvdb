@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-company-relation-ship-schema.json",
+  "title": "CompanyRelationShip",
+  "description": "A company relationship",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "nullable": true,
+      "example": 12345
+    },
+    "typeName": {
+      "type": "string",
+      "example": "example"
+    }
+  },
+  "type": "object"
+}

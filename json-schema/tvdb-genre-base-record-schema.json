@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-genre-base-record-schema.json",
+  "title": "GenreBaseRecord",
+  "description": "base genre record",
+  "properties": {
+    "id": {
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "ID",
+      "example": 12345
+    },
+    "name": {
+      "type": "string",
+      "x-go-name": "Name",
+      "example": "Example Name"
+    },
+    "slug": {
+      "type": "string",
+      "x-go-name": "Slug",
+      "example": "example-slug"
+    }
+  },
+  "type": "object"
+}

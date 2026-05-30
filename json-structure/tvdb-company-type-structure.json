@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-structure/tvdb-company-type-structure.json",
+  "name": "CompanyType",
+  "description": "A company type record",
+  "properties": {
+    "companyTypeId": {
+      "type": "int32",
+      "example": 12345
+    },
+    "companyTypeName": {
+      "type": "string",
+      "example": "example"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,153 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: TVDB API V4 — Companies
+  description: 'TVDB API V4 — Companies. 3 operations. Lead operation: Get All Companies. Self-contained Naftiko capability covering one TheTVDB business surface.'
+  tags:
+  - TheTVDB
+  - Television
+  - Companies
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+- namespace: env
+  keys:
+    TVDB_BEARER_TOKEN: TVDB_BEARER_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: v4-companies
+    baseUri: 'https://api4.thetvdb.com/v4'
+    description: TVDB API V4 — Companies business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.TVDB_BEARER_TOKEN}}'
+    resources:
+    - name: companies
+      path: /companies
+      operations:
+      - name: getAllCompanies
+        method: GET
+        description: TheTVDB Get All Companies
+        inputParameters:
+        - name: page
+          in: query
+          type: number
+          required: false
+          description: name
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: companies-types
+      path: '/companies/types'
+      operations:
+      - name: getCompanyTypes
+        method: GET
+        description: TheTVDB Get Company Types
+        inputParameters: []
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: companies-id
+      path: '/companies/{id}'
+      operations:
+      - name: getCompany
+        method: GET
+        description: TheTVDB Get Company
+        inputParameters:
+        - name: id
+          in: path
+          type: number
+          required: true
+          description: id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: v4-companies-rest
+    port: 8080
+    description: REST adapter for TVDB API V4 — Companies. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/companies
+      name: companies
+      description: REST surface for companies.
+      operations:
+      - method: GET
+        name: getAllCompanies
+        description: TheTVDB Get All Companies
+        call: v4-companies.getAllCompanies
+        with:
+          page: rest.page
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/companies/types
+      name: companies-types
+      description: REST surface for companies-types.
+      operations:
+      - method: GET
+        name: getCompanyTypes
+        description: TheTVDB Get Company Types
+        call: v4-companies.getCompanyTypes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/companies/{id}
+      name: companies-id
+      description: REST surface for companies-id.
+      operations:
+      - method: GET
+        name: getCompany
+        description: TheTVDB Get Company
+        call: v4-companies.getCompany
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: v4-companies-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for TVDB API V4 — Companies. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: get-companies
+      description: TheTVDB Get All Companies
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-companies.getAllCompanies
+      with:
+        page: tools.page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-company-types
+      description: TheTVDB Get Company Types
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-companies.getCompanyTypes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-company
+      description: TheTVDB Get Company
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-companies.getCompany
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

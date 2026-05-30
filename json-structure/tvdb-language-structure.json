@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-structure/tvdb-language-structure.json",
+  "name": "Language",
+  "description": "language record",
+  "properties": {
+    "id": {
+      "type": "string",
+      "x-go-name": "ID",
+      "example": "abc123"
+    },
+    "name": {
+      "type": "string",
+      "x-go-name": "Name",
+      "example": "Example Name"
+    },
+    "nativeName": {
+      "type": "string",
+      "x-go-name": "NativeName",
+      "example": "example"
+    },
+    "shortCode": {
+      "type": "string",
+      "example": "example"
+    }
+  },
+  "type": "object"
+}

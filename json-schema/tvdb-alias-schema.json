@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-alias-schema.json",
+  "title": "Alias",
+  "description": "An alias model, which can be associated with a series, season, movie, person, or list.",
+  "properties": {
+    "language": {
+      "type": "string",
+      "maximum": 4,
+      "description": "A 3-4 character string indicating the language of the alias, as defined in Language.",
+      "example": "eng"
+    },
+    "name": {
+      "type": "string",
+      "maximum": 100,
+      "description": "A string containing the alias itself.",
+      "example": "Example Name"
+    }
+  },
+  "type": "object"
+}

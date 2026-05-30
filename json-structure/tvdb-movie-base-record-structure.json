@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-structure/tvdb-movie-base-record-structure.json",
+  "name": "MovieBaseRecord",
+  "description": "base movie record",
+  "properties": {
+    "aliases": {
+      "items": {
+        "description": "An alias model, which can be associated with a series, season, movie, person, or list.",
+        "properties": {
+          "language": {
+            "type": "string",
+            "maximum": 4,
+            "description": "A 3-4 character string indicating the language of the alias, as defined in Language.",
+            "example": "eng"
+          },
+          "name": {
+            "type": "string",
+            "maximum": 100,
+            "description": "A string containing the alias itself.",
+            "example": "Example Name"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "x-go-name": "Aliases"
+    },
+    "id": {
+      "type": "int64",
+      "x-go-name": "ID",
+      "example": 12345
+    },
+    "image": {
+      "type": "string",
+      "x-go-name": "Image",
+      "example": "https://artworks.thetvdb.com/banners/example.jpg"
+    },
+    "lastUpdated": {
+      "type": "string",
+      "example": "2024-01-15"
+    },
+    "name": {
+      "type": "string",
+      "x-go-name": "Name",
+      "example": "Example Name"
+    },
+    "nameTranslations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-go-name": "NameTranslations",
+      "example": [
+        "example"
+      ]
+    },
+    "overviewTranslations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-go-name": "OverviewTranslations",
+      "example": [
+        "example"
+      ]
+    },
+    "score": {
+      "type": "double",
+      "x-go-name": "Score",
+      "example": 100
+    },
+    "slug": {
+      "type": "string",
+      "x-go-name": "Slug",
+      "example": "example-slug"
+    },
+    "status": {
+      "description": "status record",
+      "properties": {
+        "id": {
+          "type": "int64",
+          "x-go-name": "ID",
+          "nullable": true,
+          "example": 12345
+        },
+        "keepUpdated": {
+          "type": "boolean",
+          "x-go-name": "KeepUpdated",
+          "example": "2024-01-15"
+        },
+        "name": {
+          "type": "string",
+          "x-go-name": "Name",
+          "example": "Example Name"
+        },
+        "recordType": {
+          "type": "string",
+          "x-go-name": "RecordType",
+          "example": "example"
+        }
+      },
+      "type": "object",
+      "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+    },
+    "runtime": {
+      "type": "int32",
+      "nullable": true,
+      "example": 1
+    },
+    "year": {
+      "type": "string",
+      "example": "2024"
+    }
+  },
+  "type": "object"
+}

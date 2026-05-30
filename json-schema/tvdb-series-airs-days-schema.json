@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-series-airs-days-schema.json",
+  "title": "SeriesAirsDays",
+  "description": "A series airs day record",
+  "properties": {
+    "friday": {
+      "type": "boolean",
+      "x-go-name": "Friday",
+      "example": true
+    },
+    "monday": {
+      "type": "boolean",
+      "x-go-name": "Monday",
+      "example": true
+    },
+    "saturday": {
+      "type": "boolean",
+      "x-go-name": "Saturday",
+      "example": true
+    },
+    "sunday": {
+      "type": "boolean",
+      "x-go-name": "Sunday",
+      "example": true
+    },
+    "thursday": {
+      "type": "boolean",
+      "x-go-name": "Thursday",
+      "example": true
+    },
+    "tuesday": {
+      "type": "boolean",
+      "x-go-name": "Tuesday",
+      "example": true
+    },
+    "wednesday": {
+      "type": "boolean",
+      "x-go-name": "Wednesday",
+      "example": true
+    }
+  },
+  "type": "object"
+}

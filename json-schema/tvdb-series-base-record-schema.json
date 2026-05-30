@@ -1,0 +1,1137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-series-base-record-schema.json",
+  "title": "SeriesBaseRecord",
+  "description": "The base record for a series. All series airs time like firstAired, lastAired, nextAired, etc. are in US EST for US series, and for all non-US series, the time of the show\u2019s country capital or most populous city. For streaming services, is the official release time. See https://support.thetvdb.com/kb/faq.php?id=29.",
+  "properties": {
+    "aliases": {
+      "items": {
+        "description": "An alias model, which can be associated with a series, season, movie, person, or list.",
+        "properties": {
+          "language": {
+            "type": "string",
+            "maximum": 4,
+            "description": "A 3-4 character string indicating the language of the alias, as defined in Language.",
+            "example": "eng"
+          },
+          "name": {
+            "type": "string",
+            "maximum": 100,
+            "description": "A string containing the alias itself.",
+            "example": "Example Name"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "x-go-name": "Aliases"
+    },
+    "averageRuntime": {
+      "type": "integer",
+      "nullable": true,
+      "example": 1
+    },
+    "country": {
+      "type": "string",
+      "example": "usa"
+    },
+    "defaultSeasonType": {
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "DefaultSeasonType",
+      "example": 12345
+    },
+    "episodes": {
+      "items": {
+        "description": "base episode record",
+        "properties": {
+          "absoluteNumber": {
+            "type": "integer",
+            "example": 1
+          },
+          "aired": {
+            "type": "string",
+            "example": "example"
+          },
+          "airsAfterSeason": {
+            "type": "integer",
+            "example": 1
+          },
+          "airsBeforeEpisode": {
+            "type": "integer",
+            "example": 1
+          },
+          "airsBeforeSeason": {
+            "type": "integer",
+            "example": 1
+          },
+          "finaleType": {
+            "description": "season, midseason, or series",
+            "type": "string",
+            "example": "example"
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer",
+            "x-go-name": "ID",
+            "example": 12345
+          },
+          "image": {
+            "type": "string",
+            "example": "https://artworks.thetvdb.com/banners/example.jpg"
+          },
+          "imageType": {
+            "type": "integer",
+            "nullable": true,
+            "example": 1
+          },
+          "isMovie": {
+            "format": "int64",
+            "type": "integer",
+            "x-go-name": "IsMovie",
+            "example": 12345
+          },
+          "lastUpdated": {
+            "type": "string",
+            "example": "2024-01-15"
+          },
+          "linkedMovie": {
+            "type": "integer",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "Example Name"
+          },
+          "nameTranslations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "x-go-name": "NameTranslations",
+            "example": [
+              "example"
+            ]
+          },
+          "number": {
+            "type": "integer",
+            "example": 1
+          },
+          "overview": {
+            "type": "string",
+            "example": "A descriptive paragraph of text."
+          },
+          "overviewTranslations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "x-go-name": "OverviewTranslations",
+            "example": [
+              "example"
+            ]
+          },
+          "runtime": {
+            "type": "integer",
+            "nullable": true,
+            "example": 1
+          },
+          "seasonNumber": {
+            "type": "integer",
+            "example": 1
+          },
+          "seasons": {
+            "items": {
+              "description": "season genre record",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "example": 12345
+                },
+                "image": {
+                  "type": "string",
+                  "example": "https://artworks.thetvdb.com/banners/example.jpg"
+                },
+                "imageType": {
+                  "type": "integer",
+                  "example": 1
+                },
+                "lastUpdated": {
+                  "type": "string",
+                  "example": "2024-01-15"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Example Name"
+                },
+                "nameTranslations": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array",
+                  "x-go-name": "NameTranslations",
+                  "example": [
+                    "example"
+                  ]
+                },
+                "number": {
+                  "format": "int64",
+                  "type": "integer",
+                  "x-go-name": "Number",
+                  "example": 12345
+                },
+                "overviewTranslations": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array",
+                  "x-go-name": "OverviewTranslations",
+                  "example": [
+                    "example"
+                  ]
+                },
+                "companies": {
+                  "type": "object",
+                  "description": "Companies by type record",
+                  "properties": {
+                    "studio": {
+                      "type": "array",
+                      "items": {
+                        "description": "A company record",
+                        "properties": {
+                          "activeDate": {
+                            "type": "string",
+                            "example": "2024-01-15"
+                          },
+                          "aliases": {
+                            "items": {
+                              "description": "An alias model, which can be associated with a series, season, movie, person, or list.",
+                              "properties": {
+                                "language": {
+                                  "type": "string",
+                                  "maximum": 4,
+                                  "description": "A 3-4 character string indicating the language of the alias, as defined in Language.",
+                                  "example": "eng"
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "maximum": 100,
+                                  "description": "A string containing the alias itself.",
+                                  "example": "Example Name"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array",
+                            "x-go-name": "Aliases"
+                          },
+                          "country": {
+                            "type": "string",
+                            "example": "usa"
+                          },
+                          "id": {
+                            "format": "int64",
+                            "type": "integer",
+                            "x-go-name": "ID",
+                            "example": 12345
+                          },
+                          "inactiveDate": {
+                            "type": "string",
+                            "example": "2024-01-15"
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "Example Name"
+                          },
+                          "nameTranslations": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array",
+                            "x-go-name": "NameTranslations",
+                            "example": [
+                              "example"
+                            ]
+                          },
+                          "overviewTranslations": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array",
+                            "x-go-name": "OverviewTranslations",
+                            "example": [
+                              "example"
+                            ]
+                          },
+                          "primaryCompanyType": {
+                            "format": "int64",
+                            "type": "integer",
+                            "x-go-name": "PrimaryCompanyType",
+                            "nullable": true,
+                            "example": 12345
+                          },
+                          "slug": {
+                            "type": "string",
+                            "x-go-name": "Slug",
+                            "example": "example-slug"
+                          },
+                          "parentCompany": {
+                            "type": "object",
+                            "description": "A parent company record",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "nullable": true,
+                                "example": 12345
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "Example Name"
+                              },
+                              "relation": {
+                                "type": "object",
+                                "description": "A company relationship",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer",
+                                    "nullable": true,
+                                    "example": 12345
+                                  },
+                                  "typeName": {
+                                    "type": "string",
+                                    "example": "example"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "tagOptions": {
+                            "items": {
+                              "description": "tag option record",
+                              "properties": {
+                                "helpText": {
+                                  "type": "string",
+                                  "example": "example"
+                                },
+                                "id": {
+                                  "format": "int64",
+                                  "type": "integer",
+                                  "x-go-name": "ID",
+                                  "example": 12345
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "x-go-name": "Name",
+                                  "example": "Example Name"
+                                },
+                                "tag": {
+                                  "format": "int64",
+                                  "type": "integer",
+                                  "x-go-name": "Tag",
+                                  "example": 12345
+                                },
+                                "tagName": {
+                                  "type": "string",
+                                  "x-go-name": "TagName",
+                                  "example": "example"
+                                }
+                              },
+                              "type": "object",
+                              "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+                            },
+                            "type": "array",
+                            "x-go-name": "TagOptions"
+                          }
+                        },
+                        "type": "object",
+                        "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+                      }
+                    },
+                    "network": {
+                      "type": "array",
+                      "items": {
+                        "description": "A company record",
+                        "properties": {
+                          "activeDate": {
+                            "type": "string",
+                            "example": "2024-01-15"
+                          },
+                          "aliases": {
+                            "items": {
+                              "description": "An alias model, which can be associated with a series, season, movie, person, or list.",
+                              "properties": {
+                                "language": {
+                                  "type": "string",
+                                  "maximum": 4,
+                                  "description": "A 3-4 character string indicating the language of the alias, as defined in Language.",
+                                  "example": "eng"
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "maximum": 100,
+                                  "description": "A string containing the alias itself.",
+                                  "example": "Example Name"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array",
+                            "x-go-name": "Aliases"
+                          },
+                          "country": {
+                            "type": "string",
+                            "example": "usa"
+                          },
+                          "id": {
+                            "format": "int64",
+                            "type": "integer",
+                            "x-go-name": "ID",
+                            "example": 12345
+                          },
+                          "inactiveDate": {
+                            "type": "string",
+                            "example": "2024-01-15"
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "Example Name"
+                          },
+                          "nameTranslations": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array",
+                            "x-go-name": "NameTranslations",
+                            "example": [
+                              "example"
+                            ]
+                          },
+                          "overviewTranslations": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array",
+                            "x-go-name": "OverviewTranslations",
+                            "example": [
+                              "example"
+                            ]
+                          },
+                          "primaryCompanyType": {
+                            "format": "int64",
+                            "type": "integer",
+                            "x-go-name": "PrimaryCompanyType",
+                            "nullable": true,
+                            "example": 12345
+                          },
+                          "slug": {
+                            "type": "string",
+                            "x-go-name": "Slug",
+                            "example": "example-slug"
+                          },
+                          "parentCompany": {
+                            "type": "object",
+                            "description": "A parent company record",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "nullable": true,
+                                "example": 12345
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "Example Name"
+                              },
+                              "relation": {
+                                "type": "object",
+                                "description": "A company relationship",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer",
+                                    "nullable": true,
+                                    "example": 12345
+                                  },
+                                  "typeName": {
+                                    "type": "string",
+                                    "example": "example"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "tagOptions": {
+                            "items": {
+                              "description": "tag option record",
+                              "properties": {
+                                "helpText": {
+                                  "type": "string",
+                                  "example": "example"
+                                },
+                                "id": {
+                                  "format": "int64",
+                                  "type": "integer",
+                                  "x-go-name": "ID",
+                                  "example": 12345
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "x-go-name": "Name",
+                                  "example": "Example Name"
+                                },
+                                "tag": {
+                                  "format": "int64",
+                                  "type": "integer",
+                                  "x-go-name": "Tag",
+                                  "example": 12345
+                                },
+                                "tagName": {
+                                  "type": "string",
+                                  "x-go-name": "TagName",
+                                  "example": "example"
+                                }
+                              },
+                              "type": "object",
+                              "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+                            },
+                            "type": "array",
+                            "x-go-name": "TagOptions"
+                          }
+                        },
+                        "type": "object",
+                        "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+                      }
+                    },
+                    "production": {
+                      "type": "array",
+                      "items": {
+                        "description": "A company record",
+                        "properties": {
+                          "activeDate": {
+                            "type": "string",
+                            "example": "2024-01-15"
+                          },
+                          "aliases": {
+                            "items": {
+                              "description": "An alias model, which can be associated with a series, season, movie, person, or list.",
+                              "properties": {
+                                "language": {
+                                  "type": "string",
+                                  "maximum": 4,
+                                  "description": "A 3-4 character string indicating the language of the alias, as defined in Language.",
+                                  "example": "eng"
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "maximum": 100,
+                                  "description": "A string containing the alias itself.",
+                                  "example": "Example Name"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array",
+                            "x-go-name": "Aliases"
+                          },
+                          "country": {
+                            "type": "string",
+                            "example": "usa"
+                          },
+                          "id": {
+                            "format": "int64",
+                            "type": "integer",
+                            "x-go-name": "ID",
+                            "example": 12345
+                          },
+                          "inactiveDate": {
+                            "type": "string",
+                            "example": "2024-01-15"
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "Example Name"
+                          },
+                          "nameTranslations": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array",
+                            "x-go-name": "NameTranslations",
+                            "example": [
+                              "example"
+                            ]
+                          },
+                          "overviewTranslations": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array",
+                            "x-go-name": "OverviewTranslations",
+                            "example": [
+                              "example"
+                            ]
+                          },
+                          "primaryCompanyType": {
+                            "format": "int64",
+                            "type": "integer",
+                            "x-go-name": "PrimaryCompanyType",
+                            "nullable": true,
+                            "example": 12345
+                          },
+                          "slug": {
+                            "type": "string",
+                            "x-go-name": "Slug",
+                            "example": "example-slug"
+                          },
+                          "parentCompany": {
+                            "type": "object",
+                            "description": "A parent company record",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "nullable": true,
+                                "example": 12345
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "Example Name"
+                              },
+                              "relation": {
+                                "type": "object",
+                                "description": "A company relationship",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer",
+                                    "nullable": true,
+                                    "example": 12345
+                                  },
+                                  "typeName": {
+                                    "type": "string",
+                                    "example": "example"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "tagOptions": {
+                            "items": {
+                              "description": "tag option record",
+                              "properties": {
+                                "helpText": {
+                                  "type": "string",
+                                  "example": "example"
+                                },
+                                "id": {
+                                  "format": "int64",
+                                  "type": "integer",
+                                  "x-go-name": "ID",
+                                  "example": 12345
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "x-go-name": "Name",
+                                  "example": "Example Name"
+                                },
+                                "tag": {
+                                  "format": "int64",
+                                  "type": "integer",
+                                  "x-go-name": "Tag",
+                                  "example": 12345
+                                },
+                                "tagName": {
+                                  "type": "string",
+                                  "x-go-name": "TagName",
+                                  "example": "example"
+                                }
+                              },
+                              "type": "object",
+                              "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+                            },
+                            "type": "array",
+                            "x-go-name": "TagOptions"
+                          }
+                        },
+                        "type": "object",
+                        "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+                      }
+                    },
+                    "distributor": {
+                      "type": "array",
+                      "items": {
+                        "description": "A company record",
+                        "properties": {
+                          "activeDate": {
+                            "type": "string",
+                            "example": "2024-01-15"
+                          },
+                          "aliases": {
+                            "items": {
+                              "description": "An alias model, which can be associated with a series, season, movie, person, or list.",
+                              "properties": {
+                                "language": {
+                                  "type": "string",
+                                  "maximum": 4,
+                                  "description": "A 3-4 character string indicating the language of the alias, as defined in Language.",
+                                  "example": "eng"
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "maximum": 100,
+                                  "description": "A string containing the alias itself.",
+                                  "example": "Example Name"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array",
+                            "x-go-name": "Aliases"
+                          },
+                          "country": {
+                            "type": "string",
+                            "example": "usa"
+                          },
+                          "id": {
+                            "format": "int64",
+                            "type": "integer",
+                            "x-go-name": "ID",
+                            "example": 12345
+                          },
+                          "inactiveDate": {
+                            "type": "string",
+                            "example": "2024-01-15"
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "Example Name"
+                          },
+                          "nameTranslations": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array",
+                            "x-go-name": "NameTranslations",
+                            "example": [
+                              "example"
+                            ]
+                          },
+                          "overviewTranslations": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array",
+                            "x-go-name": "OverviewTranslations",
+                            "example": [
+                              "example"
+                            ]
+                          },
+                          "primaryCompanyType": {
+                            "format": "int64",
+                            "type": "integer",
+                            "x-go-name": "PrimaryCompanyType",
+                            "nullable": true,
+                            "example": 12345
+                          },
+                          "slug": {
+                            "type": "string",
+                            "x-go-name": "Slug",
+                            "example": "example-slug"
+                          },
+                          "parentCompany": {
+                            "type": "object",
+                            "description": "A parent company record",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "nullable": true,
+                                "example": 12345
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "Example Name"
+                              },
+                              "relation": {
+                                "type": "object",
+                                "description": "A company relationship",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer",
+                                    "nullable": true,
+                                    "example": 12345
+                                  },
+                                  "typeName": {
+                                    "type": "string",
+                                    "example": "example"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "tagOptions": {
+                            "items": {
+                              "description": "tag option record",
+                              "properties": {
+                                "helpText": {
+                                  "type": "string",
+                                  "example": "example"
+                                },
+                                "id": {
+                                  "format": "int64",
+                                  "type": "integer",
+                                  "x-go-name": "ID",
+                                  "example": 12345
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "x-go-name": "Name",
+                                  "example": "Example Name"
+                                },
+                                "tag": {
+                                  "format": "int64",
+                                  "type": "integer",
+                                  "x-go-name": "Tag",
+                                  "example": 12345
+                                },
+                                "tagName": {
+                                  "type": "string",
+                                  "x-go-name": "TagName",
+                                  "example": "example"
+                                }
+                              },
+                              "type": "object",
+                              "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+                            },
+                            "type": "array",
+                            "x-go-name": "TagOptions"
+                          }
+                        },
+                        "type": "object",
+                        "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+                      }
+                    },
+                    "special_effects": {
+                      "type": "array",
+                      "items": {
+                        "description": "A company record",
+                        "properties": {
+                          "activeDate": {
+                            "type": "string",
+                            "example": "2024-01-15"
+                          },
+                          "aliases": {
+                            "items": {
+                              "description": "An alias model, which can be associated with a series, season, movie, person, or list.",
+                              "properties": {
+                                "language": {
+                                  "type": "string",
+                                  "maximum": 4,
+                                  "description": "A 3-4 character string indicating the language of the alias, as defined in Language.",
+                                  "example": "eng"
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "maximum": 100,
+                                  "description": "A string containing the alias itself.",
+                                  "example": "Example Name"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array",
+                            "x-go-name": "Aliases"
+                          },
+                          "country": {
+                            "type": "string",
+                            "example": "usa"
+                          },
+                          "id": {
+                            "format": "int64",
+                            "type": "integer",
+                            "x-go-name": "ID",
+                            "example": 12345
+                          },
+                          "inactiveDate": {
+                            "type": "string",
+                            "example": "2024-01-15"
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "Example Name"
+                          },
+                          "nameTranslations": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array",
+                            "x-go-name": "NameTranslations",
+                            "example": [
+                              "example"
+                            ]
+                          },
+                          "overviewTranslations": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array",
+                            "x-go-name": "OverviewTranslations",
+                            "example": [
+                              "example"
+                            ]
+                          },
+                          "primaryCompanyType": {
+                            "format": "int64",
+                            "type": "integer",
+                            "x-go-name": "PrimaryCompanyType",
+                            "nullable": true,
+                            "example": 12345
+                          },
+                          "slug": {
+                            "type": "string",
+                            "x-go-name": "Slug",
+                            "example": "example-slug"
+                          },
+                          "parentCompany": {
+                            "type": "object",
+                            "description": "A parent company record",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "nullable": true,
+                                "example": 12345
+                              },
+                              "name": {
+                                "type": "string",
+                                "example": "Example Name"
+                              },
+                              "relation": {
+                                "type": "object",
+                                "description": "A company relationship",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer",
+                                    "nullable": true,
+                                    "example": 12345
+                                  },
+                                  "typeName": {
+                                    "type": "string",
+                                    "example": "example"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "tagOptions": {
+                            "items": {
+                              "description": "tag option record",
+                              "properties": {
+                                "helpText": {
+                                  "type": "string",
+                                  "example": "example"
+                                },
+                                "id": {
+                                  "format": "int64",
+                                  "type": "integer",
+                                  "x-go-name": "ID",
+                                  "example": 12345
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "x-go-name": "Name",
+                                  "example": "Example Name"
+                                },
+                                "tag": {
+                                  "format": "int64",
+                                  "type": "integer",
+                                  "x-go-name": "Tag",
+                                  "example": 12345
+                                },
+                                "tagName": {
+                                  "type": "string",
+                                  "x-go-name": "TagName",
+                                  "example": "example"
+                                }
+                              },
+                              "type": "object",
+                              "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+                            },
+                            "type": "array",
+                            "x-go-name": "TagOptions"
+                          }
+                        },
+                        "type": "object",
+                        "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+                      }
+                    }
+                  }
+                },
+                "seriesId": {
+                  "format": "int64",
+                  "type": "integer",
+                  "x-go-name": "SeriesID",
+                  "example": 12345
+                },
+                "type": {
+                  "description": "season type record",
+                  "properties": {
+                    "alternateName": {
+                      "type": "string",
+                      "x-go-name": "Name",
+                      "example": "example"
+                    },
+                    "id": {
+                      "format": "int64",
+                      "type": "integer",
+                      "x-go-name": "ID",
+                      "example": 12345
+                    },
+                    "name": {
+                      "type": "string",
+                      "x-go-name": "Name",
+                      "example": "Example Name"
+                    },
+                    "type": {
+                      "type": "string",
+                      "x-go-name": "Type",
+                      "example": "example"
+                    }
+                  },
+                  "type": "object",
+                  "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+                },
+                "year": {
+                  "type": "string",
+                  "example": "2024"
+                }
+              },
+              "type": "object",
+              "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+            },
+            "type": "array",
+            "x-go-name": "Seasons"
+          },
+          "seriesId": {
+            "format": "int64",
+            "type": "integer",
+            "x-go-name": "SeriesID",
+            "example": 12345
+          },
+          "seasonName": {
+            "type": "string",
+            "example": "example"
+          },
+          "year": {
+            "type": "string",
+            "example": "2024"
+          }
+        },
+        "type": "object",
+        "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+      },
+      "type": "array",
+      "x-go-name": "Episodes"
+    },
+    "firstAired": {
+      "type": "string",
+      "example": "example"
+    },
+    "id": {
+      "type": "integer",
+      "example": 12345
+    },
+    "image": {
+      "type": "string",
+      "example": "https://artworks.thetvdb.com/banners/example.jpg"
+    },
+    "isOrderRandomized": {
+      "type": "boolean",
+      "x-go-name": "IsOrderRandomized",
+      "example": true
+    },
+    "lastAired": {
+      "type": "string",
+      "example": "example"
+    },
+    "lastUpdated": {
+      "type": "string",
+      "example": "2024-01-15"
+    },
+    "name": {
+      "type": "string",
+      "example": "Example Name"
+    },
+    "nameTranslations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-go-name": "NameTranslations",
+      "example": [
+        "example"
+      ]
+    },
+    "nextAired": {
+      "type": "string",
+      "x-go-name": "NextAired",
+      "example": "example"
+    },
+    "originalCountry": {
+      "type": "string",
+      "example": "example"
+    },
+    "originalLanguage": {
+      "type": "string",
+      "example": "example"
+    },
+    "overviewTranslations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-go-name": "OverviewTranslations",
+      "example": [
+        "example"
+      ]
+    },
+    "score": {
+      "format": "double",
+      "type": "number",
+      "x-go-name": "Score",
+      "example": 100
+    },
+    "slug": {
+      "type": "string",
+      "example": "example-slug"
+    },
+    "status": {
+      "description": "status record",
+      "properties": {
+        "id": {
+          "format": "int64",
+          "type": "integer",
+          "x-go-name": "ID",
+          "nullable": true,
+          "example": 12345
+        },
+        "keepUpdated": {
+          "type": "boolean",
+          "x-go-name": "KeepUpdated",
+          "example": "2024-01-15"
+        },
+        "name": {
+          "type": "string",
+          "x-go-name": "Name",
+          "example": "Example Name"
+        },
+        "recordType": {
+          "type": "string",
+          "x-go-name": "RecordType",
+          "example": "example"
+        }
+      },
+      "type": "object",
+      "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+    },
+    "year": {
+      "type": "string",
+      "example": "2024"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,400 @@
+{
+  "aliases": [
+    {
+      "language": "eng",
+      "name": "Example Name"
+    }
+  ],
+  "artworks": [
+    {
+      "height": 12345,
+      "id": 12345,
+      "image": "https://artworks.thetvdb.com/banners/example.jpg",
+      "includesText": true,
+      "language": "eng",
+      "score": 100,
+      "thumbnail": "example",
+      "type": 12345,
+      "width": 12345
+    }
+  ],
+  "audioLanguages": [
+    "example"
+  ],
+  "awards": [
+    {
+      "id": 12345,
+      "name": "Example Name"
+    }
+  ],
+  "boxOffice": "example",
+  "boxOfficeUS": "example",
+  "budget": "example",
+  "characters": [
+    {
+      "aliases": [
+        {
+          "language": null,
+          "name": null
+        }
+      ],
+      "episode": {
+        "image": "https://artworks.thetvdb.com/banners/example.jpg",
+        "name": "Example Name",
+        "year": "2024"
+      },
+      "episodeId": 12345,
+      "id": 12345,
+      "image": "https://artworks.thetvdb.com/banners/example.jpg",
+      "isFeatured": true,
+      "movieId": 12345,
+      "movie": {
+        "image": "https://artworks.thetvdb.com/banners/example.jpg",
+        "name": "Example Name",
+        "year": "2024"
+      },
+      "name": "Example Name",
+      "nameTranslations": [
+        "example"
+      ],
+      "overviewTranslations": [
+        "example"
+      ],
+      "peopleId": 12345,
+      "personImgURL": "https://artworks.thetvdb.com/banners/example.jpg",
+      "peopleType": "example",
+      "seriesId": 12345,
+      "series": {
+        "image": "https://artworks.thetvdb.com/banners/example.jpg",
+        "name": "Example Name",
+        "year": "2024"
+      },
+      "sort": 12345,
+      "tagOptions": [
+        {
+          "helpText": null,
+          "id": null,
+          "name": null,
+          "tag": null,
+          "tagName": null
+        }
+      ],
+      "type": 12345,
+      "url": "https://artworks.thetvdb.com/banners/example.jpg",
+      "personName": "example"
+    }
+  ],
+  "companies": {
+    "studio": [
+      {
+        "activeDate": "2024-01-15",
+        "aliases": [
+          null
+        ],
+        "country": "usa",
+        "id": 12345,
+        "inactiveDate": "2024-01-15",
+        "name": "Example Name",
+        "nameTranslations": [
+          "example"
+        ],
+        "overviewTranslations": [
+          "example"
+        ],
+        "primaryCompanyType": 12345,
+        "slug": "example-slug",
+        "parentCompany": {
+          "id": null,
+          "name": null,
+          "relation": null
+        },
+        "tagOptions": [
+          null
+        ]
+      }
+    ],
+    "network": [
+      {
+        "activeDate": "2024-01-15",
+        "aliases": [
+          null
+        ],
+        "country": "usa",
+        "id": 12345,
+        "inactiveDate": "2024-01-15",
+        "name": "Example Name",
+        "nameTranslations": [
+          "example"
+        ],
+        "overviewTranslations": [
+          "example"
+        ],
+        "primaryCompanyType": 12345,
+        "slug": "example-slug",
+        "parentCompany": {
+          "id": null,
+          "name": null,
+          "relation": null
+        },
+        "tagOptions": [
+          null
+        ]
+      }
+    ],
+    "production": [
+      {
+        "activeDate": "2024-01-15",
+        "aliases": [
+          null
+        ],
+        "country": "usa",
+        "id": 12345,
+        "inactiveDate": "2024-01-15",
+        "name": "Example Name",
+        "nameTranslations": [
+          "example"
+        ],
+        "overviewTranslations": [
+          "example"
+        ],
+        "primaryCompanyType": 12345,
+        "slug": "example-slug",
+        "parentCompany": {
+          "id": null,
+          "name": null,
+          "relation": null
+        },
+        "tagOptions": [
+          null
+        ]
+      }
+    ],
+    "distributor": [
+      {
+        "activeDate": "2024-01-15",
+        "aliases": [
+          null
+        ],
+        "country": "usa",
+        "id": 12345,
+        "inactiveDate": "2024-01-15",
+        "name": "Example Name",
+        "nameTranslations": [
+          "example"
+        ],
+        "overviewTranslations": [
+          "example"
+        ],
+        "primaryCompanyType": 12345,
+        "slug": "example-slug",
+        "parentCompany": {
+          "id": null,
+          "name": null,
+          "relation": null
+        },
+        "tagOptions": [
+          null
+        ]
+      }
+    ],
+    "special_effects": [
+      {
+        "activeDate": "2024-01-15",
+        "aliases": [
+          null
+        ],
+        "country": "usa",
+        "id": 12345,
+        "inactiveDate": "2024-01-15",
+        "name": "Example Name",
+        "nameTranslations": [
+          "example"
+        ],
+        "overviewTranslations": [
+          "example"
+        ],
+        "primaryCompanyType": 12345,
+        "slug": "example-slug",
+        "parentCompany": {
+          "id": null,
+          "name": null,
+          "relation": null
+        },
+        "tagOptions": [
+          null
+        ]
+      }
+    ]
+  },
+  "contentRatings": [
+    {
+      "id": 12345,
+      "name": "Example Name",
+      "description": "A descriptive paragraph of text.",
+      "country": "usa",
+      "contentType": "example",
+      "order": 1,
+      "fullName": "example"
+    }
+  ],
+  "first_release": {
+    "country": "usa",
+    "date": "2024-01-15",
+    "detail": "example"
+  },
+  "genres": [
+    {
+      "id": 12345,
+      "name": "Example Name",
+      "slug": "example-slug"
+    }
+  ],
+  "id": 12345,
+  "image": "https://artworks.thetvdb.com/banners/example.jpg",
+  "inspirations": [
+    {
+      "id": 12345,
+      "type": "example",
+      "type_name": "example",
+      "url": "https://artworks.thetvdb.com/banners/example.jpg"
+    }
+  ],
+  "lastUpdated": "2024-01-15",
+  "lists": [
+    {
+      "aliases": [
+        {
+          "language": null,
+          "name": null
+        }
+      ],
+      "id": 12345,
+      "image": "https://artworks.thetvdb.com/banners/example.jpg",
+      "imageIsFallback": true,
+      "isOfficial": true,
+      "name": "Example Name",
+      "nameTranslations": [
+        "example"
+      ],
+      "overview": "A descriptive paragraph of text.",
+      "overviewTranslations": [
+        "example"
+      ],
+      "remoteIds": [
+        {
+          "id": null,
+          "type": null,
+          "sourceName": null
+        }
+      ],
+      "tags": [
+        {
+          "helpText": null,
+          "id": null,
+          "name": null,
+          "tag": null,
+          "tagName": null
+        }
+      ],
+      "score": 100,
+      "url": "https://artworks.thetvdb.com/banners/example.jpg"
+    }
+  ],
+  "name": "Example Name",
+  "nameTranslations": [
+    "example"
+  ],
+  "originalCountry": "example",
+  "originalLanguage": "example",
+  "overviewTranslations": [
+    "example"
+  ],
+  "production_countries": [
+    {
+      "id": 12345,
+      "country": "usa",
+      "name": "Example Name"
+    }
+  ],
+  "releases": [
+    {
+      "country": "usa",
+      "date": "2024-01-15",
+      "detail": "example"
+    }
+  ],
+  "remoteIds": [
+    {
+      "id": "abc123",
+      "type": 12345,
+      "sourceName": "example"
+    }
+  ],
+  "runtime": 1,
+  "score": 100,
+  "slug": "example-slug",
+  "spoken_languages": [
+    "example"
+  ],
+  "status": "Continuing",
+  "studios": [
+    {
+      "id": 12345,
+      "name": "Example Name",
+      "parentStudio": 1
+    }
+  ],
+  "subtitleLanguages": [
+    "example"
+  ],
+  "tagOptions": [
+    {
+      "helpText": "example",
+      "id": 12345,
+      "name": "Example Name",
+      "tag": 12345,
+      "tagName": "example"
+    }
+  ],
+  "trailers": [
+    {
+      "id": 12345,
+      "language": "eng",
+      "name": "Example Name",
+      "url": "https://artworks.thetvdb.com/banners/example.jpg",
+      "runtime": 1
+    }
+  ],
+  "translations": {
+    "nameTranslations": [
+      {
+        "aliases": [
+          "example"
+        ],
+        "isAlias": true,
+        "isPrimary": true,
+        "language": "eng",
+        "name": "Example Name",
+        "overview": "A descriptive paragraph of text.",
+        "tagline": "example"
+      }
+    ],
+    "overviewTranslations": [
+      {
+        "aliases": [
+          "example"
+        ],
+        "isAlias": true,
+        "isPrimary": true,
+        "language": "eng",
+        "name": "Example Name",
+        "overview": "A descriptive paragraph of text.",
+        "tagline": "example"
+      }
+    ],
+    "alias": [
+      "example"
+    ]
+  },
+  "year": "2024"
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-tag-option-schema.json",
+  "title": "TagOption",
+  "description": "tag option record",
+  "properties": {
+    "helpText": {
+      "type": "string",
+      "example": "example"
+    },
+    "id": {
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "ID",
+      "example": 12345
+    },
+    "name": {
+      "type": "string",
+      "x-go-name": "Name",
+      "example": "Example Name"
+    },
+    "tag": {
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "Tag",
+      "example": 12345
+    },
+    "tagName": {
+      "type": "string",
+      "x-go-name": "TagName",
+      "example": "example"
+    }
+  },
+  "type": "object"
+}

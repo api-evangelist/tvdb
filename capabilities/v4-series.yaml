@@ -1,0 +1,603 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: TVDB API V4 — Series
+  description: 'TVDB API V4 — Series. 10 operations. Lead operation: Get All Series. Self-contained Naftiko capability covering one TheTVDB business surface.'
+  tags:
+  - TheTVDB
+  - Television
+  - Series
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+- namespace: env
+  keys:
+    TVDB_BEARER_TOKEN: TVDB_BEARER_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: v4-series
+    baseUri: 'https://api4.thetvdb.com/v4'
+    description: TVDB API V4 — Series business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.TVDB_BEARER_TOKEN}}'
+    resources:
+    - name: series
+      path: /series
+      operations:
+      - name: getAllSeries
+        method: GET
+        description: TheTVDB Get All Series
+        inputParameters:
+        - name: page
+          in: query
+          type: number
+          required: false
+          description: page number
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: series-id
+      path: '/series/{id}'
+      operations:
+      - name: getSeriesBase
+        method: GET
+        description: TheTVDB Get Series Base
+        inputParameters:
+        - name: id
+          in: path
+          type: number
+          required: true
+          description: id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: series-id-artworks
+      path: '/series/{id}/artworks'
+      operations:
+      - name: getSeriesArtworks
+        method: GET
+        description: TheTVDB Get Series Artworks
+        inputParameters:
+        - name: id
+          in: path
+          type: number
+          required: true
+          description: id
+        - name: lang
+          in: query
+          type: string
+          required: false
+          description: lang
+        - name: type
+          in: query
+          type: integer
+          required: false
+          description: type
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: series-id-nextaired
+      path: '/series/{id}/nextAired'
+      operations:
+      - name: getSeriesNextAired
+        method: GET
+        description: TheTVDB Get Series Next Aired
+        inputParameters:
+        - name: id
+          in: path
+          type: number
+          required: true
+          description: id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: series-id-extended
+      path: '/series/{id}/extended'
+      operations:
+      - name: getSeriesExtended
+        method: GET
+        description: TheTVDB Get Series Extended
+        inputParameters:
+        - name: id
+          in: path
+          type: number
+          required: true
+          description: id
+        - name: meta
+          in: query
+          type: string
+          required: false
+          description: meta
+        - name: short
+          in: query
+          type: boolean
+          required: false
+          description: reduce the payload and returns the short version of this record without characters and artworks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: series-id-episodes-season-type
+      path: '/series/{id}/episodes/{season-type}'
+      operations:
+      - name: getSeriesEpisodes
+        method: GET
+        description: TheTVDB Get Series Episodes
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+          required: true
+          description: page parameter
+        - name: id
+          in: path
+          type: number
+          required: true
+          description: id
+        - name: season-type
+          in: path
+          type: string
+          required: true
+          description: season-type
+        - name: season
+          in: query
+          type: integer
+          required: false
+          description: season parameter
+        - name: episodeNumber
+          in: query
+          type: integer
+          required: false
+          description: episodeNumber parameter
+        - name: airDate
+          in: query
+          type: string
+          required: false
+          description: airDate of the episode, format is yyyy-mm-dd
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: series-id-episodes-season-type-lang
+      path: '/series/{id}/episodes/{season-type}/{lang}'
+      operations:
+      - name: getSeriesSeasonEpisodesTranslated
+        method: GET
+        description: TheTVDB Get Series Season Episodes Translated
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+          required: true
+          description: page parameter
+        - name: id
+          in: path
+          type: number
+          required: true
+          description: id
+        - name: season-type
+          in: path
+          type: string
+          required: true
+          description: season-type
+        - name: lang
+          in: path
+          type: string
+          required: true
+          description: lang parameter
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: series-filter
+      path: '/series/filter'
+      operations:
+      - name: getSeriesFilter
+        method: GET
+        description: TheTVDB Get Series Filter
+        inputParameters:
+        - name: company
+          in: query
+          type: number
+          required: false
+          description: production company
+        - name: contentRating
+          in: query
+          type: number
+          required: false
+          description: content rating id base on a country
+        - name: country
+          in: query
+          type: string
+          required: true
+          description: country of origin
+        - name: genre
+          in: query
+          type: number
+          required: false
+          description: Genre id. This id can be found using **/genres** endpoint.
+        - name: lang
+          in: query
+          type: string
+          required: true
+          description: original language
+        - name: sort
+          in: query
+          type: string
+          required: false
+          description: sort by results
+        - name: sortType
+          in: query
+          type: string
+          required: false
+          description: sort type ascending or descending
+        - name: status
+          in: query
+          type: number
+          required: false
+          description: status
+        - name: year
+          in: query
+          type: number
+          required: false
+          description: release year
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: series-slug-slug
+      path: '/series/slug/{slug}'
+      operations:
+      - name: getSeriesBaseBySlug
+        method: GET
+        description: TheTVDB Get Series Base by Slug
+        inputParameters:
+        - name: slug
+          in: path
+          type: string
+          required: true
+          description: slug
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: series-id-translations-language
+      path: '/series/{id}/translations/{language}'
+      operations:
+      - name: getSeriesTranslation
+        method: GET
+        description: TheTVDB Get Series Translation
+        inputParameters:
+        - name: id
+          in: path
+          type: number
+          required: true
+          description: id
+        - name: language
+          in: path
+          type: string
+          required: true
+          description: language
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: v4-series-rest
+    port: 8080
+    description: REST adapter for TVDB API V4 — Series. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/series
+      name: series
+      description: REST surface for series.
+      operations:
+      - method: GET
+        name: getAllSeries
+        description: TheTVDB Get All Series
+        call: v4-series.getAllSeries
+        with:
+          page: rest.page
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/series/{id}
+      name: series-id
+      description: REST surface for series-id.
+      operations:
+      - method: GET
+        name: getSeriesBase
+        description: TheTVDB Get Series Base
+        call: v4-series.getSeriesBase
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/series/{id}/artworks
+      name: series-id-artworks
+      description: REST surface for series-id-artworks.
+      operations:
+      - method: GET
+        name: getSeriesArtworks
+        description: TheTVDB Get Series Artworks
+        call: v4-series.getSeriesArtworks
+        with:
+          id: rest.id
+          lang: rest.lang
+          type: rest.type
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/series/{id}/next-aired
+      name: series-id-nextaired
+      description: REST surface for series-id-nextaired.
+      operations:
+      - method: GET
+        name: getSeriesNextAired
+        description: TheTVDB Get Series Next Aired
+        call: v4-series.getSeriesNextAired
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/series/{id}/extended
+      name: series-id-extended
+      description: REST surface for series-id-extended.
+      operations:
+      - method: GET
+        name: getSeriesExtended
+        description: TheTVDB Get Series Extended
+        call: v4-series.getSeriesExtended
+        with:
+          id: rest.id
+          meta: rest.meta
+          short: rest.short
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/series/{id}/episodes/{season-type}
+      name: series-id-episodes-season-type
+      description: REST surface for series-id-episodes-season-type.
+      operations:
+      - method: GET
+        name: getSeriesEpisodes
+        description: TheTVDB Get Series Episodes
+        call: v4-series.getSeriesEpisodes
+        with:
+          page: rest.page
+          id: rest.id
+          season-type: rest.season-type
+          season: rest.season
+          episodeNumber: rest.episodeNumber
+          airDate: rest.airDate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/series/{id}/episodes/{season-type}/{lang}
+      name: series-id-episodes-season-type-lang
+      description: REST surface for series-id-episodes-season-type-lang.
+      operations:
+      - method: GET
+        name: getSeriesSeasonEpisodesTranslated
+        description: TheTVDB Get Series Season Episodes Translated
+        call: v4-series.getSeriesSeasonEpisodesTranslated
+        with:
+          page: rest.page
+          id: rest.id
+          season-type: rest.season-type
+          lang: rest.lang
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/series/filter
+      name: series-filter
+      description: REST surface for series-filter.
+      operations:
+      - method: GET
+        name: getSeriesFilter
+        description: TheTVDB Get Series Filter
+        call: v4-series.getSeriesFilter
+        with:
+          company: rest.company
+          contentRating: rest.contentRating
+          country: rest.country
+          genre: rest.genre
+          lang: rest.lang
+          sort: rest.sort
+          sortType: rest.sortType
+          status: rest.status
+          year: rest.year
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/series/slug/{slug}
+      name: series-slug-slug
+      description: REST surface for series-slug-slug.
+      operations:
+      - method: GET
+        name: getSeriesBaseBySlug
+        description: TheTVDB Get Series Base by Slug
+        call: v4-series.getSeriesBaseBySlug
+        with:
+          slug: rest.slug
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/series/{id}/translations/{language}
+      name: series-id-translations-language
+      description: REST surface for series-id-translations-language.
+      operations:
+      - method: GET
+        name: getSeriesTranslation
+        description: TheTVDB Get Series Translation
+        call: v4-series.getSeriesTranslation
+        with:
+          id: rest.id
+          language: rest.language
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: v4-series-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for TVDB API V4 — Series. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: get-series
+      description: TheTVDB Get All Series
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-series.getAllSeries
+      with:
+        page: tools.page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-series-base
+      description: TheTVDB Get Series Base
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-series.getSeriesBase
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-series-artworks
+      description: TheTVDB Get Series Artworks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-series.getSeriesArtworks
+      with:
+        id: tools.id
+        lang: tools.lang
+        type: tools.type
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-series-next-aired
+      description: TheTVDB Get Series Next Aired
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-series.getSeriesNextAired
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-series-extended
+      description: TheTVDB Get Series Extended
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-series.getSeriesExtended
+      with:
+        id: tools.id
+        meta: tools.meta
+        short: tools.short
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-series-episodes
+      description: TheTVDB Get Series Episodes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-series.getSeriesEpisodes
+      with:
+        page: tools.page
+        id: tools.id
+        season-type: tools.season-type
+        season: tools.season
+        episodeNumber: tools.episodeNumber
+        airDate: tools.airDate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-series-season-episodes-translated
+      description: TheTVDB Get Series Season Episodes Translated
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-series.getSeriesSeasonEpisodesTranslated
+      with:
+        page: tools.page
+        id: tools.id
+        season-type: tools.season-type
+        lang: tools.lang
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-series-filter
+      description: TheTVDB Get Series Filter
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-series.getSeriesFilter
+      with:
+        company: tools.company
+        contentRating: tools.contentRating
+        country: tools.country
+        genre: tools.genre
+        lang: tools.lang
+        sort: tools.sort
+        sortType: tools.sortType
+        status: tools.status
+        year: tools.year
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-series-base-slug
+      description: TheTVDB Get Series Base by Slug
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-series.getSeriesBaseBySlug
+      with:
+        slug: tools.slug
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-series-translation
+      description: TheTVDB Get Series Translation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-series.getSeriesTranslation
+      with:
+        id: tools.id
+        language: tools.language
+      outputParameters:
+      - type: object
+        mapping: $.

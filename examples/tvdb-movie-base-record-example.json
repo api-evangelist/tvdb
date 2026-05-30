@@ -1,0 +1,23 @@
+{
+  "aliases": [
+    {
+      "language": "eng",
+      "name": "Example Name"
+    }
+  ],
+  "id": 12345,
+  "image": "https://artworks.thetvdb.com/banners/example.jpg",
+  "lastUpdated": "2024-01-15",
+  "name": "Example Name",
+  "nameTranslations": [
+    "example"
+  ],
+  "overviewTranslations": [
+    "example"
+  ],
+  "score": 100,
+  "slug": "example-slug",
+  "status": "Continuing",
+  "runtime": 1,
+  "year": "2024"
+}

@@ -1,0 +1,78 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: TVDB API V4 — Characters
+  description: 'TVDB API V4 — Characters. 1 operations. Lead operation: Get Character Base. Self-contained Naftiko capability covering one TheTVDB business surface.'
+  tags:
+  - TheTVDB
+  - Television
+  - Characters
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+- namespace: env
+  keys:
+    TVDB_BEARER_TOKEN: TVDB_BEARER_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: v4-characters
+    baseUri: 'https://api4.thetvdb.com/v4'
+    description: TVDB API V4 — Characters business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.TVDB_BEARER_TOKEN}}'
+    resources:
+    - name: characters-id
+      path: '/characters/{id}'
+      operations:
+      - name: getCharacterBase
+        method: GET
+        description: TheTVDB Get Character Base
+        inputParameters:
+        - name: id
+          in: path
+          type: number
+          required: true
+          description: id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: v4-characters-rest
+    port: 8080
+    description: REST adapter for TVDB API V4 — Characters. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/characters/{id}
+      name: characters-id
+      description: REST surface for characters-id.
+      operations:
+      - method: GET
+        name: getCharacterBase
+        description: TheTVDB Get Character Base
+        call: v4-characters.getCharacterBase
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: v4-characters-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for TVDB API V4 — Characters. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: get-character-base
+      description: TheTVDB Get Character Base
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-characters.getCharacterBase
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

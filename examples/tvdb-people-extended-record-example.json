@@ -1,0 +1,140 @@
+{
+  "aliases": [
+    {
+      "language": "eng",
+      "name": "Example Name"
+    }
+  ],
+  "awards": [
+    {
+      "id": 12345,
+      "name": "Example Name"
+    }
+  ],
+  "biographies": [
+    {
+      "biography": "example",
+      "language": "eng"
+    }
+  ],
+  "birth": "example",
+  "birthPlace": "example",
+  "characters": [
+    {
+      "aliases": [
+        {
+          "language": null,
+          "name": null
+        }
+      ],
+      "episode": {
+        "image": "https://artworks.thetvdb.com/banners/example.jpg",
+        "name": "Example Name",
+        "year": "2024"
+      },
+      "episodeId": 12345,
+      "id": 12345,
+      "image": "https://artworks.thetvdb.com/banners/example.jpg",
+      "isFeatured": true,
+      "movieId": 12345,
+      "movie": {
+        "image": "https://artworks.thetvdb.com/banners/example.jpg",
+        "name": "Example Name",
+        "year": "2024"
+      },
+      "name": "Example Name",
+      "nameTranslations": [
+        "example"
+      ],
+      "overviewTranslations": [
+        "example"
+      ],
+      "peopleId": 12345,
+      "personImgURL": "https://artworks.thetvdb.com/banners/example.jpg",
+      "peopleType": "example",
+      "seriesId": 12345,
+      "series": {
+        "image": "https://artworks.thetvdb.com/banners/example.jpg",
+        "name": "Example Name",
+        "year": "2024"
+      },
+      "sort": 12345,
+      "tagOptions": [
+        {
+          "helpText": null,
+          "id": null,
+          "name": null,
+          "tag": null,
+          "tagName": null
+        }
+      ],
+      "type": 12345,
+      "url": "https://artworks.thetvdb.com/banners/example.jpg",
+      "personName": "example"
+    }
+  ],
+  "death": "example",
+  "gender": 1,
+  "id": 12345,
+  "image": "https://artworks.thetvdb.com/banners/example.jpg",
+  "lastUpdated": "2024-01-15",
+  "name": "Example Name",
+  "nameTranslations": [
+    "example"
+  ],
+  "overviewTranslations": [
+    "example"
+  ],
+  "races": [
+    {}
+  ],
+  "remoteIds": [
+    {
+      "id": "abc123",
+      "type": 12345,
+      "sourceName": "example"
+    }
+  ],
+  "score": 100,
+  "slug": "example-slug",
+  "tagOptions": [
+    {
+      "helpText": "example",
+      "id": 12345,
+      "name": "Example Name",
+      "tag": 12345,
+      "tagName": "example"
+    }
+  ],
+  "translations": {
+    "nameTranslations": [
+      {
+        "aliases": [
+          "example"
+        ],
+        "isAlias": true,
+        "isPrimary": true,
+        "language": "eng",
+        "name": "Example Name",
+        "overview": "A descriptive paragraph of text.",
+        "tagline": "example"
+      }
+    ],
+    "overviewTranslations": [
+      {
+        "aliases": [
+          "example"
+        ],
+        "isAlias": true,
+        "isPrimary": true,
+        "language": "eng",
+        "name": "Example Name",
+        "overview": "A descriptive paragraph of text.",
+        "tagline": "example"
+      }
+    ],
+    "alias": [
+      "example"
+    ]
+  }
+}

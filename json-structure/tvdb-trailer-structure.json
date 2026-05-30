@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-structure/tvdb-trailer-structure.json",
+  "name": "Trailer",
+  "description": "trailer record",
+  "properties": {
+    "id": {
+      "type": "int64",
+      "x-go-name": "ID",
+      "example": 12345
+    },
+    "language": {
+      "type": "string",
+      "example": "eng"
+    },
+    "name": {
+      "type": "string",
+      "example": "Example Name"
+    },
+    "url": {
+      "type": "string",
+      "example": "https://artworks.thetvdb.com/banners/example.jpg"
+    },
+    "runtime": {
+      "type": "int32",
+      "example": 1
+    }
+  },
+  "type": "object"
+}

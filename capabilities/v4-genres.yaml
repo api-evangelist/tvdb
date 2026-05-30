@@ -1,0 +1,111 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: TVDB API V4 — Genres
+  description: 'TVDB API V4 — Genres. 2 operations. Lead operation: Get All Genres. Self-contained Naftiko capability covering one TheTVDB business surface.'
+  tags:
+  - TheTVDB
+  - Television
+  - Genres
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+- namespace: env
+  keys:
+    TVDB_BEARER_TOKEN: TVDB_BEARER_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: v4-genres
+    baseUri: 'https://api4.thetvdb.com/v4'
+    description: TVDB API V4 — Genres business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.TVDB_BEARER_TOKEN}}'
+    resources:
+    - name: genres
+      path: /genres
+      operations:
+      - name: getAllGenres
+        method: GET
+        description: TheTVDB Get All Genres
+        inputParameters: []
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: genres-id
+      path: '/genres/{id}'
+      operations:
+      - name: getGenreBase
+        method: GET
+        description: TheTVDB Get Genre Base
+        inputParameters:
+        - name: id
+          in: path
+          type: number
+          required: true
+          description: id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: v4-genres-rest
+    port: 8080
+    description: REST adapter for TVDB API V4 — Genres. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/genres
+      name: genres
+      description: REST surface for genres.
+      operations:
+      - method: GET
+        name: getAllGenres
+        description: TheTVDB Get All Genres
+        call: v4-genres.getAllGenres
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/genres/{id}
+      name: genres-id
+      description: REST surface for genres-id.
+      operations:
+      - method: GET
+        name: getGenreBase
+        description: TheTVDB Get Genre Base
+        call: v4-genres.getGenreBase
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: v4-genres-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for TVDB API V4 — Genres. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: get-genres
+      description: TheTVDB Get All Genres
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-genres.getAllGenres
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-genre-base
+      description: TheTVDB Get Genre Base
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-genres.getGenreBase
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

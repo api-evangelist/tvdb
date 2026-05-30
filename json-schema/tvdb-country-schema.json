@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-country-schema.json",
+  "title": "Country",
+  "description": "country record",
+  "properties": {
+    "id": {
+      "type": "string",
+      "x-go-name": "ID",
+      "example": "abc123"
+    },
+    "name": {
+      "type": "string",
+      "x-go-name": "Name",
+      "example": "Example Name"
+    },
+    "shortCode": {
+      "type": "string",
+      "x-go-name": "ShortCode",
+      "example": "example"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-structure/tvdb-tag-option-entity-structure.json",
+  "name": "TagOptionEntity",
+  "description": "a entity with selected tag option",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "Example Name"
+    },
+    "tagName": {
+      "type": "string",
+      "example": "example"
+    },
+    "tagId": {
+      "type": "int32",
+      "example": 12345
+    }
+  },
+  "type": "object"
+}

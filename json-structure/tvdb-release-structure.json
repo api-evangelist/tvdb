@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-structure/tvdb-release-structure.json",
+  "name": "Release",
+  "description": "release record",
+  "properties": {
+    "country": {
+      "type": "string",
+      "example": "usa"
+    },
+    "date": {
+      "type": "string",
+      "example": "2024-01-15"
+    },
+    "detail": {
+      "type": "string",
+      "example": "example"
+    }
+  },
+  "type": "object"
+}

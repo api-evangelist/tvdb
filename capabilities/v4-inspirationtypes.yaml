@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: TVDB API V4 — InspirationTypes
+  description: 'TVDB API V4 — InspirationTypes. 1 operations. Lead operation: Get All Inspiration Types. Self-contained Naftiko capability covering one TheTVDB business surface.'
+  tags:
+  - TheTVDB
+  - Television
+  - InspirationTypes
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+- namespace: env
+  keys:
+    TVDB_BEARER_TOKEN: TVDB_BEARER_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: v4-inspirationtypes
+    baseUri: 'https://api4.thetvdb.com/v4'
+    description: TVDB API V4 — InspirationTypes business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.TVDB_BEARER_TOKEN}}'
+    resources:
+    - name: inspiration-types
+      path: /inspiration/types
+      operations:
+      - name: getAllInspirationTypes
+        method: GET
+        description: TheTVDB Get All Inspiration Types
+        inputParameters: []
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: v4-inspirationtypes-rest
+    port: 8080
+    description: REST adapter for TVDB API V4 — InspirationTypes. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/inspiration/types
+      name: inspiration-types
+      description: REST surface for inspiration-types.
+      operations:
+      - method: GET
+        name: getAllInspirationTypes
+        description: TheTVDB Get All Inspiration Types
+        call: v4-inspirationtypes.getAllInspirationTypes
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: v4-inspirationtypes-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for TVDB API V4 — InspirationTypes. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: get-inspiration-types
+      description: TheTVDB Get All Inspiration Types
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-inspirationtypes.getAllInspirationTypes
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-structure/tvdb-studio-base-record-structure.json",
+  "name": "StudioBaseRecord",
+  "description": "studio record",
+  "properties": {
+    "id": {
+      "type": "int64",
+      "x-go-name": "ID",
+      "example": 12345
+    },
+    "name": {
+      "type": "string",
+      "x-go-name": "Name",
+      "example": "Example Name"
+    },
+    "parentStudio": {
+      "type": "int32",
+      "example": 1
+    }
+  },
+  "type": "object"
+}

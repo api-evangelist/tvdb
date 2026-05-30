@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-company-schema.json",
+  "title": "Company",
+  "description": "A company record",
+  "properties": {
+    "activeDate": {
+      "type": "string",
+      "example": "2024-01-15"
+    },
+    "aliases": {
+      "items": {
+        "description": "An alias model, which can be associated with a series, season, movie, person, or list.",
+        "properties": {
+          "language": {
+            "type": "string",
+            "maximum": 4,
+            "description": "A 3-4 character string indicating the language of the alias, as defined in Language.",
+            "example": "eng"
+          },
+          "name": {
+            "type": "string",
+            "maximum": 100,
+            "description": "A string containing the alias itself.",
+            "example": "Example Name"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "x-go-name": "Aliases"
+    },
+    "country": {
+      "type": "string",
+      "example": "usa"
+    },
+    "id": {
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "ID",
+      "example": 12345
+    },
+    "inactiveDate": {
+      "type": "string",
+      "example": "2024-01-15"
+    },
+    "name": {
+      "type": "string",
+      "example": "Example Name"
+    },
+    "nameTranslations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-go-name": "NameTranslations",
+      "example": [
+        "example"
+      ]
+    },
+    "overviewTranslations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-go-name": "OverviewTranslations",
+      "example": [
+        "example"
+      ]
+    },
+    "primaryCompanyType": {
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "PrimaryCompanyType",
+      "nullable": true,
+      "example": 12345
+    },
+    "slug": {
+      "type": "string",
+      "x-go-name": "Slug",
+      "example": "example-slug"
+    },
+    "parentCompany": {
+      "type": "object",
+      "description": "A parent company record",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "nullable": true,
+          "example": 12345
+        },
+        "name": {
+          "type": "string",
+          "example": "Example Name"
+        },
+        "relation": {
+          "type": "object",
+          "description": "A company relationship",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "nullable": true,
+              "example": 12345
+            },
+            "typeName": {
+              "type": "string",
+              "example": "example"
+            }
+          }
+        }
+      }
+    },
+    "tagOptions": {
+      "items": {
+        "description": "tag option record",
+        "properties": {
+          "helpText": {
+            "type": "string",
+            "example": "example"
+          },
+          "id": {
+            "format": "int64",
+            "type": "integer",
+            "x-go-name": "ID",
+            "example": 12345
+          },
+          "name": {
+            "type": "string",
+            "x-go-name": "Name",
+            "example": "Example Name"
+          },
+          "tag": {
+            "format": "int64",
+            "type": "integer",
+            "x-go-name": "Tag",
+            "example": 12345
+          },
+          "tagName": {
+            "type": "string",
+            "x-go-name": "TagName",
+            "example": "example"
+          }
+        },
+        "type": "object",
+        "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+      },
+      "type": "array",
+      "x-go-name": "TagOptions"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-structure/tvdb-record-info-structure.json",
+  "name": "RecordInfo",
+  "description": "base record info",
+  "properties": {
+    "image": {
+      "type": "string",
+      "x-go-name": "Image",
+      "example": "https://artworks.thetvdb.com/banners/example.jpg"
+    },
+    "name": {
+      "type": "string",
+      "x-go-name": "Name",
+      "example": "Example Name"
+    },
+    "year": {
+      "type": "string",
+      "example": "2024"
+    }
+  },
+  "type": "object"
+}

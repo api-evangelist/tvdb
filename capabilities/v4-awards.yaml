@@ -1,0 +1,153 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: TVDB API V4 — Awards
+  description: 'TVDB API V4 — Awards. 3 operations. Lead operation: Get All Awards. Self-contained Naftiko capability covering one TheTVDB business surface.'
+  tags:
+  - TheTVDB
+  - Television
+  - Awards
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+- namespace: env
+  keys:
+    TVDB_BEARER_TOKEN: TVDB_BEARER_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: v4-awards
+    baseUri: 'https://api4.thetvdb.com/v4'
+    description: TVDB API V4 — Awards business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.TVDB_BEARER_TOKEN}}'
+    resources:
+    - name: awards
+      path: /awards
+      operations:
+      - name: getAllAwards
+        method: GET
+        description: TheTVDB Get All Awards
+        inputParameters: []
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: awards-id
+      path: '/awards/{id}'
+      operations:
+      - name: getAward
+        method: GET
+        description: TheTVDB Get Award
+        inputParameters:
+        - name: id
+          in: path
+          type: number
+          required: true
+          description: id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: awards-id-extended
+      path: '/awards/{id}/extended'
+      operations:
+      - name: getAwardExtended
+        method: GET
+        description: TheTVDB Get Award Extended
+        inputParameters:
+        - name: id
+          in: path
+          type: number
+          required: true
+          description: id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: v4-awards-rest
+    port: 8080
+    description: REST adapter for TVDB API V4 — Awards. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/awards
+      name: awards
+      description: REST surface for awards.
+      operations:
+      - method: GET
+        name: getAllAwards
+        description: TheTVDB Get All Awards
+        call: v4-awards.getAllAwards
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/awards/{id}
+      name: awards-id
+      description: REST surface for awards-id.
+      operations:
+      - method: GET
+        name: getAward
+        description: TheTVDB Get Award
+        call: v4-awards.getAward
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/awards/{id}/extended
+      name: awards-id-extended
+      description: REST surface for awards-id-extended.
+      operations:
+      - method: GET
+        name: getAwardExtended
+        description: TheTVDB Get Award Extended
+        call: v4-awards.getAwardExtended
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: v4-awards-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for TVDB API V4 — Awards. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: get-awards
+      description: TheTVDB Get All Awards
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-awards.getAllAwards
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-award
+      description: TheTVDB Get Award
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-awards.getAward
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-award-extended
+      description: TheTVDB Get Award Extended
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-awards.getAwardExtended
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

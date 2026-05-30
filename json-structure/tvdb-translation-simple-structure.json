@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-structure/tvdb-translation-simple-structure.json",
+  "name": "TranslationSimple",
+  "description": "translation simple record",
+  "type": "object",
+  "example": {
+    "ara": "\u062a\u062f\u0648\u0631 \u0642\u0635\u0629 \u0627\u0644\u0645\u0633\u0644\u0633\u0644 \u062d\u0648\u0644...",
+    "ces": "B\u011bhem letu \u010d. 815 spole\u010dnosti Oceanic...",
+    "deu": "Im Bruchteil einer Sekunde ger\u00e4t das Leben..."
+  },
+  "additionalProperties": {
+    "type": "string"
+  }
+}

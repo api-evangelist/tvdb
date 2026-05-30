@@ -1,0 +1,253 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: TVDB API V4 — Lists
+  description: 'TVDB API V4 — Lists. 5 operations. Lead operation: Get All Lists. Self-contained Naftiko capability covering one TheTVDB business surface.'
+  tags:
+  - TheTVDB
+  - Television
+  - Lists
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+- namespace: env
+  keys:
+    TVDB_BEARER_TOKEN: TVDB_BEARER_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: v4-lists
+    baseUri: 'https://api4.thetvdb.com/v4'
+    description: TVDB API V4 — Lists business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.TVDB_BEARER_TOKEN}}'
+    resources:
+    - name: lists
+      path: /lists
+      operations:
+      - name: getAllLists
+        method: GET
+        description: TheTVDB Get All Lists
+        inputParameters:
+        - name: page
+          in: query
+          type: number
+          required: false
+          description: page number
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: lists-id
+      path: '/lists/{id}'
+      operations:
+      - name: getList
+        method: GET
+        description: TheTVDB Get List
+        inputParameters:
+        - name: id
+          in: path
+          type: number
+          required: true
+          description: id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: lists-slug-slug
+      path: '/lists/slug/{slug}'
+      operations:
+      - name: getListBySlug
+        method: GET
+        description: TheTVDB Get List by Slug
+        inputParameters:
+        - name: slug
+          in: path
+          type: string
+          required: true
+          description: slug
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: lists-id-extended
+      path: '/lists/{id}/extended'
+      operations:
+      - name: getListExtended
+        method: GET
+        description: TheTVDB Get List Extended
+        inputParameters:
+        - name: id
+          in: path
+          type: number
+          required: true
+          description: id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: lists-id-translations-language
+      path: '/lists/{id}/translations/{language}'
+      operations:
+      - name: getListTranslation
+        method: GET
+        description: TheTVDB Get List Translation
+        inputParameters:
+        - name: id
+          in: path
+          type: number
+          required: true
+          description: id
+        - name: language
+          in: path
+          type: string
+          required: true
+          description: language
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: v4-lists-rest
+    port: 8080
+    description: REST adapter for TVDB API V4 — Lists. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/lists
+      name: lists
+      description: REST surface for lists.
+      operations:
+      - method: GET
+        name: getAllLists
+        description: TheTVDB Get All Lists
+        call: v4-lists.getAllLists
+        with:
+          page: rest.page
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/lists/{id}
+      name: lists-id
+      description: REST surface for lists-id.
+      operations:
+      - method: GET
+        name: getList
+        description: TheTVDB Get List
+        call: v4-lists.getList
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/lists/slug/{slug}
+      name: lists-slug-slug
+      description: REST surface for lists-slug-slug.
+      operations:
+      - method: GET
+        name: getListBySlug
+        description: TheTVDB Get List by Slug
+        call: v4-lists.getListBySlug
+        with:
+          slug: rest.slug
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/lists/{id}/extended
+      name: lists-id-extended
+      description: REST surface for lists-id-extended.
+      operations:
+      - method: GET
+        name: getListExtended
+        description: TheTVDB Get List Extended
+        call: v4-lists.getListExtended
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/lists/{id}/translations/{language}
+      name: lists-id-translations-language
+      description: REST surface for lists-id-translations-language.
+      operations:
+      - method: GET
+        name: getListTranslation
+        description: TheTVDB Get List Translation
+        call: v4-lists.getListTranslation
+        with:
+          id: rest.id
+          language: rest.language
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: v4-lists-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for TVDB API V4 — Lists. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: get-lists
+      description: TheTVDB Get All Lists
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-lists.getAllLists
+      with:
+        page: tools.page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-list
+      description: TheTVDB Get List
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-lists.getList
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-list-slug
+      description: TheTVDB Get List by Slug
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-lists.getListBySlug
+      with:
+        slug: tools.slug
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-list-extended
+      description: TheTVDB Get List Extended
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-lists.getListExtended
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-list-translation
+      description: TheTVDB Get List Translation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-lists.getListTranslation
+      with:
+        id: tools.id
+        language: tools.language
+      outputParameters:
+      - type: object
+        mapping: $.

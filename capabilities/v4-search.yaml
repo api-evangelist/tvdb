@@ -1,0 +1,205 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: TVDB API V4 — Search
+  description: 'TVDB API V4 — Search. 2 operations. Lead operation: Get Search Results. Self-contained Naftiko capability covering one TheTVDB business surface.'
+  tags:
+  - TheTVDB
+  - Television
+  - Search
+  created: '2026-05-30'
+  modified: '2026-05-30'
+binds:
+- namespace: env
+  keys:
+    TVDB_BEARER_TOKEN: TVDB_BEARER_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: v4-search
+    baseUri: 'https://api4.thetvdb.com/v4'
+    description: TVDB API V4 — Search business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.TVDB_BEARER_TOKEN}}'
+    resources:
+    - name: search
+      path: /search
+      operations:
+      - name: getSearchResults
+        method: GET
+        description: TheTVDB Get Search Results
+        inputParameters:
+        - name: query
+          in: query
+          type: string
+          required: false
+          description: The primary search string, which can include the main title for a record including all translations and aliases.
+        - name: q
+          in: query
+          type: string
+          required: false
+          description: Alias of the "query" parameter.  Recommend using query instead as this field will eventually be deprecated.
+        - name: type
+          in: query
+          type: string
+          required: false
+          description: Restrict results to a specific entity type.  Can be movie, series, person, or company.
+        - name: year
+          in: query
+          type: number
+          required: false
+          description: Restrict results to a specific year. Currently only used for series and movies.
+        - name: company
+          in: query
+          type: string
+          required: false
+          description: Restrict results to a specific company (original network, production company, studio, etc).  As an example, "The Walking Dead" would have companies of "AMC", "AMC+", and 
+            "Disney+".
+        - name: country
+          in: query
+          type: string
+          required: false
+          description: Restrict results to a specific country of origin. Should contain a 3 character country code. Currently only used for series and movies.
+        - name: director
+          in: query
+          type: string
+          required: false
+          description: Restrict results to a specific director.  Generally only used for movies.  Should include the full name of the director, such as "Steven Spielberg".
+        - name: language
+          in: query
+          type: string
+          required: false
+          description: Restrict results to a specific primary language.  Should include the 3 character language code.  Currently only used for series and movies.
+        - name: primaryType
+          in: query
+          type: string
+          required: false
+          description: Restrict results to a specific type of company.  Should include the full name of the type of company, such as "Production Company".  Only used for companies.
+        - name: network
+          in: query
+          type: string
+          required: false
+          description: Restrict results to a specific network.  Used for TV and TV movies, and functions the same as the company parameter with more specificity.
+        - name: remote_id
+          in: query
+          type: string
+          required: false
+          description: Search for a specific remote id.  Allows searching for an IMDB or EIDR id, for example.
+        - name: offset
+          in: query
+          type: number
+          required: false
+          description: Offset results.
+        - name: limit
+          in: query
+          type: number
+          required: false
+          description: Limit results.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: search-remoteid-remoteid
+      path: /search/remoteid/{remoteId}
+      operations:
+      - name: getSearchResultsByRemoteId
+        method: GET
+        description: TheTVDB Get Search Results by Remote Id
+        inputParameters:
+        - name: remoteId
+          in: path
+          type: string
+          required: true
+          description: Search for a specific remote id.  Allows searching for an IMDB or EIDR id, for example.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: v4-search-rest
+    port: 8080
+    description: REST adapter for TVDB API V4 — Search. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/search
+      name: search
+      description: REST surface for search.
+      operations:
+      - method: GET
+        name: getSearchResults
+        description: TheTVDB Get Search Results
+        call: v4-search.getSearchResults
+        with:
+          query: rest.query
+          q: rest.q
+          type: rest.type
+          year: rest.year
+          company: rest.company
+          country: rest.country
+          director: rest.director
+          language: rest.language
+          primaryType: rest.primaryType
+          network: rest.network
+          remote_id: rest.remote_id
+          offset: rest.offset
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/search/remoteid/{remote-id}
+      name: search-remoteid-remoteid
+      description: REST surface for search-remoteid-remoteid.
+      operations:
+      - method: GET
+        name: getSearchResultsByRemoteId
+        description: TheTVDB Get Search Results by Remote Id
+        call: v4-search.getSearchResultsByRemoteId
+        with:
+          remoteId: rest.remoteId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: v4-search-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for TVDB API V4 — Search. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: get-search-results
+      description: TheTVDB Get Search Results
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-search.getSearchResults
+      with:
+        query: tools.query
+        q: tools.q
+        type: tools.type
+        year: tools.year
+        company: tools.company
+        country: tools.country
+        director: tools.director
+        language: tools.language
+        primaryType: tools.primaryType
+        network: tools.network
+        remote_id: tools.remote_id
+        offset: tools.offset
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-search-results-remote-id
+      description: TheTVDB Get Search Results by Remote Id
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: v4-search.getSearchResultsByRemoteId
+      with:
+        remoteId: tools.remoteId
+      outputParameters:
+      - type: object
+        mapping: $.

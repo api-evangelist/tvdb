@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-structure/tvdb-user-info-structure.json",
+  "name": "UserInfo",
+  "description": "User info record",
+  "properties": {
+    "id": {
+      "type": "int32",
+      "example": 12345
+    },
+    "language": {
+      "type": "string",
+      "example": "eng"
+    },
+    "name": {
+      "type": "string",
+      "example": "Example Name"
+    },
+    "type": {
+      "type": "string",
+      "example": "example"
+    }
+  },
+  "type": "object"
+}

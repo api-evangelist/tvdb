@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-list-extended-record-schema.json",
+  "title": "ListExtendedRecord",
+  "description": "extended list record",
+  "properties": {
+    "aliases": {
+      "items": {
+        "description": "An alias model, which can be associated with a series, season, movie, person, or list.",
+        "properties": {
+          "language": {
+            "type": "string",
+            "maximum": 4,
+            "description": "A 3-4 character string indicating the language of the alias, as defined in Language.",
+            "example": "eng"
+          },
+          "name": {
+            "type": "string",
+            "maximum": 100,
+            "description": "A string containing the alias itself.",
+            "example": "Example Name"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array",
+      "x-go-name": "Aliases"
+    },
+    "entities": {
+      "items": {
+        "description": "Entity record",
+        "properties": {
+          "movieId": {
+            "type": "integer",
+            "example": 12345
+          },
+          "order": {
+            "format": "int64",
+            "type": "integer",
+            "x-go-name": "Order",
+            "example": 12345
+          },
+          "seriesId": {
+            "type": "integer",
+            "example": 12345
+          }
+        },
+        "type": "object",
+        "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+      },
+      "type": "array",
+      "x-go-name": "Entities"
+    },
+    "id": {
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "ID",
+      "example": 12345
+    },
+    "image": {
+      "type": "string",
+      "example": "https://artworks.thetvdb.com/banners/example.jpg"
+    },
+    "imageIsFallback": {
+      "type": "boolean",
+      "example": true
+    },
+    "isOfficial": {
+      "type": "boolean",
+      "x-go-name": "IsOfficial",
+      "example": true
+    },
+    "name": {
+      "type": "string",
+      "example": "Example Name"
+    },
+    "nameTranslations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-go-name": "NameTranslations",
+      "example": [
+        "example"
+      ]
+    },
+    "overview": {
+      "type": "string",
+      "example": "A descriptive paragraph of text."
+    },
+    "overviewTranslations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-go-name": "OverviewTranslations",
+      "example": [
+        "example"
+      ]
+    },
+    "score": {
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "Score",
+      "example": 100
+    },
+    "url": {
+      "type": "string",
+      "example": "https://artworks.thetvdb.com/banners/example.jpg"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-structure/tvdb-status-structure.json",
+  "name": "Status",
+  "description": "status record",
+  "properties": {
+    "id": {
+      "type": "int64",
+      "x-go-name": "ID",
+      "nullable": true,
+      "example": 12345
+    },
+    "keepUpdated": {
+      "type": "boolean",
+      "x-go-name": "KeepUpdated",
+      "example": "2024-01-15"
+    },
+    "name": {
+      "type": "string",
+      "x-go-name": "Name",
+      "example": "Example Name"
+    },
+    "recordType": {
+      "type": "string",
+      "x-go-name": "RecordType",
+      "example": "example"
+    }
+  },
+  "type": "object"
+}

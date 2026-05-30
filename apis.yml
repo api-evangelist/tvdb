@@ -1,32 +1,195 @@
 aid: tvdb
-name: TVDB
-description: "Television data"
-url: https://thetvdb.com/api-information
+name: TheTVDB
+url: https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/apis.yml
 specificationVersion: '0.20'
 created: '2026-05-28'
-modified: '2026-05-28'
+modified: '2026-05-30'
+position: Provider
+access: 3rd-Party
+kind: contract
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 x-source: public-apis/public-apis
-x-category: "Video"
+x-category: Video
+x-type: company
 x-tier: 3
 x-tier-reason: bulk-registered-from-public-apis
+description: TheTVDB is a community-driven television and movie metadata database founded in 2006. It supplies structured
+  metadata about hundreds of thousands of TV series, movies, people, artwork, awards, and related entities to media center
+  applications, streaming guides, and entertainment apps worldwide. TheTVDB v4 API uses JWT bearer authentication and exposes
+  REST endpoints for series, movies, people, artwork, awards, episodes, genres, languages, countries, companies, content
+  ratings, search, seasons, and updates. Commercial usage requires either a subscriber-supported API key (each end user must
+  maintain a $12/year TheTVDB subscription) or a negotiated commercial license based on company revenue tier.
 tags:
-  - Video
+  - Entertainment
+  - Movies
+  - Television
+  - Media Metadata
   - Public APIs
+  - Video
 apis:
-  - name: TVDB
-    description: "Television data"
-    humanURL: https://thetvdb.com/api-information
-    baseURL: https://thetvdb.com/api-information
+  - aid: tvdb:tvdb-v4-api
+    name: TheTVDB v4 API
+    description: The TheTVDB v4 API is a REST API providing structured metadata for TV series, movies, people, artwork,
+      awards, episodes, seasons, companies, content ratings, genres, languages, countries, and search. It uses JWT bearer
+      authentication acquired via the /login endpoint with an API key (and optional subscriber PIN). The base URL is
+      https://api4.thetvdb.com/v4 and tokens are valid for one month. The API surface covers 67 operations across 29 tag
+      groups including Series, Movies, People, Artwork, Awards, Episodes, Genres, Languages, Countries, Companies, Content
+      Ratings, Search, Seasons, Lists, Favorites, Updates, and User Info. TheTVDB recommends maintaining a local database
+      copy or caching proxy for high-volume usage and using the /updates endpoint to stay in sync.
+    humanURL: https://thetvdb.github.io/v4-api/
+    baseURL: https://api4.thetvdb.com/v4
     tags:
-      - Video
+      - Television
+      - Movies
+      - Metadata
+      - Entertainment
     properties:
       - type: Documentation
-        url: https://thetvdb.com/api-information
+        url: https://thetvdb.github.io/v4-api/
+      - type: APIReference
+        url: https://thetvdb.github.io/v4-api/
+      - type: SignUp
+        url: https://thetvdb.com/api-information/signup
+      - type: Authentication
+        url: https://thetvdb.github.io/v4-api/#/Login
+      - type: GitHubRepository
+        url: https://github.com/thetvdb/v4-api
+      - type: Postman
+        url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+      - type: OpenAPI
+        url: openapi/tvdb-openapi.yml
+      - type: SpectralRules
+        url: rules/tvdb-rules.yml
+      - type: JSONLD
+        url: json-ld/tvdb-context.jsonld
+      - type: Vocabulary
+        url: vocabulary/tvdb-vocabulary.yml
+      - type: SDK
+        title: Python SDK
+        url: https://github.com/thetvdb/tvdb-v4-python
+      - type: Integrations
+        title: Kodi TV Shows Plugin
+        url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+      - type: Integrations
+        title: Kodi Movies Plugin
+        url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+      - type: IssueTracker
+        url: https://github.com/thetvdb/v4-api/issues
+      - type: NaftikoCapability
+        url: capabilities/v4-artwork.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-artwork-statuses.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-artwork-types.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-award-categories.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-awards.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-characters.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-companies.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-content-ratings.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-countries.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-entity-types.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-episodes.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-favorites.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-genders.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-genres.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-inspirationtypes.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-languages.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-lists.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-login.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-movies.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-movie-statuses.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-people.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-people-types.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-search.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-seasons.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-series.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-series-statuses.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-source-types.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-updates.yaml
+      - type: NaftikoCapability
+        url: capabilities/v4-user-info.yaml
 common:
   - type: Website
+    url: https://thetvdb.com
+  - type: Documentation
     url: https://thetvdb.com/api-information
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: GitHubOrganization
+    url: https://github.com/thetvdb
+  - type: SignUp
+    url: https://thetvdb.com/api-information/signup
+  - type: Pricing
+    url: https://thetvdb.com/api-information
+  - type: Support
+    url: https://support.thetvdb.com/
+  - type: TermsOfService
+    url: https://thetvdb.com/terms
+  - type: PrivacyPolicy
+    url: https://thetvdb.com/privacy
+  - type: APIKeys
+    url: https://www.thetvdb.com/dashboard/account/apikey
   - type: PublicAPIsListing
     url: https://github.com/public-apis/public-apis
+  - type: Plans
+    url: plans/tvdb-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/tvdb-rate-limits.yml
+  - type: FinOps
+    url: finops/tvdb-finops.yml
+  - type: Features
+    data:
+      - 'Subscriber-supported API: free; each end user must hold a $12/year TheTVDB subscription'
+      - 'Commercial under $50k revenue: free with attribution'
+      - 'Commercial $50k-$250k revenue: $1,000/year'
+      - 'Commercial $250k-$1M revenue: $10,000/year'
+      - 'Commercial $1M+ revenue: custom negotiated terms'
+      - JWT bearer authentication via /login (token valid 1 month)
+      - Minimum TLS 1.2 enforced
+      - 67 operations across 29 tag groups
+      - Series, Movies, People, Artwork, Awards, Episodes, Genres, Languages, Countries, Companies, Content Ratings, Search,
+        Seasons, Lists, Favorites, Updates, User Info
+      - /updates endpoint for incremental sync with merge deletion handling
+      - Multiple season type ordering (Aired Order, Netflix, Alternate, etc.)
+      - Score field for relative popularity sorting
+      - Heavily cacheable reference data (genres, languages, content ratings, etc.)
+      - Attribution requirement "Metadata provided by TheTVDB"
+      - Official Python SDK
+      - Kodi plugins for TV shows and movies
+      - Postman collection
+      - GitHub-hosted Swagger documentation
+    sources:
+      - https://thetvdb.com/api-information
+      - https://github.com/thetvdb/v4-api
+    updated: '2026-05-30'
+  - type: Tools
+    title: Postman Collection
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

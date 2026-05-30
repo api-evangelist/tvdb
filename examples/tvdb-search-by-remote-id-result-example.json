@@ -1,0 +1,205 @@
+{
+  "series": {
+    "aliases": [
+      {
+        "language": "eng",
+        "name": "Example Name"
+      }
+    ],
+    "averageRuntime": 1,
+    "country": "usa",
+    "defaultSeasonType": 12345,
+    "episodes": [
+      {
+        "absoluteNumber": 1,
+        "aired": "example",
+        "airsAfterSeason": 1,
+        "airsBeforeEpisode": 1,
+        "airsBeforeSeason": 1,
+        "finaleType": "example",
+        "id": 12345,
+        "image": "https://artworks.thetvdb.com/banners/example.jpg",
+        "imageType": 1,
+        "isMovie": 12345,
+        "lastUpdated": "2024-01-15",
+        "linkedMovie": 1,
+        "name": "Example Name",
+        "nameTranslations": [
+          "example"
+        ],
+        "number": 1,
+        "overview": "A descriptive paragraph of text.",
+        "overviewTranslations": [
+          "example"
+        ],
+        "runtime": 1,
+        "seasonNumber": 1,
+        "seasons": [
+          null
+        ],
+        "seriesId": 12345,
+        "seasonName": "example",
+        "year": "2024"
+      }
+    ],
+    "firstAired": "example",
+    "id": 12345,
+    "image": "https://artworks.thetvdb.com/banners/example.jpg",
+    "isOrderRandomized": true,
+    "lastAired": "example",
+    "lastUpdated": "2024-01-15",
+    "name": "Example Name",
+    "nameTranslations": [
+      "example"
+    ],
+    "nextAired": "example",
+    "originalCountry": "example",
+    "originalLanguage": "example",
+    "overviewTranslations": [
+      "example"
+    ],
+    "score": 100,
+    "slug": "example-slug",
+    "status": "Continuing",
+    "year": "2024"
+  },
+  "people": {
+    "aliases": [
+      {
+        "language": "eng",
+        "name": "Example Name"
+      }
+    ],
+    "id": 12345,
+    "image": "https://artworks.thetvdb.com/banners/example.jpg",
+    "lastUpdated": "2024-01-15",
+    "name": "Example Name",
+    "nameTranslations": [
+      "example"
+    ],
+    "overviewTranslations": [
+      "example"
+    ],
+    "score": 100
+  },
+  "movie": {
+    "aliases": [
+      {
+        "language": "eng",
+        "name": "Example Name"
+      }
+    ],
+    "id": 12345,
+    "image": "https://artworks.thetvdb.com/banners/example.jpg",
+    "lastUpdated": "2024-01-15",
+    "name": "Example Name",
+    "nameTranslations": [
+      "example"
+    ],
+    "overviewTranslations": [
+      "example"
+    ],
+    "score": 100,
+    "slug": "example-slug",
+    "status": "Continuing",
+    "runtime": 1,
+    "year": "2024"
+  },
+  "episode": {
+    "absoluteNumber": 1,
+    "aired": "example",
+    "airsAfterSeason": 1,
+    "airsBeforeEpisode": 1,
+    "airsBeforeSeason": 1,
+    "finaleType": "example",
+    "id": 12345,
+    "image": "https://artworks.thetvdb.com/banners/example.jpg",
+    "imageType": 1,
+    "isMovie": 12345,
+    "lastUpdated": "2024-01-15",
+    "linkedMovie": 1,
+    "name": "Example Name",
+    "nameTranslations": [
+      "example"
+    ],
+    "number": 1,
+    "overview": "A descriptive paragraph of text.",
+    "overviewTranslations": [
+      "example"
+    ],
+    "runtime": 1,
+    "seasonNumber": 1,
+    "seasons": [
+      {
+        "id": 12345,
+        "image": "https://artworks.thetvdb.com/banners/example.jpg",
+        "imageType": 1,
+        "lastUpdated": "2024-01-15",
+        "name": "Example Name",
+        "nameTranslations": [
+          "example"
+        ],
+        "number": 12345,
+        "overviewTranslations": [
+          "example"
+        ],
+        "companies": {
+          "studio": null,
+          "network": null,
+          "production": null,
+          "distributor": null,
+          "special_effects": null
+        },
+        "seriesId": 12345,
+        "type": {
+          "alternateName": null,
+          "id": null,
+          "name": null,
+          "type": null
+        },
+        "year": "2024"
+      }
+    ],
+    "seriesId": 12345,
+    "seasonName": "example",
+    "year": "2024"
+  },
+  "company": {
+    "activeDate": "2024-01-15",
+    "aliases": [
+      {
+        "language": "eng",
+        "name": "Example Name"
+      }
+    ],
+    "country": "usa",
+    "id": 12345,
+    "inactiveDate": "2024-01-15",
+    "name": "Example Name",
+    "nameTranslations": [
+      "example"
+    ],
+    "overviewTranslations": [
+      "example"
+    ],
+    "primaryCompanyType": 12345,
+    "slug": "example-slug",
+    "parentCompany": {
+      "id": 12345,
+      "name": "Example Name",
+      "relation": {
+        "id": 12345,
+        "typeName": "example"
+      }
+    },
+    "tagOptions": [
+      {
+        "helpText": "example",
+        "id": 12345,
+        "name": "Example Name",
+        "tag": 12345,
+        "tagName": "example"
+      }
+    ]
+  }
+}

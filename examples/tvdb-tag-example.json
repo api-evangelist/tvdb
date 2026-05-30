@@ -1,0 +1,15 @@
+{
+  "allowsMultiple": true,
+  "helpText": "example",
+  "id": 12345,
+  "name": "Example Name",
+  "options": [
+    {
+      "helpText": "example",
+      "id": 12345,
+      "name": "Example Name",
+      "tag": 12345,
+      "tagName": "example"
+    }
+  ]
+}

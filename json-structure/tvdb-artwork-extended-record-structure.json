@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-structure/tvdb-artwork-extended-record-structure.json",
+  "name": "ArtworkExtendedRecord",
+  "description": "extended artwork record",
+  "properties": {
+    "episodeId": {
+      "type": "int32",
+      "example": 12345
+    },
+    "height": {
+      "type": "int64",
+      "x-go-name": "Height",
+      "example": 12345
+    },
+    "id": {
+      "type": "int64",
+      "x-go-name": "ID",
+      "example": 12345
+    },
+    "image": {
+      "type": "string",
+      "x-go-name": "Image",
+      "example": "https://artworks.thetvdb.com/banners/example.jpg"
+    },
+    "includesText": {
+      "type": "boolean",
+      "example": true
+    },
+    "language": {
+      "type": "string",
+      "example": "eng"
+    },
+    "movieId": {
+      "type": "int32",
+      "example": 12345
+    },
+    "networkId": {
+      "type": "int32",
+      "example": 12345
+    },
+    "peopleId": {
+      "type": "int32",
+      "example": 12345
+    },
+    "score": {
+      "type": "double",
+      "example": 100
+    },
+    "seasonId": {
+      "type": "int32",
+      "example": 12345
+    },
+    "seriesId": {
+      "type": "int32",
+      "example": 12345
+    },
+    "seriesPeopleId": {
+      "type": "int32",
+      "example": 12345
+    },
+    "status": {
+      "description": "artwork status record",
+      "properties": {
+        "id": {
+          "type": "int64",
+          "x-go-name": "ID",
+          "example": 12345
+        },
+        "name": {
+          "type": "string",
+          "example": "Example Name"
+        }
+      },
+      "type": "object",
+      "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+    },
+    "tagOptions": {
+      "items": {
+        "description": "tag option record",
+        "properties": {
+          "helpText": {
+            "type": "string",
+            "example": "example"
+          },
+          "id": {
+            "type": "int64",
+            "x-go-name": "ID",
+            "example": 12345
+          },
+          "name": {
+            "type": "string",
+            "x-go-name": "Name",
+            "example": "Example Name"
+          },
+          "tag": {
+            "type": "int64",
+            "x-go-name": "Tag",
+            "example": 12345
+          },
+          "tagName": {
+            "type": "string",
+            "x-go-name": "TagName",
+            "example": "example"
+          }
+        },
+        "type": "object",
+        "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+      },
+      "type": "array",
+      "x-go-name": "TagOptions"
+    },
+    "thumbnail": {
+      "type": "string",
+      "x-go-name": "Thumbnail",
+      "example": "example"
+    },
+    "thumbnailHeight": {
+      "type": "int64",
+      "x-go-name": "ThumbnailHeight",
+      "example": 12345
+    },
+    "thumbnailWidth": {
+      "type": "int64",
+      "x-go-name": "ThumbnailWidth",
+      "example": 12345
+    },
+    "type": {
+      "type": "int64",
+      "x-go-name": "Type",
+      "description": "The artwork type corresponds to the ids from the /artwork/types endpoint.",
+      "example": 12345
+    },
+    "updatedAt": {
+      "type": "int64",
+      "x-go-name": "UpdatedAt",
+      "example": "2024-01-15"
+    },
+    "width": {
+      "type": "int64",
+      "x-go-name": "Width",
+      "example": 12345
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-structure/tvdb-entity-structure.json",
+  "name": "Entity",
+  "description": "Entity record",
+  "properties": {
+    "movieId": {
+      "type": "int32",
+      "example": 12345
+    },
+    "order": {
+      "type": "int64",
+      "x-go-name": "Order",
+      "example": 12345
+    },
+    "seriesId": {
+      "type": "int32",
+      "example": 12345
+    }
+  },
+  "type": "object"
+}

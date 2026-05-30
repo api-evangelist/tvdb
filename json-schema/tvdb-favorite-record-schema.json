@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-favorite-record-schema.json",
+  "title": "FavoriteRecord",
+  "description": "Favorites record",
+  "properties": {
+    "series": {
+      "type": "integer",
+      "x-go-name": "series",
+      "example": 1
+    },
+    "movie": {
+      "type": "integer",
+      "x-go-name": "movies",
+      "example": 1
+    },
+    "episode": {
+      "type": "integer",
+      "x-go-name": "episodes",
+      "example": 1
+    },
+    "artwork": {
+      "type": "integer",
+      "x-go-name": "artwork",
+      "example": 1
+    },
+    "people": {
+      "type": "integer",
+      "x-go-name": "people",
+      "example": 1
+    },
+    "list": {
+      "type": "integer",
+      "x-go-name": "list",
+      "example": 1
+    }
+  },
+  "type": "object"
+}

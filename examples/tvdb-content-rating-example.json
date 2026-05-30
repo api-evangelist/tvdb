@@ -1,0 +1,9 @@
+{
+  "id": 12345,
+  "name": "Example Name",
+  "description": "A descriptive paragraph of text.",
+  "country": "usa",
+  "contentType": "example",
+  "order": 1,
+  "fullName": "example"
+}

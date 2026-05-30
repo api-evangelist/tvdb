@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-biography-schema.json",
+  "title": "Biography",
+  "description": "biography record",
+  "properties": {
+    "biography": {
+      "type": "string",
+      "x-go-name": "Biography",
+      "example": "example"
+    },
+    "language": {
+      "type": "string",
+      "x-go-name": "Language",
+      "example": "eng"
+    }
+  },
+  "type": "object"
+}

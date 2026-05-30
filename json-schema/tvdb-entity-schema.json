@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-entity-schema.json",
+  "title": "Entity",
+  "description": "Entity record",
+  "properties": {
+    "movieId": {
+      "type": "integer",
+      "example": 12345
+    },
+    "order": {
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "Order",
+      "example": 12345
+    },
+    "seriesId": {
+      "type": "integer",
+      "example": 12345
+    }
+  },
+  "type": "object"
+}

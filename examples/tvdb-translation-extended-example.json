@@ -1,0 +1,31 @@
+{
+  "nameTranslations": [
+    {
+      "aliases": [
+        "example"
+      ],
+      "isAlias": true,
+      "isPrimary": true,
+      "language": "eng",
+      "name": "Example Name",
+      "overview": "A descriptive paragraph of text.",
+      "tagline": "example"
+    }
+  ],
+  "overviewTranslations": [
+    {
+      "aliases": [
+        "example"
+      ],
+      "isAlias": true,
+      "isPrimary": true,
+      "language": "eng",
+      "name": "Example Name",
+      "overview": "A descriptive paragraph of text.",
+      "tagline": "example"
+    }
+  ],
+  "alias": [
+    "example"
+  ]
+}

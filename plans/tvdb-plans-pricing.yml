@@ -1,0 +1,151 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: TheTVDB
+providerId: tvdb
+created: '2026-05-30'
+modified: '2026-05-30'
+reconciled: true
+tags:
+  - Television
+  - Movies
+  - Metadata
+  - Entertainment
+description: >-
+  TheTVDB sells API access through two parallel models: a subscriber-supported
+  model where each end user maintains a personal $12/year TheTVDB subscription
+  and the developer uses a free API key on their behalf, and a negotiated
+  commercial license tiered by company annual revenue. The commercial tiers are
+  free under $50k revenue (attribution required), $1,000/year for $50k-$250k,
+  $10,000/year for $250k-$1M, and custom-negotiated terms above $1M. Both
+  models require an API key minted from the dashboard and use JWT bearer auth
+  acquired via /login. Pricing and terms can change at any time without notice.
+sources:
+  - https://thetvdb.com/api-information
+  - https://thetvdb.com/subscribe
+  - https://github.com/thetvdb/v4-api
+plans:
+  - id: tvdb-subscriber-supported
+    name: Subscriber-Supported API
+    type: freemium
+    description: >-
+      Free API key for developers whose end users each hold an active $12/year
+      TheTVDB subscription. The subscriber pin is passed alongside the API key
+      to /login.
+    entries:
+      - label: API key (subscriber-supported)
+        name: api_key_subscriber
+        type: flat
+        metric: key
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: 'free (subscriber-supported)'
+        userMultiplied: false
+      - label: End-user TheTVDB subscription
+        name: end_user_subscription
+        type: subscription
+        metric: seat
+        limit: 1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: '$12/year'
+        userMultiplied: true
+    elements:
+      - name: Full v4 REST API access
+      - name: JWT bearer authentication (1 month tokens)
+      - name: Updates endpoint for incremental sync
+      - name: Postman collection
+      - name: Official Python SDK
+      - name: Attribution requirement "Metadata provided by TheTVDB"
+
+  - id: tvdb-commercial-under-50k
+    name: Commercial — Under $50k Revenue
+    type: tiered
+    description: >-
+      Free commercial usage for companies with annual revenue under $50k,
+      provided the consuming product displays "Metadata provided by TheTVDB"
+      with a direct link to TheTVDB.com.
+    entries:
+      - label: Commercial license (under $50k revenue)
+        name: commercial_under_50k
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: free (attribution required)
+        userMultiplied: false
+    elements:
+      - name: Full v4 REST API access
+      - name: Attribution requirement
+      - name: Suitable for hobby / pre-revenue / early-stage projects
+
+  - id: tvdb-commercial-50k-250k
+    name: Commercial — $50k-$250k Revenue
+    type: subscription
+    description: >-
+      Negotiated commercial license for companies with annual revenue between
+      $50k and $250k.
+    entries:
+      - label: Commercial license ($50k-$250k revenue)
+        name: commercial_50k_250k
+        type: subscription
+        metric: year
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: $1,000/year
+        userMultiplied: false
+    elements:
+      - name: Full v4 REST API access
+      - name: Negotiated commercial terms
+      - name: Use of TheTVDB data in commercial products
+
+  - id: tvdb-commercial-250k-1m
+    name: Commercial — $250k-$1M Revenue
+    type: subscription
+    description: >-
+      Negotiated commercial license for companies with annual revenue between
+      $250k and $1M.
+    entries:
+      - label: Commercial license ($250k-$1M revenue)
+        name: commercial_250k_1m
+        type: subscription
+        metric: year
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: $10,000/year
+        userMultiplied: false
+    elements:
+      - name: Full v4 REST API access
+      - name: Negotiated commercial terms
+      - name: Use of TheTVDB data in commercial products at scale
+
+  - id: tvdb-commercial-enterprise
+    name: Commercial — $1M+ Revenue (Enterprise)
+    type: enterprise
+    description: >-
+      Custom-negotiated commercial license for companies with annual revenue
+      above $1M. Contact TheTVDB for terms.
+    entries:
+      - label: Enterprise commercial license
+        name: commercial_enterprise
+        type: subscription
+        metric: year
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: custom
+        userMultiplied: false
+    elements:
+      - name: Full v4 REST API access
+      - name: Custom commercial terms negotiated directly with TheTVDB
+      - name: Large-scale media / streaming / catalog use cases

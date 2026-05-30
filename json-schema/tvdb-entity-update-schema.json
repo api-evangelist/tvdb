@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-entity-update-schema.json",
+  "title": "EntityUpdate",
+  "description": "entity update record",
+  "properties": {
+    "entityType": {
+      "type": "string",
+      "x-go-name": "EnitityType",
+      "example": "example"
+    },
+    "methodInt": {
+      "type": "integer",
+      "example": 1
+    },
+    "method": {
+      "type": "string",
+      "x-go-name": "Method",
+      "example": "example"
+    },
+    "extraInfo": {
+      "type": "string",
+      "example": "example"
+    },
+    "userId": {
+      "type": "integer",
+      "example": 12345
+    },
+    "recordType": {
+      "type": "string",
+      "example": "example"
+    },
+    "recordId": {
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "RecordID",
+      "example": 12345
+    },
+    "timeStamp": {
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "TimeStamp",
+      "example": 12345
+    },
+    "seriesId": {
+      "description": "Only present for episodes records",
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "RecordID",
+      "example": 12345
+    },
+    "mergeToId": {
+      "format": "int64",
+      "type": "integer",
+      "example": 12345
+    },
+    "mergeToEntityType": {
+      "type": "string",
+      "example": "example"
+    }
+  },
+  "type": "object"
+}

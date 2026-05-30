@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-structure/tvdb-parent-company-structure.json",
+  "name": "ParentCompany",
+  "description": "A parent company record",
+  "properties": {
+    "id": {
+      "type": "int32",
+      "nullable": true,
+      "example": 12345
+    },
+    "name": {
+      "type": "string",
+      "example": "Example Name"
+    },
+    "relation": {
+      "type": "object",
+      "description": "A company relationship",
+      "properties": {
+        "id": {
+          "type": "int32",
+          "nullable": true,
+          "example": 12345
+        },
+        "typeName": {
+          "type": "string",
+          "example": "example"
+        }
+      }
+    }
+  },
+  "type": "object"
+}

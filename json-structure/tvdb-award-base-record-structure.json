@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-structure/tvdb-award-base-record-structure.json",
+  "name": "AwardBaseRecord",
+  "description": "base award record",
+  "properties": {
+    "id": {
+      "type": "int32",
+      "example": 12345
+    },
+    "name": {
+      "type": "string",
+      "example": "Example Name"
+    }
+  },
+  "type": "object"
+}

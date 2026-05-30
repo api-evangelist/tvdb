@@ -1,0 +1,18 @@
+{
+  "categories": [
+    {
+      "allowCoNominees": true,
+      "award": {
+        "id": 12345,
+        "name": "Example Name"
+      },
+      "forMovies": true,
+      "forSeries": true,
+      "id": 12345,
+      "name": "Example Name"
+    }
+  ],
+  "id": 12345,
+  "name": "Example Name",
+  "score": 100
+}

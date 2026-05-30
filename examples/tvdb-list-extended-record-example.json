@@ -1,0 +1,29 @@
+{
+  "aliases": [
+    {
+      "language": "eng",
+      "name": "Example Name"
+    }
+  ],
+  "entities": [
+    {
+      "movieId": 12345,
+      "order": 12345,
+      "seriesId": 12345
+    }
+  ],
+  "id": 12345,
+  "image": "https://artworks.thetvdb.com/banners/example.jpg",
+  "imageIsFallback": true,
+  "isOfficial": true,
+  "name": "Example Name",
+  "nameTranslations": [
+    "example"
+  ],
+  "overview": "A descriptive paragraph of text.",
+  "overviewTranslations": [
+    "example"
+  ],
+  "score": 100,
+  "url": "https://artworks.thetvdb.com/banners/example.jpg"
+}

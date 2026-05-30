@@ -1,0 +1,38 @@
+{
+  "aliases": [
+    {
+      "language": "eng",
+      "name": "Example Name"
+    }
+  ],
+  "id": 12345,
+  "image": "https://artworks.thetvdb.com/banners/example.jpg",
+  "imageIsFallback": true,
+  "isOfficial": true,
+  "name": "Example Name",
+  "nameTranslations": [
+    "example"
+  ],
+  "overview": "A descriptive paragraph of text.",
+  "overviewTranslations": [
+    "example"
+  ],
+  "remoteIds": [
+    {
+      "id": "abc123",
+      "type": 12345,
+      "sourceName": "example"
+    }
+  ],
+  "tags": [
+    {
+      "helpText": "example",
+      "id": 12345,
+      "name": "Example Name",
+      "tag": 12345,
+      "tagName": "example"
+    }
+  ],
+  "score": 100,
+  "url": "https://artworks.thetvdb.com/banners/example.jpg"
+}

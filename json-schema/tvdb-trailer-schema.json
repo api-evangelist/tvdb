@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-trailer-schema.json",
+  "title": "Trailer",
+  "description": "trailer record",
+  "properties": {
+    "id": {
+      "format": "int64",
+      "type": "integer",
+      "x-go-name": "ID",
+      "example": 12345
+    },
+    "language": {
+      "type": "string",
+      "example": "eng"
+    },
+    "name": {
+      "type": "string",
+      "example": "Example Name"
+    },
+    "url": {
+      "type": "string",
+      "example": "https://artworks.thetvdb.com/banners/example.jpg"
+    },
+    "runtime": {
+      "type": "integer",
+      "example": 1
+    }
+  },
+  "type": "object"
+}

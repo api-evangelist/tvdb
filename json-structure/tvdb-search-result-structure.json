@@ -1,0 +1,211 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-structure/tvdb-search-result-structure.json",
+  "name": "SearchResult",
+  "description": "search result",
+  "properties": {
+    "aliases": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "example": [
+        "example"
+      ]
+    },
+    "companies": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "example": [
+        "example"
+      ]
+    },
+    "companyType": {
+      "type": "string",
+      "example": "example"
+    },
+    "country": {
+      "type": "string",
+      "example": "usa"
+    },
+    "director": {
+      "type": "string",
+      "example": "example"
+    },
+    "first_air_time": {
+      "type": "string",
+      "example": "example"
+    },
+    "genres": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "example": [
+        "example"
+      ]
+    },
+    "id": {
+      "type": "string",
+      "example": "abc123"
+    },
+    "image_url": {
+      "type": "string",
+      "example": "https://artworks.thetvdb.com/banners/example.jpg"
+    },
+    "name": {
+      "type": "string",
+      "example": "Example Name"
+    },
+    "is_official": {
+      "type": "boolean",
+      "example": true
+    },
+    "name_translated": {
+      "type": "string",
+      "example": "example"
+    },
+    "network": {
+      "type": "string",
+      "example": "example"
+    },
+    "objectID": {
+      "type": "string",
+      "example": "abc123"
+    },
+    "officialList": {
+      "type": "string",
+      "example": "example"
+    },
+    "overview": {
+      "type": "string",
+      "example": "A descriptive paragraph of text."
+    },
+    "overviews": {
+      "description": "translation simple record",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "example": {
+        "ara": "\u062a\u062f\u0648\u0631 \u0642\u0635\u0629 \u0627\u0644\u0645\u0633\u0644\u0633\u0644 \u062d\u0648\u0644...",
+        "ces": "B\u011bhem letu \u010d. 815 spole\u010dnosti Oceanic...",
+        "deu": "Im Bruchteil einer Sekunde ger\u00e4t das Leben..."
+      },
+      "type": "object"
+    },
+    "overview_translated": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "example": [
+        "example"
+      ]
+    },
+    "poster": {
+      "type": "string",
+      "example": "example"
+    },
+    "posters": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "example": [
+        "example"
+      ]
+    },
+    "primary_language": {
+      "type": "string",
+      "example": "example"
+    },
+    "remote_ids": {
+      "items": {
+        "description": "remote id record",
+        "properties": {
+          "id": {
+            "type": "string",
+            "x-go-name": "ID",
+            "example": "abc123"
+          },
+          "type": {
+            "type": "int64",
+            "x-go-name": "Type",
+            "example": 12345
+          },
+          "sourceName": {
+            "type": "string",
+            "x-go-name": "SourceName",
+            "example": "example"
+          }
+        },
+        "type": "object",
+        "x-go-package": "github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model"
+      },
+      "type": "array",
+      "x-go-name": "RemoteIDs"
+    },
+    "status": {
+      "type": "string",
+      "x-go-name": "Status",
+      "example": "Continuing"
+    },
+    "slug": {
+      "type": "string",
+      "example": "example-slug"
+    },
+    "studios": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "example": [
+        "example"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "example": "example"
+    },
+    "thumbnail": {
+      "type": "string",
+      "example": "example"
+    },
+    "translations": {
+      "description": "translation simple record",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "example": {
+        "ara": "\u062a\u062f\u0648\u0631 \u0642\u0635\u0629 \u0627\u0644\u0645\u0633\u0644\u0633\u0644 \u062d\u0648\u0644...",
+        "ces": "B\u011bhem letu \u010d. 815 spole\u010dnosti Oceanic...",
+        "deu": "Im Bruchteil einer Sekunde ger\u00e4t das Leben..."
+      },
+      "type": "object"
+    },
+    "translationsWithLang": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "example": [
+        "example"
+      ]
+    },
+    "tvdb_id": {
+      "type": "string",
+      "example": "abc123"
+    },
+    "type": {
+      "type": "string",
+      "example": "example"
+    },
+    "year": {
+      "type": "string",
+      "example": "2024"
+    }
+  },
+  "type": "object"
+}

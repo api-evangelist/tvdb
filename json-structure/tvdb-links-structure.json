@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-structure/tvdb-links-structure.json",
+  "name": "Links",
+  "description": "Links for next, previous and current record",
+  "properties": {
+    "prev": {
+      "type": "string",
+      "nullable": true,
+      "example": "example"
+    },
+    "self": {
+      "type": "string",
+      "nullable": true,
+      "example": "example"
+    },
+    "next": {
+      "type": "string",
+      "example": "example"
+    },
+    "total_items": {
+      "type": "int32",
+      "example": 1
+    },
+    "page_size": {
+      "type": "int32",
+      "example": 1
+    }
+  },
+  "type": "object"
+}

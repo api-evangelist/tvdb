@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-schema/tvdb-entity-type-schema.json",
+  "title": "EntityType",
+  "description": "Entity Type record",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "example": 12345
+    },
+    "name": {
+      "type": "string",
+      "x-go-name": "Order",
+      "example": "Example Name"
+    },
+    "hasSpecials": {
+      "type": "boolean",
+      "example": true
+    }
+  },
+  "type": "object"
+}

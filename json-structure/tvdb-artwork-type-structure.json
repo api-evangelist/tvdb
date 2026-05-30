@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/json-structure/tvdb-artwork-type-structure.json",
+  "name": "ArtworkType",
+  "description": "artwork type record",
+  "properties": {
+    "height": {
+      "type": "int64",
+      "example": 12345
+    },
+    "id": {
+      "type": "int64",
+      "x-go-name": "ID",
+      "example": 12345
+    },
+    "imageFormat": {
+      "type": "string",
+      "x-go-name": "ImageFormat",
+      "example": "example"
+    },
+    "name": {
+      "type": "string",
+      "x-go-name": "Name",
+      "example": "Example Name"
+    },
+    "recordType": {
+      "type": "string",
+      "x-go-name": "RecordType",
+      "example": "example"
+    },
+    "slug": {
+      "type": "string",
+      "x-go-name": "Slug",
+      "example": "example-slug"
+    },
+    "thumbHeight": {
+      "type": "int64",
+      "x-go-name": "ThumbHeight",
+      "example": 12345
+    },
+    "thumbWidth": {
+      "type": "int64",
+      "x-go-name": "ThumbWidth",
+      "example": 12345
+    },
+    "width": {
+      "type": "int64",
+      "x-go-name": "Width",
+      "example": 12345
+    }
+  },
+  "type": "object"
+}
