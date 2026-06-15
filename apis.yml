@@ -13,12 +13,14 @@ x-category: Video
 x-type: company
 x-tier: 3
 x-tier-reason: bulk-registered-from-public-apis
-description: TheTVDB is a community-driven television and movie metadata database founded in 2006. It supplies structured
-  metadata about hundreds of thousands of TV series, movies, people, artwork, awards, and related entities to media center
-  applications, streaming guides, and entertainment apps worldwide. TheTVDB v4 API uses JWT bearer authentication and exposes
-  REST endpoints for series, movies, people, artwork, awards, episodes, genres, languages, countries, companies, content
-  ratings, search, seasons, and updates. Commercial usage requires either a subscriber-supported API key (each end user must
-  maintain a $12/year TheTVDB subscription) or a negotiated commercial license based on company revenue tier.
+description: >-
+  TheTVDB is a community-driven television and movie metadata database founded in 2006. It supplies structured metadata
+  about hundreds of thousands of TV series, movies, people, artwork, awards, and related entities to media center
+  applications, streaming guides, and entertainment apps worldwide. TheTVDB v4 API uses JWT bearer authentication and
+  exposes REST endpoints for series, movies, people, artwork, awards, episodes, genres, languages, countries, companies,
+  content ratings, search, seasons, and updates. Commercial usage requires either a subscriber-supported API key (each
+  end user must maintain a $12/year TheTVDB subscription) or a negotiated commercial license based on company revenue
+  tier.
 tags:
   - Entertainment
   - Movies
@@ -29,13 +31,14 @@ tags:
 apis:
   - aid: tvdb:tvdb-v4-api
     name: TheTVDB v4 API
-    description: The TheTVDB v4 API is a REST API providing structured metadata for TV series, movies, people, artwork,
-      awards, episodes, seasons, companies, content ratings, genres, languages, countries, and search. It uses JWT bearer
+    description: >-
+      The TheTVDB v4 API is a REST API providing structured metadata for TV series, movies, people, artwork, awards,
+      episodes, seasons, companies, content ratings, genres, languages, countries, and search. It uses JWT bearer
       authentication acquired via the /login endpoint with an API key (and optional subscriber PIN). The base URL is
       https://api4.thetvdb.com/v4 and tokens are valid for one month. The API surface covers 67 operations across 29 tag
-      groups including Series, Movies, People, Artwork, Awards, Episodes, Genres, Languages, Countries, Companies, Content
-      Ratings, Search, Seasons, Lists, Favorites, Updates, and User Info. TheTVDB recommends maintaining a local database
-      copy or caching proxy for high-volume usage and using the /updates endpoint to stay in sync.
+      groups including Series, Movies, People, Artwork, Awards, Episodes, Genres, Languages, Countries, Companies,
+      Content Ratings, Search, Seasons, Lists, Favorites, Updates, and User Info. TheTVDB recommends maintaining a local
+      database copy or caching proxy for high-volume usage and using the /updates endpoint to stay in sync.
     humanURL: https://thetvdb.github.io/v4-api/
     baseURL: https://api4.thetvdb.com/v4
     tags:
@@ -75,64 +78,6 @@ apis:
         url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
       - type: IssueTracker
         url: https://github.com/thetvdb/v4-api/issues
-      - type: NaftikoCapability
-        url: capabilities/v4-artwork.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-artwork-statuses.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-artwork-types.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-award-categories.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-awards.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-characters.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-companies.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-content-ratings.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-countries.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-entity-types.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-episodes.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-favorites.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-genders.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-genres.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-inspirationtypes.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-languages.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-lists.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-login.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-movies.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-movie-statuses.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-people.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-people-types.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-search.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-seasons.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-series.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-series-statuses.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-source-types.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-updates.yaml
-      - type: NaftikoCapability
-        url: capabilities/v4-user-info.yaml
 common:
   - type: Website
     url: https://thetvdb.com
@@ -172,8 +117,9 @@ common:
       - JWT bearer authentication via /login (token valid 1 month)
       - Minimum TLS 1.2 enforced
       - 67 operations across 29 tag groups
-      - Series, Movies, People, Artwork, Awards, Episodes, Genres, Languages, Countries, Companies, Content Ratings, Search,
-        Seasons, Lists, Favorites, Updates, User Info
+      - >-
+        Series, Movies, People, Artwork, Awards, Episodes, Genres, Languages, Countries, Companies, Content Ratings,
+        Search, Seasons, Lists, Favorites, Updates, User Info
       - /updates endpoint for incremental sync with merge deletion handling
       - Multiple season type ordering (Aired Order, Netflix, Alternate, etc.)
       - Score field for relative popularity sorting
