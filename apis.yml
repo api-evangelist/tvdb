@@ -51,7 +51,7 @@ apis:
         url: https://thetvdb.github.io/v4-api/
       - type: APIReference
         url: https://thetvdb.github.io/v4-api/
-      - type: SignUp
+      - type: Signup
         url: https://thetvdb.com/api-information/signup
       - type: Authentication
         url: https://thetvdb.github.io/v4-api/#/Login
@@ -67,7 +67,7 @@ apis:
         url: json-ld/tvdb-context.jsonld
       - type: Vocabulary
         url: vocabulary/tvdb-vocabulary.yml
-      - type: SDK
+      - type: SDKs
         title: Python SDK
         url: https://github.com/thetvdb/tvdb-v4-python
       - type: Integrations
@@ -87,7 +87,7 @@ common:
     url: https://thetvdb.github.io/v4-api/
   - type: GitHubOrganization
     url: https://github.com/thetvdb
-  - type: SignUp
+  - type: Signup
     url: https://thetvdb.com/api-information/signup
   - type: Pricing
     url: https://thetvdb.com/api-information
