@@ -79,6 +79,10 @@ apis:
       - type: IssueTracker
         url: https://github.com/thetvdb/v4-api/issues
 common:
+  - type: DomainSecurity
+    url: security/tvdb-domain-security.yml
+  - type: Authentication
+    url: authentication/tvdb-authentication.yml
   - type: Website
     url: https://thetvdb.com
   - type: Documentation
@@ -139,3 +143,5 @@ common:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+  - type: Blog
+    url: https://thetvdb.com/blog
