@@ -79,6 +79,8 @@ apis:
       - type: IssueTracker
         url: https://github.com/thetvdb/v4-api/issues
 common:
+  - type: AgenticAccess
+    url: agentic-access/tvdb-agentic-access.yml
   - type: DomainSecurity
     url: security/tvdb-domain-security.yml
   - type: Authentication
