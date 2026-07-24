@@ -1,0 +1,95 @@
+openapi: 3.0.0
+info:
+  description: 'Documentation of [TheTVDB](https://thetvdb.com/) API V4. All related information is linked from our [Github repo](https://github.com/thetvdb/v4-api). You might also want to use our [Postman collection] (https://www.getpostman.com/collections/7a9397ce69ff246f74d0)
+
+    ## Authentication
+
+    1. Use the /login endpoint and provide your API key as "apikey". If you have a user-supported key, also provide your subscriber PIN as "pin". Otherwise completely remove "pin" from your call.
+
+    2. Executing this call will provide you with a bearer token, which is valid for 1 month.
+
+    3. Provide your bearer token for subsequent API calls by clicking Authorize below or including in the header of all direct API calls: `Authorization: Bearer [your-token]`
+
+
+    ## Notes
+
+    1. "score" is a field across almost all entities.  We generate scores for different types of entities in various ways, so no assumptions should be made about the meaning of this value.  It is simply used to hint at relative popularity for sorting purposes.
+
+    '
+  title: TVDB API V4 Artwork InspirationTypes API
+  version: 4.7.10
+  x-last-validated: '2026-05-30'
+  x-spec-source: https://github.com/thetvdb/v4-api/blob/main/docs/swagger.yml
+servers:
+- url: https://api4.thetvdb.com/v4
+  description: TheTVDB v4 API production
+security:
+- bearerAuth: []
+tags:
+- name: InspirationTypes
+paths:
+  /inspiration/types:
+    get:
+      description: returns list of inspiration types records
+      operationId: getAllInspirationTypes
+      responses:
+        '200':
+          description: response
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/InspirationType'
+                    type: array
+                  status:
+                    type: string
+                type: object
+              examples:
+                GetAllInspirationTypes200Example:
+                  summary: Default getAllInspirationTypes 200 response
+                  x-microcks-default: true
+                  value:
+                    data:
+                    - id: 12345
+                      name: Example Name
+                      description: A descriptive paragraph of text.
+                      reference_name: example
+                      url: https://artworks.thetvdb.com/banners/example.jpg
+                    status: Continuing
+        '401':
+          description: Unauthorized
+      tags:
+      - InspirationTypes
+      summary: TheTVDB Get All Inspiration Types
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    InspirationType:
+      description: Movie inspiration type record
+      properties:
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        name:
+          type: string
+          example: Example Name
+        description:
+          type: string
+          example: A descriptive paragraph of text.
+        reference_name:
+          type: string
+          example: example
+        url:
+          type: string
+          example: https://artworks.thetvdb.com/banners/example.jpg
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

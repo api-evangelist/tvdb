@@ -1,0 +1,368 @@
+openapi: 3.0.0
+info:
+  description: 'Documentation of [TheTVDB](https://thetvdb.com/) API V4. All related information is linked from our [Github repo](https://github.com/thetvdb/v4-api). You might also want to use our [Postman collection] (https://www.getpostman.com/collections/7a9397ce69ff246f74d0)
+
+    ## Authentication
+
+    1. Use the /login endpoint and provide your API key as "apikey". If you have a user-supported key, also provide your subscriber PIN as "pin". Otherwise completely remove "pin" from your call.
+
+    2. Executing this call will provide you with a bearer token, which is valid for 1 month.
+
+    3. Provide your bearer token for subsequent API calls by clicking Authorize below or including in the header of all direct API calls: `Authorization: Bearer [your-token]`
+
+
+    ## Notes
+
+    1. "score" is a field across almost all entities.  We generate scores for different types of entities in various ways, so no assumptions should be made about the meaning of this value.  It is simply used to hint at relative popularity for sorting purposes.
+
+    '
+  title: TVDB API V4 Artwork Companies API
+  version: 4.7.10
+  x-last-validated: '2026-05-30'
+  x-spec-source: https://github.com/thetvdb/v4-api/blob/main/docs/swagger.yml
+servers:
+- url: https://api4.thetvdb.com/v4
+  description: TheTVDB v4 API production
+security:
+- bearerAuth: []
+tags:
+- name: Companies
+paths:
+  /companies:
+    get:
+      description: returns a paginated list of company records
+      operationId: getAllCompanies
+      parameters:
+      - description: name
+        in: query
+        name: page
+        schema:
+          type: number
+        example: 1.0
+      responses:
+        '200':
+          description: response
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/Company'
+                    type: array
+                  status:
+                    type: string
+                  links:
+                    $ref: '#/components/schemas/Links'
+                type: object
+              examples:
+                GetAllCompanies200Example:
+                  summary: Default getAllCompanies 200 response
+                  x-microcks-default: true
+                  value:
+                    data:
+                    - activeDate: '2024-01-15'
+                      aliases:
+                      - language: eng
+                        name: Example Name
+                      country: usa
+                      id: 12345
+                      inactiveDate: '2024-01-15'
+                      name: Example Name
+                      nameTranslations:
+                      - example
+                      overviewTranslations:
+                      - example
+                      primaryCompanyType: 12345
+                      slug: example-slug
+                      parentCompany:
+                        id: 12345
+                        name: Example Name
+                        relation:
+                          id: 12345
+                          typeName: example
+                      tagOptions:
+                      - helpText: example
+                        id: 12345
+                        name: Example Name
+                        tag: 12345
+                        tagName: example
+                    status: Continuing
+                    links:
+                      prev: example
+                      self: example
+                      next: example
+                      total_items: 1
+                      page_size: 1
+        '401':
+          description: Unauthorized
+      tags:
+      - Companies
+      summary: TheTVDB Get All Companies
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /companies/types:
+    get:
+      description: returns all company type records
+      operationId: getCompanyTypes
+      responses:
+        '200':
+          description: response
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CompanyType'
+                  status:
+                    type: string
+                type: object
+              examples:
+                GetCompanyTypes200Example:
+                  summary: Default getCompanyTypes 200 response
+                  x-microcks-default: true
+                  value:
+                    data:
+                    - companyTypeId: 12345
+                      companyTypeName: example
+                    status: Continuing
+        '401':
+          description: Unauthorized
+      tags:
+      - Companies
+      summary: TheTVDB Get Company Types
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /companies/{id}:
+    get:
+      description: returns a company record
+      operationId: getCompany
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: number
+        example: 12345
+      responses:
+        '200':
+          description: response
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Company'
+                  status:
+                    type: string
+                type: object
+              examples:
+                GetCompany200Example:
+                  summary: Default getCompany 200 response
+                  x-microcks-default: true
+                  value:
+                    data:
+                      activeDate: '2024-01-15'
+                      aliases:
+                      - language: eng
+                        name: Example Name
+                      country: usa
+                      id: 12345
+                      inactiveDate: '2024-01-15'
+                      name: Example Name
+                      nameTranslations:
+                      - example
+                      overviewTranslations:
+                      - example
+                      primaryCompanyType: 12345
+                      slug: example-slug
+                      parentCompany:
+                        id: 12345
+                        name: Example Name
+                        relation:
+                          id: 12345
+                          typeName: example
+                      tagOptions:
+                      - helpText: example
+                        id: 12345
+                        name: Example Name
+                        tag: 12345
+                        tagName: example
+                    status: Continuing
+        '400':
+          description: Invalid company id
+        '401':
+          description: Unauthorized
+        '404':
+          description: Company not found
+      tags:
+      - Companies
+      summary: TheTVDB Get Company
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    TagOption:
+      description: tag option record
+      properties:
+        helpText:
+          type: string
+          example: example
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        name:
+          type: string
+          x-go-name: Name
+          example: Example Name
+        tag:
+          format: int64
+          type: integer
+          x-go-name: Tag
+          example: 12345
+        tagName:
+          type: string
+          x-go-name: TagName
+          example: example
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Company:
+      description: A company record
+      properties:
+        activeDate:
+          type: string
+          example: '2024-01-15'
+        aliases:
+          items:
+            $ref: '#/components/schemas/Alias'
+          type: array
+          x-go-name: Aliases
+        country:
+          type: string
+          example: usa
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        inactiveDate:
+          type: string
+          example: '2024-01-15'
+        name:
+          type: string
+          example: Example Name
+        nameTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: NameTranslations
+          example:
+          - example
+        overviewTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: OverviewTranslations
+          example:
+          - example
+        primaryCompanyType:
+          format: int64
+          type: integer
+          x-go-name: PrimaryCompanyType
+          nullable: true
+          example: 12345
+        slug:
+          type: string
+          x-go-name: Slug
+          example: example-slug
+        parentCompany:
+          type: object
+          $ref: '#/components/schemas/ParentCompany'
+        tagOptions:
+          items:
+            $ref: '#/components/schemas/TagOption'
+          type: array
+          x-go-name: TagOptions
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Alias:
+      description: An alias model, which can be associated with a series, season, movie, person, or list.
+      properties:
+        language:
+          type: string
+          maximum: 4
+          description: A 3-4 character string indicating the language of the alias, as defined in Language.
+          example: eng
+        name:
+          type: string
+          maximum: 100
+          description: A string containing the alias itself.
+          example: Example Name
+      type: object
+    Links:
+      description: Links for next, previous and current record
+      properties:
+        prev:
+          type: string
+          nullable: true
+          example: example
+        self:
+          type: string
+          nullable: true
+          example: example
+        next:
+          type: string
+          example: example
+        total_items:
+          type: integer
+          example: 1
+        page_size:
+          type: integer
+          example: 1
+    CompanyRelationShip:
+      description: A company relationship
+      properties:
+        id:
+          type: integer
+          nullable: true
+          example: 12345
+        typeName:
+          type: string
+          example: example
+    CompanyType:
+      description: A company type record
+      type: object
+      properties:
+        companyTypeId:
+          type: integer
+          example: 12345
+        companyTypeName:
+          type: string
+          example: example
+    ParentCompany:
+      description: A parent company record
+      type: object
+      properties:
+        id:
+          type: integer
+          nullable: true
+          example: 12345
+        name:
+          type: string
+          example: Example Name
+        relation:
+          type: object
+          $ref: '#/components/schemas/CompanyRelationShip'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

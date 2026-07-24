@@ -1,0 +1,750 @@
+openapi: 3.0.0
+info:
+  description: 'Documentation of [TheTVDB](https://thetvdb.com/) API V4. All related information is linked from our [Github repo](https://github.com/thetvdb/v4-api). You might also want to use our [Postman collection] (https://www.getpostman.com/collections/7a9397ce69ff246f74d0)
+
+    ## Authentication
+
+    1. Use the /login endpoint and provide your API key as "apikey". If you have a user-supported key, also provide your subscriber PIN as "pin". Otherwise completely remove "pin" from your call.
+
+    2. Executing this call will provide you with a bearer token, which is valid for 1 month.
+
+    3. Provide your bearer token for subsequent API calls by clicking Authorize below or including in the header of all direct API calls: `Authorization: Bearer [your-token]`
+
+
+    ## Notes
+
+    1. "score" is a field across almost all entities.  We generate scores for different types of entities in various ways, so no assumptions should be made about the meaning of this value.  It is simply used to hint at relative popularity for sorting purposes.
+
+    '
+  title: TVDB API V4 Artwork People API
+  version: 4.7.10
+  x-last-validated: '2026-05-30'
+  x-spec-source: https://github.com/thetvdb/v4-api/blob/main/docs/swagger.yml
+servers:
+- url: https://api4.thetvdb.com/v4
+  description: TheTVDB v4 API production
+security:
+- bearerAuth: []
+tags:
+- name: People
+paths:
+  /people:
+    get:
+      description: Returns a list of people base records with the basic attributes.
+      operationId: getAllPeople
+      parameters:
+      - description: page number
+        in: query
+        name: page
+        schema:
+          type: number
+        example: 1.0
+      responses:
+        '200':
+          description: response
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/PeopleBaseRecord'
+                    type: array
+                  status:
+                    type: string
+                  links:
+                    $ref: '#/components/schemas/Links'
+                type: object
+              examples:
+                GetAllPeople200Example:
+                  summary: Default getAllPeople 200 response
+                  x-microcks-default: true
+                  value:
+                    data:
+                    - aliases:
+                      - language: eng
+                        name: Example Name
+                      id: 12345
+                      image: https://artworks.thetvdb.com/banners/example.jpg
+                      lastUpdated: '2024-01-15'
+                      name: Example Name
+                      nameTranslations:
+                      - example
+                      overviewTranslations:
+                      - example
+                      score: 100
+                    status: Continuing
+                    links:
+                      prev: example
+                      self: example
+                      next: example
+                      total_items: 1
+                      page_size: 1
+        '401':
+          description: Unauthorized
+      tags:
+      - People
+      summary: TheTVDB Get All People
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /people/{id}:
+    get:
+      description: Returns people base record
+      operationId: getPeopleBase
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: number
+        example: 12345
+      responses:
+        '200':
+          description: response
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    $ref: '#/components/schemas/PeopleBaseRecord'
+                  status:
+                    type: string
+                type: object
+              examples:
+                GetPeopleBase200Example:
+                  summary: Default getPeopleBase 200 response
+                  x-microcks-default: true
+                  value:
+                    data:
+                      aliases:
+                      - language: eng
+                        name: Example Name
+                      id: 12345
+                      image: https://artworks.thetvdb.com/banners/example.jpg
+                      lastUpdated: '2024-01-15'
+                      name: Example Name
+                      nameTranslations:
+                      - example
+                      overviewTranslations:
+                      - example
+                      score: 100
+                    status: Continuing
+        '400':
+          description: Invalid people id
+        '401':
+          description: Unauthorized
+        '404':
+          description: People not found
+      tags:
+      - People
+      summary: TheTVDB Get People Base
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /people/{id}/extended:
+    get:
+      description: Returns people extended record
+      operationId: getPeopleExtended
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: number
+        example: 12345
+      - description: meta
+        in: query
+        name: meta
+        required: false
+        schema:
+          type: string
+          enum:
+          - translations
+          example: translations
+        example: translations
+      responses:
+        '200':
+          description: response
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    $ref: '#/components/schemas/PeopleExtendedRecord'
+                  status:
+                    type: string
+                type: object
+              examples:
+                GetPeopleExtended200Example:
+                  summary: Default getPeopleExtended 200 response
+                  x-microcks-default: true
+                  value:
+                    data:
+                      aliases:
+                      - language: eng
+                        name: Example Name
+                      awards:
+                      - id: 12345
+                        name: Example Name
+                      biographies:
+                      - biography: example
+                        language: eng
+                      birth: example
+                      birthPlace: example
+                      characters:
+                      - aliases:
+                        - language: eng
+                          name: Example Name
+                        episode:
+                          image: https://artworks.thetvdb.com/banners/example.jpg
+                          name: Example Name
+                          year: '2024'
+                        episodeId: 12345
+                        id: 12345
+                        image: https://artworks.thetvdb.com/banners/example.jpg
+                        isFeatured: true
+                        movieId: 12345
+                        movie:
+                          image: https://artworks.thetvdb.com/banners/example.jpg
+                          name: Example Name
+                          year: '2024'
+                        name: Example Name
+                        nameTranslations:
+                        - example
+                        overviewTranslations:
+                        - example
+                        peopleId: 12345
+                        personImgURL: https://artworks.thetvdb.com/banners/example.jpg
+                        peopleType: example
+                        seriesId: 12345
+                        series:
+                          image: https://artworks.thetvdb.com/banners/example.jpg
+                          name: Example Name
+                          year: '2024'
+                        sort: 12345
+                        tagOptions:
+                        - helpText: example
+                          id: 12345
+                          name: Example Name
+                          tag: 12345
+                          tagName: example
+                        type: 12345
+                        url: https://artworks.thetvdb.com/banners/example.jpg
+                        personName: example
+                      death: example
+                      gender: 1
+                      id: 12345
+                      image: https://artworks.thetvdb.com/banners/example.jpg
+                      lastUpdated: '2024-01-15'
+                      name: Example Name
+                      nameTranslations:
+                      - example
+                      overviewTranslations:
+                      - example
+                      races:
+                      - {}
+                      remoteIds:
+                      - id: abc123
+                        type: 12345
+                        sourceName: example
+                      score: 100
+                      slug: example-slug
+                      tagOptions:
+                      - helpText: example
+                        id: 12345
+                        name: Example Name
+                        tag: 12345
+                        tagName: example
+                      translations:
+                        nameTranslations:
+                        - aliases: &id001
+                          - example
+                          isAlias: true
+                          isPrimary: true
+                          language: eng
+                          name: Example Name
+                          overview: A descriptive paragraph of text.
+                          tagline: example
+                        overviewTranslations:
+                        - aliases: *id001
+                          isAlias: true
+                          isPrimary: true
+                          language: eng
+                          name: Example Name
+                          overview: A descriptive paragraph of text.
+                          tagline: example
+                        alias:
+                        - example
+                    status: Continuing
+        '400':
+          description: Invalid people id
+        '401':
+          description: Unauthorized
+        '404':
+          description: People not found
+      tags:
+      - People
+      summary: TheTVDB Get People Extended
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /people/{id}/translations/{language}:
+    get:
+      description: Returns people translation record
+      operationId: getPeopleTranslation
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: number
+        example: 12345
+      - description: language
+        in: path
+        name: language
+        required: true
+        schema:
+          type: string
+        example: eng
+      responses:
+        '200':
+          description: response
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Translation'
+                  status:
+                    type: string
+                type: object
+              examples:
+                GetPeopleTranslation200Example:
+                  summary: Default getPeopleTranslation 200 response
+                  x-microcks-default: true
+                  value:
+                    data:
+                      aliases:
+                      - example
+                      isAlias: true
+                      isPrimary: true
+                      language: eng
+                      name: Example Name
+                      overview: A descriptive paragraph of text.
+                      tagline: example
+                    status: Continuing
+        '400':
+          description: Invalid people id, invalid language.
+        '401':
+          description: Unauthorized
+        '404':
+          description: People not found
+      tags:
+      - People
+      summary: TheTVDB Get People Translation
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    TagOption:
+      description: tag option record
+      properties:
+        helpText:
+          type: string
+          example: example
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        name:
+          type: string
+          x-go-name: Name
+          example: Example Name
+        tag:
+          format: int64
+          type: integer
+          x-go-name: Tag
+          example: 12345
+        tagName:
+          type: string
+          x-go-name: TagName
+          example: example
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Translation:
+      description: translation record
+      properties:
+        aliases:
+          items:
+            type: string
+          type: array
+          example:
+          - example
+        isAlias:
+          type: boolean
+          example: true
+        isPrimary:
+          type: boolean
+          example: true
+        language:
+          type: string
+          x-go-name: Language
+          example: eng
+        name:
+          type: string
+          example: Example Name
+        overview:
+          type: string
+          example: A descriptive paragraph of text.
+        tagline:
+          type: string
+          description: Only populated for movie translations.  We disallow taglines without a title.
+          example: example
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Biography:
+      description: biography record
+      properties:
+        biography:
+          type: string
+          x-go-name: Biography
+          example: example
+        language:
+          type: string
+          x-go-name: Language
+          example: eng
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    TranslationExtended:
+      description: translation extended record
+      properties:
+        nameTranslations:
+          items:
+            $ref: '#/components/schemas/Translation'
+          type: array
+        overviewTranslations:
+          items:
+            $ref: '#/components/schemas/Translation'
+          type: array
+        alias:
+          items:
+            type: string
+          type: array
+          example:
+          - example
+      type: object
+    AwardBaseRecord:
+      description: base award record
+      properties:
+        id:
+          type: integer
+          example: 12345
+        name:
+          type: string
+          example: Example Name
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Alias:
+      description: An alias model, which can be associated with a series, season, movie, person, or list.
+      properties:
+        language:
+          type: string
+          maximum: 4
+          description: A 3-4 character string indicating the language of the alias, as defined in Language.
+          example: eng
+        name:
+          type: string
+          maximum: 100
+          description: A string containing the alias itself.
+          example: Example Name
+      type: object
+    Links:
+      description: Links for next, previous and current record
+      properties:
+        prev:
+          type: string
+          nullable: true
+          example: example
+        self:
+          type: string
+          nullable: true
+          example: example
+        next:
+          type: string
+          example: example
+        total_items:
+          type: integer
+          example: 1
+        page_size:
+          type: integer
+          example: 1
+    PeopleBaseRecord:
+      description: base people record
+      properties:
+        aliases:
+          items:
+            $ref: '#/components/schemas/Alias'
+          type: array
+          x-go-name: Aliases
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        image:
+          type: string
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        lastUpdated:
+          type: string
+          example: '2024-01-15'
+        name:
+          type: string
+          example: Example Name
+        nameTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: NameTranslations
+          example:
+          - example
+        overviewTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: OverviewTranslations
+          example:
+          - example
+        score:
+          format: int64
+          type: integer
+          x-go-name: Score
+          example: 100
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    RecordInfo:
+      description: base record info
+      properties:
+        image:
+          type: string
+          x-go-name: Image
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        name:
+          type: string
+          x-go-name: Name
+          example: Example Name
+        year:
+          type: string
+          example: '2024'
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    PeopleExtendedRecord:
+      description: extended people record
+      properties:
+        aliases:
+          items:
+            $ref: '#/components/schemas/Alias'
+          type: array
+          x-go-name: Aliases
+        awards:
+          items:
+            $ref: '#/components/schemas/AwardBaseRecord'
+          type: array
+          x-go-name: Awards
+        biographies:
+          items:
+            $ref: '#/components/schemas/Biography'
+          type: array
+          x-go-name: Biographies
+        birth:
+          type: string
+          example: example
+        birthPlace:
+          type: string
+          example: example
+        characters:
+          items:
+            $ref: '#/components/schemas/Character'
+          type: array
+          x-go-name: Characters
+        death:
+          type: string
+          example: example
+        gender:
+          type: integer
+          example: 1
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        image:
+          type: string
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        lastUpdated:
+          type: string
+          example: '2024-01-15'
+        name:
+          type: string
+          example: Example Name
+        nameTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: NameTranslations
+          example:
+          - example
+        overviewTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: OverviewTranslations
+          example:
+          - example
+        races:
+          items:
+            $ref: '#/components/schemas/Race'
+          type: array
+          x-go-name: Races
+        remoteIds:
+          items:
+            $ref: '#/components/schemas/RemoteID'
+          type: array
+          x-go-name: RemoteIDs
+        score:
+          format: int64
+          type: integer
+          x-go-name: Score
+          example: 100
+        slug:
+          type: string
+          example: example-slug
+        tagOptions:
+          items:
+            $ref: '#/components/schemas/TagOption'
+          type: array
+          x-go-name: TagOptions
+        translations:
+          $ref: '#/components/schemas/TranslationExtended'
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    RemoteID:
+      description: remote id record
+      properties:
+        id:
+          type: string
+          x-go-name: ID
+          example: abc123
+        type:
+          format: int64
+          type: integer
+          x-go-name: Type
+          example: 12345
+        sourceName:
+          type: string
+          x-go-name: SourceName
+          example: example
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Race:
+      description: race record
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Character:
+      description: character record
+      properties:
+        aliases:
+          items:
+            $ref: '#/components/schemas/Alias'
+          type: array
+          x-go-name: Aliases
+        episode:
+          $ref: '#/components/schemas/RecordInfo'
+        episodeId:
+          type: integer
+          nullable: true
+          example: 12345
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        image:
+          type: string
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        isFeatured:
+          type: boolean
+          x-go-name: IsFeatured
+          example: true
+        movieId:
+          type: integer
+          nullable: true
+          example: 12345
+        movie:
+          $ref: '#/components/schemas/RecordInfo'
+        name:
+          type: string
+          example: Example Name
+        nameTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: NameTranslations
+          example:
+          - example
+        overviewTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: OverviewTranslations
+          example:
+          - example
+        peopleId:
+          type: integer
+          example: 12345
+        personImgURL:
+          type: string
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        peopleType:
+          type: string
+          example: example
+        seriesId:
+          type: integer
+          nullable: true
+          example: 12345
+        series:
+          $ref: '#/components/schemas/RecordInfo'
+        sort:
+          format: int64
+          type: integer
+          x-go-name: Sort
+          example: 12345
+        tagOptions:
+          items:
+            $ref: '#/components/schemas/TagOption'
+          type: array
+          x-go-name: TagOptions
+        type:
+          format: int64
+          type: integer
+          x-go-name: Type
+          example: 12345
+        url:
+          type: string
+          x-go-name: URL
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        personName:
+          type: string
+          example: example
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

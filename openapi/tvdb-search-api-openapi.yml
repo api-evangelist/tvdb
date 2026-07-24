@@ -1,0 +1,1132 @@
+openapi: 3.0.0
+info:
+  description: 'Documentation of [TheTVDB](https://thetvdb.com/) API V4. All related information is linked from our [Github repo](https://github.com/thetvdb/v4-api). You might also want to use our [Postman collection] (https://www.getpostman.com/collections/7a9397ce69ff246f74d0)
+
+    ## Authentication
+
+    1. Use the /login endpoint and provide your API key as "apikey". If you have a user-supported key, also provide your subscriber PIN as "pin". Otherwise completely remove "pin" from your call.
+
+    2. Executing this call will provide you with a bearer token, which is valid for 1 month.
+
+    3. Provide your bearer token for subsequent API calls by clicking Authorize below or including in the header of all direct API calls: `Authorization: Bearer [your-token]`
+
+
+    ## Notes
+
+    1. "score" is a field across almost all entities.  We generate scores for different types of entities in various ways, so no assumptions should be made about the meaning of this value.  It is simply used to hint at relative popularity for sorting purposes.
+
+    '
+  title: TVDB API V4 Artwork Search API
+  version: 4.7.10
+  x-last-validated: '2026-05-30'
+  x-spec-source: https://github.com/thetvdb/v4-api/blob/main/docs/swagger.yml
+servers:
+- url: https://api4.thetvdb.com/v4
+  description: TheTVDB v4 API production
+security:
+- bearerAuth: []
+tags:
+- name: Search
+paths:
+  /search:
+    get:
+      description: Our search index includes series, movies, people, and companies. Search is limited to 5k results max.
+      operationId: getSearchResults
+      parameters:
+      - description: The primary search string, which can include the main title for a record including all translations and aliases.
+        in: query
+        name: query
+        schema:
+          type: string
+        example: example
+      - description: Alias of the "query" parameter.  Recommend using query instead as this field will eventually be deprecated.
+        in: query
+        name: q
+        schema:
+          type: string
+        example: example
+      - description: Restrict results to a specific entity type.  Can be movie, series, person, or company.
+        in: query
+        name: type
+        schema:
+          type: string
+        example: example
+      - description: Restrict results to a specific year. Currently only used for series and movies.
+        in: query
+        name: year
+        schema:
+          type: number
+        example: '2024'
+      - description: Restrict results to a specific company (original network, production company, studio, etc).  As an example, "The Walking Dead" would have companies of "AMC", "AMC+", and "Disney+".
+        in: query
+        name: company
+        schema:
+          type: string
+        example: example
+      - description: Restrict results to a specific country of origin. Should contain a 3 character country code. Currently only used for series and movies.
+        in: query
+        name: country
+        schema:
+          type: string
+        example: usa
+      - description: Restrict results to a specific director.  Generally only used for movies.  Should include the full name of the director, such as "Steven Spielberg".
+        in: query
+        name: director
+        schema:
+          type: string
+        example: example
+      - description: Restrict results to a specific primary language.  Should include the 3 character language code.  Currently only used for series and movies.
+        in: query
+        name: language
+        schema:
+          type: string
+        example: eng
+      - description: Restrict results to a specific type of company.  Should include the full name of the type of company, such as "Production Company".  Only used for companies.
+        in: query
+        name: primaryType
+        schema:
+          type: string
+        example: example
+      - description: Restrict results to a specific network.  Used for TV and TV movies, and functions the same as the company parameter with more specificity.
+        in: query
+        name: network
+        schema:
+          type: string
+        example: example
+      - description: Search for a specific remote id.  Allows searching for an IMDB or EIDR id, for example.
+        in: query
+        name: remote_id
+        schema:
+          type: string
+        example: abc123
+      - description: Offset results.
+        in: query
+        name: offset
+        schema:
+          type: number
+        example: 1.0
+      - description: Limit results.
+        in: query
+        name: limit
+        schema:
+          type: number
+        example: 1.0
+      responses:
+        '200':
+          description: response
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/SearchResult'
+                    type: array
+                  status:
+                    type: string
+                  links:
+                    $ref: '#/components/schemas/Links'
+                type: object
+              examples:
+                GetSearchResults200Example:
+                  summary: Default getSearchResults 200 response
+                  x-microcks-default: true
+                  value:
+                    data:
+                    - aliases:
+                      - example
+                      companies:
+                      - example
+                      companyType: example
+                      country: usa
+                      director: example
+                      first_air_time: example
+                      genres:
+                      - example
+                      id: abc123
+                      image_url: https://artworks.thetvdb.com/banners/example.jpg
+                      name: Example Name
+                      is_official: true
+                      name_translated: example
+                      network: example
+                      objectID: abc123
+                      officialList: example
+                      overview: A descriptive paragraph of text.
+                      overviews: {}
+                      overview_translated:
+                      - example
+                      poster: example
+                      posters:
+                      - example
+                      primary_language: example
+                      remote_ids:
+                      - id: abc123
+                        type: 12345
+                        sourceName: example
+                      status: Continuing
+                      slug: example-slug
+                      studios:
+                      - example
+                      title: example
+                      thumbnail: example
+                      translations: {}
+                      translationsWithLang:
+                      - example
+                      tvdb_id: abc123
+                      type: example
+                      year: '2024'
+                    status: Continuing
+                    links:
+                      prev: example
+                      self: example
+                      next: example
+                      total_items: 1
+                      page_size: 1
+        '401':
+          description: Unauthorized
+        '400':
+          description: Max results overflow
+      tags:
+      - Search
+      summary: TheTVDB Get Search Results
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /search/remoteid/{remoteId}:
+    get:
+      description: Search a series, movie, people, episode, company or season by specific remote id and returns a base record for that entity.
+      operationId: getSearchResultsByRemoteId
+      parameters:
+      - description: Search for a specific remote id.  Allows searching for an IMDB or EIDR id, for example.
+        in: path
+        required: true
+        name: remoteId
+        schema:
+          type: string
+        example: abc123
+      responses:
+        '200':
+          description: response
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/SearchByRemoteIdResult'
+                    type: array
+                  status:
+                    type: string
+                type: object
+              examples:
+                GetSearchResultsByRemoteId200Example:
+                  summary: Default getSearchResultsByRemoteId 200 response
+                  x-microcks-default: true
+                  value:
+                    data:
+                    - series:
+                        aliases:
+                        - language: eng
+                          name: Example Name
+                        averageRuntime: 1
+                        country: usa
+                        defaultSeasonType: 12345
+                        episodes:
+                        - absoluteNumber: 1
+                          aired: example
+                          airsAfterSeason: 1
+                          airsBeforeEpisode: 1
+                          airsBeforeSeason: 1
+                          finaleType: example
+                          id: 12345
+                          image: https://artworks.thetvdb.com/banners/example.jpg
+                          imageType: 1
+                          isMovie: 12345
+                          lastUpdated: '2024-01-15'
+                          linkedMovie: 1
+                          name: Example Name
+                          nameTranslations: &id001
+                          - example
+                          number: 1
+                          overview: A descriptive paragraph of text.
+                          overviewTranslations: &id002
+                          - example
+                          runtime: 1
+                          seasonNumber: 1
+                          seasons:
+                          - id: null
+                            image: null
+                            imageType: null
+                            lastUpdated: null
+                            name: null
+                            nameTranslations: null
+                            number: null
+                            overviewTranslations: null
+                            companies: {}
+                            seriesId: null
+                            type: {}
+                            year: null
+                          seriesId: 12345
+                          seasonName: example
+                          year: '2024'
+                        firstAired: example
+                        id: 12345
+                        image: https://artworks.thetvdb.com/banners/example.jpg
+                        isOrderRandomized: true
+                        lastAired: example
+                        lastUpdated: '2024-01-15'
+                        name: Example Name
+                        nameTranslations:
+                        - example
+                        nextAired: example
+                        originalCountry: example
+                        originalLanguage: example
+                        overviewTranslations:
+                        - example
+                        score: 100
+                        slug: example-slug
+                        status:
+                          id: 12345
+                          keepUpdated: '2024-01-15'
+                          name: Example Name
+                          recordType: example
+                        year: '2024'
+                      people:
+                        aliases:
+                        - language: eng
+                          name: Example Name
+                        id: 12345
+                        image: https://artworks.thetvdb.com/banners/example.jpg
+                        lastUpdated: '2024-01-15'
+                        name: Example Name
+                        nameTranslations:
+                        - example
+                        overviewTranslations:
+                        - example
+                        score: 100
+                      movie:
+                        aliases:
+                        - language: eng
+                          name: Example Name
+                        id: 12345
+                        image: https://artworks.thetvdb.com/banners/example.jpg
+                        lastUpdated: '2024-01-15'
+                        name: Example Name
+                        nameTranslations:
+                        - example
+                        overviewTranslations:
+                        - example
+                        score: 100
+                        slug: example-slug
+                        status:
+                          id: 12345
+                          keepUpdated: '2024-01-15'
+                          name: Example Name
+                          recordType: example
+                        runtime: 1
+                        year: '2024'
+                      episode:
+                        absoluteNumber: 1
+                        aired: example
+                        airsAfterSeason: 1
+                        airsBeforeEpisode: 1
+                        airsBeforeSeason: 1
+                        finaleType: example
+                        id: 12345
+                        image: https://artworks.thetvdb.com/banners/example.jpg
+                        imageType: 1
+                        isMovie: 12345
+                        lastUpdated: '2024-01-15'
+                        linkedMovie: 1
+                        name: Example Name
+                        nameTranslations: *id001
+                        number: 1
+                        overview: A descriptive paragraph of text.
+                        overviewTranslations: *id002
+                        runtime: 1
+                        seasonNumber: 1
+                        seasons:
+                        - id: 12345
+                          image: https://artworks.thetvdb.com/banners/example.jpg
+                          imageType: 1
+                          lastUpdated: '2024-01-15'
+                          name: Example Name
+                          nameTranslations:
+                          - example
+                          number: 12345
+                          overviewTranslations:
+                          - example
+                          companies:
+                            studio:
+                            - {}
+                            network:
+                            - {}
+                            production:
+                            - {}
+                            distributor:
+                            - {}
+                            special_effects:
+                            - {}
+                          seriesId: 12345
+                          type:
+                            alternateName: null
+                            id: null
+                            name: null
+                            type: null
+                          year: '2024'
+                        seriesId: 12345
+                        seasonName: example
+                        year: '2024'
+                      company:
+                        activeDate: '2024-01-15'
+                        aliases:
+                        - language: eng
+                          name: Example Name
+                        country: usa
+                        id: 12345
+                        inactiveDate: '2024-01-15'
+                        name: Example Name
+                        nameTranslations:
+                        - example
+                        overviewTranslations:
+                        - example
+                        primaryCompanyType: 12345
+                        slug: example-slug
+                        parentCompany:
+                          id: 12345
+                          name: Example Name
+                          relation:
+                            id: null
+                            typeName: null
+                        tagOptions:
+                        - helpText: example
+                          id: 12345
+                          name: Example Name
+                          tag: 12345
+                          tagName: example
+                    status: Continuing
+        '401':
+          description: Unauthorized
+      tags:
+      - Search
+      summary: TheTVDB Get Search Results by Remote Id
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    TagOption:
+      description: tag option record
+      properties:
+        helpText:
+          type: string
+          example: example
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        name:
+          type: string
+          x-go-name: Name
+          example: Example Name
+        tag:
+          format: int64
+          type: integer
+          x-go-name: Tag
+          example: 12345
+        tagName:
+          type: string
+          x-go-name: TagName
+          example: example
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    ParentCompany:
+      description: A parent company record
+      type: object
+      properties:
+        id:
+          type: integer
+          nullable: true
+          example: 12345
+        name:
+          type: string
+          example: Example Name
+        relation:
+          type: object
+          $ref: '#/components/schemas/CompanyRelationShip'
+    SeasonBaseRecord:
+      description: season genre record
+      properties:
+        id:
+          type: integer
+          example: 12345
+        image:
+          type: string
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        imageType:
+          type: integer
+          example: 1
+        lastUpdated:
+          type: string
+          example: '2024-01-15'
+        name:
+          type: string
+          example: Example Name
+        nameTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: NameTranslations
+          example:
+          - example
+        number:
+          format: int64
+          type: integer
+          x-go-name: Number
+          example: 12345
+        overviewTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: OverviewTranslations
+          example:
+          - example
+        companies:
+          type: object
+          $ref: '#/components/schemas/Companies'
+        seriesId:
+          format: int64
+          type: integer
+          x-go-name: SeriesID
+          example: 12345
+        type:
+          $ref: '#/components/schemas/SeasonType'
+        year:
+          type: string
+          example: '2024'
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Company:
+      description: A company record
+      properties:
+        activeDate:
+          type: string
+          example: '2024-01-15'
+        aliases:
+          items:
+            $ref: '#/components/schemas/Alias'
+          type: array
+          x-go-name: Aliases
+        country:
+          type: string
+          example: usa
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        inactiveDate:
+          type: string
+          example: '2024-01-15'
+        name:
+          type: string
+          example: Example Name
+        nameTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: NameTranslations
+          example:
+          - example
+        overviewTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: OverviewTranslations
+          example:
+          - example
+        primaryCompanyType:
+          format: int64
+          type: integer
+          x-go-name: PrimaryCompanyType
+          nullable: true
+          example: 12345
+        slug:
+          type: string
+          x-go-name: Slug
+          example: example-slug
+        parentCompany:
+          type: object
+          $ref: '#/components/schemas/ParentCompany'
+        tagOptions:
+          items:
+            $ref: '#/components/schemas/TagOption'
+          type: array
+          x-go-name: TagOptions
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    SearchByRemoteIdResult:
+      description: search by remote reuslt is a base record for a movie, series, people, season or company search result
+      properties:
+        series:
+          type: object
+          $ref: '#/components/schemas/SeriesBaseRecord'
+        people:
+          type: object
+          $ref: '#/components/schemas/PeopleBaseRecord'
+        movie:
+          type: object
+          $ref: '#/components/schemas/MovieBaseRecord'
+        episode:
+          type: object
+          $ref: '#/components/schemas/EpisodeBaseRecord'
+        company:
+          type: object
+          $ref: '#/components/schemas/Company'
+    SearchResult:
+      description: search result
+      properties:
+        aliases:
+          items:
+            type: string
+          type: array
+          example:
+          - example
+        companies:
+          items:
+            type: string
+          type: array
+          example:
+          - example
+        companyType:
+          type: string
+          example: example
+        country:
+          type: string
+          example: usa
+        director:
+          type: string
+          example: example
+        first_air_time:
+          type: string
+          example: example
+        genres:
+          items:
+            type: string
+          type: array
+          example:
+          - example
+        id:
+          type: string
+          example: abc123
+        image_url:
+          type: string
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        name:
+          type: string
+          example: Example Name
+        is_official:
+          type: boolean
+          example: true
+        name_translated:
+          type: string
+          example: example
+        network:
+          type: string
+          example: example
+        objectID:
+          type: string
+          example: abc123
+        officialList:
+          type: string
+          example: example
+        overview:
+          type: string
+          example: A descriptive paragraph of text.
+        overviews:
+          $ref: '#/components/schemas/TranslationSimple'
+        overview_translated:
+          items:
+            type: string
+          type: array
+          example:
+          - example
+        poster:
+          type: string
+          example: example
+        posters:
+          items:
+            type: string
+          type: array
+          example:
+          - example
+        primary_language:
+          type: string
+          example: example
+        remote_ids:
+          items:
+            $ref: '#/components/schemas/RemoteID'
+          type: array
+          x-go-name: RemoteIDs
+        status:
+          type: string
+          x-go-name: Status
+          example: Continuing
+        slug:
+          type: string
+          example: example-slug
+        studios:
+          items:
+            type: string
+          type: array
+          example:
+          - example
+        title:
+          type: string
+          example: example
+        thumbnail:
+          type: string
+          example: example
+        translations:
+          $ref: '#/components/schemas/TranslationSimple'
+        translationsWithLang:
+          items:
+            type: string
+          type: array
+          example:
+          - example
+        tvdb_id:
+          type: string
+          example: abc123
+        type:
+          type: string
+          example: example
+        year:
+          type: string
+          example: '2024'
+      type: object
+    Alias:
+      description: An alias model, which can be associated with a series, season, movie, person, or list.
+      properties:
+        language:
+          type: string
+          maximum: 4
+          description: A 3-4 character string indicating the language of the alias, as defined in Language.
+          example: eng
+        name:
+          type: string
+          maximum: 100
+          description: A string containing the alias itself.
+          example: Example Name
+      type: object
+    MovieBaseRecord:
+      description: base movie record
+      properties:
+        aliases:
+          items:
+            $ref: '#/components/schemas/Alias'
+          type: array
+          x-go-name: Aliases
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        image:
+          type: string
+          x-go-name: Image
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        lastUpdated:
+          type: string
+          example: '2024-01-15'
+        name:
+          type: string
+          x-go-name: Name
+          example: Example Name
+        nameTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: NameTranslations
+          example:
+          - example
+        overviewTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: OverviewTranslations
+          example:
+          - example
+        score:
+          format: double
+          type: number
+          x-go-name: Score
+          example: 100
+        slug:
+          type: string
+          x-go-name: Slug
+          example: example-slug
+        status:
+          $ref: '#/components/schemas/Status'
+        runtime:
+          type: integer
+          nullable: true
+          example: 1
+        year:
+          type: string
+          example: '2024'
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Status:
+      description: status record
+      properties:
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          nullable: true
+          example: 12345
+        keepUpdated:
+          type: boolean
+          x-go-name: KeepUpdated
+          example: '2024-01-15'
+        name:
+          type: string
+          x-go-name: Name
+          example: Example Name
+        recordType:
+          type: string
+          x-go-name: RecordType
+          example: example
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    CompanyRelationShip:
+      description: A company relationship
+      properties:
+        id:
+          type: integer
+          nullable: true
+          example: 12345
+        typeName:
+          type: string
+          example: example
+    SeasonType:
+      description: season type record
+      properties:
+        alternateName:
+          type: string
+          x-go-name: Name
+          example: example
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        name:
+          type: string
+          x-go-name: Name
+          example: Example Name
+        type:
+          type: string
+          x-go-name: Type
+          example: example
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    EpisodeBaseRecord:
+      description: base episode record
+      properties:
+        absoluteNumber:
+          type: integer
+          example: 1
+        aired:
+          type: string
+          example: example
+        airsAfterSeason:
+          type: integer
+          example: 1
+        airsBeforeEpisode:
+          type: integer
+          example: 1
+        airsBeforeSeason:
+          type: integer
+          example: 1
+        finaleType:
+          description: season, midseason, or series
+          type: string
+          example: example
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        image:
+          type: string
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        imageType:
+          type: integer
+          nullable: true
+          example: 1
+        isMovie:
+          format: int64
+          type: integer
+          x-go-name: IsMovie
+          example: 12345
+        lastUpdated:
+          type: string
+          example: '2024-01-15'
+        linkedMovie:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: Example Name
+        nameTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: NameTranslations
+          example:
+          - example
+        number:
+          type: integer
+          example: 1
+        overview:
+          type: string
+          example: A descriptive paragraph of text.
+        overviewTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: OverviewTranslations
+          example:
+          - example
+        runtime:
+          type: integer
+          nullable: true
+          example: 1
+        seasonNumber:
+          type: integer
+          example: 1
+        seasons:
+          items:
+            $ref: '#/components/schemas/SeasonBaseRecord'
+          type: array
+          x-go-name: Seasons
+        seriesId:
+          format: int64
+          type: integer
+          x-go-name: SeriesID
+          example: 12345
+        seasonName:
+          type: string
+          example: example
+        year:
+          type: string
+          example: '2024'
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    SeriesBaseRecord:
+      description: The base record for a series. All series airs time like firstAired, lastAired, nextAired, etc. are in US EST for US series, and for all non-US series, the time of the show’s country capital or most populous city. For streaming services, is the official release time. See https://support.thetvdb.com/kb/faq.php?id=29.
+      properties:
+        aliases:
+          items:
+            $ref: '#/components/schemas/Alias'
+          type: array
+          x-go-name: Aliases
+        averageRuntime:
+          type: integer
+          nullable: true
+          example: 1
+        country:
+          type: string
+          example: usa
+        defaultSeasonType:
+          format: int64
+          type: integer
+          x-go-name: DefaultSeasonType
+          example: 12345
+        episodes:
+          items:
+            $ref: '#/components/schemas/EpisodeBaseRecord'
+          type: array
+          x-go-name: Episodes
+        firstAired:
+          type: string
+          example: example
+        id:
+          type: integer
+          example: 12345
+        image:
+          type: string
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        isOrderRandomized:
+          type: boolean
+          x-go-name: IsOrderRandomized
+          example: true
+        lastAired:
+          type: string
+          example: example
+        lastUpdated:
+          type: string
+          example: '2024-01-15'
+        name:
+          type: string
+          example: Example Name
+        nameTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: NameTranslations
+          example:
+          - example
+        nextAired:
+          type: string
+          x-go-name: NextAired
+          example: example
+        originalCountry:
+          type: string
+          example: example
+        originalLanguage:
+          type: string
+          example: example
+        overviewTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: OverviewTranslations
+          example:
+          - example
+        score:
+          format: double
+          type: number
+          x-go-name: Score
+          example: 100
+        slug:
+          type: string
+          example: example-slug
+        status:
+          $ref: '#/components/schemas/Status'
+        year:
+          type: string
+          example: '2024'
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    PeopleBaseRecord:
+      description: base people record
+      properties:
+        aliases:
+          items:
+            $ref: '#/components/schemas/Alias'
+          type: array
+          x-go-name: Aliases
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        image:
+          type: string
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        lastUpdated:
+          type: string
+          example: '2024-01-15'
+        name:
+          type: string
+          example: Example Name
+        nameTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: NameTranslations
+          example:
+          - example
+        overviewTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: OverviewTranslations
+          example:
+          - example
+        score:
+          format: int64
+          type: integer
+          x-go-name: Score
+          example: 100
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    TranslationSimple:
+      description: translation simple record
+      additionalProperties:
+        type: string
+      example:
+        ara: تدور قصة المسلسل حول...
+        ces: Během letu č. 815 společnosti Oceanic...
+        deu: Im Bruchteil einer Sekunde gerät das Leben...
+      type: object
+    Companies:
+      description: Companies by type record
+      properties:
+        studio:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
+        network:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
+        production:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
+        distributor:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
+        special_effects:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
+    RemoteID:
+      description: remote id record
+      properties:
+        id:
+          type: string
+          x-go-name: ID
+          example: abc123
+        type:
+          format: int64
+          type: integer
+          x-go-name: Type
+          example: 12345
+        sourceName:
+          type: string
+          x-go-name: SourceName
+          example: example
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Links:
+      description: Links for next, previous and current record
+      properties:
+        prev:
+          type: string
+          nullable: true
+          example: example
+        self:
+          type: string
+          nullable: true
+          example: example
+        next:
+          type: string
+          example: example
+        total_items:
+          type: integer
+          example: 1
+        page_size:
+          type: integer
+          example: 1
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

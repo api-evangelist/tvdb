@@ -1,0 +1,326 @@
+openapi: 3.0.0
+info:
+  description: 'Documentation of [TheTVDB](https://thetvdb.com/) API V4. All related information is linked from our [Github repo](https://github.com/thetvdb/v4-api). You might also want to use our [Postman collection] (https://www.getpostman.com/collections/7a9397ce69ff246f74d0)
+
+    ## Authentication
+
+    1. Use the /login endpoint and provide your API key as "apikey". If you have a user-supported key, also provide your subscriber PIN as "pin". Otherwise completely remove "pin" from your call.
+
+    2. Executing this call will provide you with a bearer token, which is valid for 1 month.
+
+    3. Provide your bearer token for subsequent API calls by clicking Authorize below or including in the header of all direct API calls: `Authorization: Bearer [your-token]`
+
+
+    ## Notes
+
+    1. "score" is a field across almost all entities.  We generate scores for different types of entities in various ways, so no assumptions should be made about the meaning of this value.  It is simply used to hint at relative popularity for sorting purposes.
+
+    '
+  title: TVDB API V4 Artwork API
+  version: 4.7.10
+  x-last-validated: '2026-05-30'
+  x-spec-source: https://github.com/thetvdb/v4-api/blob/main/docs/swagger.yml
+servers:
+- url: https://api4.thetvdb.com/v4
+  description: TheTVDB v4 API production
+security:
+- bearerAuth: []
+tags:
+- name: Artwork
+paths:
+  /artwork/{id}:
+    get:
+      description: Returns a single artwork base record.
+      operationId: getArtworkBase
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: number
+        example: 12345
+      responses:
+        '200':
+          description: response
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    $ref: '#/components/schemas/ArtworkBaseRecord'
+                  status:
+                    type: string
+                type: object
+              examples:
+                GetArtworkBase200Example:
+                  summary: Default getArtworkBase 200 response
+                  x-microcks-default: true
+                  value:
+                    data:
+                      height: 12345
+                      id: 12345
+                      image: https://artworks.thetvdb.com/banners/example.jpg
+                      includesText: true
+                      language: eng
+                      score: 100
+                      thumbnail: example
+                      type: 12345
+                      width: 12345
+                    status: Continuing
+        '400':
+          description: Invalid artwork id
+        '401':
+          description: Unauthorized
+        '404':
+          description: Artwork not found
+      tags:
+      - Artwork
+      summary: TheTVDB Get Artwork Base
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /artwork/{id}/extended:
+    get:
+      description: Returns a single artwork extended record.
+      operationId: getArtworkExtended
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        schema:
+          type: number
+        example: 12345
+      responses:
+        '200':
+          description: response
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    $ref: '#/components/schemas/ArtworkExtendedRecord'
+                  status:
+                    type: string
+                type: object
+              examples:
+                GetArtworkExtended200Example:
+                  summary: Default getArtworkExtended 200 response
+                  x-microcks-default: true
+                  value:
+                    data:
+                      episodeId: 12345
+                      height: 12345
+                      id: 12345
+                      image: https://artworks.thetvdb.com/banners/example.jpg
+                      includesText: true
+                      language: eng
+                      movieId: 12345
+                      networkId: 12345
+                      peopleId: 12345
+                      score: 100
+                      seasonId: 12345
+                      seriesId: 12345
+                      seriesPeopleId: 12345
+                      status:
+                        id: 12345
+                        name: Example Name
+                      tagOptions:
+                      - helpText: example
+                        id: 12345
+                        name: Example Name
+                        tag: 12345
+                        tagName: example
+                      thumbnail: example
+                      thumbnailHeight: 12345
+                      thumbnailWidth: 12345
+                      type: 12345
+                      updatedAt: '2024-01-15'
+                      width: 12345
+                    status: Continuing
+        '400':
+          description: Invalid artwork id
+        '401':
+          description: Unauthorized
+        '404':
+          description: Artwork not found
+      tags:
+      - Artwork
+      summary: TheTVDB Get Artwork Extended
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    TagOption:
+      description: tag option record
+      properties:
+        helpText:
+          type: string
+          example: example
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        name:
+          type: string
+          x-go-name: Name
+          example: Example Name
+        tag:
+          format: int64
+          type: integer
+          x-go-name: Tag
+          example: 12345
+        tagName:
+          type: string
+          x-go-name: TagName
+          example: example
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    ArtworkStatus:
+      description: artwork status record
+      properties:
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        name:
+          type: string
+          example: Example Name
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    ArtworkBaseRecord:
+      description: base artwork record
+      properties:
+        height:
+          format: int64
+          type: integer
+          x-go-name: Height
+          example: 12345
+        id:
+          type: integer
+          example: 12345
+        image:
+          type: string
+          x-go-name: Image
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        includesText:
+          type: boolean
+          example: true
+        language:
+          type: string
+          example: eng
+        score:
+          type: number
+          example: 100
+        thumbnail:
+          type: string
+          x-go-name: Thumbnail
+          example: example
+        type:
+          format: int64
+          type: integer
+          x-go-name: Type
+          description: The artwork type corresponds to the ids from the /artwork/types endpoint.
+          example: 12345
+        width:
+          format: int64
+          type: integer
+          x-go-name: Width
+          example: 12345
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    ArtworkExtendedRecord:
+      description: extended artwork record
+      properties:
+        episodeId:
+          type: integer
+          example: 12345
+        height:
+          format: int64
+          type: integer
+          x-go-name: Height
+          example: 12345
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        image:
+          type: string
+          x-go-name: Image
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        includesText:
+          type: boolean
+          example: true
+        language:
+          type: string
+          example: eng
+        movieId:
+          type: integer
+          example: 12345
+        networkId:
+          type: integer
+          example: 12345
+        peopleId:
+          type: integer
+          example: 12345
+        score:
+          type: number
+          example: 100
+        seasonId:
+          type: integer
+          example: 12345
+        seriesId:
+          type: integer
+          example: 12345
+        seriesPeopleId:
+          type: integer
+          example: 12345
+        status:
+          $ref: '#/components/schemas/ArtworkStatus'
+        tagOptions:
+          items:
+            $ref: '#/components/schemas/TagOption'
+          type: array
+          x-go-name: TagOptions
+        thumbnail:
+          type: string
+          x-go-name: Thumbnail
+          example: example
+        thumbnailHeight:
+          format: int64
+          type: integer
+          x-go-name: ThumbnailHeight
+          example: 12345
+        thumbnailWidth:
+          format: int64
+          type: integer
+          x-go-name: ThumbnailWidth
+          example: 12345
+        type:
+          format: int64
+          type: integer
+          x-go-name: Type
+          description: The artwork type corresponds to the ids from the /artwork/types endpoint.
+          example: 12345
+        updatedAt:
+          format: int64
+          type: integer
+          x-go-name: UpdatedAt
+          example: '2024-01-15'
+        width:
+          format: int64
+          type: integer
+          x-go-name: Width
+          example: 12345
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

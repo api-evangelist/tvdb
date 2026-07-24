@@ -1,0 +1,224 @@
+openapi: 3.0.0
+info:
+  description: 'Documentation of [TheTVDB](https://thetvdb.com/) API V4. All related information is linked from our [Github repo](https://github.com/thetvdb/v4-api). You might also want to use our [Postman collection] (https://www.getpostman.com/collections/7a9397ce69ff246f74d0)
+
+    ## Authentication
+
+    1. Use the /login endpoint and provide your API key as "apikey". If you have a user-supported key, also provide your subscriber PIN as "pin". Otherwise completely remove "pin" from your call.
+
+    2. Executing this call will provide you with a bearer token, which is valid for 1 month.
+
+    3. Provide your bearer token for subsequent API calls by clicking Authorize below or including in the header of all direct API calls: `Authorization: Bearer [your-token]`
+
+
+    ## Notes
+
+    1. "score" is a field across almost all entities.  We generate scores for different types of entities in various ways, so no assumptions should be made about the meaning of this value.  It is simply used to hint at relative popularity for sorting purposes.
+
+    '
+  title: TVDB API V4 Artwork Updates API
+  version: 4.7.10
+  x-last-validated: '2026-05-30'
+  x-spec-source: https://github.com/thetvdb/v4-api/blob/main/docs/swagger.yml
+servers:
+- url: https://api4.thetvdb.com/v4
+  description: TheTVDB v4 API production
+security:
+- bearerAuth: []
+tags:
+- name: Updates
+paths:
+  /updates:
+    get:
+      description: Returns updated entities.  methodInt indicates a created record (1), an updated record (2), or a deleted record (3).  If a record is deleted because it was a duplicate of another record, the target record's information is provided in mergeToType and mergeToId.
+      operationId: updates
+      parameters:
+      - in: query
+        name: since
+        required: true
+        schema:
+          type: number
+        example: 1.0
+      - in: query
+        name: type
+        required: false
+        schema:
+          type: string
+          enum:
+          - artwork
+          - award_nominees
+          - companies
+          - episodes
+          - lists
+          - people
+          - seasons
+          - series
+          - seriespeople
+          - artworktypes
+          - award_categories
+          - awards
+          - company_types
+          - content_ratings
+          - countries
+          - entity_types
+          - genres
+          - languages
+          - movies
+          - movie_genres
+          - movie_status
+          - peopletypes
+          - seasontypes
+          - sourcetypes
+          - tag_options
+          - tags
+          - translatedcharacters
+          - translatedcompanies
+          - translatedepisodes
+          - translatedlists
+          - translatedmovies
+          - translatedpeople
+          - translatedseasons
+          - translatedserierk
+          example: movies
+        example: movies
+      - in: query
+        name: action
+        required: false
+        schema:
+          type: string
+          enum:
+          - delete
+          - update
+          example: movies
+        example: movies
+      - description: name
+        in: query
+        name: page
+        schema:
+          type: number
+        example: 1.0
+      responses:
+        '200':
+          description: response
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    items:
+                      $ref: '#/components/schemas/EntityUpdate'
+                    type: array
+                  status:
+                    type: string
+                  links:
+                    $ref: '#/components/schemas/Links'
+                type: object
+              examples:
+                Updates200Example:
+                  summary: Default updates 200 response
+                  x-microcks-default: true
+                  value:
+                    data:
+                    - entityType: example
+                      methodInt: 1
+                      method: example
+                      extraInfo: example
+                      userId: 12345
+                      recordType: example
+                      recordId: 12345
+                      timeStamp: 12345
+                      seriesId: 12345
+                      mergeToId: 12345
+                      mergeToEntityType: example
+                    status: Continuing
+                    links:
+                      prev: example
+                      self: example
+                      next: example
+                      total_items: 1
+                      page_size: 1
+        '400':
+          description: Invalid since, type param.
+        '401':
+          description: Unauthorized
+      tags:
+      - Updates
+      summary: TheTVDB Updates
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    EntityUpdate:
+      description: entity update record
+      properties:
+        entityType:
+          type: string
+          x-go-name: EnitityType
+          example: example
+        methodInt:
+          type: integer
+          example: 1
+        method:
+          type: string
+          x-go-name: Method
+          example: example
+        extraInfo:
+          type: string
+          example: example
+        userId:
+          type: integer
+          example: 12345
+        recordType:
+          type: string
+          example: example
+        recordId:
+          format: int64
+          type: integer
+          x-go-name: RecordID
+          example: 12345
+        timeStamp:
+          format: int64
+          type: integer
+          x-go-name: TimeStamp
+          example: 12345
+        seriesId:
+          description: Only present for episodes records
+          format: int64
+          type: integer
+          x-go-name: RecordID
+          example: 12345
+        mergeToId:
+          format: int64
+          type: integer
+          example: 12345
+        mergeToEntityType:
+          type: string
+          example: example
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Links:
+      description: Links for next, previous and current record
+      properties:
+        prev:
+          type: string
+          nullable: true
+          example: example
+        self:
+          type: string
+          nullable: true
+          example: example
+        next:
+          type: string
+          example: example
+        total_items:
+          type: integer
+          example: 1
+        page_size:
+          type: integer
+          example: 1
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
