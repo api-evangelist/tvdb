@@ -1,13 +1,26 @@
 aid: tvdb
 name: TheTVDB
 url: https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/apis.yml
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-05-28'
 modified: '2026-05-30'
 position: Provider
 access: 3rd-Party
 kind: contract
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/tvdb.png
 x-source: public-apis/public-apis
 x-category: Video
 x-type: company
@@ -29,55 +42,1050 @@ tags:
   - Public APIs
   - Video
 apis:
-  - aid: tvdb:tvdb-v4-api
-    name: TheTVDB v4 API
-    description: >-
-      The TheTVDB v4 API is a REST API providing structured metadata for TV series, movies, people, artwork, awards,
-      episodes, seasons, companies, content ratings, genres, languages, countries, and search. It uses JWT bearer
-      authentication acquired via the /login endpoint with an API key (and optional subscriber PIN). The base URL is
-      https://api4.thetvdb.com/v4 and tokens are valid for one month. The API surface covers 67 operations across 29 tag
-      groups including Series, Movies, People, Artwork, Awards, Episodes, Genres, Languages, Countries, Companies,
-      Content Ratings, Search, Seasons, Lists, Favorites, Updates, and User Info. TheTVDB recommends maintaining a local
-      database copy or caching proxy for high-volume usage and using the /updates endpoint to stay in sync.
-    humanURL: https://thetvdb.github.io/v4-api/
-    baseURL: https://api4.thetvdb.com/v4
-    tags:
-      - Television
-      - Movies
-      - Metadata
-      - Entertainment
-    properties:
-      - type: Documentation
-        url: https://thetvdb.github.io/v4-api/
-      - type: APIReference
-        url: https://thetvdb.github.io/v4-api/
-      - type: Signup
-        url: https://thetvdb.com/api-information/signup
-      - type: Authentication
-        url: https://thetvdb.github.io/v4-api/#/Login
-      - type: GitHubRepository
-        url: https://github.com/thetvdb/v4-api
-      - type: Postman
-        url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
-      - type: OpenAPI
-        url: openapi/tvdb-openapi.yml
-      - type: SpectralRules
-        url: rules/tvdb-rules.yml
-      - type: JSONLD
-        url: json-ld/tvdb-context.jsonld
-      - type: Vocabulary
-        url: vocabulary/tvdb-vocabulary.yml
-      - type: SDKs
-        title: Python SDK
-        url: https://github.com/thetvdb/tvdb-v4-python
-      - type: Integrations
-        title: Kodi TV Shows Plugin
-        url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
-      - type: Integrations
-        title: Kodi Movies Plugin
-        url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
-      - type: IssueTracker
-        url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-artwork-api
+  name: TheTVDB Artwork API
+  description: The Artwork API from TheTVDB — 2 operation(s) for artwork.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - Artwork
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-artwork-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-artwork-statuses-api
+  name: TheTVDB Artwork Statuses API
+  description: The Artwork Statuses API from TheTVDB — 1 operation(s) for artwork statuses.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - Artwork Statuses
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-artwork-statuses-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-artwork-types-api
+  name: TheTVDB Artwork Types API
+  description: The Artwork Types API from TheTVDB — 1 operation(s) for artwork types.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - Artwork Types
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-artwork-types-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-award-categories-api
+  name: TheTVDB Award Categories API
+  description: The Award Categories API from TheTVDB — 2 operation(s) for award categories.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - Award Categories
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-award-categories-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-awards-api
+  name: TheTVDB Awards API
+  description: The Awards API from TheTVDB — 3 operation(s) for awards.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - Awards
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-awards-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-characters-api
+  name: TheTVDB Characters API
+  description: The Characters API from TheTVDB — 1 operation(s) for characters.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - Characters
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-characters-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-companies-api
+  name: TheTVDB Companies API
+  description: The Companies API from TheTVDB — 3 operation(s) for companies.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - Companies
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-companies-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-content-ratings-api
+  name: TheTVDB Content Ratings API
+  description: The Content Ratings API from TheTVDB — 1 operation(s) for content ratings.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - Content Ratings
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-content-ratings-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-countries-api
+  name: TheTVDB Countries API
+  description: The Countries API from TheTVDB — 1 operation(s) for countries.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - Countries
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-countries-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-entity-types-api
+  name: TheTVDB Entity Types API
+  description: The Entity Types API from TheTVDB — 1 operation(s) for entity types.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - Entity Types
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-entity-types-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-episodes-api
+  name: TheTVDB Episodes API
+  description: The Episodes API from TheTVDB — 4 operation(s) for episodes.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - Episodes
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-episodes-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-favorites-api
+  name: TheTVDB Favorites API
+  description: The Favorites API from TheTVDB — 1 operation(s) for favorites.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - Favorites
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-favorites-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-genders-api
+  name: TheTVDB Genders API
+  description: The Genders API from TheTVDB — 1 operation(s) for genders.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - Genders
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-genders-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-genres-api
+  name: TheTVDB Genres API
+  description: The Genres API from TheTVDB — 2 operation(s) for genres.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - Genres
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-genres-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-inspirationtypes-api
+  name: TheTVDB InspirationTypes API
+  description: The InspirationTypes API from TheTVDB — 1 operation(s) for inspirationtypes.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - InspirationTypes
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-inspirationtypes-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-languages-api
+  name: TheTVDB Languages API
+  description: The Languages API from TheTVDB — 1 operation(s) for languages.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - Languages
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-languages-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-lists-api
+  name: TheTVDB Lists API
+  description: The Lists API from TheTVDB — 5 operation(s) for lists.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-lists-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-login-api
+  name: TheTVDB Login API
+  description: The Login API from TheTVDB — 1 operation(s) for login.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - Login
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-login-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-movie-statuses-api
+  name: TheTVDB Movie Statuses API
+  description: The Movie Statuses API from TheTVDB — 1 operation(s) for movie statuses.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - Movie Statuses
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-movie-statuses-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-movies-api
+  name: TheTVDB Movies API
+  description: The Movies API from TheTVDB — 6 operation(s) for movies.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - Movies
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-movies-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-people-api
+  name: TheTVDB People API
+  description: The People API from TheTVDB — 4 operation(s) for people.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - People
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-people-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-people-types-api
+  name: TheTVDB People Types API
+  description: The People Types API from TheTVDB — 1 operation(s) for people types.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - People Types
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-people-types-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-search-api
+  name: TheTVDB Search API
+  description: The Search API from TheTVDB — 2 operation(s) for search.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-search-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-seasons-api
+  name: TheTVDB Seasons API
+  description: The Seasons API from TheTVDB — 5 operation(s) for seasons.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - Seasons
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-seasons-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-series-api
+  name: TheTVDB Series API
+  description: The Series API from TheTVDB — 10 operation(s) for series.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - Series
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-series-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-series-statuses-api
+  name: TheTVDB Series Statuses API
+  description: The Series Statuses API from TheTVDB — 1 operation(s) for series statuses.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - Series Statuses
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-series-statuses-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-source-types-api
+  name: TheTVDB Source Types API
+  description: The Source Types API from TheTVDB — 1 operation(s) for source types.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - Source Types
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-source-types-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-updates-api
+  name: TheTVDB Updates API
+  description: The Updates API from TheTVDB — 1 operation(s) for updates.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - Updates
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-updates-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
+- aid: tvdb:tvdb-user-info-api
+  name: TheTVDB User info API
+  description: The User info API from TheTVDB — 2 operation(s) for user info.
+  humanURL: https://thetvdb.github.io/v4-api/
+  baseURL: https://api4.thetvdb.com/v4
+  tags:
+  - User info
+  properties:
+  - type: OpenAPI
+    url: openapi/tvdb-user-info-api-openapi.yml
+  - type: Documentation
+    url: https://thetvdb.github.io/v4-api/
+  - type: APIReference
+    url: https://thetvdb.github.io/v4-api/
+  - type: Signup
+    url: https://thetvdb.com/api-information/signup
+  - type: Authentication
+    url: https://thetvdb.github.io/v4-api/#/Login
+  - type: GitHubRepository
+    url: https://github.com/thetvdb/v4-api
+  - type: Postman
+    url: https://www.getpostman.com/collections/7a9397ce69ff246f74d0
+  - type: SpectralRules
+    url: rules/tvdb-rules.yml
+  - type: JSONLD
+    url: json-ld/tvdb-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/tvdb-vocabulary.yml
+  - type: SDKs
+    url: https://github.com/thetvdb/tvdb-v4-python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.tvshows.thetvdb.com.v4.python
+  - type: Integrations
+    url: https://github.com/thetvdb/metadata.movies.thetvdb.com.v4.python
+  - type: IssueTracker
+    url: https://github.com/thetvdb/v4-api/issues
 common:
   - type: AgenticAccess
     url: agentic-access/tvdb-agentic-access.yml
