@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TVDB API V4 Artwork Movie Statuses API",
+    "version": "4.7.10"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Movie Statuses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "TheTVDB Get All Movie Statuses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/movies/statuses"
+          },
+          "docs": "returns list of status records"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

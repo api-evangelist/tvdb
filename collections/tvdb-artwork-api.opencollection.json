@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TVDB API V4 Artwork API",
+    "version": "4.7.10"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Artwork",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "TheTVDB Get Artwork Base",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/artwork/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "Returns a single artwork base record."
+        },
+        {
+          "info": {
+            "name": "TheTVDB Get Artwork Extended",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/artwork/:id/extended",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "Returns a single artwork extended record."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

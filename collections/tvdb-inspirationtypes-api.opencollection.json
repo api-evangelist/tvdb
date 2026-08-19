@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TVDB API V4 Artwork InspirationTypes API",
+    "version": "4.7.10"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "InspirationTypes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "TheTVDB Get All Inspiration Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/inspiration/types"
+          },
+          "docs": "returns list of inspiration types records"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

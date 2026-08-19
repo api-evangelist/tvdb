@@ -1,0 +1,112 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TVDB API V4 Artwork People API",
+    "version": "4.7.10"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "People",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "TheTVDB Get All People",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/people",
+            "params": [
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "page number"
+              }
+            ]
+          },
+          "docs": "Returns a list of people base records with the basic attributes."
+        },
+        {
+          "info": {
+            "name": "TheTVDB Get People Base",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/people/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "Returns people base record"
+        },
+        {
+          "info": {
+            "name": "TheTVDB Get People Extended",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/people/:id/extended",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345",
+                "type": "path",
+                "description": "id"
+              },
+              {
+                "name": "meta",
+                "value": "translations",
+                "type": "query",
+                "description": "meta"
+              }
+            ]
+          },
+          "docs": "Returns people extended record"
+        },
+        {
+          "info": {
+            "name": "TheTVDB Get People Translation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/people/:id/translations/:language",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345",
+                "type": "path",
+                "description": "id"
+              },
+              {
+                "name": "language",
+                "value": "eng",
+                "type": "path",
+                "description": "language"
+              }
+            ]
+          },
+          "docs": "Returns people translation record"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

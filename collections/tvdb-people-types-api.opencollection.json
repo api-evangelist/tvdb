@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TVDB API V4 Artwork People Types API",
+    "version": "4.7.10"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "People Types",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "TheTVDB Get All People Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/people/types"
+          },
+          "docs": "returns list of peopleType records"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,117 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TVDB API V4 Artwork Seasons API",
+    "version": "4.7.10"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Seasons",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "TheTVDB Get All Seasons",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/seasons",
+            "params": [
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "page number"
+              }
+            ]
+          },
+          "docs": "returns list of seasons base records"
+        },
+        {
+          "info": {
+            "name": "TheTVDB Get Season Base",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/seasons/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "Returns season base record"
+        },
+        {
+          "info": {
+            "name": "TheTVDB Get Season Extended",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/seasons/:id/extended",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "Returns season extended record"
+        },
+        {
+          "info": {
+            "name": "TheTVDB Get Season Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/seasons/types"
+          },
+          "docs": "Returns season type records"
+        },
+        {
+          "info": {
+            "name": "TheTVDB Get Season Translation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/seasons/:id/translations/:language",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345",
+                "type": "path",
+                "description": "id"
+              },
+              {
+                "name": "language",
+                "value": "eng",
+                "type": "path",
+                "description": "language"
+              }
+            ]
+          },
+          "docs": "Returns season translation record"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

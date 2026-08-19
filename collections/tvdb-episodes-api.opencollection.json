@@ -1,0 +1,112 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TVDB API V4 Artwork Episodes API",
+    "version": "4.7.10"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Episodes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "TheTVDB Get All Episodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/episodes",
+            "params": [
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "page number"
+              }
+            ]
+          },
+          "docs": "Returns a list of episodes base records with the basic attributes.<br> Note that all episodes are returned, even those that may not be included in a series' default season order."
+        },
+        {
+          "info": {
+            "name": "TheTVDB Get Episode Base",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/episodes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "Returns episode base record"
+        },
+        {
+          "info": {
+            "name": "TheTVDB Get Episode Extended",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/episodes/:id/extended",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345",
+                "type": "path",
+                "description": "id"
+              },
+              {
+                "name": "meta",
+                "value": "translations",
+                "type": "query",
+                "description": "meta"
+              }
+            ]
+          },
+          "docs": "Returns episode extended record"
+        },
+        {
+          "info": {
+            "name": "TheTVDB Get Episode Translation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/episodes/:id/translations/:language",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345",
+                "type": "path",
+                "description": "id"
+              },
+              {
+                "name": "language",
+                "value": "eng",
+                "type": "path",
+                "description": "language"
+              }
+            ]
+          },
+          "docs": "Returns episode translation record"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

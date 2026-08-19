@@ -1,0 +1,58 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TVDB API V4 Artwork Updates API",
+    "version": "4.7.10"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Updates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "TheTVDB Updates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/updates",
+            "params": [
+              {
+                "name": "since",
+                "value": "1",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "movies",
+                "type": "query"
+              },
+              {
+                "name": "action",
+                "value": "movies",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "name"
+              }
+            ]
+          },
+          "docs": "Returns updated entities.  methodInt indicates a created record (1), an updated record (2), or a deleted record (3).  If a record is deleted because it was a duplicate of another record, the target record's information is provided in mergeToType and mergeToId."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

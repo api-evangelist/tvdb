@@ -1,0 +1,582 @@
+{
+  "item": [
+    {
+      "id": "cb5b566f-4917-428d-9ed2-4edb1bfb218a",
+      "name": "Search",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a52f7b15-2f1d-4eb9-bb8d-b6dc26303c05",
+          "name": "TheTVDB Get Search Results",
+          "request": {
+            "name": "TheTVDB Get Search Results",
+            "description": {
+              "content": "Our search index includes series, movies, people, and companies. Search is limited to 5k results max.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "The primary search string, which can include the main title for a record including all translations and aliases."
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Alias of the \"query\" parameter.  Recommend using query instead as this field will eventually be deprecated."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Restrict results to a specific entity type.  Can be movie, series, person, or company."
+                },
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<number>",
+                  "description": "Restrict results to a specific year. Currently only used for series and movies."
+                },
+                {
+                  "disabled": false,
+                  "key": "company",
+                  "value": "<string>",
+                  "description": "Restrict results to a specific company (original network, production company, studio, etc).  As an example, \"The Walking Dead\" would have companies of \"AMC\", \"AMC+\", and \"Disney+\"."
+                },
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>",
+                  "description": "Restrict results to a specific country of origin. Should contain a 3 character country code. Currently only used for series and movies."
+                },
+                {
+                  "disabled": false,
+                  "key": "director",
+                  "value": "<string>",
+                  "description": "Restrict results to a specific director.  Generally only used for movies.  Should include the full name of the director, such as \"Steven Spielberg\"."
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>",
+                  "description": "Restrict results to a specific primary language.  Should include the 3 character language code.  Currently only used for series and movies."
+                },
+                {
+                  "disabled": false,
+                  "key": "primaryType",
+                  "value": "<string>",
+                  "description": "Restrict results to a specific type of company.  Should include the full name of the type of company, such as \"Production Company\".  Only used for companies."
+                },
+                {
+                  "disabled": false,
+                  "key": "network",
+                  "value": "<string>",
+                  "description": "Restrict results to a specific network.  Used for TV and TV movies, and functions the same as the company parameter with more specificity."
+                },
+                {
+                  "disabled": false,
+                  "key": "remote_id",
+                  "value": "<string>",
+                  "description": "Search for a specific remote id.  Allows searching for an IMDB or EIDR id, for example."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<number>",
+                  "description": "Offset results."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<number>",
+                  "description": "Limit results."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "221b16fa-9a1f-4cd0-a875-f8d2c1b2b3f3",
+              "name": "response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "example"
+                    },
+                    {
+                      "key": "q",
+                      "value": "example"
+                    },
+                    {
+                      "key": "type",
+                      "value": "example"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "company",
+                      "value": "example"
+                    },
+                    {
+                      "key": "country",
+                      "value": "usa"
+                    },
+                    {
+                      "key": "director",
+                      "value": "example"
+                    },
+                    {
+                      "key": "language",
+                      "value": "eng"
+                    },
+                    {
+                      "key": "primaryType",
+                      "value": "example"
+                    },
+                    {
+                      "key": "network",
+                      "value": "example"
+                    },
+                    {
+                      "key": "remote_id",
+                      "value": "abc123"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"aliases\": [\n        \"example\"\n      ],\n      \"companies\": [\n        \"example\"\n      ],\n      \"companyType\": \"example\",\n      \"country\": \"usa\",\n      \"director\": \"example\",\n      \"first_air_time\": \"example\",\n      \"genres\": [\n        \"example\"\n      ],\n      \"id\": \"abc123\",\n      \"image_url\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n      \"name\": \"Example Name\",\n      \"is_official\": true,\n      \"name_translated\": \"example\",\n      \"network\": \"example\",\n      \"objectID\": \"abc123\",\n      \"officialList\": \"example\",\n      \"overview\": \"A descriptive paragraph of text.\",\n      \"overviews\": {},\n      \"overview_translated\": [\n        \"example\"\n      ],\n      \"poster\": \"example\",\n      \"posters\": [\n        \"example\"\n      ],\n      \"primary_language\": \"example\",\n      \"remote_ids\": [\n        {\n          \"id\": \"abc123\",\n          \"type\": 12345,\n          \"sourceName\": \"example\"\n        }\n      ],\n      \"status\": \"Continuing\",\n      \"slug\": \"example-slug\",\n      \"studios\": [\n        \"example\"\n      ],\n      \"title\": \"example\",\n      \"thumbnail\": \"example\",\n      \"translations\": {},\n      \"translationsWithLang\": [\n        \"example\"\n      ],\n      \"tvdb_id\": \"abc123\",\n      \"type\": \"example\",\n      \"year\": \"2024\"\n    }\n  ],\n  \"status\": \"Continuing\",\n  \"links\": {\n    \"prev\": \"example\",\n    \"self\": \"example\",\n    \"next\": \"example\",\n    \"total_items\": 1,\n    \"page_size\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2c5da62-ca96-40ce-ac1e-8ddcd21f7c78",
+              "name": "Max results overflow",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "example"
+                    },
+                    {
+                      "key": "q",
+                      "value": "example"
+                    },
+                    {
+                      "key": "type",
+                      "value": "example"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "company",
+                      "value": "example"
+                    },
+                    {
+                      "key": "country",
+                      "value": "usa"
+                    },
+                    {
+                      "key": "director",
+                      "value": "example"
+                    },
+                    {
+                      "key": "language",
+                      "value": "eng"
+                    },
+                    {
+                      "key": "primaryType",
+                      "value": "example"
+                    },
+                    {
+                      "key": "network",
+                      "value": "example"
+                    },
+                    {
+                      "key": "remote_id",
+                      "value": "abc123"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7cee82c0-9047-452a-9857-e11f04c14cd7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "example"
+                    },
+                    {
+                      "key": "q",
+                      "value": "example"
+                    },
+                    {
+                      "key": "type",
+                      "value": "example"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "company",
+                      "value": "example"
+                    },
+                    {
+                      "key": "country",
+                      "value": "usa"
+                    },
+                    {
+                      "key": "director",
+                      "value": "example"
+                    },
+                    {
+                      "key": "language",
+                      "value": "eng"
+                    },
+                    {
+                      "key": "primaryType",
+                      "value": "example"
+                    },
+                    {
+                      "key": "network",
+                      "value": "example"
+                    },
+                    {
+                      "key": "remote_id",
+                      "value": "abc123"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aae28c20-3b5e-441f-bf12-ae930c68150e",
+          "name": "TheTVDB Get Search Results by Remote Id",
+          "request": {
+            "name": "TheTVDB Get Search Results by Remote Id",
+            "description": {
+              "content": "Search a series, movie, people, episode, company or season by specific remote id and returns a base record for that entity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search",
+                "remoteid",
+                ":remoteId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "remoteId",
+                  "description": "(Required) Search for a specific remote id.  Allows searching for an IMDB or EIDR id, for example."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ecace742-ae03-4022-ad01-a7bf948a1533",
+              "name": "response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "remoteid",
+                    ":remoteId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "remoteId",
+                      "description": "(Required) Search for a specific remote id.  Allows searching for an IMDB or EIDR id, for example."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"series\": {\n        \"aliases\": [\n          {\n            \"language\": \"eng\",\n            \"name\": \"Example Name\"\n          }\n        ],\n        \"averageRuntime\": 1,\n        \"country\": \"usa\",\n        \"defaultSeasonType\": 12345,\n        \"episodes\": [\n          {\n            \"absoluteNumber\": 1,\n            \"aired\": \"example\",\n            \"airsAfterSeason\": 1,\n            \"airsBeforeEpisode\": 1,\n            \"airsBeforeSeason\": 1,\n            \"finaleType\": \"example\",\n            \"id\": 12345,\n            \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n            \"imageType\": 1,\n            \"isMovie\": 12345,\n            \"lastUpdated\": \"2024-01-15\",\n            \"linkedMovie\": 1,\n            \"name\": \"Example Name\",\n            \"nameTranslations\": [\n              \"example\"\n            ],\n            \"number\": 1,\n            \"overview\": \"A descriptive paragraph of text.\",\n            \"overviewTranslations\": [\n              \"example\"\n            ],\n            \"runtime\": 1,\n            \"seasonNumber\": 1,\n            \"seasons\": [\n              {\n                \"id\": null,\n                \"image\": null,\n                \"imageType\": null,\n                \"lastUpdated\": null,\n                \"name\": null,\n                \"nameTranslations\": null,\n                \"number\": null,\n                \"overviewTranslations\": null,\n                \"companies\": {},\n                \"seriesId\": null,\n                \"type\": {},\n                \"year\": null\n              }\n            ],\n            \"seriesId\": 12345,\n            \"seasonName\": \"example\",\n            \"year\": \"2024\"\n          }\n        ],\n        \"firstAired\": \"example\",\n        \"id\": 12345,\n        \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"isOrderRandomized\": true,\n        \"lastAired\": \"example\",\n        \"lastUpdated\": \"2024-01-15\",\n        \"name\": \"Example Name\",\n        \"nameTranslations\": [\n          \"example\"\n        ],\n        \"nextAired\": \"example\",\n        \"originalCountry\": \"example\",\n        \"originalLanguage\": \"example\",\n        \"overviewTranslations\": [\n          \"example\"\n        ],\n        \"score\": 100,\n        \"slug\": \"example-slug\",\n        \"status\": {\n          \"id\": 12345,\n          \"keepUpdated\": \"2024-01-15\",\n          \"name\": \"Example Name\",\n          \"recordType\": \"example\"\n        },\n        \"year\": \"2024\"\n      },\n      \"people\": {\n        \"aliases\": [\n          {\n            \"language\": \"eng\",\n            \"name\": \"Example Name\"\n          }\n        ],\n        \"id\": 12345,\n        \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"lastUpdated\": \"2024-01-15\",\n        \"name\": \"Example Name\",\n        \"nameTranslations\": [\n          \"example\"\n        ],\n        \"overviewTranslations\": [\n          \"example\"\n        ],\n        \"score\": 100\n      },\n      \"movie\": {\n        \"aliases\": [\n          {\n            \"language\": \"eng\",\n            \"name\": \"Example Name\"\n          }\n        ],\n        \"id\": 12345,\n        \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"lastUpdated\": \"2024-01-15\",\n        \"name\": \"Example Name\",\n        \"nameTranslations\": [\n          \"example\"\n        ],\n        \"overviewTranslations\": [\n          \"example\"\n        ],\n        \"score\": 100,\n        \"slug\": \"example-slug\",\n        \"status\": {\n          \"id\": 12345,\n          \"keepUpdated\": \"2024-01-15\",\n          \"name\": \"Example Name\",\n          \"recordType\": \"example\"\n        },\n        \"runtime\": 1,\n        \"year\": \"2024\"\n      },\n      \"episode\": {\n        \"absoluteNumber\": 1,\n        \"aired\": \"example\",\n        \"airsAfterSeason\": 1,\n        \"airsBeforeEpisode\": 1,\n        \"airsBeforeSeason\": 1,\n        \"finaleType\": \"example\",\n        \"id\": 12345,\n        \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"imageType\": 1,\n        \"isMovie\": 12345,\n        \"lastUpdated\": \"2024-01-15\",\n        \"linkedMovie\": 1,\n        \"name\": \"Example Name\",\n        \"nameTranslations\": [\n          \"example\"\n        ],\n        \"number\": 1,\n        \"overview\": \"A descriptive paragraph of text.\",\n        \"overviewTranslations\": [\n          \"example\"\n        ],\n        \"runtime\": 1,\n        \"seasonNumber\": 1,\n        \"seasons\": [\n          {\n            \"id\": 12345,\n            \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n            \"imageType\": 1,\n            \"lastUpdated\": \"2024-01-15\",\n            \"name\": \"Example Name\",\n            \"nameTranslations\": [\n              \"example\"\n            ],\n            \"number\": 12345,\n            \"overviewTranslations\": [\n              \"example\"\n            ],\n            \"companies\": {\n              \"studio\": [\n                {}\n              ],\n              \"network\": [\n                {}\n              ],\n              \"production\": [\n                {}\n              ],\n              \"distributor\": [\n                {}\n              ],\n              \"special_effects\": [\n                {}\n              ]\n            },\n            \"seriesId\": 12345,\n            \"type\": {\n              \"alternateName\": null,\n              \"id\": null,\n              \"name\": null,\n              \"type\": null\n            },\n            \"year\": \"2024\"\n          }\n        ],\n        \"seriesId\": 12345,\n        \"seasonName\": \"example\",\n        \"year\": \"2024\"\n      },\n      \"company\": {\n        \"activeDate\": \"2024-01-15\",\n        \"aliases\": [\n          {\n            \"language\": \"eng\",\n            \"name\": \"Example Name\"\n          }\n        ],\n        \"country\": \"usa\",\n        \"id\": 12345,\n        \"inactiveDate\": \"2024-01-15\",\n        \"name\": \"Example Name\",\n        \"nameTranslations\": [\n          \"example\"\n        ],\n        \"overviewTranslations\": [\n          \"example\"\n        ],\n        \"primaryCompanyType\": 12345,\n        \"slug\": \"example-slug\",\n        \"parentCompany\": {\n          \"id\": 12345,\n          \"name\": \"Example Name\",\n          \"relation\": {\n            \"id\": null,\n            \"typeName\": null\n          }\n        },\n        \"tagOptions\": [\n          {\n            \"helpText\": \"example\",\n            \"id\": 12345,\n            \"name\": \"Example Name\",\n            \"tag\": 12345,\n            \"tagName\": \"example\"\n          }\n        ]\n      }\n    }\n  ],\n  \"status\": \"Continuing\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8f213164-a34a-4e3e-841f-f36bfbe333be",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "remoteid",
+                    ":remoteId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "remoteId",
+                      "description": "(Required) Search for a specific remote id.  Allows searching for an IMDB or EIDR id, for example."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api4.thetvdb.com/v4",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b77b7ff4-1265-48d4-a40e-14e56b43dc4a",
+    "name": "TVDB API V4 Artwork Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Documentation of [TheTVDB](https://thetvdb.com/) API V4. All related information is linked from our [Github repo](https://github.com/thetvdb/v4-api). You might also want to use our [Postman collection] (https://www.getpostman.com/collections/7a9397ce69ff246f74d0)\n## Authentication\n1. Use the /login endpoint and provide your API key as \"apikey\". If you have a user-supported key, also provide your subscriber PIN as \"pin\". Otherwise completely remove \"pin\" from your call.\n2. Executing this call will provide you with a bearer token, which is valid for 1 month.\n3. Provide your bearer token for subsequent API calls by clicking Authorize below or including in the header of all direct API calls: `Authorization: Bearer [your-token]`\n\n## Notes\n1. \"score\" is a field across almost all entities.  We generate scores for different types of entities in various ways, so no assumptions should be made about the meaning of this value.  It is simply used to hint at relative popularity for sorting purposes.\n",
+      "type": "text/plain"
+    }
+  }
+}

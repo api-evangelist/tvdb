@@ -1,0 +1,2832 @@
+{
+  "item": [
+    {
+      "id": "52423765-b358-4b90-aef8-5b8ea5ba7fce",
+      "name": "Series",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cdec25fb-a6c4-4ed8-8a2a-56a808067ba5",
+          "name": "TheTVDB Get All Series",
+          "request": {
+            "name": "TheTVDB Get All Series",
+            "description": {
+              "content": "returns list of series base records",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "series"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<number>",
+                  "description": "page number"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9cefe6b6-42ed-4391-9189-08dbd0aafb48",
+              "name": "response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"aliases\": [\n        {\n          \"language\": \"eng\",\n          \"name\": \"Example Name\"\n        }\n      ],\n      \"averageRuntime\": 1,\n      \"country\": \"usa\",\n      \"defaultSeasonType\": 12345,\n      \"episodes\": [\n        {\n          \"absoluteNumber\": 1,\n          \"aired\": \"example\",\n          \"airsAfterSeason\": 1,\n          \"airsBeforeEpisode\": 1,\n          \"airsBeforeSeason\": 1,\n          \"finaleType\": \"example\",\n          \"id\": 12345,\n          \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n          \"imageType\": 1,\n          \"isMovie\": 12345,\n          \"lastUpdated\": \"2024-01-15\",\n          \"linkedMovie\": 1,\n          \"name\": \"Example Name\",\n          \"nameTranslations\": [\n            \"example\"\n          ],\n          \"number\": 1,\n          \"overview\": \"A descriptive paragraph of text.\",\n          \"overviewTranslations\": [\n            \"example\"\n          ],\n          \"runtime\": 1,\n          \"seasonNumber\": 1,\n          \"seasons\": [\n            {\n              \"id\": 12345,\n              \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n              \"imageType\": 1,\n              \"lastUpdated\": \"2024-01-15\",\n              \"name\": \"Example Name\",\n              \"nameTranslations\": [\n                \"example\"\n              ],\n              \"number\": 12345,\n              \"overviewTranslations\": [\n                \"example\"\n              ],\n              \"companies\": {\n                \"studio\": [\n                  {}\n                ],\n                \"network\": [\n                  {}\n                ],\n                \"production\": [\n                  {}\n                ],\n                \"distributor\": [\n                  {}\n                ],\n                \"special_effects\": [\n                  {}\n                ]\n              },\n              \"seriesId\": 12345,\n              \"type\": {\n                \"alternateName\": null,\n                \"id\": null,\n                \"name\": null,\n                \"type\": null\n              },\n              \"year\": \"2024\"\n            }\n          ],\n          \"seriesId\": 12345,\n          \"seasonName\": \"example\",\n          \"year\": \"2024\"\n        }\n      ],\n      \"firstAired\": \"example\",\n      \"id\": 12345,\n      \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n      \"isOrderRandomized\": true,\n      \"lastAired\": \"example\",\n      \"lastUpdated\": \"2024-01-15\",\n      \"name\": \"Example Name\",\n      \"nameTranslations\": [\n        \"example\"\n      ],\n      \"nextAired\": \"example\",\n      \"originalCountry\": \"example\",\n      \"originalLanguage\": \"example\",\n      \"overviewTranslations\": [\n        \"example\"\n      ],\n      \"score\": 100,\n      \"slug\": \"example-slug\",\n      \"status\": {\n        \"id\": 12345,\n        \"keepUpdated\": \"2024-01-15\",\n        \"name\": \"Example Name\",\n        \"recordType\": \"example\"\n      },\n      \"year\": \"2024\"\n    }\n  ],\n  \"status\": \"Continuing\",\n  \"links\": {\n    \"prev\": \"example\",\n    \"self\": \"example\",\n    \"next\": \"example\",\n    \"total_items\": 1,\n    \"page_size\": 1\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "45e1e2b4-18f4-45c5-8bf4-908ba5514de8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12f5bb10-00f8-4d2f-9879-cf09b2dda8c0",
+          "name": "TheTVDB Get Series Base",
+          "request": {
+            "name": "TheTVDB Get Series Base",
+            "description": {
+              "content": "Returns series base record",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "series",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "46dc2ad5-2b64-40ad-a38c-e739a224c6cb",
+              "name": "response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"aliases\": [\n      {\n        \"language\": \"eng\",\n        \"name\": \"Example Name\"\n      }\n    ],\n    \"averageRuntime\": 1,\n    \"country\": \"usa\",\n    \"defaultSeasonType\": 12345,\n    \"episodes\": [\n      {\n        \"absoluteNumber\": 1,\n        \"aired\": \"example\",\n        \"airsAfterSeason\": 1,\n        \"airsBeforeEpisode\": 1,\n        \"airsBeforeSeason\": 1,\n        \"finaleType\": \"example\",\n        \"id\": 12345,\n        \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"imageType\": 1,\n        \"isMovie\": 12345,\n        \"lastUpdated\": \"2024-01-15\",\n        \"linkedMovie\": 1,\n        \"name\": \"Example Name\",\n        \"nameTranslations\": [\n          \"example\"\n        ],\n        \"number\": 1,\n        \"overview\": \"A descriptive paragraph of text.\",\n        \"overviewTranslations\": [\n          \"example\"\n        ],\n        \"runtime\": 1,\n        \"seasonNumber\": 1,\n        \"seasons\": [\n          {\n            \"id\": 12345,\n            \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n            \"imageType\": 1,\n            \"lastUpdated\": \"2024-01-15\",\n            \"name\": \"Example Name\",\n            \"nameTranslations\": [\n              \"example\"\n            ],\n            \"number\": 12345,\n            \"overviewTranslations\": [\n              \"example\"\n            ],\n            \"companies\": {\n              \"studio\": [\n                {}\n              ],\n              \"network\": [\n                {}\n              ],\n              \"production\": [\n                {}\n              ],\n              \"distributor\": [\n                {}\n              ],\n              \"special_effects\": [\n                {}\n              ]\n            },\n            \"seriesId\": 12345,\n            \"type\": {\n              \"alternateName\": null,\n              \"id\": null,\n              \"name\": null,\n              \"type\": null\n            },\n            \"year\": \"2024\"\n          }\n        ],\n        \"seriesId\": 12345,\n        \"seasonName\": \"example\",\n        \"year\": \"2024\"\n      }\n    ],\n    \"firstAired\": \"example\",\n    \"id\": 12345,\n    \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n    \"isOrderRandomized\": true,\n    \"lastAired\": \"example\",\n    \"lastUpdated\": \"2024-01-15\",\n    \"name\": \"Example Name\",\n    \"nameTranslations\": [\n      \"example\"\n    ],\n    \"nextAired\": \"example\",\n    \"originalCountry\": \"example\",\n    \"originalLanguage\": \"example\",\n    \"overviewTranslations\": [\n      \"example\"\n    ],\n    \"score\": 100,\n    \"slug\": \"example-slug\",\n    \"status\": {\n      \"id\": 12345,\n      \"keepUpdated\": \"2024-01-15\",\n      \"name\": \"Example Name\",\n      \"recordType\": \"example\"\n    },\n    \"year\": \"2024\"\n  },\n  \"status\": \"Continuing\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8c152b55-fd71-4a4a-bea0-ab534ad5c289",
+              "name": "Invalid series id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "431d95b0-48a4-4bd9-a0fb-090925709ff7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9777183c-8be1-4b71-97cd-706aab9c324d",
+              "name": "Series not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "986fc949-2230-42c0-b865-9b00881a32c8",
+          "name": "TheTVDB Get Series Artworks",
+          "request": {
+            "name": "TheTVDB Get Series Artworks",
+            "description": {
+              "content": "Returns series artworks base on language and type. <br> Note&#58; Artwork type is an id that can be found using **/artwork/types** endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "series",
+                ":id",
+                "artworks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lang",
+                  "value": "<string>",
+                  "description": "lang"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<integer>",
+                  "description": "type"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "39ce2fc7-50d1-4f45-91cb-b2268c385fb1",
+              "name": "response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id",
+                    "artworks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lang",
+                      "value": "eng, spa"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"abbreviation\": \"example\",\n    \"airsDays\": {\n      \"friday\": true,\n      \"monday\": true,\n      \"saturday\": true,\n      \"sunday\": true,\n      \"thursday\": true,\n      \"tuesday\": true,\n      \"wednesday\": true\n    },\n    \"airsTime\": \"example\",\n    \"aliases\": [\n      {\n        \"language\": \"eng\",\n        \"name\": \"Example Name\"\n      }\n    ],\n    \"artworks\": [\n      {\n        \"episodeId\": 12345,\n        \"height\": 12345,\n        \"id\": 12345,\n        \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"includesText\": true,\n        \"language\": \"eng\",\n        \"movieId\": 12345,\n        \"networkId\": 12345,\n        \"peopleId\": 12345,\n        \"score\": 100,\n        \"seasonId\": 12345,\n        \"seriesId\": 12345,\n        \"seriesPeopleId\": 12345,\n        \"status\": {\n          \"id\": 12345,\n          \"name\": \"Example Name\"\n        },\n        \"tagOptions\": [\n          {\n            \"helpText\": \"example\",\n            \"id\": 12345,\n            \"name\": \"Example Name\",\n            \"tag\": 12345,\n            \"tagName\": \"example\"\n          }\n        ],\n        \"thumbnail\": \"example\",\n        \"thumbnailHeight\": 12345,\n        \"thumbnailWidth\": 12345,\n        \"type\": 12345,\n        \"updatedAt\": \"2024-01-15\",\n        \"width\": 12345\n      }\n    ],\n    \"averageRuntime\": 1,\n    \"characters\": [\n      {\n        \"aliases\": [\n          {\n            \"language\": \"eng\",\n            \"name\": \"Example Name\"\n          }\n        ],\n        \"episode\": {\n          \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n          \"name\": \"Example Name\",\n          \"year\": \"2024\"\n        },\n        \"episodeId\": 12345,\n        \"id\": 12345,\n        \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"isFeatured\": true,\n        \"movieId\": 12345,\n        \"movie\": {\n          \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n          \"name\": \"Example Name\",\n          \"year\": \"2024\"\n        },\n        \"name\": \"Example Name\",\n        \"nameTranslations\": [\n          \"example\"\n        ],\n        \"overviewTranslations\": [\n          \"example\"\n        ],\n        \"peopleId\": 12345,\n        \"personImgURL\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"peopleType\": \"example\",\n        \"seriesId\": 12345,\n        \"series\": {\n          \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n          \"name\": \"Example Name\",\n          \"year\": \"2024\"\n        },\n        \"sort\": 12345,\n        \"tagOptions\": [\n          {\n            \"helpText\": \"example\",\n            \"id\": 12345,\n            \"name\": \"Example Name\",\n            \"tag\": 12345,\n            \"tagName\": \"example\"\n          }\n        ],\n        \"type\": 12345,\n        \"url\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"personName\": \"example\"\n      }\n    ],\n    \"contentRatings\": [\n      {\n        \"id\": 12345,\n        \"name\": \"Example Name\",\n        \"description\": \"A descriptive paragraph of text.\",\n        \"country\": \"usa\",\n        \"contentType\": \"example\",\n        \"order\": 1,\n        \"fullName\": \"example\"\n      }\n    ],\n    \"country\": \"usa\",\n    \"defaultSeasonType\": 12345,\n    \"episodes\": [\n      {\n        \"absoluteNumber\": 1,\n        \"aired\": \"example\",\n        \"airsAfterSeason\": 1,\n        \"airsBeforeEpisode\": 1,\n        \"airsBeforeSeason\": 1,\n        \"finaleType\": \"example\",\n        \"id\": 12345,\n        \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"imageType\": 1,\n        \"isMovie\": 12345,\n        \"lastUpdated\": \"2024-01-15\",\n        \"linkedMovie\": 1,\n        \"name\": \"Example Name\",\n        \"nameTranslations\": [\n          \"example\"\n        ],\n        \"number\": 1,\n        \"overview\": \"A descriptive paragraph of text.\",\n        \"overviewTranslations\": [\n          \"example\"\n        ],\n        \"runtime\": 1,\n        \"seasonNumber\": 1,\n        \"seasons\": [\n          {\n            \"id\": 12345,\n            \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n            \"imageType\": 1,\n            \"lastUpdated\": \"2024-01-15\",\n            \"name\": \"Example Name\",\n            \"nameTranslations\": [\n              \"example\"\n            ],\n            \"number\": 12345,\n            \"overviewTranslations\": [\n              \"example\"\n            ],\n            \"companies\": {\n              \"studio\": [\n                {}\n              ],\n              \"network\": [\n                {}\n              ],\n              \"production\": [\n                {}\n              ],\n              \"distributor\": [\n                {}\n              ],\n              \"special_effects\": [\n                {}\n              ]\n            },\n            \"seriesId\": 12345,\n            \"type\": {\n              \"alternateName\": null,\n              \"id\": null,\n              \"name\": null,\n              \"type\": null\n            },\n            \"year\": \"2024\"\n          }\n        ],\n        \"seriesId\": 12345,\n        \"seasonName\": \"example\",\n        \"year\": \"2024\"\n      }\n    ],\n    \"firstAired\": \"example\",\n    \"lists\": null,\n    \"genres\": [\n      {\n        \"id\": 12345,\n        \"name\": \"Example Name\",\n        \"slug\": \"example-slug\"\n      }\n    ],\n    \"id\": 12345,\n    \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n    \"isOrderRandomized\": true,\n    \"lastAired\": \"example\",\n    \"lastUpdated\": \"2024-01-15\",\n    \"name\": \"Example Name\",\n    \"nameTranslations\": [\n      \"example\"\n    ],\n    \"companies\": [\n      {\n        \"activeDate\": \"2024-01-15\",\n        \"aliases\": [\n          {\n            \"language\": \"eng\",\n            \"name\": \"Example Name\"\n          }\n        ],\n        \"country\": \"usa\",\n        \"id\": 12345,\n        \"inactiveDate\": \"2024-01-15\",\n        \"name\": \"Example Name\",\n        \"nameTranslations\": [\n          \"example\"\n        ],\n        \"overviewTranslations\": [\n          \"example\"\n        ],\n        \"primaryCompanyType\": 12345,\n        \"slug\": \"example-slug\",\n        \"parentCompany\": {\n          \"id\": 12345,\n          \"name\": \"Example Name\",\n          \"relation\": {\n            \"id\": null,\n            \"typeName\": null\n          }\n        },\n        \"tagOptions\": [\n          {\n            \"helpText\": \"example\",\n            \"id\": 12345,\n            \"name\": \"Example Name\",\n            \"tag\": 12345,\n            \"tagName\": \"example\"\n          }\n        ]\n      }\n    ],\n    \"nextAired\": \"example\",\n    \"originalCountry\": \"example\",\n    \"originalLanguage\": \"example\",\n    \"originalNetwork\": {\n      \"activeDate\": \"2024-01-15\",\n      \"aliases\": [\n        {\n          \"language\": \"eng\",\n          \"name\": \"Example Name\"\n        }\n      ],\n      \"country\": \"usa\",\n      \"id\": 12345,\n      \"inactiveDate\": \"2024-01-15\",\n      \"name\": \"Example Name\",\n      \"nameTranslations\": [\n        \"example\"\n      ],\n      \"overviewTranslations\": [\n        \"example\"\n      ],\n      \"primaryCompanyType\": 12345,\n      \"slug\": \"example-slug\",\n      \"parentCompany\": {\n        \"id\": 12345,\n        \"name\": \"Example Name\",\n        \"relation\": {\n          \"id\": null,\n          \"typeName\": null\n        }\n      },\n      \"tagOptions\": [\n        {\n          \"helpText\": \"example\",\n          \"id\": 12345,\n          \"name\": \"Example Name\",\n          \"tag\": 12345,\n          \"tagName\": \"example\"\n        }\n      ]\n    },\n    \"overview\": \"A descriptive paragraph of text.\",\n    \"latestNetwork\": {\n      \"activeDate\": \"2024-01-15\",\n      \"aliases\": [\n        {\n          \"language\": \"eng\",\n          \"name\": \"Example Name\"\n        }\n      ],\n      \"country\": \"usa\",\n      \"id\": 12345,\n      \"inactiveDate\": \"2024-01-15\",\n      \"name\": \"Example Name\",\n      \"nameTranslations\": [\n        \"example\"\n      ],\n      \"overviewTranslations\": [\n        \"example\"\n      ],\n      \"primaryCompanyType\": 12345,\n      \"slug\": \"example-slug\",\n      \"parentCompany\": {\n        \"id\": 12345,\n        \"name\": \"Example Name\",\n        \"relation\": {\n          \"id\": null,\n          \"typeName\": null\n        }\n      },\n      \"tagOptions\": [\n        {\n          \"helpText\": \"example\",\n          \"id\": 12345,\n          \"name\": \"Example Name\",\n          \"tag\": 12345,\n          \"tagName\": \"example\"\n        }\n      ]\n    },\n    \"overviewTranslations\": [\n      \"example\"\n    ],\n    \"remoteIds\": [\n      {\n        \"id\": \"abc123\",\n        \"type\": 12345,\n        \"sourceName\": \"example\"\n      }\n    ],\n    \"score\": 100,\n    \"seasons\": [\n      {\n        \"id\": 12345,\n        \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"imageType\": 1,\n        \"lastUpdated\": \"2024-01-15\",\n        \"name\": \"Example Name\",\n        \"nameTranslations\": [\n          \"example\"\n        ],\n        \"number\": 12345,\n        \"overviewTranslations\": [\n          \"example\"\n        ],\n        \"companies\": {\n          \"studio\": [\n            {\n              \"activeDate\": null,\n              \"aliases\": [\n                {}\n              ],\n              \"country\": null,\n              \"id\": null,\n              \"inactiveDate\": null,\n              \"name\": null,\n              \"nameTranslations\": null,\n              \"overviewTranslations\": null,\n              \"primaryCompanyType\": null,\n              \"slug\": null,\n              \"parentCompany\": {},\n              \"tagOptions\": [\n                {}\n              ]\n            }\n          ],\n          \"network\": [\n            {\n              \"activeDate\": null,\n              \"aliases\": [\n                {}\n              ],\n              \"country\": null,\n              \"id\": null,\n              \"inactiveDate\": null,\n              \"name\": null,\n              \"nameTranslations\": null,\n              \"overviewTranslations\": null,\n              \"primaryCompanyType\": null,\n              \"slug\": null,\n              \"parentCompany\": {},\n              \"tagOptions\": [\n                {}\n              ]\n            }\n          ],\n          \"production\": [\n            {\n              \"activeDate\": null,\n              \"aliases\": [\n                {}\n              ],\n              \"country\": null,\n              \"id\": null,\n              \"inactiveDate\": null,\n              \"name\": null,\n              \"nameTranslations\": null,\n              \"overviewTranslations\": null,\n              \"primaryCompanyType\": null,\n              \"slug\": null,\n              \"parentCompany\": {},\n              \"tagOptions\": [\n                {}\n              ]\n            }\n          ],\n          \"distributor\": [\n            {\n              \"activeDate\": null,\n              \"aliases\": [\n                {}\n              ],\n              \"country\": null,\n              \"id\": null,\n              \"inactiveDate\": null,\n              \"name\": null,\n              \"nameTranslations\": null,\n              \"overviewTranslations\": null,\n              \"primaryCompanyType\": null,\n              \"slug\": null,\n              \"parentCompany\": {},\n              \"tagOptions\": [\n                {}\n              ]\n            }\n          ],\n          \"special_effects\": [\n            {\n              \"activeDate\": null,\n              \"aliases\": [\n                {}\n              ],\n              \"country\": null,\n              \"id\": null,\n              \"inactiveDate\": null,\n              \"name\": null,\n              \"nameTranslations\": null,\n              \"overviewTranslations\": null,\n              \"primaryCompanyType\": null,\n              \"slug\": null,\n              \"parentCompany\": {},\n              \"tagOptions\": [\n                {}\n              ]\n            }\n          ]\n        },\n        \"seriesId\": 12345,\n        \"type\": {\n          \"alternateName\": \"example\",\n          \"id\": 12345,\n          \"name\": \"Example Name\",\n          \"type\": \"example\"\n        },\n        \"year\": \"2024\"\n      }\n    ],\n    \"seasonTypes\": [\n      {\n        \"alternateName\": \"example\",\n        \"id\": 12345,\n        \"name\": \"Example Name\",\n        \"type\": \"example\"\n      }\n    ],\n    \"slug\": \"example-slug\",\n    \"status\": {\n      \"id\": 12345,\n      \"keepUpdated\": \"2024-01-15\",\n      \"name\": \"Example Name\",\n      \"recordType\": \"example\"\n    },\n    \"tags\": [\n      {\n        \"helpText\": \"example\",\n        \"id\": 12345,\n        \"name\": \"Example Name\",\n        \"tag\": 12345,\n        \"tagName\": \"example\"\n      }\n    ],\n    \"trailers\": [\n      {\n        \"id\": 12345,\n        \"language\": \"eng\",\n        \"name\": \"Example Name\",\n        \"url\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"runtime\": 1\n      }\n    ],\n    \"translations\": {\n      \"nameTranslations\": [\n        {\n          \"aliases\": [\n            \"example\"\n          ],\n          \"isAlias\": true,\n          \"isPrimary\": true,\n          \"language\": \"eng\",\n          \"name\": \"Example Name\",\n          \"overview\": \"A descriptive paragraph of text.\",\n          \"tagline\": \"example\"\n        }\n      ],\n      \"overviewTranslations\": [\n        {\n          \"aliases\": [\n            \"example\"\n          ],\n          \"isAlias\": true,\n          \"isPrimary\": true,\n          \"language\": \"eng\",\n          \"name\": \"Example Name\",\n          \"overview\": \"A descriptive paragraph of text.\",\n          \"tagline\": \"example\"\n        }\n      ],\n      \"alias\": [\n        \"example\"\n      ]\n    },\n    \"year\": \"2024\"\n  },\n  \"status\": \"Continuing\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e9e41f5-1bd1-44cb-bd20-a9cee83d12bb",
+              "name": "Invalid series id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id",
+                    "artworks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lang",
+                      "value": "eng, spa"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f63bdac8-2475-4d39-a2fd-f324b5fd55b7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id",
+                    "artworks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lang",
+                      "value": "eng, spa"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b0b1d135-5618-48b5-a8b7-764338d42da8",
+              "name": "Series not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id",
+                    "artworks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lang",
+                      "value": "eng, spa"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7b6fee58-45ba-4591-97d8-ffc6f19a33a0",
+          "name": "TheTVDB Get Series Next Aired",
+          "request": {
+            "name": "TheTVDB Get Series Next Aired",
+            "description": {
+              "content": "Returns series base record including the nextAired field. <br> Note&#58; nextAired was included in the base record endpoint but that field will deprecated in the future so developers should use the nextAired endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "series",
+                ":id",
+                "nextAired"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6212e97e-70d9-426a-b799-0fa6381e551e",
+              "name": "response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id",
+                    "nextAired"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"aliases\": [\n      {\n        \"language\": \"eng\",\n        \"name\": \"Example Name\"\n      }\n    ],\n    \"averageRuntime\": 1,\n    \"country\": \"usa\",\n    \"defaultSeasonType\": 12345,\n    \"episodes\": [\n      {\n        \"absoluteNumber\": 1,\n        \"aired\": \"example\",\n        \"airsAfterSeason\": 1,\n        \"airsBeforeEpisode\": 1,\n        \"airsBeforeSeason\": 1,\n        \"finaleType\": \"example\",\n        \"id\": 12345,\n        \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"imageType\": 1,\n        \"isMovie\": 12345,\n        \"lastUpdated\": \"2024-01-15\",\n        \"linkedMovie\": 1,\n        \"name\": \"Example Name\",\n        \"nameTranslations\": [\n          \"example\"\n        ],\n        \"number\": 1,\n        \"overview\": \"A descriptive paragraph of text.\",\n        \"overviewTranslations\": [\n          \"example\"\n        ],\n        \"runtime\": 1,\n        \"seasonNumber\": 1,\n        \"seasons\": [\n          {\n            \"id\": 12345,\n            \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n            \"imageType\": 1,\n            \"lastUpdated\": \"2024-01-15\",\n            \"name\": \"Example Name\",\n            \"nameTranslations\": [\n              \"example\"\n            ],\n            \"number\": 12345,\n            \"overviewTranslations\": [\n              \"example\"\n            ],\n            \"companies\": {\n              \"studio\": [\n                {}\n              ],\n              \"network\": [\n                {}\n              ],\n              \"production\": [\n                {}\n              ],\n              \"distributor\": [\n                {}\n              ],\n              \"special_effects\": [\n                {}\n              ]\n            },\n            \"seriesId\": 12345,\n            \"type\": {\n              \"alternateName\": null,\n              \"id\": null,\n              \"name\": null,\n              \"type\": null\n            },\n            \"year\": \"2024\"\n          }\n        ],\n        \"seriesId\": 12345,\n        \"seasonName\": \"example\",\n        \"year\": \"2024\"\n      }\n    ],\n    \"firstAired\": \"example\",\n    \"id\": 12345,\n    \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n    \"isOrderRandomized\": true,\n    \"lastAired\": \"example\",\n    \"lastUpdated\": \"2024-01-15\",\n    \"name\": \"Example Name\",\n    \"nameTranslations\": [\n      \"example\"\n    ],\n    \"nextAired\": \"example\",\n    \"originalCountry\": \"example\",\n    \"originalLanguage\": \"example\",\n    \"overviewTranslations\": [\n      \"example\"\n    ],\n    \"score\": 100,\n    \"slug\": \"example-slug\",\n    \"status\": {\n      \"id\": 12345,\n      \"keepUpdated\": \"2024-01-15\",\n      \"name\": \"Example Name\",\n      \"recordType\": \"example\"\n    },\n    \"year\": \"2024\"\n  },\n  \"status\": \"Continuing\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "80b830d4-6434-44f9-8c48-5a530add839a",
+              "name": "Invalid series id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id",
+                    "nextAired"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b447e9f2-f27d-42e0-89db-939c6dd6c740",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id",
+                    "nextAired"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5c15cc6b-8b0a-4add-9fd1-5cdc64753099",
+              "name": "Series not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id",
+                    "nextAired"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0782c85a-4da2-4bba-80d2-bbef9b336156",
+          "name": "TheTVDB Get Series Extended",
+          "request": {
+            "name": "TheTVDB Get Series Extended",
+            "description": {
+              "content": "Returns series extended record",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "series",
+                ":id",
+                "extended"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "meta",
+                  "value": "<string>",
+                  "description": "meta"
+                },
+                {
+                  "disabled": false,
+                  "key": "short",
+                  "value": "<boolean>",
+                  "description": "reduce the payload and returns the short version of this record without characters and artworks"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "96108e44-e94d-471c-8a0f-dd9d65b84bf2",
+              "name": "response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id",
+                    "extended"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "meta",
+                      "value": "translations"
+                    },
+                    {
+                      "key": "short",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"abbreviation\": \"example\",\n    \"airsDays\": {\n      \"friday\": true,\n      \"monday\": true,\n      \"saturday\": true,\n      \"sunday\": true,\n      \"thursday\": true,\n      \"tuesday\": true,\n      \"wednesday\": true\n    },\n    \"airsTime\": \"example\",\n    \"aliases\": [\n      {\n        \"language\": \"eng\",\n        \"name\": \"Example Name\"\n      }\n    ],\n    \"artworks\": [\n      {\n        \"episodeId\": 12345,\n        \"height\": 12345,\n        \"id\": 12345,\n        \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"includesText\": true,\n        \"language\": \"eng\",\n        \"movieId\": 12345,\n        \"networkId\": 12345,\n        \"peopleId\": 12345,\n        \"score\": 100,\n        \"seasonId\": 12345,\n        \"seriesId\": 12345,\n        \"seriesPeopleId\": 12345,\n        \"status\": {\n          \"id\": 12345,\n          \"name\": \"Example Name\"\n        },\n        \"tagOptions\": [\n          {\n            \"helpText\": \"example\",\n            \"id\": 12345,\n            \"name\": \"Example Name\",\n            \"tag\": 12345,\n            \"tagName\": \"example\"\n          }\n        ],\n        \"thumbnail\": \"example\",\n        \"thumbnailHeight\": 12345,\n        \"thumbnailWidth\": 12345,\n        \"type\": 12345,\n        \"updatedAt\": \"2024-01-15\",\n        \"width\": 12345\n      }\n    ],\n    \"averageRuntime\": 1,\n    \"characters\": [\n      {\n        \"aliases\": [\n          {\n            \"language\": \"eng\",\n            \"name\": \"Example Name\"\n          }\n        ],\n        \"episode\": {\n          \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n          \"name\": \"Example Name\",\n          \"year\": \"2024\"\n        },\n        \"episodeId\": 12345,\n        \"id\": 12345,\n        \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"isFeatured\": true,\n        \"movieId\": 12345,\n        \"movie\": {\n          \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n          \"name\": \"Example Name\",\n          \"year\": \"2024\"\n        },\n        \"name\": \"Example Name\",\n        \"nameTranslations\": [\n          \"example\"\n        ],\n        \"overviewTranslations\": [\n          \"example\"\n        ],\n        \"peopleId\": 12345,\n        \"personImgURL\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"peopleType\": \"example\",\n        \"seriesId\": 12345,\n        \"series\": {\n          \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n          \"name\": \"Example Name\",\n          \"year\": \"2024\"\n        },\n        \"sort\": 12345,\n        \"tagOptions\": [\n          {\n            \"helpText\": \"example\",\n            \"id\": 12345,\n            \"name\": \"Example Name\",\n            \"tag\": 12345,\n            \"tagName\": \"example\"\n          }\n        ],\n        \"type\": 12345,\n        \"url\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"personName\": \"example\"\n      }\n    ],\n    \"contentRatings\": [\n      {\n        \"id\": 12345,\n        \"name\": \"Example Name\",\n        \"description\": \"A descriptive paragraph of text.\",\n        \"country\": \"usa\",\n        \"contentType\": \"example\",\n        \"order\": 1,\n        \"fullName\": \"example\"\n      }\n    ],\n    \"country\": \"usa\",\n    \"defaultSeasonType\": 12345,\n    \"episodes\": [\n      {\n        \"absoluteNumber\": 1,\n        \"aired\": \"example\",\n        \"airsAfterSeason\": 1,\n        \"airsBeforeEpisode\": 1,\n        \"airsBeforeSeason\": 1,\n        \"finaleType\": \"example\",\n        \"id\": 12345,\n        \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"imageType\": 1,\n        \"isMovie\": 12345,\n        \"lastUpdated\": \"2024-01-15\",\n        \"linkedMovie\": 1,\n        \"name\": \"Example Name\",\n        \"nameTranslations\": [\n          \"example\"\n        ],\n        \"number\": 1,\n        \"overview\": \"A descriptive paragraph of text.\",\n        \"overviewTranslations\": [\n          \"example\"\n        ],\n        \"runtime\": 1,\n        \"seasonNumber\": 1,\n        \"seasons\": [\n          {\n            \"id\": 12345,\n            \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n            \"imageType\": 1,\n            \"lastUpdated\": \"2024-01-15\",\n            \"name\": \"Example Name\",\n            \"nameTranslations\": [\n              \"example\"\n            ],\n            \"number\": 12345,\n            \"overviewTranslations\": [\n              \"example\"\n            ],\n            \"companies\": {\n              \"studio\": [\n                {}\n              ],\n              \"network\": [\n                {}\n              ],\n              \"production\": [\n                {}\n              ],\n              \"distributor\": [\n                {}\n              ],\n              \"special_effects\": [\n                {}\n              ]\n            },\n            \"seriesId\": 12345,\n            \"type\": {\n              \"alternateName\": null,\n              \"id\": null,\n              \"name\": null,\n              \"type\": null\n            },\n            \"year\": \"2024\"\n          }\n        ],\n        \"seriesId\": 12345,\n        \"seasonName\": \"example\",\n        \"year\": \"2024\"\n      }\n    ],\n    \"firstAired\": \"example\",\n    \"lists\": null,\n    \"genres\": [\n      {\n        \"id\": 12345,\n        \"name\": \"Example Name\",\n        \"slug\": \"example-slug\"\n      }\n    ],\n    \"id\": 12345,\n    \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n    \"isOrderRandomized\": true,\n    \"lastAired\": \"example\",\n    \"lastUpdated\": \"2024-01-15\",\n    \"name\": \"Example Name\",\n    \"nameTranslations\": [\n      \"example\"\n    ],\n    \"companies\": [\n      {\n        \"activeDate\": \"2024-01-15\",\n        \"aliases\": [\n          {\n            \"language\": \"eng\",\n            \"name\": \"Example Name\"\n          }\n        ],\n        \"country\": \"usa\",\n        \"id\": 12345,\n        \"inactiveDate\": \"2024-01-15\",\n        \"name\": \"Example Name\",\n        \"nameTranslations\": [\n          \"example\"\n        ],\n        \"overviewTranslations\": [\n          \"example\"\n        ],\n        \"primaryCompanyType\": 12345,\n        \"slug\": \"example-slug\",\n        \"parentCompany\": {\n          \"id\": 12345,\n          \"name\": \"Example Name\",\n          \"relation\": {\n            \"id\": null,\n            \"typeName\": null\n          }\n        },\n        \"tagOptions\": [\n          {\n            \"helpText\": \"example\",\n            \"id\": 12345,\n            \"name\": \"Example Name\",\n            \"tag\": 12345,\n            \"tagName\": \"example\"\n          }\n        ]\n      }\n    ],\n    \"nextAired\": \"example\",\n    \"originalCountry\": \"example\",\n    \"originalLanguage\": \"example\",\n    \"originalNetwork\": {\n      \"activeDate\": \"2024-01-15\",\n      \"aliases\": [\n        {\n          \"language\": \"eng\",\n          \"name\": \"Example Name\"\n        }\n      ],\n      \"country\": \"usa\",\n      \"id\": 12345,\n      \"inactiveDate\": \"2024-01-15\",\n      \"name\": \"Example Name\",\n      \"nameTranslations\": [\n        \"example\"\n      ],\n      \"overviewTranslations\": [\n        \"example\"\n      ],\n      \"primaryCompanyType\": 12345,\n      \"slug\": \"example-slug\",\n      \"parentCompany\": {\n        \"id\": 12345,\n        \"name\": \"Example Name\",\n        \"relation\": {\n          \"id\": null,\n          \"typeName\": null\n        }\n      },\n      \"tagOptions\": [\n        {\n          \"helpText\": \"example\",\n          \"id\": 12345,\n          \"name\": \"Example Name\",\n          \"tag\": 12345,\n          \"tagName\": \"example\"\n        }\n      ]\n    },\n    \"overview\": \"A descriptive paragraph of text.\",\n    \"latestNetwork\": {\n      \"activeDate\": \"2024-01-15\",\n      \"aliases\": [\n        {\n          \"language\": \"eng\",\n          \"name\": \"Example Name\"\n        }\n      ],\n      \"country\": \"usa\",\n      \"id\": 12345,\n      \"inactiveDate\": \"2024-01-15\",\n      \"name\": \"Example Name\",\n      \"nameTranslations\": [\n        \"example\"\n      ],\n      \"overviewTranslations\": [\n        \"example\"\n      ],\n      \"primaryCompanyType\": 12345,\n      \"slug\": \"example-slug\",\n      \"parentCompany\": {\n        \"id\": 12345,\n        \"name\": \"Example Name\",\n        \"relation\": {\n          \"id\": null,\n          \"typeName\": null\n        }\n      },\n      \"tagOptions\": [\n        {\n          \"helpText\": \"example\",\n          \"id\": 12345,\n          \"name\": \"Example Name\",\n          \"tag\": 12345,\n          \"tagName\": \"example\"\n        }\n      ]\n    },\n    \"overviewTranslations\": [\n      \"example\"\n    ],\n    \"remoteIds\": [\n      {\n        \"id\": \"abc123\",\n        \"type\": 12345,\n        \"sourceName\": \"example\"\n      }\n    ],\n    \"score\": 100,\n    \"seasons\": [\n      {\n        \"id\": 12345,\n        \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"imageType\": 1,\n        \"lastUpdated\": \"2024-01-15\",\n        \"name\": \"Example Name\",\n        \"nameTranslations\": [\n          \"example\"\n        ],\n        \"number\": 12345,\n        \"overviewTranslations\": [\n          \"example\"\n        ],\n        \"companies\": {\n          \"studio\": [\n            {\n              \"activeDate\": null,\n              \"aliases\": [\n                {}\n              ],\n              \"country\": null,\n              \"id\": null,\n              \"inactiveDate\": null,\n              \"name\": null,\n              \"nameTranslations\": null,\n              \"overviewTranslations\": null,\n              \"primaryCompanyType\": null,\n              \"slug\": null,\n              \"parentCompany\": {},\n              \"tagOptions\": [\n                {}\n              ]\n            }\n          ],\n          \"network\": [\n            {\n              \"activeDate\": null,\n              \"aliases\": [\n                {}\n              ],\n              \"country\": null,\n              \"id\": null,\n              \"inactiveDate\": null,\n              \"name\": null,\n              \"nameTranslations\": null,\n              \"overviewTranslations\": null,\n              \"primaryCompanyType\": null,\n              \"slug\": null,\n              \"parentCompany\": {},\n              \"tagOptions\": [\n                {}\n              ]\n            }\n          ],\n          \"production\": [\n            {\n              \"activeDate\": null,\n              \"aliases\": [\n                {}\n              ],\n              \"country\": null,\n              \"id\": null,\n              \"inactiveDate\": null,\n              \"name\": null,\n              \"nameTranslations\": null,\n              \"overviewTranslations\": null,\n              \"primaryCompanyType\": null,\n              \"slug\": null,\n              \"parentCompany\": {},\n              \"tagOptions\": [\n                {}\n              ]\n            }\n          ],\n          \"distributor\": [\n            {\n              \"activeDate\": null,\n              \"aliases\": [\n                {}\n              ],\n              \"country\": null,\n              \"id\": null,\n              \"inactiveDate\": null,\n              \"name\": null,\n              \"nameTranslations\": null,\n              \"overviewTranslations\": null,\n              \"primaryCompanyType\": null,\n              \"slug\": null,\n              \"parentCompany\": {},\n              \"tagOptions\": [\n                {}\n              ]\n            }\n          ],\n          \"special_effects\": [\n            {\n              \"activeDate\": null,\n              \"aliases\": [\n                {}\n              ],\n              \"country\": null,\n              \"id\": null,\n              \"inactiveDate\": null,\n              \"name\": null,\n              \"nameTranslations\": null,\n              \"overviewTranslations\": null,\n              \"primaryCompanyType\": null,\n              \"slug\": null,\n              \"parentCompany\": {},\n              \"tagOptions\": [\n                {}\n              ]\n            }\n          ]\n        },\n        \"seriesId\": 12345,\n        \"type\": {\n          \"alternateName\": \"example\",\n          \"id\": 12345,\n          \"name\": \"Example Name\",\n          \"type\": \"example\"\n        },\n        \"year\": \"2024\"\n      }\n    ],\n    \"seasonTypes\": [\n      {\n        \"alternateName\": \"example\",\n        \"id\": 12345,\n        \"name\": \"Example Name\",\n        \"type\": \"example\"\n      }\n    ],\n    \"slug\": \"example-slug\",\n    \"status\": {\n      \"id\": 12345,\n      \"keepUpdated\": \"2024-01-15\",\n      \"name\": \"Example Name\",\n      \"recordType\": \"example\"\n    },\n    \"tags\": [\n      {\n        \"helpText\": \"example\",\n        \"id\": 12345,\n        \"name\": \"Example Name\",\n        \"tag\": 12345,\n        \"tagName\": \"example\"\n      }\n    ],\n    \"trailers\": [\n      {\n        \"id\": 12345,\n        \"language\": \"eng\",\n        \"name\": \"Example Name\",\n        \"url\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"runtime\": 1\n      }\n    ],\n    \"translations\": {\n      \"nameTranslations\": [\n        {\n          \"aliases\": [\n            \"example\"\n          ],\n          \"isAlias\": true,\n          \"isPrimary\": true,\n          \"language\": \"eng\",\n          \"name\": \"Example Name\",\n          \"overview\": \"A descriptive paragraph of text.\",\n          \"tagline\": \"example\"\n        }\n      ],\n      \"overviewTranslations\": [\n        {\n          \"aliases\": [\n            \"example\"\n          ],\n          \"isAlias\": true,\n          \"isPrimary\": true,\n          \"language\": \"eng\",\n          \"name\": \"Example Name\",\n          \"overview\": \"A descriptive paragraph of text.\",\n          \"tagline\": \"example\"\n        }\n      ],\n      \"alias\": [\n        \"example\"\n      ]\n    },\n    \"year\": \"2024\"\n  },\n  \"status\": \"Continuing\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "34d4f288-148d-4f52-aa37-0696d559184c",
+              "name": "Invalid series id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id",
+                    "extended"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "meta",
+                      "value": "translations"
+                    },
+                    {
+                      "key": "short",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "57684e72-a4e4-4c89-abc4-e5b00745d820",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id",
+                    "extended"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "meta",
+                      "value": "translations"
+                    },
+                    {
+                      "key": "short",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d9f9cb1a-b935-4309-ac65-9f6d854fd611",
+              "name": "Series not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id",
+                    "extended"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "meta",
+                      "value": "translations"
+                    },
+                    {
+                      "key": "short",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e63c4baa-4e6b-4e2e-b12b-a0c5ec0c1fc7",
+          "name": "TheTVDB Get Series Episodes",
+          "request": {
+            "name": "TheTVDB Get Series Episodes",
+            "description": {
+              "content": "Returns series episodes from the specified season type, default returns the episodes in the series default season type",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "series",
+                ":id",
+                "episodes",
+                ":season-type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "season",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "episodeNumber",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "airDate",
+                  "value": "<string>",
+                  "description": "airDate of the episode, format is yyyy-mm-dd"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "season-type",
+                  "description": "(Required) season-type"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4edafa74-21d4-4073-bf70-61c100ff5c79",
+              "name": "response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id",
+                    "episodes",
+                    ":season-type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "season",
+                      "value": "1"
+                    },
+                    {
+                      "key": "episodeNumber",
+                      "value": "1"
+                    },
+                    {
+                      "key": "airDate",
+                      "value": "2024-01-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "season-type",
+                      "description": "(Required) season-type"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"series\": {\n      \"aliases\": [\n        {\n          \"language\": \"eng\",\n          \"name\": \"Example Name\"\n        }\n      ],\n      \"averageRuntime\": 1,\n      \"country\": \"usa\",\n      \"defaultSeasonType\": 12345,\n      \"episodes\": [\n        {\n          \"absoluteNumber\": 1,\n          \"aired\": \"example\",\n          \"airsAfterSeason\": 1,\n          \"airsBeforeEpisode\": 1,\n          \"airsBeforeSeason\": 1,\n          \"finaleType\": \"example\",\n          \"id\": 12345,\n          \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n          \"imageType\": 1,\n          \"isMovie\": 12345,\n          \"lastUpdated\": \"2024-01-15\",\n          \"linkedMovie\": 1,\n          \"name\": \"Example Name\",\n          \"nameTranslations\": [\n            \"example\"\n          ],\n          \"number\": 1,\n          \"overview\": \"A descriptive paragraph of text.\",\n          \"overviewTranslations\": [\n            \"example\"\n          ],\n          \"runtime\": 1,\n          \"seasonNumber\": 1,\n          \"seasons\": [\n            {\n              \"id\": null,\n              \"image\": null,\n              \"imageType\": null,\n              \"lastUpdated\": null,\n              \"name\": null,\n              \"nameTranslations\": null,\n              \"number\": null,\n              \"overviewTranslations\": null,\n              \"companies\": {},\n              \"seriesId\": null,\n              \"type\": {},\n              \"year\": null\n            }\n          ],\n          \"seriesId\": 12345,\n          \"seasonName\": \"example\",\n          \"year\": \"2024\"\n        }\n      ],\n      \"firstAired\": \"example\",\n      \"id\": 12345,\n      \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n      \"isOrderRandomized\": true,\n      \"lastAired\": \"example\",\n      \"lastUpdated\": \"2024-01-15\",\n      \"name\": \"Example Name\",\n      \"nameTranslations\": [\n        \"example\"\n      ],\n      \"nextAired\": \"example\",\n      \"originalCountry\": \"example\",\n      \"originalLanguage\": \"example\",\n      \"overviewTranslations\": [\n        \"example\"\n      ],\n      \"score\": 100,\n      \"slug\": \"example-slug\",\n      \"status\": {\n        \"id\": 12345,\n        \"keepUpdated\": \"2024-01-15\",\n        \"name\": \"Example Name\",\n        \"recordType\": \"example\"\n      },\n      \"year\": \"2024\"\n    },\n    \"episodes\": [\n      {\n        \"absoluteNumber\": 1,\n        \"aired\": \"example\",\n        \"airsAfterSeason\": 1,\n        \"airsBeforeEpisode\": 1,\n        \"airsBeforeSeason\": 1,\n        \"finaleType\": \"example\",\n        \"id\": 12345,\n        \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"imageType\": 1,\n        \"isMovie\": 12345,\n        \"lastUpdated\": \"2024-01-15\",\n        \"linkedMovie\": 1,\n        \"name\": \"Example Name\",\n        \"nameTranslations\": [\n          \"example\"\n        ],\n        \"number\": 1,\n        \"overview\": \"A descriptive paragraph of text.\",\n        \"overviewTranslations\": [\n          \"example\"\n        ],\n        \"runtime\": 1,\n        \"seasonNumber\": 1,\n        \"seasons\": [\n          {\n            \"id\": 12345,\n            \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n            \"imageType\": 1,\n            \"lastUpdated\": \"2024-01-15\",\n            \"name\": \"Example Name\",\n            \"nameTranslations\": [\n              \"example\"\n            ],\n            \"number\": 12345,\n            \"overviewTranslations\": [\n              \"example\"\n            ],\n            \"companies\": {\n              \"studio\": [\n                {}\n              ],\n              \"network\": [\n                {}\n              ],\n              \"production\": [\n                {}\n              ],\n              \"distributor\": [\n                {}\n              ],\n              \"special_effects\": [\n                {}\n              ]\n            },\n            \"seriesId\": 12345,\n            \"type\": {\n              \"alternateName\": null,\n              \"id\": null,\n              \"name\": null,\n              \"type\": null\n            },\n            \"year\": \"2024\"\n          }\n        ],\n        \"seriesId\": 12345,\n        \"seasonName\": \"example\",\n        \"year\": \"2024\"\n      }\n    ]\n  },\n  \"status\": \"Continuing\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75769e9e-4904-48ae-8cb8-965a82474fbd",
+              "name": "Invalid series id, episodeNumber is not null then season must be present",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id",
+                    "episodes",
+                    ":season-type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "season",
+                      "value": "1"
+                    },
+                    {
+                      "key": "episodeNumber",
+                      "value": "1"
+                    },
+                    {
+                      "key": "airDate",
+                      "value": "2024-01-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "season-type",
+                      "description": "(Required) season-type"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "70a3018d-4206-4b34-aa47-b00c8937b2f0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id",
+                    "episodes",
+                    ":season-type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "season",
+                      "value": "1"
+                    },
+                    {
+                      "key": "episodeNumber",
+                      "value": "1"
+                    },
+                    {
+                      "key": "airDate",
+                      "value": "2024-01-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "season-type",
+                      "description": "(Required) season-type"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a1a1c8eb-1051-4b42-8875-ba7d728457fb",
+              "name": "Series not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id",
+                    "episodes",
+                    ":season-type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "season",
+                      "value": "1"
+                    },
+                    {
+                      "key": "episodeNumber",
+                      "value": "1"
+                    },
+                    {
+                      "key": "airDate",
+                      "value": "2024-01-15"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "season-type",
+                      "description": "(Required) season-type"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "41310bd7-1161-4e6c-bb11-cfd5452e06b9",
+          "name": "TheTVDB Get Series Season Episodes Translated",
+          "request": {
+            "name": "TheTVDB Get Series Season Episodes Translated",
+            "description": {
+              "content": "Returns series base record with episodes from the specified season type and language. Default returns the episodes in the series default season type.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "series",
+                ":id",
+                "episodes",
+                ":season-type",
+                ":lang"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "season-type",
+                  "description": "(Required) season-type"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "lang",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4f35e737-f78f-4595-87a2-afecbfbf0a6a",
+              "name": "response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id",
+                    "episodes",
+                    ":season-type",
+                    ":lang"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "season-type",
+                      "description": "(Required) season-type"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "lang",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"series\": {\n      \"aliases\": [\n        {\n          \"language\": \"eng\",\n          \"name\": \"Example Name\"\n        }\n      ],\n      \"averageRuntime\": 1,\n      \"country\": \"usa\",\n      \"defaultSeasonType\": 12345,\n      \"episodes\": [\n        {\n          \"absoluteNumber\": 1,\n          \"aired\": \"example\",\n          \"airsAfterSeason\": 1,\n          \"airsBeforeEpisode\": 1,\n          \"airsBeforeSeason\": 1,\n          \"finaleType\": \"example\",\n          \"id\": 12345,\n          \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n          \"imageType\": 1,\n          \"isMovie\": 12345,\n          \"lastUpdated\": \"2024-01-15\",\n          \"linkedMovie\": 1,\n          \"name\": \"Example Name\",\n          \"nameTranslations\": [\n            \"example\"\n          ],\n          \"number\": 1,\n          \"overview\": \"A descriptive paragraph of text.\",\n          \"overviewTranslations\": [\n            \"example\"\n          ],\n          \"runtime\": 1,\n          \"seasonNumber\": 1,\n          \"seasons\": [\n            {\n              \"id\": null,\n              \"image\": null,\n              \"imageType\": null,\n              \"lastUpdated\": null,\n              \"name\": null,\n              \"nameTranslations\": null,\n              \"number\": null,\n              \"overviewTranslations\": null,\n              \"companies\": {},\n              \"seriesId\": null,\n              \"type\": {},\n              \"year\": null\n            }\n          ],\n          \"seriesId\": 12345,\n          \"seasonName\": \"example\",\n          \"year\": \"2024\"\n        }\n      ],\n      \"firstAired\": \"example\",\n      \"id\": 12345,\n      \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n      \"isOrderRandomized\": true,\n      \"lastAired\": \"example\",\n      \"lastUpdated\": \"2024-01-15\",\n      \"name\": \"Example Name\",\n      \"nameTranslations\": [\n        \"example\"\n      ],\n      \"nextAired\": \"example\",\n      \"originalCountry\": \"example\",\n      \"originalLanguage\": \"example\",\n      \"overviewTranslations\": [\n        \"example\"\n      ],\n      \"score\": 100,\n      \"slug\": \"example-slug\",\n      \"status\": {\n        \"id\": 12345,\n        \"keepUpdated\": \"2024-01-15\",\n        \"name\": \"Example Name\",\n        \"recordType\": \"example\"\n      },\n      \"year\": \"2024\"\n    }\n  },\n  \"status\": \"Continuing\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0b68fb23-c4ae-412b-b0e8-a2cd7718f689",
+              "name": "Invalid series id, invalid language.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id",
+                    "episodes",
+                    ":season-type",
+                    ":lang"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "season-type",
+                      "description": "(Required) season-type"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "lang",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "58323438-e58f-41f2-96f8-3da1addb2630",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id",
+                    "episodes",
+                    ":season-type",
+                    ":lang"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "season-type",
+                      "description": "(Required) season-type"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "lang",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "da74e1f9-ffe9-40ea-8be7-dbafcc7f4213",
+              "name": "Series not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id",
+                    "episodes",
+                    ":season-type",
+                    ":lang"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "season-type",
+                      "description": "(Required) season-type"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "lang",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "950abed3-d9d9-4142-9e3a-22a2fb6f22ea",
+          "name": "TheTVDB Get Series Filter",
+          "request": {
+            "name": "TheTVDB Get Series Filter",
+            "description": {
+              "content": "Search series based on filter parameters",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "series",
+                "filter"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "company",
+                  "value": "<number>",
+                  "description": "production company"
+                },
+                {
+                  "disabled": false,
+                  "key": "contentRating",
+                  "value": "<number>",
+                  "description": "content rating id base on a country"
+                },
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>",
+                  "description": "(Required) country of origin"
+                },
+                {
+                  "disabled": false,
+                  "key": "genre",
+                  "value": "<number>",
+                  "description": "Genre id. This id can be found using **/genres** endpoint."
+                },
+                {
+                  "disabled": false,
+                  "key": "lang",
+                  "value": "<string>",
+                  "description": "(Required) original language"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "sort by results"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortType",
+                  "value": "<string>",
+                  "description": "sort type ascending or descending"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<number>",
+                  "description": "status"
+                },
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<number>",
+                  "description": "release year"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a959beae-fcd4-47f7-bee5-34d0c446817d",
+              "name": "response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    "filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "company",
+                      "value": "1"
+                    },
+                    {
+                      "key": "contentRating",
+                      "value": "245"
+                    },
+                    {
+                      "key": "country",
+                      "value": "usa"
+                    },
+                    {
+                      "key": "genre",
+                      "value": "3"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "eng"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "score"
+                    },
+                    {
+                      "key": "sortType",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "status",
+                      "value": "1"
+                    },
+                    {
+                      "key": "year",
+                      "value": "2020"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"aliases\": [\n        {\n          \"language\": \"eng\",\n          \"name\": \"Example Name\"\n        }\n      ],\n      \"averageRuntime\": 1,\n      \"country\": \"usa\",\n      \"defaultSeasonType\": 12345,\n      \"episodes\": [\n        {\n          \"absoluteNumber\": 1,\n          \"aired\": \"example\",\n          \"airsAfterSeason\": 1,\n          \"airsBeforeEpisode\": 1,\n          \"airsBeforeSeason\": 1,\n          \"finaleType\": \"example\",\n          \"id\": 12345,\n          \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n          \"imageType\": 1,\n          \"isMovie\": 12345,\n          \"lastUpdated\": \"2024-01-15\",\n          \"linkedMovie\": 1,\n          \"name\": \"Example Name\",\n          \"nameTranslations\": [\n            \"example\"\n          ],\n          \"number\": 1,\n          \"overview\": \"A descriptive paragraph of text.\",\n          \"overviewTranslations\": [\n            \"example\"\n          ],\n          \"runtime\": 1,\n          \"seasonNumber\": 1,\n          \"seasons\": [\n            {\n              \"id\": 12345,\n              \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n              \"imageType\": 1,\n              \"lastUpdated\": \"2024-01-15\",\n              \"name\": \"Example Name\",\n              \"nameTranslations\": [\n                \"example\"\n              ],\n              \"number\": 12345,\n              \"overviewTranslations\": [\n                \"example\"\n              ],\n              \"companies\": {\n                \"studio\": [\n                  {}\n                ],\n                \"network\": [\n                  {}\n                ],\n                \"production\": [\n                  {}\n                ],\n                \"distributor\": [\n                  {}\n                ],\n                \"special_effects\": [\n                  {}\n                ]\n              },\n              \"seriesId\": 12345,\n              \"type\": {\n                \"alternateName\": null,\n                \"id\": null,\n                \"name\": null,\n                \"type\": null\n              },\n              \"year\": \"2024\"\n            }\n          ],\n          \"seriesId\": 12345,\n          \"seasonName\": \"example\",\n          \"year\": \"2024\"\n        }\n      ],\n      \"firstAired\": \"example\",\n      \"id\": 12345,\n      \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n      \"isOrderRandomized\": true,\n      \"lastAired\": \"example\",\n      \"lastUpdated\": \"2024-01-15\",\n      \"name\": \"Example Name\",\n      \"nameTranslations\": [\n        \"example\"\n      ],\n      \"nextAired\": \"example\",\n      \"originalCountry\": \"example\",\n      \"originalLanguage\": \"example\",\n      \"overviewTranslations\": [\n        \"example\"\n      ],\n      \"score\": 100,\n      \"slug\": \"example-slug\",\n      \"status\": {\n        \"id\": 12345,\n        \"keepUpdated\": \"2024-01-15\",\n        \"name\": \"Example Name\",\n        \"recordType\": \"example\"\n      },\n      \"year\": \"2024\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c18cfb7b-c0cf-4e5b-a34b-d414b4a3c0cb",
+              "name": "Invalid format parameter.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    "filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "company",
+                      "value": "1"
+                    },
+                    {
+                      "key": "contentRating",
+                      "value": "245"
+                    },
+                    {
+                      "key": "country",
+                      "value": "usa"
+                    },
+                    {
+                      "key": "genre",
+                      "value": "3"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "eng"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "score"
+                    },
+                    {
+                      "key": "sortType",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "status",
+                      "value": "1"
+                    },
+                    {
+                      "key": "year",
+                      "value": "2020"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "44abf10f-958e-440d-a99b-5ec159519cb9",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    "filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "company",
+                      "value": "1"
+                    },
+                    {
+                      "key": "contentRating",
+                      "value": "245"
+                    },
+                    {
+                      "key": "country",
+                      "value": "usa"
+                    },
+                    {
+                      "key": "genre",
+                      "value": "3"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "eng"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "score"
+                    },
+                    {
+                      "key": "sortType",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "status",
+                      "value": "1"
+                    },
+                    {
+                      "key": "year",
+                      "value": "2020"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bce67237-f3e8-407f-ae42-49d5f6c344f0",
+          "name": "TheTVDB Get Series Base by Slug",
+          "request": {
+            "name": "TheTVDB Get Series Base by Slug",
+            "description": {
+              "content": "Returns series base record searched by slug",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "series",
+                "slug",
+                ":slug"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "slug",
+                  "description": "(Required) slug"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c3812ccf-e9ec-49ef-a45b-7945fdd5ccee",
+              "name": "response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    "slug",
+                    ":slug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "slug",
+                      "description": "(Required) slug"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"aliases\": [\n      {\n        \"language\": \"eng\",\n        \"name\": \"Example Name\"\n      }\n    ],\n    \"averageRuntime\": 1,\n    \"country\": \"usa\",\n    \"defaultSeasonType\": 12345,\n    \"episodes\": [\n      {\n        \"absoluteNumber\": 1,\n        \"aired\": \"example\",\n        \"airsAfterSeason\": 1,\n        \"airsBeforeEpisode\": 1,\n        \"airsBeforeSeason\": 1,\n        \"finaleType\": \"example\",\n        \"id\": 12345,\n        \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"imageType\": 1,\n        \"isMovie\": 12345,\n        \"lastUpdated\": \"2024-01-15\",\n        \"linkedMovie\": 1,\n        \"name\": \"Example Name\",\n        \"nameTranslations\": [\n          \"example\"\n        ],\n        \"number\": 1,\n        \"overview\": \"A descriptive paragraph of text.\",\n        \"overviewTranslations\": [\n          \"example\"\n        ],\n        \"runtime\": 1,\n        \"seasonNumber\": 1,\n        \"seasons\": [\n          {\n            \"id\": 12345,\n            \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n            \"imageType\": 1,\n            \"lastUpdated\": \"2024-01-15\",\n            \"name\": \"Example Name\",\n            \"nameTranslations\": [\n              \"example\"\n            ],\n            \"number\": 12345,\n            \"overviewTranslations\": [\n              \"example\"\n            ],\n            \"companies\": {\n              \"studio\": [\n                {}\n              ],\n              \"network\": [\n                {}\n              ],\n              \"production\": [\n                {}\n              ],\n              \"distributor\": [\n                {}\n              ],\n              \"special_effects\": [\n                {}\n              ]\n            },\n            \"seriesId\": 12345,\n            \"type\": {\n              \"alternateName\": null,\n              \"id\": null,\n              \"name\": null,\n              \"type\": null\n            },\n            \"year\": \"2024\"\n          }\n        ],\n        \"seriesId\": 12345,\n        \"seasonName\": \"example\",\n        \"year\": \"2024\"\n      }\n    ],\n    \"firstAired\": \"example\",\n    \"id\": 12345,\n    \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n    \"isOrderRandomized\": true,\n    \"lastAired\": \"example\",\n    \"lastUpdated\": \"2024-01-15\",\n    \"name\": \"Example Name\",\n    \"nameTranslations\": [\n      \"example\"\n    ],\n    \"nextAired\": \"example\",\n    \"originalCountry\": \"example\",\n    \"originalLanguage\": \"example\",\n    \"overviewTranslations\": [\n      \"example\"\n    ],\n    \"score\": 100,\n    \"slug\": \"example-slug\",\n    \"status\": {\n      \"id\": 12345,\n      \"keepUpdated\": \"2024-01-15\",\n      \"name\": \"Example Name\",\n      \"recordType\": \"example\"\n    },\n    \"year\": \"2024\"\n  },\n  \"status\": \"Continuing\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5c47246e-79c6-4c86-b9ee-3684253cce69",
+              "name": "Invalid series slug",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    "slug",
+                    ":slug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "slug",
+                      "description": "(Required) slug"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c3920981-508f-4d83-9afd-80f4800f50de",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    "slug",
+                    ":slug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "slug",
+                      "description": "(Required) slug"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "125a85d7-a843-43b1-872a-0687d280816e",
+              "name": "Series not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    "slug",
+                    ":slug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "slug",
+                      "description": "(Required) slug"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "41f93aba-3033-4e9b-bea0-6eef23290a50",
+          "name": "TheTVDB Get Series Translation",
+          "request": {
+            "name": "TheTVDB Get Series Translation",
+            "description": {
+              "content": "Returns series translation record",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "series",
+                ":id",
+                "translations",
+                ":language"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "language",
+                  "description": "(Required) language"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "30d31043-652c-4bf7-8f3a-336d04c6e8f4",
+              "name": "response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id",
+                    "translations",
+                    ":language"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "language",
+                      "description": "(Required) language"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"aliases\": [\n      \"example\"\n    ],\n    \"isAlias\": true,\n    \"isPrimary\": true,\n    \"language\": \"eng\",\n    \"name\": \"Example Name\",\n    \"overview\": \"A descriptive paragraph of text.\",\n    \"tagline\": \"example\"\n  },\n  \"status\": \"Continuing\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c9f79560-509c-43aa-8b26-6cc97838e08c",
+              "name": "Invalid series id, invalid language.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id",
+                    "translations",
+                    ":language"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "language",
+                      "description": "(Required) language"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0c72c71a-96ce-447d-8411-5b3be92fdb04",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id",
+                    "translations",
+                    ":language"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "language",
+                      "description": "(Required) language"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "270b851e-6dc5-4991-8e58-30e3baf4627e",
+              "name": "Series not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "series",
+                    ":id",
+                    "translations",
+                    ":language"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "language",
+                      "description": "(Required) language"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api4.thetvdb.com/v4",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a7fb7862-45bc-4d38-9534-45c86e921661",
+    "name": "TVDB API V4 Artwork Series API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Documentation of [TheTVDB](https://thetvdb.com/) API V4. All related information is linked from our [Github repo](https://github.com/thetvdb/v4-api). You might also want to use our [Postman collection] (https://www.getpostman.com/collections/7a9397ce69ff246f74d0)\n## Authentication\n1. Use the /login endpoint and provide your API key as \"apikey\". If you have a user-supported key, also provide your subscriber PIN as \"pin\". Otherwise completely remove \"pin\" from your call.\n2. Executing this call will provide you with a bearer token, which is valid for 1 month.\n3. Provide your bearer token for subsequent API calls by clicking Authorize below or including in the header of all direct API calls: `Authorization: Bearer [your-token]`\n\n## Notes\n1. \"score\" is a field across almost all entities.  We generate scores for different types of entities in various ways, so no assumptions should be made about the meaning of this value.  It is simply used to hint at relative popularity for sorting purposes.\n",
+      "type": "text/plain"
+    }
+  }
+}

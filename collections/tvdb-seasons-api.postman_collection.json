@@ -1,0 +1,1065 @@
+{
+  "item": [
+    {
+      "id": "1294ced6-ba24-47d7-9586-6e411f02a6ed",
+      "name": "Seasons",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7e71b6c4-403c-4051-89d5-165ae19af810",
+          "name": "TheTVDB Get All Seasons",
+          "request": {
+            "name": "TheTVDB Get All Seasons",
+            "description": {
+              "content": "returns list of seasons base records",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "seasons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<number>",
+                  "description": "page number"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5e389ddc-8432-44c8-a5a1-f68f5b317964",
+              "name": "response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seasons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 12345,\n      \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n      \"imageType\": 1,\n      \"lastUpdated\": \"2024-01-15\",\n      \"name\": \"Example Name\",\n      \"nameTranslations\": [\n        \"example\"\n      ],\n      \"number\": 12345,\n      \"overviewTranslations\": [\n        \"example\"\n      ],\n      \"companies\": {\n        \"studio\": [\n          {\n            \"activeDate\": \"2024-01-15\",\n            \"aliases\": [\n              {\n                \"language\": null,\n                \"name\": null\n              }\n            ],\n            \"country\": \"usa\",\n            \"id\": 12345,\n            \"inactiveDate\": \"2024-01-15\",\n            \"name\": \"Example Name\",\n            \"nameTranslations\": [\n              \"example\"\n            ],\n            \"overviewTranslations\": [\n              \"example\"\n            ],\n            \"primaryCompanyType\": 12345,\n            \"slug\": \"example-slug\",\n            \"parentCompany\": {\n              \"id\": null,\n              \"name\": null,\n              \"relation\": {}\n            },\n            \"tagOptions\": [\n              {\n                \"helpText\": null,\n                \"id\": null,\n                \"name\": null,\n                \"tag\": null,\n                \"tagName\": null\n              }\n            ]\n          }\n        ],\n        \"network\": [\n          {\n            \"activeDate\": \"2024-01-15\",\n            \"aliases\": [\n              {\n                \"language\": null,\n                \"name\": null\n              }\n            ],\n            \"country\": \"usa\",\n            \"id\": 12345,\n            \"inactiveDate\": \"2024-01-15\",\n            \"name\": \"Example Name\",\n            \"nameTranslations\": [\n              \"example\"\n            ],\n            \"overviewTranslations\": [\n              \"example\"\n            ],\n            \"primaryCompanyType\": 12345,\n            \"slug\": \"example-slug\",\n            \"parentCompany\": {\n              \"id\": null,\n              \"name\": null,\n              \"relation\": {}\n            },\n            \"tagOptions\": [\n              {\n                \"helpText\": null,\n                \"id\": null,\n                \"name\": null,\n                \"tag\": null,\n                \"tagName\": null\n              }\n            ]\n          }\n        ],\n        \"production\": [\n          {\n            \"activeDate\": \"2024-01-15\",\n            \"aliases\": [\n              {\n                \"language\": null,\n                \"name\": null\n              }\n            ],\n            \"country\": \"usa\",\n            \"id\": 12345,\n            \"inactiveDate\": \"2024-01-15\",\n            \"name\": \"Example Name\",\n            \"nameTranslations\": [\n              \"example\"\n            ],\n            \"overviewTranslations\": [\n              \"example\"\n            ],\n            \"primaryCompanyType\": 12345,\n            \"slug\": \"example-slug\",\n            \"parentCompany\": {\n              \"id\": null,\n              \"name\": null,\n              \"relation\": {}\n            },\n            \"tagOptions\": [\n              {\n                \"helpText\": null,\n                \"id\": null,\n                \"name\": null,\n                \"tag\": null,\n                \"tagName\": null\n              }\n            ]\n          }\n        ],\n        \"distributor\": [\n          {\n            \"activeDate\": \"2024-01-15\",\n            \"aliases\": [\n              {\n                \"language\": null,\n                \"name\": null\n              }\n            ],\n            \"country\": \"usa\",\n            \"id\": 12345,\n            \"inactiveDate\": \"2024-01-15\",\n            \"name\": \"Example Name\",\n            \"nameTranslations\": [\n              \"example\"\n            ],\n            \"overviewTranslations\": [\n              \"example\"\n            ],\n            \"primaryCompanyType\": 12345,\n            \"slug\": \"example-slug\",\n            \"parentCompany\": {\n              \"id\": null,\n              \"name\": null,\n              \"relation\": {}\n            },\n            \"tagOptions\": [\n              {\n                \"helpText\": null,\n                \"id\": null,\n                \"name\": null,\n                \"tag\": null,\n                \"tagName\": null\n              }\n            ]\n          }\n        ],\n        \"special_effects\": [\n          {\n            \"activeDate\": \"2024-01-15\",\n            \"aliases\": [\n              {\n                \"language\": null,\n                \"name\": null\n              }\n            ],\n            \"country\": \"usa\",\n            \"id\": 12345,\n            \"inactiveDate\": \"2024-01-15\",\n            \"name\": \"Example Name\",\n            \"nameTranslations\": [\n              \"example\"\n            ],\n            \"overviewTranslations\": [\n              \"example\"\n            ],\n            \"primaryCompanyType\": 12345,\n            \"slug\": \"example-slug\",\n            \"parentCompany\": {\n              \"id\": null,\n              \"name\": null,\n              \"relation\": {}\n            },\n            \"tagOptions\": [\n              {\n                \"helpText\": null,\n                \"id\": null,\n                \"name\": null,\n                \"tag\": null,\n                \"tagName\": null\n              }\n            ]\n          }\n        ]\n      },\n      \"seriesId\": 12345,\n      \"type\": {\n        \"alternateName\": \"example\",\n        \"id\": 12345,\n        \"name\": \"Example Name\",\n        \"type\": \"example\"\n      },\n      \"year\": \"2024\"\n    }\n  ],\n  \"status\": \"Continuing\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "58871b3c-0b98-4ead-8ecb-657301618e5b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seasons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "756f9672-611b-4729-b705-013c5ee91e34",
+          "name": "TheTVDB Get Season Base",
+          "request": {
+            "name": "TheTVDB Get Season Base",
+            "description": {
+              "content": "Returns season base record",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "seasons",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ba3eb65e-b866-4c26-b288-8f2179f5a2e5",
+              "name": "response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seasons",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": 12345,\n    \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n    \"imageType\": 1,\n    \"lastUpdated\": \"2024-01-15\",\n    \"name\": \"Example Name\",\n    \"nameTranslations\": [\n      \"example\"\n    ],\n    \"number\": 12345,\n    \"overviewTranslations\": [\n      \"example\"\n    ],\n    \"companies\": {\n      \"studio\": [\n        {\n          \"activeDate\": \"2024-01-15\",\n          \"aliases\": [\n            {\n              \"language\": null,\n              \"name\": null\n            }\n          ],\n          \"country\": \"usa\",\n          \"id\": 12345,\n          \"inactiveDate\": \"2024-01-15\",\n          \"name\": \"Example Name\",\n          \"nameTranslations\": [\n            \"example\"\n          ],\n          \"overviewTranslations\": [\n            \"example\"\n          ],\n          \"primaryCompanyType\": 12345,\n          \"slug\": \"example-slug\",\n          \"parentCompany\": {\n            \"id\": null,\n            \"name\": null,\n            \"relation\": {}\n          },\n          \"tagOptions\": [\n            {\n              \"helpText\": null,\n              \"id\": null,\n              \"name\": null,\n              \"tag\": null,\n              \"tagName\": null\n            }\n          ]\n        }\n      ],\n      \"network\": [\n        {\n          \"activeDate\": \"2024-01-15\",\n          \"aliases\": [\n            {\n              \"language\": null,\n              \"name\": null\n            }\n          ],\n          \"country\": \"usa\",\n          \"id\": 12345,\n          \"inactiveDate\": \"2024-01-15\",\n          \"name\": \"Example Name\",\n          \"nameTranslations\": [\n            \"example\"\n          ],\n          \"overviewTranslations\": [\n            \"example\"\n          ],\n          \"primaryCompanyType\": 12345,\n          \"slug\": \"example-slug\",\n          \"parentCompany\": {\n            \"id\": null,\n            \"name\": null,\n            \"relation\": {}\n          },\n          \"tagOptions\": [\n            {\n              \"helpText\": null,\n              \"id\": null,\n              \"name\": null,\n              \"tag\": null,\n              \"tagName\": null\n            }\n          ]\n        }\n      ],\n      \"production\": [\n        {\n          \"activeDate\": \"2024-01-15\",\n          \"aliases\": [\n            {\n              \"language\": null,\n              \"name\": null\n            }\n          ],\n          \"country\": \"usa\",\n          \"id\": 12345,\n          \"inactiveDate\": \"2024-01-15\",\n          \"name\": \"Example Name\",\n          \"nameTranslations\": [\n            \"example\"\n          ],\n          \"overviewTranslations\": [\n            \"example\"\n          ],\n          \"primaryCompanyType\": 12345,\n          \"slug\": \"example-slug\",\n          \"parentCompany\": {\n            \"id\": null,\n            \"name\": null,\n            \"relation\": {}\n          },\n          \"tagOptions\": [\n            {\n              \"helpText\": null,\n              \"id\": null,\n              \"name\": null,\n              \"tag\": null,\n              \"tagName\": null\n            }\n          ]\n        }\n      ],\n      \"distributor\": [\n        {\n          \"activeDate\": \"2024-01-15\",\n          \"aliases\": [\n            {\n              \"language\": null,\n              \"name\": null\n            }\n          ],\n          \"country\": \"usa\",\n          \"id\": 12345,\n          \"inactiveDate\": \"2024-01-15\",\n          \"name\": \"Example Name\",\n          \"nameTranslations\": [\n            \"example\"\n          ],\n          \"overviewTranslations\": [\n            \"example\"\n          ],\n          \"primaryCompanyType\": 12345,\n          \"slug\": \"example-slug\",\n          \"parentCompany\": {\n            \"id\": null,\n            \"name\": null,\n            \"relation\": {}\n          },\n          \"tagOptions\": [\n            {\n              \"helpText\": null,\n              \"id\": null,\n              \"name\": null,\n              \"tag\": null,\n              \"tagName\": null\n            }\n          ]\n        }\n      ],\n      \"special_effects\": [\n        {\n          \"activeDate\": \"2024-01-15\",\n          \"aliases\": [\n            {\n              \"language\": null,\n              \"name\": null\n            }\n          ],\n          \"country\": \"usa\",\n          \"id\": 12345,\n          \"inactiveDate\": \"2024-01-15\",\n          \"name\": \"Example Name\",\n          \"nameTranslations\": [\n            \"example\"\n          ],\n          \"overviewTranslations\": [\n            \"example\"\n          ],\n          \"primaryCompanyType\": 12345,\n          \"slug\": \"example-slug\",\n          \"parentCompany\": {\n            \"id\": null,\n            \"name\": null,\n            \"relation\": {}\n          },\n          \"tagOptions\": [\n            {\n              \"helpText\": null,\n              \"id\": null,\n              \"name\": null,\n              \"tag\": null,\n              \"tagName\": null\n            }\n          ]\n        }\n      ]\n    },\n    \"seriesId\": 12345,\n    \"type\": {\n      \"alternateName\": \"example\",\n      \"id\": 12345,\n      \"name\": \"Example Name\",\n      \"type\": \"example\"\n    },\n    \"year\": \"2024\"\n  },\n  \"status\": \"Continuing\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dfdf2270-23a3-4b33-9ff8-0f19deca4223",
+              "name": "Invalid season id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seasons",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c5e1fdef-61ed-49cb-81f4-826b73301ce7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seasons",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e469572b-7a46-4047-bbd9-729ebd2215ea",
+              "name": "Season not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seasons",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ae7cf29-e85b-4d16-bb8c-21d58a18232e",
+          "name": "TheTVDB Get Season Extended",
+          "request": {
+            "name": "TheTVDB Get Season Extended",
+            "description": {
+              "content": "Returns season extended record",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "seasons",
+                ":id",
+                "extended"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3d6ef465-2d4c-4021-aa20-95fcde303071",
+              "name": "response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seasons",
+                    ":id",
+                    "extended"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"artwork\": [\n      {\n        \"height\": 12345,\n        \"id\": 12345,\n        \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"includesText\": true,\n        \"language\": \"eng\",\n        \"score\": 100,\n        \"thumbnail\": \"example\",\n        \"type\": 12345,\n        \"width\": 12345\n      }\n    ],\n    \"companies\": {\n      \"studio\": [\n        {\n          \"activeDate\": \"2024-01-15\",\n          \"aliases\": [\n            {\n              \"language\": null,\n              \"name\": null\n            }\n          ],\n          \"country\": \"usa\",\n          \"id\": 12345,\n          \"inactiveDate\": \"2024-01-15\",\n          \"name\": \"Example Name\",\n          \"nameTranslations\": [\n            \"example\"\n          ],\n          \"overviewTranslations\": [\n            \"example\"\n          ],\n          \"primaryCompanyType\": 12345,\n          \"slug\": \"example-slug\",\n          \"parentCompany\": {\n            \"id\": null,\n            \"name\": null,\n            \"relation\": {}\n          },\n          \"tagOptions\": [\n            {\n              \"helpText\": null,\n              \"id\": null,\n              \"name\": null,\n              \"tag\": null,\n              \"tagName\": null\n            }\n          ]\n        }\n      ],\n      \"network\": [\n        {\n          \"activeDate\": \"2024-01-15\",\n          \"aliases\": [\n            {\n              \"language\": null,\n              \"name\": null\n            }\n          ],\n          \"country\": \"usa\",\n          \"id\": 12345,\n          \"inactiveDate\": \"2024-01-15\",\n          \"name\": \"Example Name\",\n          \"nameTranslations\": [\n            \"example\"\n          ],\n          \"overviewTranslations\": [\n            \"example\"\n          ],\n          \"primaryCompanyType\": 12345,\n          \"slug\": \"example-slug\",\n          \"parentCompany\": {\n            \"id\": null,\n            \"name\": null,\n            \"relation\": {}\n          },\n          \"tagOptions\": [\n            {\n              \"helpText\": null,\n              \"id\": null,\n              \"name\": null,\n              \"tag\": null,\n              \"tagName\": null\n            }\n          ]\n        }\n      ],\n      \"production\": [\n        {\n          \"activeDate\": \"2024-01-15\",\n          \"aliases\": [\n            {\n              \"language\": null,\n              \"name\": null\n            }\n          ],\n          \"country\": \"usa\",\n          \"id\": 12345,\n          \"inactiveDate\": \"2024-01-15\",\n          \"name\": \"Example Name\",\n          \"nameTranslations\": [\n            \"example\"\n          ],\n          \"overviewTranslations\": [\n            \"example\"\n          ],\n          \"primaryCompanyType\": 12345,\n          \"slug\": \"example-slug\",\n          \"parentCompany\": {\n            \"id\": null,\n            \"name\": null,\n            \"relation\": {}\n          },\n          \"tagOptions\": [\n            {\n              \"helpText\": null,\n              \"id\": null,\n              \"name\": null,\n              \"tag\": null,\n              \"tagName\": null\n            }\n          ]\n        }\n      ],\n      \"distributor\": [\n        {\n          \"activeDate\": \"2024-01-15\",\n          \"aliases\": [\n            {\n              \"language\": null,\n              \"name\": null\n            }\n          ],\n          \"country\": \"usa\",\n          \"id\": 12345,\n          \"inactiveDate\": \"2024-01-15\",\n          \"name\": \"Example Name\",\n          \"nameTranslations\": [\n            \"example\"\n          ],\n          \"overviewTranslations\": [\n            \"example\"\n          ],\n          \"primaryCompanyType\": 12345,\n          \"slug\": \"example-slug\",\n          \"parentCompany\": {\n            \"id\": null,\n            \"name\": null,\n            \"relation\": {}\n          },\n          \"tagOptions\": [\n            {\n              \"helpText\": null,\n              \"id\": null,\n              \"name\": null,\n              \"tag\": null,\n              \"tagName\": null\n            }\n          ]\n        }\n      ],\n      \"special_effects\": [\n        {\n          \"activeDate\": \"2024-01-15\",\n          \"aliases\": [\n            {\n              \"language\": null,\n              \"name\": null\n            }\n          ],\n          \"country\": \"usa\",\n          \"id\": 12345,\n          \"inactiveDate\": \"2024-01-15\",\n          \"name\": \"Example Name\",\n          \"nameTranslations\": [\n            \"example\"\n          ],\n          \"overviewTranslations\": [\n            \"example\"\n          ],\n          \"primaryCompanyType\": 12345,\n          \"slug\": \"example-slug\",\n          \"parentCompany\": {\n            \"id\": null,\n            \"name\": null,\n            \"relation\": {}\n          },\n          \"tagOptions\": [\n            {\n              \"helpText\": null,\n              \"id\": null,\n              \"name\": null,\n              \"tag\": null,\n              \"tagName\": null\n            }\n          ]\n        }\n      ]\n    },\n    \"episodes\": [\n      {\n        \"absoluteNumber\": 1,\n        \"aired\": \"example\",\n        \"airsAfterSeason\": 1,\n        \"airsBeforeEpisode\": 1,\n        \"airsBeforeSeason\": 1,\n        \"finaleType\": \"example\",\n        \"id\": 12345,\n        \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"imageType\": 1,\n        \"isMovie\": 12345,\n        \"lastUpdated\": \"2024-01-15\",\n        \"linkedMovie\": 1,\n        \"name\": \"Example Name\",\n        \"nameTranslations\": [\n          \"example\"\n        ],\n        \"number\": 1,\n        \"overview\": \"A descriptive paragraph of text.\",\n        \"overviewTranslations\": [\n          \"example\"\n        ],\n        \"runtime\": 1,\n        \"seasonNumber\": 1,\n        \"seasons\": [\n          {\n            \"id\": 12345,\n            \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n            \"imageType\": 1,\n            \"lastUpdated\": \"2024-01-15\",\n            \"name\": \"Example Name\",\n            \"nameTranslations\": [\n              \"example\"\n            ],\n            \"number\": 12345,\n            \"overviewTranslations\": [\n              \"example\"\n            ],\n            \"companies\": {\n              \"studio\": [\n                {}\n              ],\n              \"network\": [\n                {}\n              ],\n              \"production\": [\n                {}\n              ],\n              \"distributor\": [\n                {}\n              ],\n              \"special_effects\": [\n                {}\n              ]\n            },\n            \"seriesId\": 12345,\n            \"type\": {\n              \"alternateName\": null,\n              \"id\": null,\n              \"name\": null,\n              \"type\": null\n            },\n            \"year\": \"2024\"\n          }\n        ],\n        \"seriesId\": 12345,\n        \"seasonName\": \"example\",\n        \"year\": \"2024\"\n      }\n    ],\n    \"id\": 12345,\n    \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n    \"imageType\": 1,\n    \"lastUpdated\": \"2024-01-15\",\n    \"name\": \"Example Name\",\n    \"nameTranslations\": [\n      \"example\"\n    ],\n    \"number\": 12345,\n    \"overviewTranslations\": [\n      \"example\"\n    ],\n    \"seriesId\": 12345,\n    \"trailers\": [\n      {\n        \"id\": 12345,\n        \"language\": \"eng\",\n        \"name\": \"Example Name\",\n        \"url\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"runtime\": 1\n      }\n    ],\n    \"type\": {\n      \"alternateName\": \"example\",\n      \"id\": 12345,\n      \"name\": \"Example Name\",\n      \"type\": \"example\"\n    },\n    \"tagOptions\": [\n      {\n        \"helpText\": \"example\",\n        \"id\": 12345,\n        \"name\": \"Example Name\",\n        \"tag\": 12345,\n        \"tagName\": \"example\"\n      }\n    ],\n    \"translations\": [\n      {\n        \"aliases\": [\n          \"example\"\n        ],\n        \"isAlias\": true,\n        \"isPrimary\": true,\n        \"language\": \"eng\",\n        \"name\": \"Example Name\",\n        \"overview\": \"A descriptive paragraph of text.\",\n        \"tagline\": \"example\"\n      }\n    ],\n    \"year\": \"2024\"\n  },\n  \"status\": \"Continuing\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "38b1b833-49ec-4edd-b308-ea21b2f328a9",
+              "name": "Invalid seasons id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seasons",
+                    ":id",
+                    "extended"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "da015ba4-bfef-4a4d-b3af-57363c6adf28",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seasons",
+                    ":id",
+                    "extended"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "284a22eb-4eb4-4341-92b0-0a2f2f207dcf",
+              "name": "Season not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seasons",
+                    ":id",
+                    "extended"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81a42a1b-ffcf-4d1e-818f-d819692a3e66",
+          "name": "TheTVDB Get Season Types",
+          "request": {
+            "name": "TheTVDB Get Season Types",
+            "description": {
+              "content": "Returns season type records",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "seasons",
+                "types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5ed5bc7e-d79f-457a-a70d-a7a6cda3123c",
+              "name": "response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seasons",
+                    "types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"alternateName\": \"example\",\n      \"id\": 12345,\n      \"name\": \"Example Name\",\n      \"type\": \"example\"\n    }\n  ],\n  \"status\": \"Continuing\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e788987-f19e-4018-801b-87aaef2d5247",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seasons",
+                    "types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ffdc4bc-816a-4a07-982b-4dfeb21426bf",
+          "name": "TheTVDB Get Season Translation",
+          "request": {
+            "name": "TheTVDB Get Season Translation",
+            "description": {
+              "content": "Returns season translation record",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "seasons",
+                ":id",
+                "translations",
+                ":language"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<number>",
+                  "key": "id",
+                  "description": "(Required) id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "language",
+                  "description": "(Required) language"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d9745f8b-3819-4c88-b108-5aa51c95413a",
+              "name": "response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seasons",
+                    ":id",
+                    "translations",
+                    ":language"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "language",
+                      "description": "(Required) language"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"aliases\": [\n      \"example\"\n    ],\n    \"isAlias\": true,\n    \"isPrimary\": true,\n    \"language\": \"eng\",\n    \"name\": \"Example Name\",\n    \"overview\": \"A descriptive paragraph of text.\",\n    \"tagline\": \"example\"\n  },\n  \"status\": \"Continuing\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a2b89cf3-6ed0-48c1-bc2c-3108e0ee1757",
+              "name": "Invalid season id, language not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seasons",
+                    ":id",
+                    "translations",
+                    ":language"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "language",
+                      "description": "(Required) language"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c8a87c0a-3d0d-4d4f-b1fb-96be6357f320",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seasons",
+                    ":id",
+                    "translations",
+                    ":language"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "language",
+                      "description": "(Required) language"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "637583be-17f1-4afe-890d-85977c03b153",
+              "name": "Season not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "seasons",
+                    ":id",
+                    "translations",
+                    ":language"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<number>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "language",
+                      "description": "(Required) language"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api4.thetvdb.com/v4",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "32d68c10-132e-4a0d-b7dd-1a71310ad3af",
+    "name": "TVDB API V4 Artwork Seasons API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Documentation of [TheTVDB](https://thetvdb.com/) API V4. All related information is linked from our [Github repo](https://github.com/thetvdb/v4-api). You might also want to use our [Postman collection] (https://www.getpostman.com/collections/7a9397ce69ff246f74d0)\n## Authentication\n1. Use the /login endpoint and provide your API key as \"apikey\". If you have a user-supported key, also provide your subscriber PIN as \"pin\". Otherwise completely remove \"pin\" from your call.\n2. Executing this call will provide you with a bearer token, which is valid for 1 month.\n3. Provide your bearer token for subsequent API calls by clicking Authorize below or including in the header of all direct API calls: `Authorization: Bearer [your-token]`\n\n## Notes\n1. \"score\" is a field across almost all entities.  We generate scores for different types of entities in various ways, so no assumptions should be made about the meaning of this value.  It is simply used to hint at relative popularity for sorting purposes.\n",
+      "type": "text/plain"
+    }
+  }
+}

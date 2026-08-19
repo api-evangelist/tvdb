@@ -1,0 +1,134 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TVDB API V4 Artwork Search API",
+    "version": "4.7.10"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "TheTVDB Get Search Results",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/search",
+            "params": [
+              {
+                "name": "query",
+                "value": "example",
+                "type": "query",
+                "description": "The primary search string, which can include the main title for a record including all translations and aliases."
+              },
+              {
+                "name": "q",
+                "value": "example",
+                "type": "query",
+                "description": "Alias of the \"query\" parameter.  Recommend using query instead as this field will eventually be deprecated."
+              },
+              {
+                "name": "type",
+                "value": "example",
+                "type": "query",
+                "description": "Restrict results to a specific entity type.  Can be movie, series, person, or company."
+              },
+              {
+                "name": "year",
+                "value": "2024",
+                "type": "query",
+                "description": "Restrict results to a specific year. Currently only used for series and movies."
+              },
+              {
+                "name": "company",
+                "value": "example",
+                "type": "query",
+                "description": "Restrict results to a specific company (original network, production company, studio, etc).  As an example, \"The Walking Dead\" would have companies of \"AMC\", \"AMC+\", and \"Disney+\"."
+              },
+              {
+                "name": "country",
+                "value": "usa",
+                "type": "query",
+                "description": "Restrict results to a specific country of origin. Should contain a 3 character country code. Currently only used for series and movies."
+              },
+              {
+                "name": "director",
+                "value": "example",
+                "type": "query",
+                "description": "Restrict results to a specific director.  Generally only used for movies.  Should include the full name of the director, such as \"Steven Spielberg\"."
+              },
+              {
+                "name": "language",
+                "value": "eng",
+                "type": "query",
+                "description": "Restrict results to a specific primary language.  Should include the 3 character language code.  Currently only used for series and movies."
+              },
+              {
+                "name": "primaryType",
+                "value": "example",
+                "type": "query",
+                "description": "Restrict results to a specific type of company.  Should include the full name of the type of company, such as \"Production Company\".  Only used for companies."
+              },
+              {
+                "name": "network",
+                "value": "example",
+                "type": "query",
+                "description": "Restrict results to a specific network.  Used for TV and TV movies, and functions the same as the company parameter with more specificity."
+              },
+              {
+                "name": "remote_id",
+                "value": "abc123",
+                "type": "query",
+                "description": "Search for a specific remote id.  Allows searching for an IMDB or EIDR id, for example."
+              },
+              {
+                "name": "offset",
+                "value": "1",
+                "type": "query",
+                "description": "Offset results."
+              },
+              {
+                "name": "limit",
+                "value": "1",
+                "type": "query",
+                "description": "Limit results."
+              }
+            ]
+          },
+          "docs": "Our search index includes series, movies, people, and companies. Search is limited to 5k results max."
+        },
+        {
+          "info": {
+            "name": "TheTVDB Get Search Results by Remote Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/search/remoteid/:remoteId",
+            "params": [
+              {
+                "name": "remoteId",
+                "value": "abc123",
+                "type": "path",
+                "description": "Search for a specific remote id.  Allows searching for an IMDB or EIDR id, for example."
+              }
+            ]
+          },
+          "docs": "Search a series, movie, people, episode, company or season by specific remote id and returns a base record for that entity."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

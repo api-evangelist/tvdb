@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TVDB API V4 Artwork Login API",
+    "version": "4.7.10"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Login",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "TheTVDB Create an Auth Token. the Token Has One Month Validation Length.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api4.thetvdb.com/v4/login",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "TheTVDB Create an Auth Token. the Token Has One Month Validation Length."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

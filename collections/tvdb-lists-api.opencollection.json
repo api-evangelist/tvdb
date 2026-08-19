@@ -1,0 +1,125 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TVDB API V4 Artwork Lists API",
+    "version": "4.7.10"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Lists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "TheTVDB Get All Lists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/lists",
+            "params": [
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "page number"
+              }
+            ]
+          },
+          "docs": "returns list of list base records"
+        },
+        {
+          "info": {
+            "name": "TheTVDB Get List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/lists/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "returns an list base record"
+        },
+        {
+          "info": {
+            "name": "TheTVDB Get List by Slug",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/lists/slug/:slug",
+            "params": [
+              {
+                "name": "slug",
+                "value": "example-slug",
+                "type": "path",
+                "description": "slug"
+              }
+            ]
+          },
+          "docs": "returns an list base record search by slug"
+        },
+        {
+          "info": {
+            "name": "TheTVDB Get List Extended",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/lists/:id/extended",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "returns a list extended record"
+        },
+        {
+          "info": {
+            "name": "TheTVDB Get List Translation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api4.thetvdb.com/v4/lists/:id/translations/:language",
+            "params": [
+              {
+                "name": "id",
+                "value": "12345",
+                "type": "path",
+                "description": "id"
+              },
+              {
+                "name": "language",
+                "value": "eng",
+                "type": "path",
+                "description": "language"
+              }
+            ]
+          },
+          "docs": "Returns list translation record"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
