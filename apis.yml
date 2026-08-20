@@ -588,6 +588,8 @@ apis:
   humanURL: https://thetvdb.github.io/v4-api/
   baseURL: https://api4.thetvdb.com/v4
   tags:
+  - Language
+  tags_raw:
   - Languages
   properties:
   - type: OpenAPI
@@ -624,6 +626,8 @@ apis:
   humanURL: https://thetvdb.github.io/v4-api/
   baseURL: https://api4.thetvdb.com/v4
   tags:
+  - List
+  tags_raw:
   - Lists
   properties:
   - type: OpenAPI
@@ -1056,6 +1060,8 @@ apis:
   humanURL: https://thetvdb.github.io/v4-api/
   baseURL: https://api4.thetvdb.com/v4
   tags:
+  - UserInfo
+  tags_raw:
   - User info
   properties:
   - type: OpenAPI
