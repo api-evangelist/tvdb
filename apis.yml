@@ -1,6 +1,19 @@
 aid: tvdb
 name: TheTVDB
 url: https://raw.githubusercontent.com/api-evangelist/tvdb/refs/heads/main/apis.yml
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: true
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - pricing
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
@@ -1093,6 +1106,8 @@ apis:
   - type: IssueTracker
     url: https://github.com/thetvdb/v4-api/issues
 common:
+  - type: Releases
+    url: https://github.com/thetvdb/v4-api/releases
   - type: AgenticAccess
     url: agentic-access/tvdb-agentic-access.yml
   - type: DomainSecurity
