@@ -1,0 +1,79 @@
+slug: tvdb
+provider: TheTVDB
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Media, Entertainment & Telecom Content
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 6
+edges:
+- tag: Episodes
+  spec_file: tvdb-episodes-api-openapi.yml
+  capability_id: BC-3710.20
+  capability_id_l1: BC-3710
+  capability_name: Metadata Cataloguing
+  confidence: 0.85
+  evidence: 'GET /episodes/{id}/extended getEpisodeExtended; GET /episodes/{id}/translations/{language};
+    schemas: EpisodeBaseRecord, ContentRating, SeasonBaseRecord'
+  reason: Delivers descriptive episode metadata records, translations, companies and ratings for TV content
+    — authoring/serving descriptive metadata that makes titles discoverable, i.e. Metadata Cataloguing.
+- tag: Movies
+  spec_file: tvdb-movies-api-openapi.yml
+  capability_id: BC-3710.20
+  capability_id_l1: BC-3710
+  capability_name: Metadata Cataloguing
+  confidence: 0.75
+  evidence: GET /movies/{id}/extended  getMovieExtended; schemas MovieBaseRecord, GenreBaseRecord, Translation,
+    RemoteID, ArtworkBaseRecord
+  reason: The operations expose structured descriptive metadata records for movie titles, including genres,
+    translations, artwork and external identifiers — i.e. authoring/serving of the descriptive catalogue
+    that makes content discoverable. Best fit is Metadata Cataloguing within Media Asset Management; not
+    production, rights or scheduling.
+- tag: Series
+  spec_file: tvdb-series-api-openapi.yml
+  capability_id: BC-3710.20
+  capability_id_l1: BC-3710
+  capability_name: Metadata Cataloguing
+  confidence: 0.75
+  evidence: GET /series/{id}/extended  getSeriesExtended; schemas SeriesExtendedRecord, ContentRating,
+    SeriesAirsDays, ArtworkExtendedRecord, Translation
+  reason: Serves structured descriptive metadata for TV series including artwork, content ratings, air
+    days, translations and episode lists — the descriptive/technical catalogue layer. Mapped to Metadata
+    Cataloguing; airing fields are metadata attributes, not channel scheduling operations.
+- tag: Companies
+  spec_file: tvdb-companies-api-openapi.yml
+  capability_id: BC-3710.20
+  capability_id_l1: BC-3710
+  capability_name: Metadata Cataloguing
+  confidence: 0.7
+  evidence: 'GET /companies getAllCompanies; schemas: Company, CompanyRelationShip, ParentCompany, CompanyType'
+  reason: TheTVDB supplies structured metadata about TV/movie entities; the Companies surface is a reference
+    catalogue of production/network companies used to describe media assets, i.e. descriptive metadata
+    cataloguing. Some risk this is treated as generic reference data (BC-610.20), hence moderate confidence.
+- tag: Content Ratings
+  spec_file: tvdb-content-ratings-api-openapi.yml
+  capability_id: BC-3780.10
+  capability_id_l1: BC-3780
+  capability_name: Content Classification & Rating Management
+  confidence: 0.7
+  evidence: 'GET /content/ratings getAllContentRatings; schema: ContentRating'
+  reason: Exposes the age/content rating reference list used to classify titles across territories, which
+    matches content classification & rating. It is read-only reference data rather than an active submission
+    workflow, so confidence is tempered.
+- tag: Seasons
+  spec_file: tvdb-seasons-api-openapi.yml
+  capability_id: BC-3710.20
+  capability_id_l1: BC-3710
+  capability_name: Metadata Cataloguing
+  confidence: 0.7
+  evidence: GET /seasons/{id}/extended  getSeasonExtended; schemas SeasonBaseRecord, SeasonExtendedRecord,
+    EpisodeBaseRecord, Translation
+  reason: Read access to descriptive season metadata records (season types, episodes, translations, artwork)
+    forming part of the content catalogue — Metadata Cataloguing. No evidence of scheduling, rights or
+    production workflow.

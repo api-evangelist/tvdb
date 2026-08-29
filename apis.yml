@@ -1106,6 +1106,9 @@ apis:
   - type: IssueTracker
     url: https://github.com/thetvdb/v4-api/issues
 common:
+  - type: CapabilityMap
+    url: capabilities/tvdb-capability-edges.yml
+    name: TheTVDB Business Capability Map
   - type: Releases
     url: https://github.com/thetvdb/v4-api/releases
   - type: AgenticAccess
