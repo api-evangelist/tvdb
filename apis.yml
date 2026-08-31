@@ -1073,7 +1073,7 @@ apis:
   humanURL: https://thetvdb.github.io/v4-api/
   baseURL: https://api4.thetvdb.com/v4
   tags:
-  - UserInfo
+  - User info
   tags_raw:
   - User info
   properties:
