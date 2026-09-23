@@ -1,22 +1,7 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  description: 'Documentation of [TheTVDB](https://thetvdb.com/) API V4. All related information is linked from our [Github repo](https://github.com/thetvdb/v4-api). You might also want to use our [Postman collection] (https://www.getpostman.com/collections/7a9397ce69ff246f74d0)
-
-    ## Authentication
-
-    1. Use the /login endpoint and provide your API key as "apikey". If you have a user-supported key, also provide your subscriber PIN as "pin". Otherwise completely remove "pin" from your call.
-
-    2. Executing this call will provide you with a bearer token, which is valid for 1 month.
-
-    3. Provide your bearer token for subsequent API calls by clicking Authorize below or including in the header of all direct API calls: `Authorization: Bearer [your-token]`
-
-
-    ## Notes
-
-    1. "score" is a field across almost all entities.  We generate scores for different types of entities in various ways, so no assumptions should be made about the meaning of this value.  It is simply used to hint at relative popularity for sorting purposes.
-
-    '
-  title: TVDB API V4 Artwork Awards API
+  description: Documentation of TheTVDB API V4.
+  title: TVDB API V4 Awards API
   version: 4.7.10
   x-last-validated: '2026-05-30'
   x-spec-source: https://github.com/thetvdb/v4-api/blob/main/docs/swagger.yml
@@ -192,6 +177,17 @@ components:
           example: Example Name
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    AwardBaseRecord:
+      description: base award record
+      properties:
+        id:
+          type: integer
+          example: 12345
+        name:
+          type: string
+          example: Example Name
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
     AwardExtendedRecord:
       description: extended award record
       properties:
@@ -211,17 +207,6 @@ components:
           type: integer
           x-go-name: Score
           example: 100
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    AwardBaseRecord:
-      description: base award record
-      properties:
-        id:
-          type: integer
-          example: 12345
-        name:
-          type: string
-          example: Example Name
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
   securitySchemes:

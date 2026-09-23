@@ -1,22 +1,7 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  description: 'Documentation of [TheTVDB](https://thetvdb.com/) API V4. All related information is linked from our [Github repo](https://github.com/thetvdb/v4-api). You might also want to use our [Postman collection] (https://www.getpostman.com/collections/7a9397ce69ff246f74d0)
-
-    ## Authentication
-
-    1. Use the /login endpoint and provide your API key as "apikey". If you have a user-supported key, also provide your subscriber PIN as "pin". Otherwise completely remove "pin" from your call.
-
-    2. Executing this call will provide you with a bearer token, which is valid for 1 month.
-
-    3. Provide your bearer token for subsequent API calls by clicking Authorize below or including in the header of all direct API calls: `Authorization: Bearer [your-token]`
-
-
-    ## Notes
-
-    1. "score" is a field across almost all entities.  We generate scores for different types of entities in various ways, so no assumptions should be made about the meaning of this value.  It is simply used to hint at relative popularity for sorting purposes.
-
-    '
-  title: TVDB API V4 Artwork Seasons API
+  description: Documentation of TheTVDB API V4.
+  title: TVDB API V4 Seasons API
   version: 4.7.10
   x-last-validated: '2026-05-30'
   x-spec-source: https://github.com/thetvdb/v4-api/blob/main/docs/swagger.yml
@@ -79,9 +64,9 @@ paths:
                           id: 12345
                           inactiveDate: '2024-01-15'
                           name: Example Name
-                          nameTranslations: &id001
+                          nameTranslations:
                           - example
-                          overviewTranslations: &id002
+                          overviewTranslations:
                           - example
                           primaryCompanyType: 12345
                           slug: example-slug
@@ -104,8 +89,10 @@ paths:
                           id: 12345
                           inactiveDate: '2024-01-15'
                           name: Example Name
-                          nameTranslations: *id001
-                          overviewTranslations: *id002
+                          nameTranslations:
+                          - example
+                          overviewTranslations:
+                          - example
                           primaryCompanyType: 12345
                           slug: example-slug
                           parentCompany:
@@ -127,8 +114,10 @@ paths:
                           id: 12345
                           inactiveDate: '2024-01-15'
                           name: Example Name
-                          nameTranslations: *id001
-                          overviewTranslations: *id002
+                          nameTranslations:
+                          - example
+                          overviewTranslations:
+                          - example
                           primaryCompanyType: 12345
                           slug: example-slug
                           parentCompany:
@@ -150,8 +139,10 @@ paths:
                           id: 12345
                           inactiveDate: '2024-01-15'
                           name: Example Name
-                          nameTranslations: *id001
-                          overviewTranslations: *id002
+                          nameTranslations:
+                          - example
+                          overviewTranslations:
+                          - example
                           primaryCompanyType: 12345
                           slug: example-slug
                           parentCompany:
@@ -173,8 +164,10 @@ paths:
                           id: 12345
                           inactiveDate: '2024-01-15'
                           name: Example Name
-                          nameTranslations: *id001
-                          overviewTranslations: *id002
+                          nameTranslations:
+                          - example
+                          overviewTranslations:
+                          - example
                           primaryCompanyType: 12345
                           slug: example-slug
                           parentCompany:
@@ -253,9 +246,9 @@ paths:
                           id: 12345
                           inactiveDate: '2024-01-15'
                           name: Example Name
-                          nameTranslations: &id003
+                          nameTranslations:
                           - example
-                          overviewTranslations: &id004
+                          overviewTranslations:
                           - example
                           primaryCompanyType: 12345
                           slug: example-slug
@@ -278,8 +271,10 @@ paths:
                           id: 12345
                           inactiveDate: '2024-01-15'
                           name: Example Name
-                          nameTranslations: *id003
-                          overviewTranslations: *id004
+                          nameTranslations:
+                          - example
+                          overviewTranslations:
+                          - example
                           primaryCompanyType: 12345
                           slug: example-slug
                           parentCompany:
@@ -301,8 +296,10 @@ paths:
                           id: 12345
                           inactiveDate: '2024-01-15'
                           name: Example Name
-                          nameTranslations: *id003
-                          overviewTranslations: *id004
+                          nameTranslations:
+                          - example
+                          overviewTranslations:
+                          - example
                           primaryCompanyType: 12345
                           slug: example-slug
                           parentCompany:
@@ -324,8 +321,10 @@ paths:
                           id: 12345
                           inactiveDate: '2024-01-15'
                           name: Example Name
-                          nameTranslations: *id003
-                          overviewTranslations: *id004
+                          nameTranslations:
+                          - example
+                          overviewTranslations:
+                          - example
                           primaryCompanyType: 12345
                           slug: example-slug
                           parentCompany:
@@ -347,8 +346,10 @@ paths:
                           id: 12345
                           inactiveDate: '2024-01-15'
                           name: Example Name
-                          nameTranslations: *id003
-                          overviewTranslations: *id004
+                          nameTranslations:
+                          - example
+                          overviewTranslations:
+                          - example
                           primaryCompanyType: 12345
                           slug: example-slug
                           parentCompany:
@@ -431,9 +432,9 @@ paths:
                           id: 12345
                           inactiveDate: '2024-01-15'
                           name: Example Name
-                          nameTranslations: &id005
+                          nameTranslations:
                           - example
-                          overviewTranslations: &id006
+                          overviewTranslations:
                           - example
                           primaryCompanyType: 12345
                           slug: example-slug
@@ -456,8 +457,10 @@ paths:
                           id: 12345
                           inactiveDate: '2024-01-15'
                           name: Example Name
-                          nameTranslations: *id005
-                          overviewTranslations: *id006
+                          nameTranslations:
+                          - example
+                          overviewTranslations:
+                          - example
                           primaryCompanyType: 12345
                           slug: example-slug
                           parentCompany:
@@ -479,8 +482,10 @@ paths:
                           id: 12345
                           inactiveDate: '2024-01-15'
                           name: Example Name
-                          nameTranslations: *id005
-                          overviewTranslations: *id006
+                          nameTranslations:
+                          - example
+                          overviewTranslations:
+                          - example
                           primaryCompanyType: 12345
                           slug: example-slug
                           parentCompany:
@@ -502,8 +507,10 @@ paths:
                           id: 12345
                           inactiveDate: '2024-01-15'
                           name: Example Name
-                          nameTranslations: *id005
-                          overviewTranslations: *id006
+                          nameTranslations:
+                          - example
+                          overviewTranslations:
+                          - example
                           primaryCompanyType: 12345
                           slug: example-slug
                           parentCompany:
@@ -525,8 +532,10 @@ paths:
                           id: 12345
                           inactiveDate: '2024-01-15'
                           name: Example Name
-                          nameTranslations: *id005
-                          overviewTranslations: *id006
+                          nameTranslations:
+                          - example
+                          overviewTranslations:
+                          - example
                           primaryCompanyType: 12345
                           slug: example-slug
                           parentCompany:
@@ -741,6 +750,154 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    SeasonType:
+      description: season type record
+      properties:
+        alternateName:
+          type: string
+          x-go-name: Name
+          example: example
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        name:
+          type: string
+          x-go-name: Name
+          example: Example Name
+        type:
+          type: string
+          x-go-name: Type
+          example: example
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Translation:
+      description: translation record
+      properties:
+        aliases:
+          items:
+            type: string
+          type: array
+          example:
+          - example
+        isAlias:
+          type: boolean
+          example: true
+        isPrimary:
+          type: boolean
+          example: true
+        language:
+          type: string
+          x-go-name: Language
+          example: eng
+        name:
+          type: string
+          example: Example Name
+        overview:
+          type: string
+          example: A descriptive paragraph of text.
+        tagline:
+          type: string
+          description: Only populated for movie translations.  We disallow taglines without a title.
+          example: example
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    EpisodeBaseRecord:
+      description: base episode record
+      properties:
+        absoluteNumber:
+          type: integer
+          example: 1
+        aired:
+          type: string
+          example: example
+        airsAfterSeason:
+          type: integer
+          example: 1
+        airsBeforeEpisode:
+          type: integer
+          example: 1
+        airsBeforeSeason:
+          type: integer
+          example: 1
+        finaleType:
+          description: season, midseason, or series
+          type: string
+          example: example
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        image:
+          type: string
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        imageType:
+          type:
+          - integer
+          - 'null'
+          example: 1
+        isMovie:
+          format: int64
+          type: integer
+          x-go-name: IsMovie
+          example: 12345
+        lastUpdated:
+          type: string
+          example: '2024-01-15'
+        linkedMovie:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: Example Name
+        nameTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: NameTranslations
+          example:
+          - example
+        number:
+          type: integer
+          example: 1
+        overview:
+          type: string
+          example: A descriptive paragraph of text.
+        overviewTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: OverviewTranslations
+          example:
+          - example
+        runtime:
+          type:
+          - integer
+          - 'null'
+          example: 1
+        seasonNumber:
+          type: integer
+          example: 1
+        seasons:
+          items:
+            $ref: '#/components/schemas/SeasonBaseRecord'
+          type: array
+          x-go-name: Seasons
+        seriesId:
+          format: int64
+          type: integer
+          x-go-name: SeriesID
+          example: 12345
+        seasonName:
+          type: string
+          example: example
+        year:
+          type: string
+          example: '2024'
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
     SeasonExtendedRecord:
       description: extended season record
       properties:
@@ -817,6 +974,66 @@ components:
           example: '2024'
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Company:
+      description: A company record
+      properties:
+        activeDate:
+          type: string
+          example: '2024-01-15'
+        aliases:
+          items:
+            $ref: '#/components/schemas/Alias'
+          type: array
+          x-go-name: Aliases
+        country:
+          type: string
+          example: usa
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        inactiveDate:
+          type: string
+          example: '2024-01-15'
+        name:
+          type: string
+          example: Example Name
+        nameTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: NameTranslations
+          example:
+          - example
+        overviewTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: OverviewTranslations
+          example:
+          - example
+        primaryCompanyType:
+          format: int64
+          type:
+          - integer
+          - 'null'
+          x-go-name: PrimaryCompanyType
+          example: 12345
+        slug:
+          type: string
+          x-go-name: Slug
+          example: example-slug
+        parentCompany:
+          type: object
+          $ref: '#/components/schemas/ParentCompany'
+        tagOptions:
+          items:
+            $ref: '#/components/schemas/TagOption'
+          type: array
+          x-go-name: TagOptions
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
     TagOption:
       description: tag option record
       properties:
@@ -843,37 +1060,95 @@ components:
           example: example
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    Translation:
-      description: translation record
+    ArtworkBaseRecord:
+      description: base artwork record
       properties:
-        aliases:
-          items:
-            type: string
-          type: array
-          example:
-          - example
-        isAlias:
-          type: boolean
-          example: true
-        isPrimary:
+        height:
+          format: int64
+          type: integer
+          x-go-name: Height
+          example: 12345
+        id:
+          type: integer
+          example: 12345
+        image:
+          type: string
+          x-go-name: Image
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        includesText:
           type: boolean
           example: true
         language:
           type: string
-          x-go-name: Language
+          example: eng
+        score:
+          type: number
+          example: 100
+        thumbnail:
+          type: string
+          x-go-name: Thumbnail
+          example: example
+        type:
+          format: int64
+          type: integer
+          x-go-name: Type
+          description: The artwork type corresponds to the ids from the /artwork/types endpoint.
+          example: 12345
+        width:
+          format: int64
+          type: integer
+          x-go-name: Width
+          example: 12345
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Alias:
+      description: An alias model, which can be associated with a series, season, movie, person, or list.
+      properties:
+        language:
+          type: string
+          maximum: 4
+          description: A 3-4 character string indicating the language of the alias, as defined in Language.
           example: eng
         name:
           type: string
+          maximum: 100
+          description: A string containing the alias itself.
           example: Example Name
-        overview:
-          type: string
-          example: A descriptive paragraph of text.
-        tagline:
-          type: string
-          description: Only populated for movie translations.  We disallow taglines without a title.
-          example: example
       type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Companies:
+      description: Companies by type record
+      properties:
+        studio:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
+        network:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
+        production:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
+        distributor:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
+        special_effects:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
+    CompanyRelationShip:
+      description: A company relationship
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+          example: 12345
+        typeName:
+          type: string
+          example: example
     SeasonBaseRecord:
       description: season genre record
       properties:
@@ -926,111 +1201,21 @@ components:
           example: '2024'
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    Company:
-      description: A company record
+    ParentCompany:
+      description: A parent company record
+      type: object
       properties:
-        activeDate:
-          type: string
-          example: '2024-01-15'
-        aliases:
-          items:
-            $ref: '#/components/schemas/Alias'
-          type: array
-          x-go-name: Aliases
-        country:
-          type: string
-          example: usa
         id:
-          format: int64
-          type: integer
-          x-go-name: ID
+          type:
+          - integer
+          - 'null'
           example: 12345
-        inactiveDate:
-          type: string
-          example: '2024-01-15'
         name:
           type: string
           example: Example Name
-        nameTranslations:
-          items:
-            type: string
-          type: array
-          x-go-name: NameTranslations
-          example:
-          - example
-        overviewTranslations:
-          items:
-            type: string
-          type: array
-          x-go-name: OverviewTranslations
-          example:
-          - example
-        primaryCompanyType:
-          format: int64
-          type: integer
-          x-go-name: PrimaryCompanyType
-          nullable: true
-          example: 12345
-        slug:
-          type: string
-          x-go-name: Slug
-          example: example-slug
-        parentCompany:
+        relation:
           type: object
-          $ref: '#/components/schemas/ParentCompany'
-        tagOptions:
-          items:
-            $ref: '#/components/schemas/TagOption'
-          type: array
-          x-go-name: TagOptions
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    Alias:
-      description: An alias model, which can be associated with a series, season, movie, person, or list.
-      properties:
-        language:
-          type: string
-          maximum: 4
-          description: A 3-4 character string indicating the language of the alias, as defined in Language.
-          example: eng
-        name:
-          type: string
-          maximum: 100
-          description: A string containing the alias itself.
-          example: Example Name
-      type: object
-    CompanyRelationShip:
-      description: A company relationship
-      properties:
-        id:
-          type: integer
-          nullable: true
-          example: 12345
-        typeName:
-          type: string
-          example: example
-    SeasonType:
-      description: season type record
-      properties:
-        alternateName:
-          type: string
-          x-go-name: Name
-          example: example
-        id:
-          format: int64
-          type: integer
-          x-go-name: ID
-          example: 12345
-        name:
-          type: string
-          x-go-name: Name
-          example: Example Name
-        type:
-          type: string
-          x-go-name: Type
-          example: example
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+          $ref: '#/components/schemas/CompanyRelationShip'
     Trailer:
       description: trailer record
       properties:
@@ -1053,177 +1238,6 @@ components:
           example: 1
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    EpisodeBaseRecord:
-      description: base episode record
-      properties:
-        absoluteNumber:
-          type: integer
-          example: 1
-        aired:
-          type: string
-          example: example
-        airsAfterSeason:
-          type: integer
-          example: 1
-        airsBeforeEpisode:
-          type: integer
-          example: 1
-        airsBeforeSeason:
-          type: integer
-          example: 1
-        finaleType:
-          description: season, midseason, or series
-          type: string
-          example: example
-        id:
-          format: int64
-          type: integer
-          x-go-name: ID
-          example: 12345
-        image:
-          type: string
-          example: https://artworks.thetvdb.com/banners/example.jpg
-        imageType:
-          type: integer
-          nullable: true
-          example: 1
-        isMovie:
-          format: int64
-          type: integer
-          x-go-name: IsMovie
-          example: 12345
-        lastUpdated:
-          type: string
-          example: '2024-01-15'
-        linkedMovie:
-          type: integer
-          example: 1
-        name:
-          type: string
-          example: Example Name
-        nameTranslations:
-          items:
-            type: string
-          type: array
-          x-go-name: NameTranslations
-          example:
-          - example
-        number:
-          type: integer
-          example: 1
-        overview:
-          type: string
-          example: A descriptive paragraph of text.
-        overviewTranslations:
-          items:
-            type: string
-          type: array
-          x-go-name: OverviewTranslations
-          example:
-          - example
-        runtime:
-          type: integer
-          nullable: true
-          example: 1
-        seasonNumber:
-          type: integer
-          example: 1
-        seasons:
-          items:
-            $ref: '#/components/schemas/SeasonBaseRecord'
-          type: array
-          x-go-name: Seasons
-        seriesId:
-          format: int64
-          type: integer
-          x-go-name: SeriesID
-          example: 12345
-        seasonName:
-          type: string
-          example: example
-        year:
-          type: string
-          example: '2024'
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    Companies:
-      description: Companies by type record
-      properties:
-        studio:
-          type: array
-          items:
-            $ref: '#/components/schemas/Company'
-        network:
-          type: array
-          items:
-            $ref: '#/components/schemas/Company'
-        production:
-          type: array
-          items:
-            $ref: '#/components/schemas/Company'
-        distributor:
-          type: array
-          items:
-            $ref: '#/components/schemas/Company'
-        special_effects:
-          type: array
-          items:
-            $ref: '#/components/schemas/Company'
-    ArtworkBaseRecord:
-      description: base artwork record
-      properties:
-        height:
-          format: int64
-          type: integer
-          x-go-name: Height
-          example: 12345
-        id:
-          type: integer
-          example: 12345
-        image:
-          type: string
-          x-go-name: Image
-          example: https://artworks.thetvdb.com/banners/example.jpg
-        includesText:
-          type: boolean
-          example: true
-        language:
-          type: string
-          example: eng
-        score:
-          type: number
-          example: 100
-        thumbnail:
-          type: string
-          x-go-name: Thumbnail
-          example: example
-        type:
-          format: int64
-          type: integer
-          x-go-name: Type
-          description: The artwork type corresponds to the ids from the /artwork/types endpoint.
-          example: 12345
-        width:
-          format: int64
-          type: integer
-          x-go-name: Width
-          example: 12345
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    ParentCompany:
-      description: A parent company record
-      type: object
-      properties:
-        id:
-          type: integer
-          nullable: true
-          example: 12345
-        name:
-          type: string
-          example: Example Name
-        relation:
-          type: object
-          $ref: '#/components/schemas/CompanyRelationShip'
   securitySchemes:
     bearerAuth:
       type: http
