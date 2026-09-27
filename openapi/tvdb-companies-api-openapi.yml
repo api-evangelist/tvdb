@@ -193,28 +193,46 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Links:
-      description: Links for next, previous and current record
+    Alias:
+      description: An alias model, which can be associated with a series, season, movie, person, or list.
       properties:
-        prev:
+        language:
+          type: string
+          maximum: 4
+          description: A 3-4 character string indicating the language of the alias, as defined in Language.
+          example: eng
+        name:
+          type: string
+          maximum: 100
+          description: A string containing the alias itself.
+          example: Example Name
+      type: object
+    CompanyRelationShip:
+      description: A company relationship
+      properties:
+        id:
           type:
-          - string
+          - integer
           - 'null'
-          example: example
-        self:
-          type:
-          - string
-          - 'null'
-          example: example
-        next:
+          example: 12345
+        typeName:
           type: string
           example: example
-        total_items:
-          type: integer
-          example: 1
-        page_size:
-          type: integer
-          example: 1
+    ParentCompany:
+      description: A parent company record
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+          example: 12345
+        name:
+          type: string
+          example: Example Name
+        relation:
+          type: object
+          $ref: '#/components/schemas/CompanyRelationShip'
     TagOption:
       description: tag option record
       properties:
@@ -311,46 +329,28 @@ components:
         companyTypeName:
           type: string
           example: example
-    Alias:
-      description: An alias model, which can be associated with a series, season, movie, person, or list.
+    Links:
+      description: Links for next, previous and current record
       properties:
-        language:
-          type: string
-          maximum: 4
-          description: A 3-4 character string indicating the language of the alias, as defined in Language.
-          example: eng
-        name:
-          type: string
-          maximum: 100
-          description: A string containing the alias itself.
-          example: Example Name
-      type: object
-    CompanyRelationShip:
-      description: A company relationship
-      properties:
-        id:
+        prev:
           type:
-          - integer
+          - string
           - 'null'
-          example: 12345
-        typeName:
+          example: example
+        self:
+          type:
+          - string
+          - 'null'
+          example: example
+        next:
           type: string
           example: example
-    ParentCompany:
-      description: A parent company record
-      type: object
-      properties:
-        id:
-          type:
-          - integer
-          - 'null'
-          example: 12345
-        name:
-          type: string
-          example: Example Name
-        relation:
-          type: object
-          $ref: '#/components/schemas/CompanyRelationShip'
+        total_items:
+          type: integer
+          example: 1
+        page_size:
+          type: integer
+          example: 1
   securitySchemes:
     bearerAuth:
       type: http

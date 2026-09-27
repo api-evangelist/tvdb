@@ -177,17 +177,6 @@ components:
           example: Example Name
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    AwardBaseRecord:
-      description: base award record
-      properties:
-        id:
-          type: integer
-          example: 12345
-        name:
-          type: string
-          example: Example Name
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
     AwardExtendedRecord:
       description: extended award record
       properties:
@@ -207,6 +196,17 @@ components:
           type: integer
           x-go-name: Score
           example: 100
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    AwardBaseRecord:
+      description: base award record
+      properties:
+        id:
+          type: integer
+          example: 12345
+        name:
+          type: string
+          example: Example Name
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
   securitySchemes:

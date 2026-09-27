@@ -138,6 +138,32 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    TagOption:
+      description: tag option record
+      properties:
+        helpText:
+          type: string
+          example: example
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        name:
+          type: string
+          x-go-name: Name
+          example: Example Name
+        tag:
+          format: int64
+          type: integer
+          x-go-name: Tag
+          example: 12345
+        tagName:
+          type: string
+          x-go-name: TagName
+          example: example
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
     ArtworkStatus:
       description: artwork status record
       properties:
@@ -235,32 +261,6 @@ components:
           type: integer
           x-go-name: Width
           example: 12345
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    TagOption:
-      description: tag option record
-      properties:
-        helpText:
-          type: string
-          example: example
-        id:
-          format: int64
-          type: integer
-          x-go-name: ID
-          example: 12345
-        name:
-          type: string
-          x-go-name: Name
-          example: Example Name
-        tag:
-          format: int64
-          type: integer
-          x-go-name: Tag
-          example: 12345
-        tagName:
-          type: string
-          x-go-name: TagName
-          example: example
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
     ArtworkBaseRecord:
