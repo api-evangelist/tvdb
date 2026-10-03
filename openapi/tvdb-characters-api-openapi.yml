@@ -97,6 +97,20 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    Alias:
+      description: An alias model, which can be associated with a series, season, movie, person, or list.
+      properties:
+        language:
+          type: string
+          maximum: 4
+          description: A 3-4 character string indicating the language of the alias, as defined in Language.
+          example: eng
+        name:
+          type: string
+          maximum: 100
+          description: A string containing the alias itself.
+          example: Example Name
+      type: object
     TagOption:
       description: tag option record
       properties:
@@ -214,20 +228,6 @@ components:
           example: example
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    Alias:
-      description: An alias model, which can be associated with a series, season, movie, person, or list.
-      properties:
-        language:
-          type: string
-          maximum: 4
-          description: A 3-4 character string indicating the language of the alias, as defined in Language.
-          example: eng
-        name:
-          type: string
-          maximum: 100
-          description: A string containing the alias itself.
-          example: Example Name
-      type: object
     RecordInfo:
       description: base record info
       properties:

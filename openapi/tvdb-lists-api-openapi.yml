@@ -345,51 +345,32 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Translation:
-      description: translation record
+    TagOption:
+      description: tag option record
       properties:
-        aliases:
-          items:
-            type: string
-          type: array
-          example:
-          - example
-        isAlias:
-          type: boolean
-          example: true
-        isPrimary:
-          type: boolean
-          example: true
-        language:
+        helpText:
           type: string
-          x-go-name: Language
-          example: eng
+          example: example
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
         name:
           type: string
+          x-go-name: Name
           example: Example Name
-        overview:
+        tag:
+          format: int64
+          type: integer
+          x-go-name: Tag
+          example: 12345
+        tagName:
           type: string
-          example: A descriptive paragraph of text.
-        tagline:
-          type: string
-          description: Only populated for movie translations.  We disallow taglines without a title.
+          x-go-name: TagName
           example: example
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    Alias:
-      description: An alias model, which can be associated with a series, season, movie, person, or list.
-      properties:
-        language:
-          type: string
-          maximum: 4
-          description: A 3-4 character string indicating the language of the alias, as defined in Language.
-          example: eng
-        name:
-          type: string
-          maximum: 100
-          description: A string containing the alias itself.
-          example: Example Name
-      type: object
     ListBaseRecord:
       description: base list record
       properties:
@@ -451,6 +432,89 @@ components:
           example: https://artworks.thetvdb.com/banners/example.jpg
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Entity:
+      description: Entity record
+      properties:
+        movieId:
+          type: integer
+          example: 12345
+        order:
+          format: int64
+          type: integer
+          x-go-name: Order
+          example: 12345
+        seriesId:
+          type: integer
+          example: 12345
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Links:
+      description: Links for next, previous and current record
+      properties:
+        prev:
+          type:
+          - string
+          - 'null'
+          example: example
+        self:
+          type:
+          - string
+          - 'null'
+          example: example
+        next:
+          type: string
+          example: example
+        total_items:
+          type: integer
+          example: 1
+        page_size:
+          type: integer
+          example: 1
+    Translation:
+      description: translation record
+      properties:
+        aliases:
+          items:
+            type: string
+          type: array
+          example:
+          - example
+        isAlias:
+          type: boolean
+          example: true
+        isPrimary:
+          type: boolean
+          example: true
+        language:
+          type: string
+          x-go-name: Language
+          example: eng
+        name:
+          type: string
+          example: Example Name
+        overview:
+          type: string
+          example: A descriptive paragraph of text.
+        tagline:
+          type: string
+          description: Only populated for movie translations.  We disallow taglines without a title.
+          example: example
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Alias:
+      description: An alias model, which can be associated with a series, season, movie, person, or list.
+      properties:
+        language:
+          type: string
+          maximum: 4
+          description: A 3-4 character string indicating the language of the alias, as defined in Language.
+          example: eng
+        name:
+          type: string
+          maximum: 100
+          description: A string containing the alias itself.
+          example: Example Name
+      type: object
     RemoteID:
       description: remote id record
       properties:
@@ -467,48 +531,6 @@ components:
           type: string
           x-go-name: SourceName
           example: example
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    TagOption:
-      description: tag option record
-      properties:
-        helpText:
-          type: string
-          example: example
-        id:
-          format: int64
-          type: integer
-          x-go-name: ID
-          example: 12345
-        name:
-          type: string
-          x-go-name: Name
-          example: Example Name
-        tag:
-          format: int64
-          type: integer
-          x-go-name: Tag
-          example: 12345
-        tagName:
-          type: string
-          x-go-name: TagName
-          example: example
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    Entity:
-      description: Entity record
-      properties:
-        movieId:
-          type: integer
-          example: 12345
-        order:
-          format: int64
-          type: integer
-          x-go-name: Order
-          example: 12345
-        seriesId:
-          type: integer
-          example: 12345
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
     ListExtendedRecord:
@@ -569,28 +591,6 @@ components:
           example: https://artworks.thetvdb.com/banners/example.jpg
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    Links:
-      description: Links for next, previous and current record
-      properties:
-        prev:
-          type:
-          - string
-          - 'null'
-          example: example
-        self:
-          type:
-          - string
-          - 'null'
-          example: example
-        next:
-          type: string
-          example: example
-        total_items:
-          type: integer
-          example: 1
-        page_size:
-          type: integer
-          example: 1
   securitySchemes:
     bearerAuth:
       type: http

@@ -150,33 +150,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    AwardCategoryBaseRecord:
-      description: base award category record
-      properties:
-        allowCoNominees:
-          type: boolean
-          x-go-name: AllowCoNominees
-          example: true
-        award:
-          $ref: '#/components/schemas/AwardBaseRecord'
-        forMovies:
-          type: boolean
-          x-go-name: ForMovies
-          example: true
-        forSeries:
-          type: boolean
-          x-go-name: ForSeries
-          example: true
-        id:
-          format: int64
-          type: integer
-          x-go-name: ID
-          example: 12345
-        name:
-          type: string
-          example: Example Name
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
     AwardExtendedRecord:
       description: extended award record
       properties:
@@ -203,6 +176,33 @@ components:
       properties:
         id:
           type: integer
+          example: 12345
+        name:
+          type: string
+          example: Example Name
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    AwardCategoryBaseRecord:
+      description: base award category record
+      properties:
+        allowCoNominees:
+          type: boolean
+          x-go-name: AllowCoNominees
+          example: true
+        award:
+          $ref: '#/components/schemas/AwardBaseRecord'
+        forMovies:
+          type: boolean
+          x-go-name: ForMovies
+          example: true
+        forSeries:
+          type: boolean
+          x-go-name: ForSeries
+          example: true
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
           example: 12345
         name:
           type: string
