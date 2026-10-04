@@ -193,6 +193,20 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    Alias:
+      description: An alias model, which can be associated with a series, season, movie, person, or list.
+      properties:
+        language:
+          type: string
+          maximum: 4
+          description: A 3-4 character string indicating the language of the alias, as defined in Language.
+          example: eng
+        name:
+          type: string
+          maximum: 100
+          description: A string containing the alias itself.
+          example: Example Name
+      type: object
     Company:
       description: A company record
       properties:
@@ -253,27 +267,21 @@ components:
           x-go-name: TagOptions
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    CompanyType:
-      description: A company type record
+    ParentCompany:
+      description: A parent company record
       type: object
-      properties:
-        companyTypeId:
-          type: integer
-          example: 12345
-        companyTypeName:
-          type: string
-          example: example
-    CompanyRelationShip:
-      description: A company relationship
       properties:
         id:
           type:
           - integer
           - 'null'
           example: 12345
-        typeName:
+        name:
           type: string
-          example: example
+          example: Example Name
+        relation:
+          type: object
+          $ref: '#/components/schemas/CompanyRelationShip'
     Links:
       description: Links for next, previous and current record
       properties:
@@ -296,35 +304,27 @@ components:
         page_size:
           type: integer
           example: 1
-    ParentCompany:
-      description: A parent company record
+    CompanyType:
+      description: A company type record
       type: object
+      properties:
+        companyTypeId:
+          type: integer
+          example: 12345
+        companyTypeName:
+          type: string
+          example: example
+    CompanyRelationShip:
+      description: A company relationship
       properties:
         id:
           type:
           - integer
           - 'null'
           example: 12345
-        name:
+        typeName:
           type: string
-          example: Example Name
-        relation:
-          type: object
-          $ref: '#/components/schemas/CompanyRelationShip'
-    Alias:
-      description: An alias model, which can be associated with a series, season, movie, person, or list.
-      properties:
-        language:
-          type: string
-          maximum: 4
-          description: A 3-4 character string indicating the language of the alias, as defined in Language.
-          example: eng
-        name:
-          type: string
-          maximum: 100
-          description: A string containing the alias itself.
-          example: Example Name
-      type: object
+          example: example
     TagOption:
       description: tag option record
       properties:

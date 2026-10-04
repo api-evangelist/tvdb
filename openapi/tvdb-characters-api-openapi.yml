@@ -111,6 +111,22 @@ components:
           description: A string containing the alias itself.
           example: Example Name
       type: object
+    RecordInfo:
+      description: base record info
+      properties:
+        image:
+          type: string
+          x-go-name: Image
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        name:
+          type: string
+          x-go-name: Name
+          example: Example Name
+        year:
+          type: string
+          example: '2024'
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
     TagOption:
       description: tag option record
       properties:
@@ -226,22 +242,6 @@ components:
         personName:
           type: string
           example: example
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    RecordInfo:
-      description: base record info
-      properties:
-        image:
-          type: string
-          x-go-name: Image
-          example: https://artworks.thetvdb.com/banners/example.jpg
-        name:
-          type: string
-          x-go-name: Name
-          example: Example Name
-        year:
-          type: string
-          example: '2024'
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
   securitySchemes:

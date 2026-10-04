@@ -277,30 +277,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Status:
-      description: status record
-      properties:
-        id:
-          format: int64
-          type:
-          - integer
-          - 'null'
-          x-go-name: ID
-          example: 12345
-        keepUpdated:
-          type: boolean
-          x-go-name: KeepUpdated
-          example: '2024-01-15'
-        name:
-          type: string
-          x-go-name: Name
-          example: Example Name
-        recordType:
-          type: string
-          x-go-name: RecordType
-          example: example
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
     EpisodeBaseRecord:
       description: base episode record
       properties:
@@ -396,19 +372,22 @@ components:
           example: '2024'
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    AwardBaseRecord:
-      description: base award record
+    Alias:
+      description: An alias model, which can be associated with a series, season, movie, person, or list.
       properties:
-        id:
-          type: integer
-          example: 12345
+        language:
+          type: string
+          maximum: 4
+          description: A 3-4 character string indicating the language of the alias, as defined in Language.
+          example: eng
         name:
           type: string
+          maximum: 100
+          description: A string containing the alias itself.
           example: Example Name
       type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    AwardCategoryBaseRecord:
-      description: base award category record
+    AwardCategoryExtendedRecord:
+      description: extended award category record
       properties:
         allowCoNominees:
           type: boolean
@@ -432,70 +411,11 @@ components:
         name:
           type: string
           example: Example Name
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    TagOption:
-      description: tag option record
-      properties:
-        helpText:
-          type: string
-          example: example
-        id:
-          format: int64
-          type: integer
-          x-go-name: ID
-          example: 12345
-        name:
-          type: string
-          x-go-name: Name
-          example: Example Name
-        tag:
-          format: int64
-          type: integer
-          x-go-name: Tag
-          example: 12345
-        tagName:
-          type: string
-          x-go-name: TagName
-          example: example
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    SeasonType:
-      description: season type record
-      properties:
-        alternateName:
-          type: string
-          x-go-name: Name
-          example: example
-        id:
-          format: int64
-          type: integer
-          x-go-name: ID
-          example: 12345
-        name:
-          type: string
-          x-go-name: Name
-          example: Example Name
-        type:
-          type: string
-          x-go-name: Type
-          example: example
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    RecordInfo:
-      description: base record info
-      properties:
-        image:
-          type: string
-          x-go-name: Image
-          example: https://artworks.thetvdb.com/banners/example.jpg
-        name:
-          type: string
-          x-go-name: Name
-          example: Example Name
-        year:
-          type: string
-          example: '2024'
+        nominees:
+          items:
+            $ref: '#/components/schemas/AwardNomineeBaseRecord'
+          type: array
+          x-go-name: Nominees
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
     Company:
@@ -558,6 +478,21 @@ components:
           x-go-name: TagOptions
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    ParentCompany:
+      description: A parent company record
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+          example: 12345
+        name:
+          type: string
+          example: Example Name
+        relation:
+          type: object
+          $ref: '#/components/schemas/CompanyRelationShip'
     AwardNomineeBaseRecord:
       description: base award nominee record
       properties:
@@ -592,17 +527,6 @@ components:
           example: Example Name
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    CompanyRelationShip:
-      description: A company relationship
-      properties:
-        id:
-          type:
-          - integer
-          - 'null'
-          example: 12345
-        typeName:
-          type: string
-          example: example
     MovieBaseRecord:
       description: base movie record
       properties:
@@ -662,36 +586,39 @@ components:
           example: '2024'
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    AwardCategoryExtendedRecord:
-      description: extended award category record
+    Status:
+      description: status record
       properties:
-        allowCoNominees:
-          type: boolean
-          x-go-name: AllowCoNominees
-          example: true
-        award:
-          $ref: '#/components/schemas/AwardBaseRecord'
-        forMovies:
-          type: boolean
-          x-go-name: ForMovies
-          example: true
-        forSeries:
-          type: boolean
-          x-go-name: ForSeries
-          example: true
         id:
           format: int64
-          type: integer
+          type:
+          - integer
+          - 'null'
           x-go-name: ID
+          example: 12345
+        keepUpdated:
+          type: boolean
+          x-go-name: KeepUpdated
+          example: '2024-01-15'
+        name:
+          type: string
+          x-go-name: Name
+          example: Example Name
+        recordType:
+          type: string
+          x-go-name: RecordType
+          example: example
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    AwardBaseRecord:
+      description: base award record
+      properties:
+        id:
+          type: integer
           example: 12345
         name:
           type: string
           example: Example Name
-        nominees:
-          items:
-            $ref: '#/components/schemas/AwardNomineeBaseRecord'
-          type: array
-          x-go-name: Nominees
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
     SeasonBaseRecord:
@@ -837,35 +764,44 @@ components:
           example: example
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    ParentCompany:
-      description: A parent company record
-      type: object
+    RecordInfo:
+      description: base record info
       properties:
+        image:
+          type: string
+          x-go-name: Image
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        name:
+          type: string
+          x-go-name: Name
+          example: Example Name
+        year:
+          type: string
+          example: '2024'
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    SeasonType:
+      description: season type record
+      properties:
+        alternateName:
+          type: string
+          x-go-name: Name
+          example: example
         id:
-          type:
-          - integer
-          - 'null'
+          format: int64
+          type: integer
+          x-go-name: ID
           example: 12345
         name:
           type: string
+          x-go-name: Name
           example: Example Name
-        relation:
-          type: object
-          $ref: '#/components/schemas/CompanyRelationShip'
-    Alias:
-      description: An alias model, which can be associated with a series, season, movie, person, or list.
-      properties:
-        language:
+        type:
           type: string
-          maximum: 4
-          description: A 3-4 character string indicating the language of the alias, as defined in Language.
-          example: eng
-        name:
-          type: string
-          maximum: 100
-          description: A string containing the alias itself.
-          example: Example Name
+          x-go-name: Type
+          example: example
       type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
     Companies:
       description: Companies by type record
       properties:
@@ -889,6 +825,17 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Company'
+    CompanyRelationShip:
+      description: A company relationship
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+          example: 12345
+        typeName:
+          type: string
+          example: example
     SeriesBaseRecord:
       description: The base record for a series. All series airs time like firstAired, lastAired, nextAired, etc. are in US EST for US series, and for all non-US series, the time of the show’s country capital or most populous city. For streaming services, is the official release time. See https://support.thetvdb.com/kb/faq.php?id=29.
       properties:
@@ -974,6 +921,59 @@ components:
         year:
           type: string
           example: '2024'
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    AwardCategoryBaseRecord:
+      description: base award category record
+      properties:
+        allowCoNominees:
+          type: boolean
+          x-go-name: AllowCoNominees
+          example: true
+        award:
+          $ref: '#/components/schemas/AwardBaseRecord'
+        forMovies:
+          type: boolean
+          x-go-name: ForMovies
+          example: true
+        forSeries:
+          type: boolean
+          x-go-name: ForSeries
+          example: true
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        name:
+          type: string
+          example: Example Name
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    TagOption:
+      description: tag option record
+      properties:
+        helpText:
+          type: string
+          example: example
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        name:
+          type: string
+          x-go-name: Name
+          example: Example Name
+        tag:
+          format: int64
+          type: integer
+          x-go-name: Tag
+          example: 12345
+        tagName:
+          type: string
+          x-go-name: TagName
+          example: example
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
   securitySchemes:

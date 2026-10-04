@@ -2084,6 +2084,401 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    Translation:
+      description: translation record
+      properties:
+        aliases:
+          items:
+            type: string
+          type: array
+          example:
+          - example
+        isAlias:
+          type: boolean
+          example: true
+        isPrimary:
+          type: boolean
+          example: true
+        language:
+          type: string
+          x-go-name: Language
+          example: eng
+        name:
+          type: string
+          example: Example Name
+        overview:
+          type: string
+          example: A descriptive paragraph of text.
+        tagline:
+          type: string
+          description: Only populated for movie translations.  We disallow taglines without a title.
+          example: example
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    ArtworkExtendedRecord:
+      description: extended artwork record
+      properties:
+        episodeId:
+          type: integer
+          example: 12345
+        height:
+          format: int64
+          type: integer
+          x-go-name: Height
+          example: 12345
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        image:
+          type: string
+          x-go-name: Image
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        includesText:
+          type: boolean
+          example: true
+        language:
+          type: string
+          example: eng
+        movieId:
+          type: integer
+          example: 12345
+        networkId:
+          type: integer
+          example: 12345
+        peopleId:
+          type: integer
+          example: 12345
+        score:
+          type: number
+          example: 100
+        seasonId:
+          type: integer
+          example: 12345
+        seriesId:
+          type: integer
+          example: 12345
+        seriesPeopleId:
+          type: integer
+          example: 12345
+        status:
+          $ref: '#/components/schemas/ArtworkStatus'
+        tagOptions:
+          items:
+            $ref: '#/components/schemas/TagOption'
+          type: array
+          x-go-name: TagOptions
+        thumbnail:
+          type: string
+          x-go-name: Thumbnail
+          example: example
+        thumbnailHeight:
+          format: int64
+          type: integer
+          x-go-name: ThumbnailHeight
+          example: 12345
+        thumbnailWidth:
+          format: int64
+          type: integer
+          x-go-name: ThumbnailWidth
+          example: 12345
+        type:
+          format: int64
+          type: integer
+          x-go-name: Type
+          description: The artwork type corresponds to the ids from the /artwork/types endpoint.
+          example: 12345
+        updatedAt:
+          format: int64
+          type: integer
+          x-go-name: UpdatedAt
+          example: '2024-01-15'
+        width:
+          format: int64
+          type: integer
+          x-go-name: Width
+          example: 12345
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    ContentRating:
+      description: content rating record
+      properties:
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        name:
+          type: string
+          x-go-name: Name
+          example: Example Name
+        description:
+          type: string
+          example: A descriptive paragraph of text.
+        country:
+          type: string
+          example: usa
+        contentType:
+          type: string
+          example: example
+        order:
+          type: integer
+          example: 1
+        fullName:
+          type: string
+          example: example
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    SeasonBaseRecord:
+      description: season genre record
+      properties:
+        id:
+          type: integer
+          example: 12345
+        image:
+          type: string
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        imageType:
+          type: integer
+          example: 1
+        lastUpdated:
+          type: string
+          example: '2024-01-15'
+        name:
+          type: string
+          example: Example Name
+        nameTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: NameTranslations
+          example:
+          - example
+        number:
+          format: int64
+          type: integer
+          x-go-name: Number
+          example: 12345
+        overviewTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: OverviewTranslations
+          example:
+          - example
+        companies:
+          type: object
+          $ref: '#/components/schemas/Companies'
+        seriesId:
+          format: int64
+          type: integer
+          x-go-name: SeriesID
+          example: 12345
+        type:
+          $ref: '#/components/schemas/SeasonType'
+        year:
+          type: string
+          example: '2024'
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    SeasonType:
+      description: season type record
+      properties:
+        alternateName:
+          type: string
+          x-go-name: Name
+          example: example
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        name:
+          type: string
+          x-go-name: Name
+          example: Example Name
+        type:
+          type: string
+          x-go-name: Type
+          example: example
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    EpisodeBaseRecord:
+      description: base episode record
+      properties:
+        absoluteNumber:
+          type: integer
+          example: 1
+        aired:
+          type: string
+          example: example
+        airsAfterSeason:
+          type: integer
+          example: 1
+        airsBeforeEpisode:
+          type: integer
+          example: 1
+        airsBeforeSeason:
+          type: integer
+          example: 1
+        finaleType:
+          description: season, midseason, or series
+          type: string
+          example: example
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        image:
+          type: string
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        imageType:
+          type:
+          - integer
+          - 'null'
+          example: 1
+        isMovie:
+          format: int64
+          type: integer
+          x-go-name: IsMovie
+          example: 12345
+        lastUpdated:
+          type: string
+          example: '2024-01-15'
+        linkedMovie:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: Example Name
+        nameTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: NameTranslations
+          example:
+          - example
+        number:
+          type: integer
+          example: 1
+        overview:
+          type: string
+          example: A descriptive paragraph of text.
+        overviewTranslations:
+          items:
+            type: string
+          type: array
+          x-go-name: OverviewTranslations
+          example:
+          - example
+        runtime:
+          type:
+          - integer
+          - 'null'
+          example: 1
+        seasonNumber:
+          type: integer
+          example: 1
+        seasons:
+          items:
+            $ref: '#/components/schemas/SeasonBaseRecord'
+          type: array
+          x-go-name: Seasons
+        seriesId:
+          format: int64
+          type: integer
+          x-go-name: SeriesID
+          example: 12345
+        seasonName:
+          type: string
+          example: example
+        year:
+          type: string
+          example: '2024'
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Links:
+      description: Links for next, previous and current record
+      properties:
+        prev:
+          type:
+          - string
+          - 'null'
+          example: example
+        self:
+          type:
+          - string
+          - 'null'
+          example: example
+        next:
+          type: string
+          example: example
+        total_items:
+          type: integer
+          example: 1
+        page_size:
+          type: integer
+          example: 1
+    RemoteID:
+      description: remote id record
+      properties:
+        id:
+          type: string
+          x-go-name: ID
+          example: abc123
+        type:
+          format: int64
+          type: integer
+          x-go-name: Type
+          example: 12345
+        sourceName:
+          type: string
+          x-go-name: SourceName
+          example: example
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    CompanyRelationShip:
+      description: A company relationship
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+          example: 12345
+        typeName:
+          type: string
+          example: example
+    Alias:
+      description: An alias model, which can be associated with a series, season, movie, person, or list.
+      properties:
+        language:
+          type: string
+          maximum: 4
+          description: A 3-4 character string indicating the language of the alias, as defined in Language.
+          example: eng
+        name:
+          type: string
+          maximum: 100
+          description: A string containing the alias itself.
+          example: Example Name
+      type: object
+    ParentCompany:
+      description: A parent company record
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+          example: 12345
+        name:
+          type: string
+          example: Example Name
+        relation:
+          type: object
+          $ref: '#/components/schemas/CompanyRelationShip'
     ListBaseRecord:
       description: base list record
       properties:
@@ -2145,168 +2540,40 @@ components:
           example: https://artworks.thetvdb.com/banners/example.jpg
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    CompanyRelationShip:
-      description: A company relationship
-      properties:
-        id:
-          type:
-          - integer
-          - 'null'
-          example: 12345
-        typeName:
-          type: string
-          example: example
-    SeasonBaseRecord:
-      description: season genre record
-      properties:
-        id:
-          type: integer
-          example: 12345
-        image:
-          type: string
-          example: https://artworks.thetvdb.com/banners/example.jpg
-        imageType:
-          type: integer
-          example: 1
-        lastUpdated:
-          type: string
-          example: '2024-01-15'
-        name:
-          type: string
-          example: Example Name
-        nameTranslations:
-          items:
-            type: string
-          type: array
-          x-go-name: NameTranslations
-          example:
-          - example
-        number:
-          format: int64
-          type: integer
-          x-go-name: Number
-          example: 12345
-        overviewTranslations:
-          items:
-            type: string
-          type: array
-          x-go-name: OverviewTranslations
-          example:
-          - example
-        companies:
-          type: object
-          $ref: '#/components/schemas/Companies'
-        seriesId:
-          format: int64
-          type: integer
-          x-go-name: SeriesID
-          example: 12345
-        type:
-          $ref: '#/components/schemas/SeasonType'
-        year:
-          type: string
-          example: '2024'
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    TranslationExtended:
-      description: translation extended record
-      properties:
-        nameTranslations:
-          items:
-            $ref: '#/components/schemas/Translation'
-          type: array
-        overviewTranslations:
-          items:
-            $ref: '#/components/schemas/Translation'
-          type: array
-        alias:
-          items:
-            type: string
-          type: array
-          example:
-          - example
-      type: object
-    Links:
-      description: Links for next, previous and current record
-      properties:
-        prev:
-          type:
-          - string
-          - 'null'
-          example: example
-        self:
-          type:
-          - string
-          - 'null'
-          example: example
-        next:
-          type: string
-          example: example
-        total_items:
-          type: integer
-          example: 1
-        page_size:
-          type: integer
-          example: 1
-    Alias:
-      description: An alias model, which can be associated with a series, season, movie, person, or list.
-      properties:
-        language:
-          type: string
-          maximum: 4
-          description: A 3-4 character string indicating the language of the alias, as defined in Language.
-          example: eng
-        name:
-          type: string
-          maximum: 100
-          description: A string containing the alias itself.
-          example: Example Name
-      type: object
-    SeriesBaseRecord:
-      description: The base record for a series. All series airs time like firstAired, lastAired, nextAired, etc. are in US EST for US series, and for all non-US series, the time of the show’s country capital or most populous city. For streaming services, is the official release time. See https://support.thetvdb.com/kb/faq.php?id=29.
+    Character:
+      description: character record
       properties:
         aliases:
           items:
             $ref: '#/components/schemas/Alias'
           type: array
           x-go-name: Aliases
-        averageRuntime:
+        episode:
+          $ref: '#/components/schemas/RecordInfo'
+        episodeId:
           type:
           - integer
           - 'null'
-          example: 1
-        country:
-          type: string
-          example: usa
-        defaultSeasonType:
+          example: 12345
+        id:
           format: int64
           type: integer
-          x-go-name: DefaultSeasonType
-          example: 12345
-        episodes:
-          items:
-            $ref: '#/components/schemas/EpisodeBaseRecord'
-          type: array
-          x-go-name: Episodes
-        firstAired:
-          type: string
-          example: example
-        id:
-          type: integer
+          x-go-name: ID
           example: 12345
         image:
           type: string
           example: https://artworks.thetvdb.com/banners/example.jpg
-        isOrderRandomized:
+        isFeatured:
           type: boolean
-          x-go-name: IsOrderRandomized
+          x-go-name: IsFeatured
           example: true
-        lastAired:
-          type: string
-          example: example
-        lastUpdated:
-          type: string
-          example: '2024-01-15'
+        movieId:
+          type:
+          - integer
+          - 'null'
+          example: 12345
+        movie:
+          $ref: '#/components/schemas/RecordInfo'
         name:
           type: string
           example: Example Name
@@ -2317,16 +2584,6 @@ components:
           x-go-name: NameTranslations
           example:
           - example
-        nextAired:
-          type: string
-          x-go-name: NextAired
-          example: example
-        originalCountry:
-          type: string
-          example: example
-        originalLanguage:
-          type: string
-          example: example
         overviewTranslations:
           items:
             type: string
@@ -2334,45 +2591,118 @@ components:
           x-go-name: OverviewTranslations
           example:
           - example
-        score:
-          format: double
-          type: number
-          x-go-name: Score
-          example: 100
-        slug:
+        peopleId:
+          type: integer
+          example: 12345
+        personImgURL:
           type: string
-          example: example-slug
-        status:
-          $ref: '#/components/schemas/Status'
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        peopleType:
+          type: string
+          example: example
+        seriesId:
+          type:
+          - integer
+          - 'null'
+          example: 12345
+        series:
+          $ref: '#/components/schemas/RecordInfo'
+        sort:
+          format: int64
+          type: integer
+          x-go-name: Sort
+          example: 12345
+        tagOptions:
+          items:
+            $ref: '#/components/schemas/TagOption'
+          type: array
+          x-go-name: TagOptions
+        type:
+          format: int64
+          type: integer
+          x-go-name: Type
+          example: 12345
+        url:
+          type: string
+          x-go-name: URL
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        personName:
+          type: string
+          example: example
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    SeriesAirsDays:
+      description: A series airs day record
+      properties:
+        friday:
+          type: boolean
+          x-go-name: Friday
+          example: true
+        monday:
+          type: boolean
+          x-go-name: Monday
+          example: true
+        saturday:
+          type: boolean
+          x-go-name: Saturday
+          example: true
+        sunday:
+          type: boolean
+          x-go-name: Sunday
+          example: true
+        thursday:
+          type: boolean
+          x-go-name: Thursday
+          example: true
+        tuesday:
+          type: boolean
+          x-go-name: Tuesday
+          example: true
+        wednesday:
+          type: boolean
+          x-go-name: Wednesday
+          example: true
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    RecordInfo:
+      description: base record info
+      properties:
+        image:
+          type: string
+          x-go-name: Image
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        name:
+          type: string
+          x-go-name: Name
+          example: Example Name
         year:
           type: string
           example: '2024'
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    Status:
-      description: status record
+    Companies:
+      description: Companies by type record
       properties:
-        id:
-          format: int64
-          type:
-          - integer
-          - 'null'
-          x-go-name: ID
-          example: 12345
-        keepUpdated:
-          type: boolean
-          x-go-name: KeepUpdated
-          example: '2024-01-15'
-        name:
-          type: string
-          x-go-name: Name
-          example: Example Name
-        recordType:
-          type: string
-          x-go-name: RecordType
-          example: example
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+        studio:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
+        network:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
+        production:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
+        distributor:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
+        special_effects:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
     Company:
       description: A company record
       properties:
@@ -2431,116 +2761,6 @@ components:
             $ref: '#/components/schemas/TagOption'
           type: array
           x-go-name: TagOptions
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    ParentCompany:
-      description: A parent company record
-      type: object
-      properties:
-        id:
-          type:
-          - integer
-          - 'null'
-          example: 12345
-        name:
-          type: string
-          example: Example Name
-        relation:
-          type: object
-          $ref: '#/components/schemas/CompanyRelationShip'
-    Translation:
-      description: translation record
-      properties:
-        aliases:
-          items:
-            type: string
-          type: array
-          example:
-          - example
-        isAlias:
-          type: boolean
-          example: true
-        isPrimary:
-          type: boolean
-          example: true
-        language:
-          type: string
-          x-go-name: Language
-          example: eng
-        name:
-          type: string
-          example: Example Name
-        overview:
-          type: string
-          example: A descriptive paragraph of text.
-        tagline:
-          type: string
-          description: Only populated for movie translations.  We disallow taglines without a title.
-          example: example
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    SeriesAirsDays:
-      description: A series airs day record
-      properties:
-        friday:
-          type: boolean
-          x-go-name: Friday
-          example: true
-        monday:
-          type: boolean
-          x-go-name: Monday
-          example: true
-        saturday:
-          type: boolean
-          x-go-name: Saturday
-          example: true
-        sunday:
-          type: boolean
-          x-go-name: Sunday
-          example: true
-        thursday:
-          type: boolean
-          x-go-name: Thursday
-          example: true
-        tuesday:
-          type: boolean
-          x-go-name: Tuesday
-          example: true
-        wednesday:
-          type: boolean
-          x-go-name: Wednesday
-          example: true
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    RemoteID:
-      description: remote id record
-      properties:
-        id:
-          type: string
-          x-go-name: ID
-          example: abc123
-        type:
-          format: int64
-          type: integer
-          x-go-name: Type
-          example: 12345
-        sourceName:
-          type: string
-          x-go-name: SourceName
-          example: example
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    ArtworkStatus:
-      description: artwork status record
-      properties:
-        id:
-          format: int64
-          type: integer
-          x-go-name: ID
-          example: 12345
-        name:
-          type: string
-          example: Example Name
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
     SeriesExtendedRecord:
@@ -2698,8 +2918,72 @@ components:
           example: '2024'
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    GenreBaseRecord:
-      description: base genre record
+    Trailer:
+      description: trailer record
+      properties:
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        language:
+          type: string
+          example: eng
+        name:
+          type: string
+          example: Example Name
+        url:
+          type: string
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        runtime:
+          type: integer
+          example: 1
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    Status:
+      description: status record
+      properties:
+        id:
+          format: int64
+          type:
+          - integer
+          - 'null'
+          x-go-name: ID
+          example: 12345
+        keepUpdated:
+          type: boolean
+          x-go-name: KeepUpdated
+          example: '2024-01-15'
+        name:
+          type: string
+          x-go-name: Name
+          example: Example Name
+        recordType:
+          type: string
+          x-go-name: RecordType
+          example: example
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    TranslationExtended:
+      description: translation extended record
+      properties:
+        nameTranslations:
+          items:
+            $ref: '#/components/schemas/Translation'
+          type: array
+        overviewTranslations:
+          items:
+            $ref: '#/components/schemas/Translation'
+          type: array
+        alias:
+          items:
+            type: string
+          type: array
+          example:
+          - example
+      type: object
+    ArtworkStatus:
+      description: artwork status record
       properties:
         id:
           format: int64
@@ -2708,48 +2992,54 @@ components:
           example: 12345
         name:
           type: string
-          x-go-name: Name
           example: Example Name
-        slug:
-          type: string
-          x-go-name: Slug
-          example: example-slug
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    Character:
-      description: character record
+    SeriesBaseRecord:
+      description: The base record for a series. All series airs time like firstAired, lastAired, nextAired, etc. are in US EST for US series, and for all non-US series, the time of the show’s country capital or most populous city. For streaming services, is the official release time. See https://support.thetvdb.com/kb/faq.php?id=29.
       properties:
         aliases:
           items:
             $ref: '#/components/schemas/Alias'
           type: array
           x-go-name: Aliases
-        episode:
-          $ref: '#/components/schemas/RecordInfo'
-        episodeId:
+        averageRuntime:
           type:
           - integer
           - 'null'
-          example: 12345
-        id:
+          example: 1
+        country:
+          type: string
+          example: usa
+        defaultSeasonType:
           format: int64
           type: integer
-          x-go-name: ID
+          x-go-name: DefaultSeasonType
+          example: 12345
+        episodes:
+          items:
+            $ref: '#/components/schemas/EpisodeBaseRecord'
+          type: array
+          x-go-name: Episodes
+        firstAired:
+          type: string
+          example: example
+        id:
+          type: integer
           example: 12345
         image:
           type: string
           example: https://artworks.thetvdb.com/banners/example.jpg
-        isFeatured:
+        isOrderRandomized:
           type: boolean
-          x-go-name: IsFeatured
+          x-go-name: IsOrderRandomized
           example: true
-        movieId:
-          type:
-          - integer
-          - 'null'
-          example: 12345
-        movie:
-          $ref: '#/components/schemas/RecordInfo'
+        lastAired:
+          type: string
+          example: example
+        lastUpdated:
+          type: string
+          example: '2024-01-15'
         name:
           type: string
           example: Example Name
@@ -2760,6 +3050,16 @@ components:
           x-go-name: NameTranslations
           example:
           - example
+        nextAired:
+          type: string
+          x-go-name: NextAired
+          example: example
+        originalCountry:
+          type: string
+          example: example
+        originalLanguage:
+          type: string
+          example: example
         overviewTranslations:
           items:
             type: string
@@ -2767,44 +3067,19 @@ components:
           x-go-name: OverviewTranslations
           example:
           - example
-        peopleId:
-          type: integer
-          example: 12345
-        personImgURL:
+        score:
+          format: double
+          type: number
+          x-go-name: Score
+          example: 100
+        slug:
           type: string
-          example: https://artworks.thetvdb.com/banners/example.jpg
-        peopleType:
+          example: example-slug
+        status:
+          $ref: '#/components/schemas/Status'
+        year:
           type: string
-          example: example
-        seriesId:
-          type:
-          - integer
-          - 'null'
-          example: 12345
-        series:
-          $ref: '#/components/schemas/RecordInfo'
-        sort:
-          format: int64
-          type: integer
-          x-go-name: Sort
-          example: 12345
-        tagOptions:
-          items:
-            $ref: '#/components/schemas/TagOption'
-          type: array
-          x-go-name: TagOptions
-        type:
-          format: int64
-          type: integer
-          x-go-name: Type
-          example: 12345
-        url:
-          type: string
-          x-go-name: URL
-          example: https://artworks.thetvdb.com/banners/example.jpg
-        personName:
-          type: string
-          example: example
+          example: '2024'
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
     TagOption:
@@ -2833,126 +3108,8 @@ components:
           example: example
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    Companies:
-      description: Companies by type record
-      properties:
-        studio:
-          type: array
-          items:
-            $ref: '#/components/schemas/Company'
-        network:
-          type: array
-          items:
-            $ref: '#/components/schemas/Company'
-        production:
-          type: array
-          items:
-            $ref: '#/components/schemas/Company'
-        distributor:
-          type: array
-          items:
-            $ref: '#/components/schemas/Company'
-        special_effects:
-          type: array
-          items:
-            $ref: '#/components/schemas/Company'
-    EpisodeBaseRecord:
-      description: base episode record
-      properties:
-        absoluteNumber:
-          type: integer
-          example: 1
-        aired:
-          type: string
-          example: example
-        airsAfterSeason:
-          type: integer
-          example: 1
-        airsBeforeEpisode:
-          type: integer
-          example: 1
-        airsBeforeSeason:
-          type: integer
-          example: 1
-        finaleType:
-          description: season, midseason, or series
-          type: string
-          example: example
-        id:
-          format: int64
-          type: integer
-          x-go-name: ID
-          example: 12345
-        image:
-          type: string
-          example: https://artworks.thetvdb.com/banners/example.jpg
-        imageType:
-          type:
-          - integer
-          - 'null'
-          example: 1
-        isMovie:
-          format: int64
-          type: integer
-          x-go-name: IsMovie
-          example: 12345
-        lastUpdated:
-          type: string
-          example: '2024-01-15'
-        linkedMovie:
-          type: integer
-          example: 1
-        name:
-          type: string
-          example: Example Name
-        nameTranslations:
-          items:
-            type: string
-          type: array
-          x-go-name: NameTranslations
-          example:
-          - example
-        number:
-          type: integer
-          example: 1
-        overview:
-          type: string
-          example: A descriptive paragraph of text.
-        overviewTranslations:
-          items:
-            type: string
-          type: array
-          x-go-name: OverviewTranslations
-          example:
-          - example
-        runtime:
-          type:
-          - integer
-          - 'null'
-          example: 1
-        seasonNumber:
-          type: integer
-          example: 1
-        seasons:
-          items:
-            $ref: '#/components/schemas/SeasonBaseRecord'
-          type: array
-          x-go-name: Seasons
-        seriesId:
-          format: int64
-          type: integer
-          x-go-name: SeriesID
-          example: 12345
-        seasonName:
-          type: string
-          example: example
-        year:
-          type: string
-          example: '2024'
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    ContentRating:
-      description: content rating record
+    GenreBaseRecord:
+      description: base genre record
       properties:
         id:
           format: int64
@@ -2963,167 +3120,10 @@ components:
           type: string
           x-go-name: Name
           example: Example Name
-        description:
+        slug:
           type: string
-          example: A descriptive paragraph of text.
-        country:
-          type: string
-          example: usa
-        contentType:
-          type: string
-          example: example
-        order:
-          type: integer
-          example: 1
-        fullName:
-          type: string
-          example: example
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    RecordInfo:
-      description: base record info
-      properties:
-        image:
-          type: string
-          x-go-name: Image
-          example: https://artworks.thetvdb.com/banners/example.jpg
-        name:
-          type: string
-          x-go-name: Name
-          example: Example Name
-        year:
-          type: string
-          example: '2024'
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    SeasonType:
-      description: season type record
-      properties:
-        alternateName:
-          type: string
-          x-go-name: Name
-          example: example
-        id:
-          format: int64
-          type: integer
-          x-go-name: ID
-          example: 12345
-        name:
-          type: string
-          x-go-name: Name
-          example: Example Name
-        type:
-          type: string
-          x-go-name: Type
-          example: example
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    ArtworkExtendedRecord:
-      description: extended artwork record
-      properties:
-        episodeId:
-          type: integer
-          example: 12345
-        height:
-          format: int64
-          type: integer
-          x-go-name: Height
-          example: 12345
-        id:
-          format: int64
-          type: integer
-          x-go-name: ID
-          example: 12345
-        image:
-          type: string
-          x-go-name: Image
-          example: https://artworks.thetvdb.com/banners/example.jpg
-        includesText:
-          type: boolean
-          example: true
-        language:
-          type: string
-          example: eng
-        movieId:
-          type: integer
-          example: 12345
-        networkId:
-          type: integer
-          example: 12345
-        peopleId:
-          type: integer
-          example: 12345
-        score:
-          type: number
-          example: 100
-        seasonId:
-          type: integer
-          example: 12345
-        seriesId:
-          type: integer
-          example: 12345
-        seriesPeopleId:
-          type: integer
-          example: 12345
-        status:
-          $ref: '#/components/schemas/ArtworkStatus'
-        tagOptions:
-          items:
-            $ref: '#/components/schemas/TagOption'
-          type: array
-          x-go-name: TagOptions
-        thumbnail:
-          type: string
-          x-go-name: Thumbnail
-          example: example
-        thumbnailHeight:
-          format: int64
-          type: integer
-          x-go-name: ThumbnailHeight
-          example: 12345
-        thumbnailWidth:
-          format: int64
-          type: integer
-          x-go-name: ThumbnailWidth
-          example: 12345
-        type:
-          format: int64
-          type: integer
-          x-go-name: Type
-          description: The artwork type corresponds to the ids from the /artwork/types endpoint.
-          example: 12345
-        updatedAt:
-          format: int64
-          type: integer
-          x-go-name: UpdatedAt
-          example: '2024-01-15'
-        width:
-          format: int64
-          type: integer
-          x-go-name: Width
-          example: 12345
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    Trailer:
-      description: trailer record
-      properties:
-        id:
-          format: int64
-          type: integer
-          x-go-name: ID
-          example: 12345
-        language:
-          type: string
-          example: eng
-        name:
-          type: string
-          example: Example Name
-        url:
-          type: string
-          example: https://artworks.thetvdb.com/banners/example.jpg
-        runtime:
-          type: integer
-          example: 1
+          x-go-name: Slug
+          example: example-slug
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
   securitySchemes:
