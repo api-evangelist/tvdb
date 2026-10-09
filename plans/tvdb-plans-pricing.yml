@@ -1,3 +1,8 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (dated 2026-05-30 by the file itself), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
+generated: '2026-05-30'
 specification: API Commons Plans
 specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
@@ -149,3 +154,57 @@ plans:
       - name: Full v4 REST API access
       - name: Custom commercial terms negotiated directly with TheTVDB
       - name: Large-scale media / streaming / catalog use cases
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - seat
+  - subscription
+  - tiered
+  units:
+  - object
+  - period
+  - seat
+  plans:
+  - name: Subscriber-Supported API
+    access: freemium
+    model: seat
+    model_how: derived
+    units:
+    - object
+    - seat
+    periods:
+    - per-use
+    - year
+  - name: Commercial — Under $50k Revenue
+    access: other
+    model: tiered
+    model_how: stated
+    units:
+    - period
+    periods:
+    - year
+  - name: Commercial — $50k-$250k Revenue
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - period
+    periods:
+    - year
+  - name: Commercial — $250k-$1M Revenue
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - period
+    periods:
+    - year
+  - name: Commercial — $1M+ Revenue (Enterprise)
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - period
+    periods:
+    - year
