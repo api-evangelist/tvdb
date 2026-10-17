@@ -138,6 +138,86 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ArtworkStatus:
+      description: artwork status record
+      properties:
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        name:
+          type: string
+          example: Example Name
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    TagOption:
+      description: tag option record
+      properties:
+        helpText:
+          type: string
+          example: example
+        id:
+          format: int64
+          type: integer
+          x-go-name: ID
+          example: 12345
+        name:
+          type: string
+          x-go-name: Name
+          example: Example Name
+        tag:
+          format: int64
+          type: integer
+          x-go-name: Tag
+          example: 12345
+        tagName:
+          type: string
+          x-go-name: TagName
+          example: example
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    ArtworkBaseRecord:
+      description: base artwork record
+      properties:
+        height:
+          format: int64
+          type: integer
+          x-go-name: Height
+          example: 12345
+        id:
+          type: integer
+          example: 12345
+        image:
+          type: string
+          x-go-name: Image
+          example: https://artworks.thetvdb.com/banners/example.jpg
+        includesText:
+          type: boolean
+          example: true
+        language:
+          type: string
+          example: eng
+        score:
+          type: number
+          example: 100
+        thumbnail:
+          type: string
+          x-go-name: Thumbnail
+          example: example
+        type:
+          format: int64
+          type: integer
+          x-go-name: Type
+          description: The artwork type corresponds to the ids from the /artwork/types endpoint.
+          example: 12345
+        width:
+          format: int64
+          type: integer
+          x-go-name: Width
+          example: 12345
+      type: object
+      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
     ArtworkExtendedRecord:
       description: extended artwork record
       properties:
@@ -217,86 +297,6 @@ components:
           type: integer
           x-go-name: UpdatedAt
           example: '2024-01-15'
-        width:
-          format: int64
-          type: integer
-          x-go-name: Width
-          example: 12345
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    TagOption:
-      description: tag option record
-      properties:
-        helpText:
-          type: string
-          example: example
-        id:
-          format: int64
-          type: integer
-          x-go-name: ID
-          example: 12345
-        name:
-          type: string
-          x-go-name: Name
-          example: Example Name
-        tag:
-          format: int64
-          type: integer
-          x-go-name: Tag
-          example: 12345
-        tagName:
-          type: string
-          x-go-name: TagName
-          example: example
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    ArtworkStatus:
-      description: artwork status record
-      properties:
-        id:
-          format: int64
-          type: integer
-          x-go-name: ID
-          example: 12345
-        name:
-          type: string
-          example: Example Name
-      type: object
-      x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
-    ArtworkBaseRecord:
-      description: base artwork record
-      properties:
-        height:
-          format: int64
-          type: integer
-          x-go-name: Height
-          example: 12345
-        id:
-          type: integer
-          example: 12345
-        image:
-          type: string
-          x-go-name: Image
-          example: https://artworks.thetvdb.com/banners/example.jpg
-        includesText:
-          type: boolean
-          example: true
-        language:
-          type: string
-          example: eng
-        score:
-          type: number
-          example: 100
-        thumbnail:
-          type: string
-          x-go-name: Thumbnail
-          example: example
-        type:
-          format: int64
-          type: integer
-          x-go-name: Type
-          description: The artwork type corresponds to the ids from the /artwork/types endpoint.
-          example: 12345
         width:
           format: int64
           type: integer

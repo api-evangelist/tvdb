@@ -193,20 +193,16 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Alias:
-      description: An alias model, which can be associated with a series, season, movie, person, or list.
-      properties:
-        language:
-          type: string
-          maximum: 4
-          description: A 3-4 character string indicating the language of the alias, as defined in Language.
-          example: eng
-        name:
-          type: string
-          maximum: 100
-          description: A string containing the alias itself.
-          example: Example Name
+    CompanyType:
+      description: A company type record
       type: object
+      properties:
+        companyTypeId:
+          type: integer
+          example: 12345
+        companyTypeName:
+          type: string
+          example: example
     Company:
       description: A company record
       properties:
@@ -304,27 +300,20 @@ components:
         page_size:
           type: integer
           example: 1
-    CompanyType:
-      description: A company type record
+    Alias:
+      description: An alias model, which can be associated with a series, season, movie, person, or list.
+      properties:
+        language:
+          type: string
+          maximum: 4
+          description: A 3-4 character string indicating the language of the alias, as defined in Language.
+          example: eng
+        name:
+          type: string
+          maximum: 100
+          description: A string containing the alias itself.
+          example: Example Name
       type: object
-      properties:
-        companyTypeId:
-          type: integer
-          example: 12345
-        companyTypeName:
-          type: string
-          example: example
-    CompanyRelationShip:
-      description: A company relationship
-      properties:
-        id:
-          type:
-          - integer
-          - 'null'
-          example: 12345
-        typeName:
-          type: string
-          example: example
     TagOption:
       description: tag option record
       properties:
@@ -351,6 +340,17 @@ components:
           example: example
       type: object
       x-go-package: github.com/whip-networks/tvdb-api-v4-core/tvdb-api-v4-core/pkg/model
+    CompanyRelationShip:
+      description: A company relationship
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+          example: 12345
+        typeName:
+          type: string
+          example: example
   securitySchemes:
     bearerAuth:
       type: http
