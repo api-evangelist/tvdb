@@ -1110,6 +1110,8 @@ apis:
   - type: IssueTracker
     url: https://github.com/thetvdb/v4-api/issues
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/thetvdb/overview
   - type: CapabilityMap
     url: capabilities/tvdb-capability-edges.yml
     name: TheTVDB Business Capability Map
