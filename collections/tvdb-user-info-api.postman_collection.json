@@ -1,284 +1,265 @@
 {
+  "info": {
+    "_postman_id": "049e5f2e-8a35-4123-9120-df6be32b552a",
+    "name": "TVDB API V4 User info API",
+    "description": "Documentation of TheTVDB API V4.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:54:19.000Z",
+    "updatedAt": "2026-10-21T19:54:20.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-049e5f2e-8a35-4123-9120-df6be32b552a"
+  },
   "item": [
     {
-      "id": "eb83d0c8-a03b-48bd-89a3-c1646113e06a",
-      "name": "User info",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "user",
       "item": [
         {
-          "id": "e3488508-d8d2-4aea-9a18-7b52c94dffbb",
-          "name": "TheTVDB Get User Info",
-          "request": {
-            "name": "TheTVDB Get User Info",
-            "description": {
-              "content": "returns user info",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "user"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{id}",
+          "item": [
             {
-              "id": "af0b14c3-73cd-44b6-a5f2-5b2ab0cef2e0",
-              "name": "response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+              "name": "TheTVDB Get User Info by Id",
+              "id": "089f28b6-0f26-40e9-ba4d-e9a6bd410f2d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": null,\n  \"status\": \"Continuing\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "08645495-f892-4dd8-9160-bdbf171e7cc4",
-              "name": "Unauthorized",
-              "originalRequest": {
                 "url": {
-                  "path": [
-                    "user"
-                  ],
+                  "raw": "{{baseUrl}}/user/:id",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": []
+                  "path": [
+                    "user",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "158b2df5-93c7-412f-a74b-4a43b9ece220",
+                      "key": "id",
+                      "value": "<number>",
+                      "description": "(Required) id"
+                    }
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                "description": "returns user info by user id"
               },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "d2013f98-5254-43d4-90f7-6c8653d44238",
+                  "name": "response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/user/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T19:54:20.000Z",
+                  "updatedAt": "2026-10-21T19:54:20.000Z",
+                  "uid": "35240-d2013f98-5254-43d4-90f7-6c8653d44238"
+                },
+                {
+                  "id": "0df80bf8-3359-4777-9c13-30216cd37c13",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/user/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:54:20.000Z",
+                  "updatedAt": "2026-10-21T19:54:20.000Z",
+                  "uid": "35240-0df80bf8-3359-4777-9c13-30216cd37c13"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-21T19:54:20.000Z",
+              "updatedAt": "2026-10-21T19:54:20.000Z",
+              "uid": "35240-089f28b6-0f26-40e9-ba4d-e9a6bd410f2d"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "0e4ccf7b-3828-473c-ba4c-3786ba1dcd5b",
+          "createdAt": "2026-10-21T19:54:20.000Z",
+          "updatedAt": "2026-10-21T19:54:20.000Z",
+          "uid": "35240-0e4ccf7b-3828-473c-ba4c-3786ba1dcd5b"
         },
         {
-          "id": "4deb6c1a-d4aa-4c69-b182-b3f4c4748c76",
-          "name": "TheTVDB Get User Info by Id",
+          "name": "TheTVDB Get User Info",
+          "id": "0bb89d07-0a18-4546-8fb5-303e35b2cd2a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "TheTVDB Get User Info by Id",
-            "description": {
-              "content": "returns user info by user id",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "user",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<number>",
-                  "key": "id",
-                  "description": "(Required) id"
-                }
-              ]
-            },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/user",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user"
+              ]
+            },
+            "description": "returns user info"
           },
           "response": [
             {
-              "id": "2caf6808-045b-4baa-832e-de5df2c280a2",
+              "id": "9183dd2e-3704-4ac0-8e01-50c79fddfa61",
               "name": "response",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/user",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user"
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"data\": null,\n  \"status\": \"Continuing\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<string>\"\n}",
+              "createdAt": "2026-10-21T19:54:20.000Z",
+              "updatedAt": "2026-10-21T19:54:20.000Z",
+              "uid": "35240-9183dd2e-3704-4ac0-8e01-50c79fddfa61"
             },
             {
-              "id": "d4cb46df-47a7-4ca6-b396-b05cf9b654d4",
+              "id": "0c495dec-6696-4bba-a241-567ca331108c",
               "name": "Unauthorized",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/user",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user"
+                  ]
+                }
               },
               "status": "Unauthorized",
               "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:54:20.000Z",
+              "updatedAt": "2026-10-21T19:54:20.000Z",
+              "uid": "35240-0c495dec-6696-4bba-a241-567ca331108c"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-21T19:54:20.000Z",
+          "updatedAt": "2026-10-21T19:54:20.000Z",
+          "uid": "35240-0bb89d07-0a18-4546-8fb5-303e35b2cd2a"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api4.thetvdb.com/v4",
-      "key": "baseUrl"
+      "id": "d9c2c898-8104-4e4a-95d1-7f74238f1b79",
+      "createdAt": "2026-10-21T19:54:20.000Z",
+      "updatedAt": "2026-10-21T19:54:20.000Z",
+      "uid": "35240-d9c2c898-8104-4e4a-95d1-7f74238f1b79"
     }
   ],
   "auth": {
@@ -286,17 +267,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "147f81a2-72fd-4b59-b348-7b638900876d",
-    "name": "TVDB API V4 Artwork User info API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Documentation of [TheTVDB](https://thetvdb.com/) API V4. All related information is linked from our [Github repo](https://github.com/thetvdb/v4-api). You might also want to use our [Postman collection] (https://www.getpostman.com/collections/7a9397ce69ff246f74d0)\n## Authentication\n1. Use the /login endpoint and provide your API key as \"apikey\". If you have a user-supported key, also provide your subscriber PIN as \"pin\". Otherwise completely remove \"pin\" from your call.\n2. Executing this call will provide you with a bearer token, which is valid for 1 month.\n3. Provide your bearer token for subsequent API calls by clicking Authorize below or including in the header of all direct API calls: `Authorization: Bearer [your-token]`\n\n## Notes\n1. \"score\" is a field across almost all entities.  We generate scores for different types of entities in various ways, so no assumptions should be made about the meaning of this value.  It is simply used to hint at relative popularity for sorting purposes.\n",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api4.thetvdb.com/v4"
     }
-  }
+  ]
 }

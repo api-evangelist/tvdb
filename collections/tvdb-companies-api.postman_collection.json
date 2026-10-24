@@ -1,517 +1,482 @@
 {
+  "info": {
+    "_postman_id": "6ae886c0-c1f0-405c-93a0-ccc8d8685a7d",
+    "name": "TVDB API V4 Companies API",
+    "description": "Documentation of TheTVDB API V4.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:51:59.000Z",
+    "updatedAt": "2026-10-21T19:51:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6ae886c0-c1f0-405c-93a0-ccc8d8685a7d"
+  },
   "item": [
     {
-      "id": "7a6cb2af-777d-40a7-a109-8d17ceafb621",
-      "name": "Companies",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "companies",
       "item": [
         {
-          "id": "342dedcb-d4a0-482b-ae94-2356a78a4829",
+          "name": "types",
+          "item": [
+            {
+              "name": "TheTVDB Get Company Types",
+              "id": "5a3ded7a-0bfe-4718-800b-3aa6d44a6774",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/companies/types",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "companies",
+                    "types"
+                  ]
+                },
+                "description": "returns all company type records"
+              },
+              "response": [
+                {
+                  "id": "021297ae-d549-4583-a313-3d16feef7035",
+                  "name": "response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/companies/types",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "companies",
+                        "types"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"companyTypeId\": \"<integer>\",\n      \"companyTypeName\": \"<string>\"\n    },\n    {\n      \"companyTypeId\": \"<integer>\",\n      \"companyTypeName\": \"<string>\"\n    }\n  ],\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T19:51:59.000Z",
+                  "updatedAt": "2026-10-21T19:51:59.000Z",
+                  "uid": "35240-021297ae-d549-4583-a313-3d16feef7035"
+                },
+                {
+                  "id": "cb0075e6-cf80-492b-9f6a-b871616f099c",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/companies/types",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "companies",
+                        "types"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:51:59.000Z",
+                  "updatedAt": "2026-10-21T19:51:59.000Z",
+                  "uid": "35240-cb0075e6-cf80-492b-9f6a-b871616f099c"
+                }
+              ],
+              "createdAt": "2026-10-21T19:51:59.000Z",
+              "updatedAt": "2026-10-21T19:51:59.000Z",
+              "uid": "35240-5a3ded7a-0bfe-4718-800b-3aa6d44a6774"
+            }
+          ],
+          "id": "cd78d41f-7bd9-4e8c-be39-442d57b6c56c",
+          "createdAt": "2026-10-21T19:51:59.000Z",
+          "updatedAt": "2026-10-21T19:51:59.000Z",
+          "uid": "35240-cd78d41f-7bd9-4e8c-be39-442d57b6c56c"
+        },
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "TheTVDB Get Company",
+              "id": "30b892d4-9748-48b9-be9e-07928569dc82",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/companies/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "companies",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "0c43d7db-7b54-4b88-b089-1a3f63f47140",
+                      "key": "id",
+                      "value": "<number>",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "description": "returns a company record"
+              },
+              "response": [
+                {
+                  "id": "6cd1c433-dbd0-470a-84ba-e52e72b89e42",
+                  "name": "response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/companies/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "companies",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"activeDate\": \"<string>\",\n    \"aliases\": [\n      {\n        \"language\": \"<string>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"country\": \"<string>\",\n    \"id\": \"<long>\",\n    \"inactiveDate\": \"<string>\",\n    \"name\": \"<string>\",\n    \"nameTranslations\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"overviewTranslations\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"primaryCompanyType\": \"<integer,null-int64>\",\n    \"slug\": \"<string>\",\n    \"parentCompany\": {\n      \"id\": \"<integer,null>\",\n      \"name\": \"<string>\",\n      \"relation\": {\n        \"id\": \"<integer,null>\",\n        \"typeName\": \"<string>\"\n      }\n    },\n    \"tagOptions\": [\n      {\n        \"helpText\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"tag\": \"<long>\",\n        \"tagName\": \"<string>\"\n      },\n      {\n        \"helpText\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"tag\": \"<long>\",\n        \"tagName\": \"<string>\"\n      }\n    ]\n  },\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T19:51:59.000Z",
+                  "updatedAt": "2026-10-21T19:51:59.000Z",
+                  "uid": "35240-6cd1c433-dbd0-470a-84ba-e52e72b89e42"
+                },
+                {
+                  "id": "e38da877-4bb0-4c3e-a050-c9ab364f4a2d",
+                  "name": "Invalid company id",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/companies/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "companies",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:51:59.000Z",
+                  "updatedAt": "2026-10-21T19:51:59.000Z",
+                  "uid": "35240-e38da877-4bb0-4c3e-a050-c9ab364f4a2d"
+                },
+                {
+                  "id": "1c3976f7-cd09-4ec5-9a78-be674d00edbd",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/companies/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "companies",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:51:59.000Z",
+                  "updatedAt": "2026-10-21T19:51:59.000Z",
+                  "uid": "35240-1c3976f7-cd09-4ec5-9a78-be674d00edbd"
+                },
+                {
+                  "id": "35d1494d-09eb-4d02-9bb4-e48a1ccbc141",
+                  "name": "Company not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/companies/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "companies",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:51:59.000Z",
+                  "updatedAt": "2026-10-21T19:51:59.000Z",
+                  "uid": "35240-35d1494d-09eb-4d02-9bb4-e48a1ccbc141"
+                }
+              ],
+              "createdAt": "2026-10-21T19:51:59.000Z",
+              "updatedAt": "2026-10-21T19:51:59.000Z",
+              "uid": "35240-30b892d4-9748-48b9-be9e-07928569dc82"
+            }
+          ],
+          "id": "29d176a8-32fa-4d08-8736-2c3395f74dde",
+          "createdAt": "2026-10-21T19:51:59.000Z",
+          "updatedAt": "2026-10-21T19:51:59.000Z",
+          "uid": "35240-29d176a8-32fa-4d08-8736-2c3395f74dde"
+        },
+        {
           "name": "TheTVDB Get All Companies",
+          "id": "1efb502e-5c73-4850-8761-a5a63b9ab5ea",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "TheTVDB Get All Companies",
-            "description": {
-              "content": "returns a paginated list of company records",
-              "type": "text/plain"
-            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
             "url": {
+              "raw": "{{baseUrl}}/companies?page=<number>",
+              "host": [
+                "{{baseUrl}}"
+              ],
               "path": [
                 "companies"
               ],
-              "host": [
-                "{{baseUrl}}"
-              ],
               "query": [
                 {
-                  "disabled": false,
+                  "description": "name",
                   "key": "page",
-                  "value": "<number>",
-                  "description": "name"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "d7d6f16c-0584-4ddb-b944-f0d548880a84",
-              "name": "response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "companies"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "page",
-                      "value": "1"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": [\n    {\n      \"activeDate\": \"2024-01-15\",\n      \"aliases\": [\n        {\n          \"language\": \"eng\",\n          \"name\": \"Example Name\"\n        }\n      ],\n      \"country\": \"usa\",\n      \"id\": 12345,\n      \"inactiveDate\": \"2024-01-15\",\n      \"name\": \"Example Name\",\n      \"nameTranslations\": [\n        \"example\"\n      ],\n      \"overviewTranslations\": [\n        \"example\"\n      ],\n      \"primaryCompanyType\": 12345,\n      \"slug\": \"example-slug\",\n      \"parentCompany\": {\n        \"id\": 12345,\n        \"name\": \"Example Name\",\n        \"relation\": {\n          \"id\": 12345,\n          \"typeName\": \"example\"\n        }\n      },\n      \"tagOptions\": [\n        {\n          \"helpText\": \"example\",\n          \"id\": 12345,\n          \"name\": \"Example Name\",\n          \"tag\": 12345,\n          \"tagName\": \"example\"\n        }\n      ]\n    }\n  ],\n  \"status\": \"Continuing\",\n  \"links\": {\n    \"prev\": \"example\",\n    \"self\": \"example\",\n    \"next\": \"example\",\n    \"total_items\": 1,\n    \"page_size\": 1\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "0708a703-d4bf-4eeb-93e3-882553ba7a72",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "companies"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "page",
-                      "value": "1"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "18bb9aea-32e1-40d0-a9e9-fff525a0535f",
-          "name": "TheTVDB Get Company Types",
-          "request": {
-            "name": "TheTVDB Get Company Types",
-            "description": {
-              "content": "returns all company type records",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "companies",
-                "types"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "ce124e62-8961-4f93-af89-271b13b4f917",
-              "name": "response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "companies",
-                    "types"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": [\n    {\n      \"companyTypeId\": 12345,\n      \"companyTypeName\": \"example\"\n    }\n  ],\n  \"status\": \"Continuing\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "0f5e23b7-4c8e-49b6-aa4e-874ab2c31e50",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "companies",
-                    "types"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b4f20cce-c17f-46b4-b96b-a352a598d9aa",
-          "name": "TheTVDB Get Company",
-          "request": {
-            "name": "TheTVDB Get Company",
-            "description": {
-              "content": "returns a company record",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "companies",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<number>",
-                  "key": "id",
-                  "description": "(Required) id"
+                  "value": "<number>"
                 }
               ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
+            "description": "returns a paginated list of company records"
           },
           "response": [
             {
-              "id": "dbd97b8f-9e60-4634-9bc0-9060b319a21a",
+              "id": "6651a034-eacc-4a58-b98e-fc1e2ed63666",
               "name": "response",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "companies",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/companies?page=<number>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "companies"
+                  ],
+                  "query": [
+                    {
+                      "description": "name",
+                      "key": "page",
+                      "value": "<number>"
+                    }
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"data\": {\n    \"activeDate\": \"2024-01-15\",\n    \"aliases\": [\n      {\n        \"language\": \"eng\",\n        \"name\": \"Example Name\"\n      }\n    ],\n    \"country\": \"usa\",\n    \"id\": 12345,\n    \"inactiveDate\": \"2024-01-15\",\n    \"name\": \"Example Name\",\n    \"nameTranslations\": [\n      \"example\"\n    ],\n    \"overviewTranslations\": [\n      \"example\"\n    ],\n    \"primaryCompanyType\": 12345,\n    \"slug\": \"example-slug\",\n    \"parentCompany\": {\n      \"id\": 12345,\n      \"name\": \"Example Name\",\n      \"relation\": {\n        \"id\": 12345,\n        \"typeName\": \"example\"\n      }\n    },\n    \"tagOptions\": [\n      {\n        \"helpText\": \"example\",\n        \"id\": 12345,\n        \"name\": \"Example Name\",\n        \"tag\": 12345,\n        \"tagName\": \"example\"\n      }\n    ]\n  },\n  \"status\": \"Continuing\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"activeDate\": \"<string>\",\n      \"aliases\": [\n        {\n          \"language\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"language\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ],\n      \"country\": \"<string>\",\n      \"id\": \"<long>\",\n      \"inactiveDate\": \"<string>\",\n      \"name\": \"<string>\",\n      \"nameTranslations\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"overviewTranslations\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"primaryCompanyType\": \"<integer,null-int64>\",\n      \"slug\": \"<string>\",\n      \"parentCompany\": {\n        \"id\": \"<integer,null>\",\n        \"name\": \"<string>\",\n        \"relation\": {\n          \"id\": \"<integer,null>\",\n          \"typeName\": \"<string>\"\n        }\n      },\n      \"tagOptions\": [\n        {\n          \"helpText\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"tag\": \"<long>\",\n          \"tagName\": \"<string>\"\n        },\n        {\n          \"helpText\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"tag\": \"<long>\",\n          \"tagName\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"activeDate\": \"<string>\",\n      \"aliases\": [\n        {\n          \"language\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"language\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ],\n      \"country\": \"<string>\",\n      \"id\": \"<long>\",\n      \"inactiveDate\": \"<string>\",\n      \"name\": \"<string>\",\n      \"nameTranslations\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"overviewTranslations\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"primaryCompanyType\": \"<integer,null-int64>\",\n      \"slug\": \"<string>\",\n      \"parentCompany\": {\n        \"id\": \"<integer,null>\",\n        \"name\": \"<string>\",\n        \"relation\": {\n          \"id\": \"<integer,null>\",\n          \"typeName\": \"<string>\"\n        }\n      },\n      \"tagOptions\": [\n        {\n          \"helpText\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"tag\": \"<long>\",\n          \"tagName\": \"<string>\"\n        },\n        {\n          \"helpText\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"tag\": \"<long>\",\n          \"tagName\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"status\": \"<string>\",\n  \"links\": {\n    \"prev\": \"<string,null>\",\n    \"self\": \"<string,null>\",\n    \"next\": \"<string>\",\n    \"total_items\": \"<integer>\",\n    \"page_size\": \"<integer>\"\n  }\n}",
+              "createdAt": "2026-10-21T19:51:59.000Z",
+              "updatedAt": "2026-10-21T19:51:59.000Z",
+              "uid": "35240-6651a034-eacc-4a58-b98e-fc1e2ed63666"
             },
             {
-              "id": "ca9399df-a617-477a-9ba9-ab4837e863ae",
-              "name": "Invalid company id",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "companies",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "b89adb27-a930-45bd-abd2-3523a20f4b92",
+              "id": "4e91efe8-4433-4e64-bb5a-17fe0ef64ca1",
               "name": "Unauthorized",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "companies",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/companies?page=<number>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "companies"
+                  ],
+                  "query": [
+                    {
+                      "description": "name",
+                      "key": "page",
+                      "value": "<number>"
+                    }
+                  ]
+                }
               },
               "status": "Unauthorized",
               "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "df4176c0-b1b5-448e-96d4-360e19f48304",
-              "name": "Company not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "companies",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:51:59.000Z",
+              "updatedAt": "2026-10-21T19:51:59.000Z",
+              "uid": "35240-4e91efe8-4433-4e64-bb5a-17fe0ef64ca1"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-21T19:51:59.000Z",
+          "updatedAt": "2026-10-21T19:51:59.000Z",
+          "uid": "35240-1efb502e-5c73-4850-8761-a5a63b9ab5ea"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api4.thetvdb.com/v4",
-      "key": "baseUrl"
+      "id": "3fe1d8c0-4dad-43e5-98fa-ec1edc48a7c6",
+      "createdAt": "2026-10-21T19:51:59.000Z",
+      "updatedAt": "2026-10-21T19:51:59.000Z",
+      "uid": "35240-3fe1d8c0-4dad-43e5-98fa-ec1edc48a7c6"
     }
   ],
   "auth": {
@@ -519,17 +484,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "8d20fb53-8ce6-4cdb-aca0-e680c40c36e8",
-    "name": "TVDB API V4 Artwork Companies API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Documentation of [TheTVDB](https://thetvdb.com/) API V4. All related information is linked from our [Github repo](https://github.com/thetvdb/v4-api). You might also want to use our [Postman collection] (https://www.getpostman.com/collections/7a9397ce69ff246f74d0)\n## Authentication\n1. Use the /login endpoint and provide your API key as \"apikey\". If you have a user-supported key, also provide your subscriber PIN as \"pin\". Otherwise completely remove \"pin\" from your call.\n2. Executing this call will provide you with a bearer token, which is valid for 1 month.\n3. Provide your bearer token for subsequent API calls by clicking Authorize below or including in the header of all direct API calls: `Authorization: Bearer [your-token]`\n\n## Notes\n1. \"score\" is a field across almost all entities.  We generate scores for different types of entities in various ways, so no assumptions should be made about the meaning of this value.  It is simply used to hint at relative popularity for sorting purposes.\n",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api4.thetvdb.com/v4"
     }
-  }
+  ]
 }

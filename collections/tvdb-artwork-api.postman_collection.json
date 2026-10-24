@@ -1,508 +1,456 @@
 {
+  "info": {
+    "_postman_id": "206783ba-27ae-4362-860c-edd74f5b075a",
+    "name": "TVDB API V4 Artwork API",
+    "description": "Documentation of TheTVDB API V4.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:51:21.000Z",
+    "updatedAt": "2026-10-21T19:51:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-206783ba-27ae-4362-860c-edd74f5b075a"
+  },
   "item": [
     {
-      "id": "50eb52f5-1a2f-4036-b5e5-0915a8acb0d3",
-      "name": "Artwork",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "artwork",
       "item": [
         {
-          "id": "a062f8f2-7051-44a6-b8b2-4c278c17b47a",
-          "name": "TheTVDB Get Artwork Base",
-          "request": {
-            "name": "TheTVDB Get Artwork Base",
-            "description": {
-              "content": "Returns a single artwork base record.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "artwork",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<number>",
-                  "key": "id",
-                  "description": "(Required) id"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{id}",
+          "item": [
             {
-              "id": "c4ab916d-80ff-4acb-8230-23920198bf41",
-              "name": "response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "artwork",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
+              "name": "extended",
+              "item": [
+                {
+                  "name": "TheTVDB Get Artwork Extended",
+                  "id": "a6c00086-3542-4f54-87b1-70755cc516ba",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/artwork/:id/extended",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "artwork",
+                        ":id",
+                        "extended"
+                      ],
+                      "variable": [
+                        {
+                          "id": "55cde770-b2bc-4fcb-8274-1b83cf2d919c",
+                          "key": "id",
+                          "value": "<number>",
+                          "description": "(Required) id"
+                        }
+                      ]
+                    },
+                    "description": "Returns a single artwork extended record."
+                  },
+                  "response": [
+                    {
+                      "id": "3c0fb735-889f-4279-83b7-fa8799b44416",
+                      "name": "response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/artwork/:id/extended",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "artwork",
+                            ":id",
+                            "extended"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"episodeId\": \"<integer>\",\n    \"height\": \"<long>\",\n    \"id\": \"<long>\",\n    \"image\": \"<string>\",\n    \"includesText\": \"<boolean>\",\n    \"language\": \"<string>\",\n    \"movieId\": \"<integer>\",\n    \"networkId\": \"<integer>\",\n    \"peopleId\": \"<integer>\",\n    \"score\": \"<number>\",\n    \"seasonId\": \"<integer>\",\n    \"seriesId\": \"<integer>\",\n    \"seriesPeopleId\": \"<integer>\",\n    \"status\": {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    \"tagOptions\": [\n      {\n        \"helpText\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"tag\": \"<long>\",\n        \"tagName\": \"<string>\"\n      },\n      {\n        \"helpText\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"tag\": \"<long>\",\n        \"tagName\": \"<string>\"\n      }\n    ],\n    \"thumbnail\": \"<string>\",\n    \"thumbnailHeight\": \"<long>\",\n    \"thumbnailWidth\": \"<long>\",\n    \"type\": \"<long>\",\n    \"updatedAt\": \"<long>\",\n    \"width\": \"<long>\"\n  },\n  \"status\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:51:22.000Z",
+                      "updatedAt": "2026-10-21T19:51:22.000Z",
+                      "uid": "35240-3c0fb735-889f-4279-83b7-fa8799b44416"
+                    },
+                    {
+                      "id": "8332b14f-bfe8-4a0e-9f9b-31e91243a810",
+                      "name": "Invalid artwork id",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/artwork/:id/extended",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "artwork",
+                            ":id",
+                            "extended"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T19:51:22.000Z",
+                      "updatedAt": "2026-10-21T19:51:22.000Z",
+                      "uid": "35240-8332b14f-bfe8-4a0e-9f9b-31e91243a810"
+                    },
+                    {
+                      "id": "3fd62daf-7d3a-44f6-a5e4-4d52269c1f07",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/artwork/:id/extended",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "artwork",
+                            ":id",
+                            "extended"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T19:51:22.000Z",
+                      "updatedAt": "2026-10-21T19:51:22.000Z",
+                      "uid": "35240-3fd62daf-7d3a-44f6-a5e4-4d52269c1f07"
+                    },
+                    {
+                      "id": "61091154-4c98-4351-9b6d-7fb4896dd4cf",
+                      "name": "Artwork not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/artwork/:id/extended",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "artwork",
+                            ":id",
+                            "extended"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T19:51:22.000Z",
+                      "updatedAt": "2026-10-21T19:51:22.000Z",
+                      "uid": "35240-61091154-4c98-4351-9b6d-7fb4896dd4cf"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:51:21.000Z",
+                  "updatedAt": "2026-10-21T19:51:21.000Z",
+                  "uid": "35240-a6c00086-3542-4f54-87b1-70755cc516ba"
+                }
+              ],
+              "id": "f0af25b0-9f20-45ac-92f1-0d9fd32b18ce",
+              "createdAt": "2026-10-21T19:51:21.000Z",
+              "updatedAt": "2026-10-21T19:51:21.000Z",
+              "uid": "35240-f0af25b0-9f20-45ac-92f1-0d9fd32b18ce"
+            },
+            {
+              "name": "TheTVDB Get Artwork Base",
+              "id": "7d7412d3-c0dd-456d-842f-3ea7b95b9051",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": {\n    \"height\": 12345,\n    \"id\": 12345,\n    \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n    \"includesText\": true,\n    \"language\": \"eng\",\n    \"score\": 100,\n    \"thumbnail\": \"example\",\n    \"type\": 12345,\n    \"width\": 12345\n  },\n  \"status\": \"Continuing\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "d1f409c6-4f9c-470d-8e54-5d33223fb104",
-              "name": "Invalid artwork id",
-              "originalRequest": {
                 "url": {
+                  "raw": "{{baseUrl}}/artwork/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "artwork",
                     ":id"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
                   "variable": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
+                      "id": "439b583b-e2f8-42f7-b620-5d6ea4120d3c",
                       "key": "id",
+                      "value": "<number>",
                       "description": "(Required) id"
                     }
                   ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                "description": "Returns a single artwork base record."
               },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "41d6f3a6-f6e6-47fd-9db6-8d88cc741064",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "artwork",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
+                  "id": "ab27d089-1a15-467c-b261-4851c813f9fe",
+                  "name": "response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/artwork/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "artwork",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "0e90fa9a-013d-4467-97a7-9c89cc892f9a",
-              "name": "Artwork not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "artwork",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "613a573d-bc41-4731-8a9d-51cbd8cd105c",
-          "name": "TheTVDB Get Artwork Extended",
-          "request": {
-            "name": "TheTVDB Get Artwork Extended",
-            "description": {
-              "content": "Returns a single artwork extended record.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "artwork",
-                ":id",
-                "extended"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<number>",
-                  "key": "id",
-                  "description": "(Required) id"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "9d171380-bb08-4799-a46a-2ee4cc70004c",
-              "name": "response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "artwork",
-                    ":id",
-                    "extended"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": {\n    \"episodeId\": 12345,\n    \"height\": 12345,\n    \"id\": 12345,\n    \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n    \"includesText\": true,\n    \"language\": \"eng\",\n    \"movieId\": 12345,\n    \"networkId\": 12345,\n    \"peopleId\": 12345,\n    \"score\": 100,\n    \"seasonId\": 12345,\n    \"seriesId\": 12345,\n    \"seriesPeopleId\": 12345,\n    \"status\": {\n      \"id\": 12345,\n      \"name\": \"Example Name\"\n    },\n    \"tagOptions\": [\n      {\n        \"helpText\": \"example\",\n        \"id\": 12345,\n        \"name\": \"Example Name\",\n        \"tag\": 12345,\n        \"tagName\": \"example\"\n      }\n    ],\n    \"thumbnail\": \"example\",\n    \"thumbnailHeight\": 12345,\n    \"thumbnailWidth\": 12345,\n    \"type\": 12345,\n    \"updatedAt\": \"2024-01-15\",\n    \"width\": 12345\n  },\n  \"status\": \"Continuing\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "a3edd89d-778e-4c11-be63-b7f33673cc0c",
-              "name": "Invalid artwork id",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "artwork",
-                    ":id",
-                    "extended"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
-                  ]
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"height\": \"<long>\",\n    \"id\": \"<integer>\",\n    \"image\": \"<string>\",\n    \"includesText\": \"<boolean>\",\n    \"language\": \"<string>\",\n    \"score\": \"<number>\",\n    \"thumbnail\": \"<string>\",\n    \"type\": \"<long>\",\n    \"width\": \"<long>\"\n  },\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T19:51:22.000Z",
+                  "updatedAt": "2026-10-21T19:51:22.000Z",
+                  "uid": "35240-ab27d089-1a15-467c-b261-4851c813f9fe"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "37cecf79-731c-4636-96cc-65ac98915fb6",
+                  "name": "Invalid artwork id",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/artwork/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "artwork",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:51:22.000Z",
+                  "updatedAt": "2026-10-21T19:51:22.000Z",
+                  "uid": "35240-37cecf79-731c-4636-96cc-65ac98915fb6"
+                },
+                {
+                  "id": "212ddf03-99de-4765-bb14-637e7d6736c4",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/artwork/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "artwork",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:51:22.000Z",
+                  "updatedAt": "2026-10-21T19:51:22.000Z",
+                  "uid": "35240-212ddf03-99de-4765-bb14-637e7d6736c4"
+                },
+                {
+                  "id": "9b312d9a-3f89-4ab4-bd57-6b2b8d773b8d",
+                  "name": "Artwork not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/artwork/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "artwork",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:51:22.000Z",
+                  "updatedAt": "2026-10-21T19:51:22.000Z",
+                  "uid": "35240-9b312d9a-3f89-4ab4-bd57-6b2b8d773b8d"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "fb10a20b-4273-4759-bc3a-cdc1c5ba3af7",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "artwork",
-                    ":id",
-                    "extended"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "98b07dfa-a04f-458a-8b82-1d505d8d1b8f",
-              "name": "Artwork not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "artwork",
-                    ":id",
-                    "extended"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-21T19:51:21.000Z",
+              "updatedAt": "2026-10-21T19:51:21.000Z",
+              "uid": "35240-7d7412d3-c0dd-456d-842f-3ea7b95b9051"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "8c00fcc1-fbb8-42ee-9428-a440a3965d3c",
+          "createdAt": "2026-10-21T19:51:21.000Z",
+          "updatedAt": "2026-10-21T19:51:21.000Z",
+          "uid": "35240-8c00fcc1-fbb8-42ee-9428-a440a3965d3c"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api4.thetvdb.com/v4",
-      "key": "baseUrl"
+      "id": "2dc6c18e-2ac0-436b-8c42-46610e0536df",
+      "createdAt": "2026-10-21T19:51:21.000Z",
+      "updatedAt": "2026-10-21T19:51:21.000Z",
+      "uid": "35240-2dc6c18e-2ac0-436b-8c42-46610e0536df"
     }
   ],
   "auth": {
@@ -510,17 +458,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "c234d5c2-69f4-4a2d-8287-eca9d4d717af",
-    "name": "TVDB API V4 Artwork API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Documentation of [TheTVDB](https://thetvdb.com/) API V4. All related information is linked from our [Github repo](https://github.com/thetvdb/v4-api). You might also want to use our [Postman collection] (https://www.getpostman.com/collections/7a9397ce69ff246f74d0)\n## Authentication\n1. Use the /login endpoint and provide your API key as \"apikey\". If you have a user-supported key, also provide your subscriber PIN as \"pin\". Otherwise completely remove \"pin\" from your call.\n2. Executing this call will provide you with a bearer token, which is valid for 1 month.\n3. Provide your bearer token for subsequent API calls by clicking Authorize below or including in the header of all direct API calls: `Authorization: Bearer [your-token]`\n\n## Notes\n1. \"score\" is a field across almost all entities.  We generate scores for different types of entities in various ways, so no assumptions should be made about the meaning of this value.  It is simply used to hint at relative popularity for sorting purposes.\n",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api4.thetvdb.com/v4"
     }
-  }
+  ]
 }

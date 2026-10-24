@@ -1,380 +1,343 @@
 {
+  "info": {
+    "_postman_id": "47911831-f27b-4736-9980-2d0dc1ebc5f2",
+    "name": "TVDB API V4 Genres API",
+    "description": "Documentation of TheTVDB API V4.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:52:42.000Z",
+    "updatedAt": "2026-10-21T19:52:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-47911831-f27b-4736-9980-2d0dc1ebc5f2"
+  },
   "item": [
     {
-      "id": "bf8d530d-7253-4402-b4b8-5a18235b6f31",
-      "name": "Genres",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "genres",
       "item": [
         {
-          "id": "11c977b3-367c-41dc-9bbf-15e5e74ca712",
-          "name": "TheTVDB Get All Genres",
-          "request": {
-            "name": "TheTVDB Get All Genres",
-            "description": {
-              "content": "returns list of genre records",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "genres"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{id}",
+          "item": [
             {
-              "id": "c753d74d-59d5-4680-b4b5-1fc1dab0631f",
-              "name": "response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "genres"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+              "name": "TheTVDB Get Genre Base",
+              "id": "7b288a08-95c1-4c38-8661-ad56dd2d0c83",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": [\n    {\n      \"id\": 12345,\n      \"name\": \"Example Name\",\n      \"slug\": \"example-slug\"\n    }\n  ],\n  \"status\": \"Continuing\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "6146f980-ba74-4ee9-8fec-535fb5e7931e",
-              "name": "Unauthorized",
-              "originalRequest": {
                 "url": {
-                  "path": [
-                    "genres"
-                  ],
+                  "raw": "{{baseUrl}}/genres/:id",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": []
+                  "path": [
+                    "genres",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "8d647ee9-edf4-45ca-b2d2-d75c49e87caa",
+                      "key": "id",
+                      "value": "<number>",
+                      "description": "(Required) id"
+                    }
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                "description": "Returns genre record"
               },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "a246d3dc-cefd-455a-ba1f-73c2031787d7",
+                  "name": "response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/genres/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "genres",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"slug\": \"<string>\"\n  },\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T19:52:42.000Z",
+                  "updatedAt": "2026-10-21T19:52:42.000Z",
+                  "uid": "35240-a246d3dc-cefd-455a-ba1f-73c2031787d7"
+                },
+                {
+                  "id": "2c90e238-c022-48d7-b575-f244b91a36cb",
+                  "name": "Invalid genre id",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/genres/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "genres",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:52:42.000Z",
+                  "updatedAt": "2026-10-21T19:52:42.000Z",
+                  "uid": "35240-2c90e238-c022-48d7-b575-f244b91a36cb"
+                },
+                {
+                  "id": "4f25b4c5-1065-4033-a2f5-6b8394a8df4d",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/genres/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "genres",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:52:42.000Z",
+                  "updatedAt": "2026-10-21T19:52:42.000Z",
+                  "uid": "35240-4f25b4c5-1065-4033-a2f5-6b8394a8df4d"
+                },
+                {
+                  "id": "1002435a-89e5-4f1f-86e7-2452e500e56c",
+                  "name": "Genre not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/genres/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "genres",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:52:42.000Z",
+                  "updatedAt": "2026-10-21T19:52:42.000Z",
+                  "uid": "35240-1002435a-89e5-4f1f-86e7-2452e500e56c"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-21T19:52:42.000Z",
+              "updatedAt": "2026-10-21T19:52:42.000Z",
+              "uid": "35240-7b288a08-95c1-4c38-8661-ad56dd2d0c83"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "039c0f6c-134c-47aa-bb71-e7fb62d3f0a1",
+          "createdAt": "2026-10-21T19:52:42.000Z",
+          "updatedAt": "2026-10-21T19:52:42.000Z",
+          "uid": "35240-039c0f6c-134c-47aa-bb71-e7fb62d3f0a1"
         },
         {
-          "id": "7f79e17f-8f38-490d-a60a-69c335e00d86",
-          "name": "TheTVDB Get Genre Base",
+          "name": "TheTVDB Get All Genres",
+          "id": "487f46ee-5aab-4d09-ab04-c63d69a59d78",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "TheTVDB Get Genre Base",
-            "description": {
-              "content": "Returns genre record",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "genres",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<number>",
-                  "key": "id",
-                  "description": "(Required) id"
-                }
-              ]
-            },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/genres",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "genres"
+              ]
+            },
+            "description": "returns list of genre records"
           },
           "response": [
             {
-              "id": "79385e1d-b1c4-480f-9eb9-769483cdfe02",
+              "id": "df75a096-9b0a-4600-b953-57b7a2cb2820",
               "name": "response",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "genres",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/genres",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "genres"
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"data\": {\n    \"id\": 12345,\n    \"name\": \"Example Name\",\n    \"slug\": \"example-slug\"\n  },\n  \"status\": \"Continuing\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"slug\": \"<string>\"\n    }\n  ],\n  \"status\": \"<string>\"\n}",
+              "createdAt": "2026-10-21T19:52:42.000Z",
+              "updatedAt": "2026-10-21T19:52:42.000Z",
+              "uid": "35240-df75a096-9b0a-4600-b953-57b7a2cb2820"
             },
             {
-              "id": "38205ba1-0ba5-4e89-bde8-ecfd92b706cb",
-              "name": "Invalid genre id",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "genres",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "9d098b1e-4ef0-48dc-825d-cb6efb3e1516",
+              "id": "d416cf44-a414-4721-9b0d-409c4407a6d0",
               "name": "Unauthorized",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "genres",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/genres",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "genres"
+                  ]
+                }
               },
               "status": "Unauthorized",
               "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "935edd8e-bf89-4a31-836f-1fd6e2c4be89",
-              "name": "Genre not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "genres",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:52:42.000Z",
+              "updatedAt": "2026-10-21T19:52:42.000Z",
+              "uid": "35240-d416cf44-a414-4721-9b0d-409c4407a6d0"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-21T19:52:42.000Z",
+          "updatedAt": "2026-10-21T19:52:42.000Z",
+          "uid": "35240-487f46ee-5aab-4d09-ab04-c63d69a59d78"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api4.thetvdb.com/v4",
-      "key": "baseUrl"
+      "id": "3afaa47b-2cb8-402c-9be3-4d52ddba0b84",
+      "createdAt": "2026-10-21T19:52:42.000Z",
+      "updatedAt": "2026-10-21T19:52:42.000Z",
+      "uid": "35240-3afaa47b-2cb8-402c-9be3-4d52ddba0b84"
     }
   ],
   "auth": {
@@ -382,17 +345,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "17b7e402-09ef-4720-ac01-544fbef9bc68",
-    "name": "TVDB API V4 Artwork Genres API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Documentation of [TheTVDB](https://thetvdb.com/) API V4. All related information is linked from our [Github repo](https://github.com/thetvdb/v4-api). You might also want to use our [Postman collection] (https://www.getpostman.com/collections/7a9397ce69ff246f74d0)\n## Authentication\n1. Use the /login endpoint and provide your API key as \"apikey\". If you have a user-supported key, also provide your subscriber PIN as \"pin\". Otherwise completely remove \"pin\" from your call.\n2. Executing this call will provide you with a bearer token, which is valid for 1 month.\n3. Provide your bearer token for subsequent API calls by clicking Authorize below or including in the header of all direct API calls: `Authorization: Bearer [your-token]`\n\n## Notes\n1. \"score\" is a field across almost all entities.  We generate scores for different types of entities in various ways, so no assumptions should be made about the meaning of this value.  It is simply used to hint at relative popularity for sorting purposes.\n",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api4.thetvdb.com/v4"
     }
-  }
+  ]
 }

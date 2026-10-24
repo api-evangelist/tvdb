@@ -1,143 +1,141 @@
 {
+  "info": {
+    "_postman_id": "3d0450aa-189c-4440-9f9b-c6ac3e6d09b7",
+    "name": "TVDB API V4 Artwork Statuses API",
+    "description": "Documentation of TheTVDB API V4.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:51:27.000Z",
+    "updatedAt": "2026-10-21T19:51:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3d0450aa-189c-4440-9f9b-c6ac3e6d09b7"
+  },
   "item": [
     {
-      "id": "98314026-3809-4f90-8f17-647e2a3c5646",
-      "name": "Artwork Statuses",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "artwork",
       "item": [
         {
-          "id": "520d55b0-f940-456a-9639-4f627c6f0162",
-          "name": "TheTVDB Get All Artwork Statuses",
-          "request": {
-            "name": "TheTVDB Get All Artwork Statuses",
-            "description": {
-              "content": "Returns list of artwork status records.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "artwork",
-                "statuses"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "statuses",
+          "item": [
             {
-              "id": "331375b6-4017-4b45-a25a-3ea0166760cb",
-              "name": "response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "artwork",
-                    "statuses"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+              "name": "TheTVDB Get All Artwork Statuses",
+              "id": "5beb5501-f511-43ba-9ccb-21151610fd2d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": [\n    {\n      \"id\": 12345,\n      \"name\": \"Example Name\"\n    }\n  ],\n  \"status\": \"Continuing\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "f615eaf6-9516-4449-a584-5d75613277ad",
-              "name": "Unauthorized",
-              "originalRequest": {
                 "url": {
-                  "path": [
-                    "artwork",
-                    "statuses"
-                  ],
+                  "raw": "{{baseUrl}}/artwork/statuses",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": []
+                  "path": [
+                    "artwork",
+                    "statuses"
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                "description": "Returns list of artwork status records."
               },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "3923e2f3-5be3-41e0-8fab-806309e5ad6d",
+                  "name": "response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/artwork/statuses",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "artwork",
+                        "statuses"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T19:51:28.000Z",
+                  "updatedAt": "2026-10-21T19:51:28.000Z",
+                  "uid": "35240-3923e2f3-5be3-41e0-8fab-806309e5ad6d"
+                },
+                {
+                  "id": "d3518e50-d88f-415a-a86c-84ad3a55f192",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/artwork/statuses",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "artwork",
+                        "statuses"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:51:28.000Z",
+                  "updatedAt": "2026-10-21T19:51:28.000Z",
+                  "uid": "35240-d3518e50-d88f-415a-a86c-84ad3a55f192"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-21T19:51:28.000Z",
+              "updatedAt": "2026-10-21T19:51:28.000Z",
+              "uid": "35240-5beb5501-f511-43ba-9ccb-21151610fd2d"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "7060e500-0a53-4549-8aff-d8178bd797f1",
+          "createdAt": "2026-10-21T19:51:28.000Z",
+          "updatedAt": "2026-10-21T19:51:28.000Z",
+          "uid": "35240-7060e500-0a53-4549-8aff-d8178bd797f1"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api4.thetvdb.com/v4",
-      "key": "baseUrl"
+      "id": "e1d9c59f-4d7a-409e-bb8e-8cb848204af3",
+      "createdAt": "2026-10-21T19:51:28.000Z",
+      "updatedAt": "2026-10-21T19:51:28.000Z",
+      "uid": "35240-e1d9c59f-4d7a-409e-bb8e-8cb848204af3"
     }
   ],
   "auth": {
@@ -145,17 +143,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "6249ea9c-c8bb-4149-a439-3819e801c31b",
-    "name": "TVDB API V4 Artwork Artwork Statuses API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Documentation of [TheTVDB](https://thetvdb.com/) API V4. All related information is linked from our [Github repo](https://github.com/thetvdb/v4-api). You might also want to use our [Postman collection] (https://www.getpostman.com/collections/7a9397ce69ff246f74d0)\n## Authentication\n1. Use the /login endpoint and provide your API key as \"apikey\". If you have a user-supported key, also provide your subscriber PIN as \"pin\". Otherwise completely remove \"pin\" from your call.\n2. Executing this call will provide you with a bearer token, which is valid for 1 month.\n3. Provide your bearer token for subsequent API calls by clicking Authorize below or including in the header of all direct API calls: `Authorization: Bearer [your-token]`\n\n## Notes\n1. \"score\" is a field across almost all entities.  We generate scores for different types of entities in various ways, so no assumptions should be made about the meaning of this value.  It is simply used to hint at relative popularity for sorting purposes.\n",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api4.thetvdb.com/v4"
     }
-  }
+  ]
 }

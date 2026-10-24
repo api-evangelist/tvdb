@@ -1,143 +1,141 @@
 {
+  "info": {
+    "_postman_id": "55cef1c4-0403-4c50-bf37-75b980973438",
+    "name": "TVDB API V4 Inspiration Types API",
+    "description": "Documentation of TheTVDB API V4.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:52:48.000Z",
+    "updatedAt": "2026-10-21T19:52:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-55cef1c4-0403-4c50-bf37-75b980973438"
+  },
   "item": [
     {
-      "id": "dd51fb85-6cfb-4a8b-908e-d9ad0d07b9f8",
-      "name": "InspirationTypes",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "inspiration",
       "item": [
         {
-          "id": "994f6689-ca3e-4f0d-bf97-0b959557a9bd",
-          "name": "TheTVDB Get All Inspiration Types",
-          "request": {
-            "name": "TheTVDB Get All Inspiration Types",
-            "description": {
-              "content": "returns list of inspiration types records",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "inspiration",
-                "types"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "types",
+          "item": [
             {
-              "id": "1f6335ee-1141-4174-8bae-9920adb31b7b",
-              "name": "response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "inspiration",
-                    "types"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+              "name": "TheTVDB Get All Inspiration Types",
+              "id": "04f59bbf-4c6a-42bc-adcf-b02f9b7169b8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": [\n    {\n      \"id\": 12345,\n      \"name\": \"Example Name\",\n      \"description\": \"A descriptive paragraph of text.\",\n      \"reference_name\": \"example\",\n      \"url\": \"https://artworks.thetvdb.com/banners/example.jpg\"\n    }\n  ],\n  \"status\": \"Continuing\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "b969879b-ec06-4930-8317-b9ec07c8d087",
-              "name": "Unauthorized",
-              "originalRequest": {
                 "url": {
-                  "path": [
-                    "inspiration",
-                    "types"
-                  ],
+                  "raw": "{{baseUrl}}/inspiration/types",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": []
+                  "path": [
+                    "inspiration",
+                    "types"
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                "description": "returns list of inspiration types records"
               },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "ee925811-5c79-4e79-8889-ec82c410d8a5",
+                  "name": "response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/inspiration/types",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "inspiration",
+                        "types"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"reference_name\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"reference_name\": \"<string>\",\n      \"url\": \"<string>\"\n    }\n  ],\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T19:52:48.000Z",
+                  "updatedAt": "2026-10-21T19:52:48.000Z",
+                  "uid": "35240-ee925811-5c79-4e79-8889-ec82c410d8a5"
+                },
+                {
+                  "id": "ca4f3145-b87e-4f01-8306-ac874793533e",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/inspiration/types",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "inspiration",
+                        "types"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:52:48.000Z",
+                  "updatedAt": "2026-10-21T19:52:48.000Z",
+                  "uid": "35240-ca4f3145-b87e-4f01-8306-ac874793533e"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-21T19:52:48.000Z",
+              "updatedAt": "2026-10-21T19:52:48.000Z",
+              "uid": "35240-04f59bbf-4c6a-42bc-adcf-b02f9b7169b8"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "0075eb35-9599-457e-ac59-e938a66c7ef4",
+          "createdAt": "2026-10-21T19:52:48.000Z",
+          "updatedAt": "2026-10-21T19:52:48.000Z",
+          "uid": "35240-0075eb35-9599-457e-ac59-e938a66c7ef4"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api4.thetvdb.com/v4",
-      "key": "baseUrl"
+      "id": "474a6739-4681-4a9c-869d-9a6ee6d8bfec",
+      "createdAt": "2026-10-21T19:52:48.000Z",
+      "updatedAt": "2026-10-21T19:52:48.000Z",
+      "uid": "35240-474a6739-4681-4a9c-869d-9a6ee6d8bfec"
     }
   ],
   "auth": {
@@ -145,17 +143,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "b448024e-2342-4d20-85d4-a75ba7ba2123",
-    "name": "TVDB API V4 Artwork InspirationTypes API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Documentation of [TheTVDB](https://thetvdb.com/) API V4. All related information is linked from our [Github repo](https://github.com/thetvdb/v4-api). You might also want to use our [Postman collection] (https://www.getpostman.com/collections/7a9397ce69ff246f74d0)\n## Authentication\n1. Use the /login endpoint and provide your API key as \"apikey\". If you have a user-supported key, also provide your subscriber PIN as \"pin\". Otherwise completely remove \"pin\" from your call.\n2. Executing this call will provide you with a bearer token, which is valid for 1 month.\n3. Provide your bearer token for subsequent API calls by clicking Authorize below or including in the header of all direct API calls: `Authorization: Bearer [your-token]`\n\n## Notes\n1. \"score\" is a field across almost all entities.  We generate scores for different types of entities in various ways, so no assumptions should be made about the meaning of this value.  It is simply used to hint at relative popularity for sorting purposes.\n",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api4.thetvdb.com/v4"
     }
-  }
+  ]
 }

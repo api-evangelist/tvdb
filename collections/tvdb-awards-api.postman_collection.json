@@ -1,625 +1,562 @@
 {
+  "info": {
+    "_postman_id": "10b7e290-bfb8-45f5-8522-003a8c94bd67",
+    "name": "TVDB API V4 Awards API",
+    "description": "Documentation of TheTVDB API V4.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:51:46.000Z",
+    "updatedAt": "2026-10-21T19:51:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-10b7e290-bfb8-45f5-8522-003a8c94bd67"
+  },
   "item": [
     {
-      "id": "21611466-ba1a-49da-8d2d-a197e780470d",
-      "name": "Awards",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "awards",
       "item": [
         {
-          "id": "5ed06665-f08b-454a-9173-422d2fad6614",
-          "name": "TheTVDB Get All Awards",
-          "request": {
-            "name": "TheTVDB Get All Awards",
-            "description": {
-              "content": "Returns a list of award base records",
-              "type": "text/plain"
+          "name": "{id}",
+          "item": [
+            {
+              "name": "extended",
+              "item": [
+                {
+                  "name": "TheTVDB Get Award Extended",
+                  "id": "ddda91e6-5ef5-4748-b1af-d88507ee86d5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/awards/:id/extended",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "awards",
+                        ":id",
+                        "extended"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ef557532-4ecf-49e3-997a-f913a2a58a72",
+                          "key": "id",
+                          "value": "<number>",
+                          "description": "(Required) id"
+                        }
+                      ]
+                    },
+                    "description": "Returns a single award extended record"
+                  },
+                  "response": [
+                    {
+                      "id": "52789607-a281-46fc-865f-295796867a55",
+                      "name": "response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/awards/:id/extended",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "awards",
+                            ":id",
+                            "extended"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"categories\": [\n      {\n        \"allowCoNominees\": \"<boolean>\",\n        \"award\": {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\"\n        },\n        \"forMovies\": \"<boolean>\",\n        \"forSeries\": \"<boolean>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"allowCoNominees\": \"<boolean>\",\n        \"award\": {\n          \"id\": \"<integer>\",\n          \"name\": \"<string>\"\n        },\n        \"forMovies\": \"<boolean>\",\n        \"forSeries\": \"<boolean>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"score\": \"<long>\"\n  },\n  \"status\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:51:46.000Z",
+                      "updatedAt": "2026-10-21T19:51:46.000Z",
+                      "uid": "35240-52789607-a281-46fc-865f-295796867a55"
+                    },
+                    {
+                      "id": "1072b52f-c02d-403a-b06d-760f5f8bac8e",
+                      "name": "Invalid awards id",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/awards/:id/extended",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "awards",
+                            ":id",
+                            "extended"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T19:51:46.000Z",
+                      "updatedAt": "2026-10-21T19:51:46.000Z",
+                      "uid": "35240-1072b52f-c02d-403a-b06d-760f5f8bac8e"
+                    },
+                    {
+                      "id": "d80811d3-17ea-4678-aa3a-0a60c1e4ecf9",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/awards/:id/extended",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "awards",
+                            ":id",
+                            "extended"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T19:51:46.000Z",
+                      "updatedAt": "2026-10-21T19:51:46.000Z",
+                      "uid": "35240-d80811d3-17ea-4678-aa3a-0a60c1e4ecf9"
+                    },
+                    {
+                      "id": "387fa75f-67d8-47b5-b038-610fc2e25b0d",
+                      "name": "Awards not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/awards/:id/extended",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "awards",
+                            ":id",
+                            "extended"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T19:51:46.000Z",
+                      "updatedAt": "2026-10-21T19:51:46.000Z",
+                      "uid": "35240-387fa75f-67d8-47b5-b038-610fc2e25b0d"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:51:46.000Z",
+                  "updatedAt": "2026-10-21T19:51:46.000Z",
+                  "uid": "35240-ddda91e6-5ef5-4748-b1af-d88507ee86d5"
+                }
+              ],
+              "id": "890a6029-8373-4ff6-9cdb-eded66c112fd",
+              "createdAt": "2026-10-21T19:51:46.000Z",
+              "updatedAt": "2026-10-21T19:51:46.000Z",
+              "uid": "35240-890a6029-8373-4ff6-9cdb-eded66c112fd"
             },
+            {
+              "name": "TheTVDB Get Award",
+              "id": "8c14ce3a-5a82-48eb-8b74-bbfff66eb3c3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/awards/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "awards",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "005b793e-120d-4a60-b82c-ee9459c42e22",
+                      "key": "id",
+                      "value": "<number>",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "description": "Returns a single award base record"
+              },
+              "response": [
+                {
+                  "id": "67b11596-036f-46aa-98cd-f37b92a11642",
+                  "name": "response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/awards/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "awards",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\"\n  },\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T19:51:46.000Z",
+                  "updatedAt": "2026-10-21T19:51:46.000Z",
+                  "uid": "35240-67b11596-036f-46aa-98cd-f37b92a11642"
+                },
+                {
+                  "id": "b2fa75bd-79cc-47ce-bfec-7bedf543444d",
+                  "name": "Invalid awards id",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/awards/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "awards",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:51:46.000Z",
+                  "updatedAt": "2026-10-21T19:51:46.000Z",
+                  "uid": "35240-b2fa75bd-79cc-47ce-bfec-7bedf543444d"
+                },
+                {
+                  "id": "1c754c6d-b06c-4fb5-b49b-7799a91213a7",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/awards/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "awards",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:51:46.000Z",
+                  "updatedAt": "2026-10-21T19:51:46.000Z",
+                  "uid": "35240-1c754c6d-b06c-4fb5-b49b-7799a91213a7"
+                },
+                {
+                  "id": "2e715239-b453-4691-9375-9761e7e3395f",
+                  "name": "Awards not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/awards/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "awards",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:51:46.000Z",
+                  "updatedAt": "2026-10-21T19:51:46.000Z",
+                  "uid": "35240-2e715239-b453-4691-9375-9761e7e3395f"
+                }
+              ],
+              "createdAt": "2026-10-21T19:51:46.000Z",
+              "updatedAt": "2026-10-21T19:51:46.000Z",
+              "uid": "35240-8c14ce3a-5a82-48eb-8b74-bbfff66eb3c3"
+            }
+          ],
+          "id": "bac8d3f8-f3fe-4eb1-bff9-f97d4df4091c",
+          "createdAt": "2026-10-21T19:51:46.000Z",
+          "updatedAt": "2026-10-21T19:51:46.000Z",
+          "uid": "35240-bac8d3f8-f3fe-4eb1-bff9-f97d4df4091c"
+        },
+        {
+          "name": "TheTVDB Get All Awards",
+          "id": "f83d977c-33af-41c4-929b-28fd629e4740",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
             "url": {
+              "raw": "{{baseUrl}}/awards",
+              "host": [
+                "{{baseUrl}}"
+              ],
               "path": [
                 "awards"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "14cd508d-b9a7-4a68-9a9f-96c1d495fdea",
-              "name": "response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "awards"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": [\n    {\n      \"id\": 12345,\n      \"name\": \"Example Name\"\n    }\n  ],\n  \"status\": \"Continuing\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "1d31874b-1606-4430-98d3-dba2ef38ceec",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "awards"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "0da0d556-8fc0-4eef-b1d9-4dddd6767587",
-          "name": "TheTVDB Get Award",
-          "request": {
-            "name": "TheTVDB Get Award",
-            "description": {
-              "content": "Returns a single award base record",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "awards",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<number>",
-                  "key": "id",
-                  "description": "(Required) id"
-                }
               ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
+            "description": "Returns a list of award base records"
           },
           "response": [
             {
-              "id": "53d199a1-ae4c-4ce2-8faa-06aaf278d8a7",
+              "id": "38f46094-d0b5-444b-bf2c-2efcd9a4111c",
               "name": "response",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "awards",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/awards",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "awards"
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"data\": {\n    \"id\": 12345,\n    \"name\": \"Example Name\"\n  },\n  \"status\": \"Continuing\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"status\": \"<string>\"\n}",
+              "createdAt": "2026-10-21T19:51:46.000Z",
+              "updatedAt": "2026-10-21T19:51:46.000Z",
+              "uid": "35240-38f46094-d0b5-444b-bf2c-2efcd9a4111c"
             },
             {
-              "id": "6f724d9e-936b-4af3-b9e2-1af05961d74c",
-              "name": "Invalid awards id",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "awards",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "ca2ccdb9-bca8-4c41-89c1-be9caff6ce2d",
+              "id": "09907fb1-7909-4d9a-a988-5799f12df9c0",
               "name": "Unauthorized",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "awards",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/awards",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "awards"
+                  ]
+                }
               },
               "status": "Unauthorized",
               "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "48f91206-c828-456a-bc53-58911641b965",
-              "name": "Awards not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "awards",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:51:46.000Z",
+              "updatedAt": "2026-10-21T19:51:46.000Z",
+              "uid": "35240-09907fb1-7909-4d9a-a988-5799f12df9c0"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "8f7c3446-d445-48e4-b694-3d54b4115799",
-          "name": "TheTVDB Get Award Extended",
-          "request": {
-            "name": "TheTVDB Get Award Extended",
-            "description": {
-              "content": "Returns a single award extended record",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "awards",
-                ":id",
-                "extended"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<number>",
-                  "key": "id",
-                  "description": "(Required) id"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "5de698be-159f-4de9-83e9-a7e9f8a9a5ac",
-              "name": "response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "awards",
-                    ":id",
-                    "extended"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": {\n    \"categories\": [\n      {\n        \"allowCoNominees\": true,\n        \"award\": {\n          \"id\": 12345,\n          \"name\": \"Example Name\"\n        },\n        \"forMovies\": true,\n        \"forSeries\": true,\n        \"id\": 12345,\n        \"name\": \"Example Name\"\n      }\n    ],\n    \"id\": 12345,\n    \"name\": \"Example Name\",\n    \"score\": 100\n  },\n  \"status\": \"Continuing\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "e8857ac4-d7c9-41e7-aa82-b2538bde2cfd",
-              "name": "Invalid awards id",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "awards",
-                    ":id",
-                    "extended"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "5adfad64-c06c-44df-8c3d-88c0c2eda537",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "awards",
-                    ":id",
-                    "extended"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "cc9be61e-2ecf-4c5c-beec-4b7dacfaaeed",
-              "name": "Awards not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "awards",
-                    ":id",
-                    "extended"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-21T19:51:46.000Z",
+          "updatedAt": "2026-10-21T19:51:46.000Z",
+          "uid": "35240-f83d977c-33af-41c4-929b-28fd629e4740"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api4.thetvdb.com/v4",
-      "key": "baseUrl"
+      "id": "719c337b-e197-4cd5-9ca9-efea3eade513",
+      "createdAt": "2026-10-21T19:51:46.000Z",
+      "updatedAt": "2026-10-21T19:51:46.000Z",
+      "uid": "35240-719c337b-e197-4cd5-9ca9-efea3eade513"
     }
   ],
   "auth": {
@@ -627,17 +564,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "87695526-275a-439d-9fd3-c145e4e376e4",
-    "name": "TVDB API V4 Artwork Awards API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Documentation of [TheTVDB](https://thetvdb.com/) API V4. All related information is linked from our [Github repo](https://github.com/thetvdb/v4-api). You might also want to use our [Postman collection] (https://www.getpostman.com/collections/7a9397ce69ff246f74d0)\n## Authentication\n1. Use the /login endpoint and provide your API key as \"apikey\". If you have a user-supported key, also provide your subscriber PIN as \"pin\". Otherwise completely remove \"pin\" from your call.\n2. Executing this call will provide you with a bearer token, which is valid for 1 month.\n3. Provide your bearer token for subsequent API calls by clicking Authorize below or including in the header of all direct API calls: `Authorization: Bearer [your-token]`\n\n## Notes\n1. \"score\" is a field across almost all entities.  We generate scores for different types of entities in various ways, so no assumptions should be made about the meaning of this value.  It is simply used to hint at relative popularity for sorting purposes.\n",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api4.thetvdb.com/v4"
     }
-  }
+  ]
 }

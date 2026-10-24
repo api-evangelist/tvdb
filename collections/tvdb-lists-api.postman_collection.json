@@ -1,1172 +1,1062 @@
 {
+  "info": {
+    "_postman_id": "30c091e8-6211-4a6b-972e-2997f4225f92",
+    "name": "TVDB API V4 Lists API",
+    "description": "Documentation of TheTVDB API V4.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:53:01.000Z",
+    "updatedAt": "2026-10-21T19:53:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-30c091e8-6211-4a6b-972e-2997f4225f92"
+  },
   "item": [
     {
-      "id": "d5925021-bd47-4fe2-8adc-0c39b9bf20e3",
-      "name": "Lists",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "lists",
       "item": [
         {
-          "id": "04498b10-3826-494b-bd74-e6e25850b9bb",
-          "name": "TheTVDB Get All Lists",
-          "request": {
-            "name": "TheTVDB Get All Lists",
-            "description": {
-              "content": "returns list of list base records",
-              "type": "text/plain"
+          "name": "{id}",
+          "item": [
+            {
+              "name": "extended",
+              "item": [
+                {
+                  "name": "TheTVDB Get List Extended",
+                  "id": "2c56f6c8-3a4a-4bb5-81ed-a1e605190ada",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/lists/:id/extended",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "lists",
+                        ":id",
+                        "extended"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ec027204-7ff5-465a-91f5-dd41bb309ad9",
+                          "key": "id",
+                          "value": "<number>",
+                          "description": "(Required) id"
+                        }
+                      ]
+                    },
+                    "description": "returns a list extended record"
+                  },
+                  "response": [
+                    {
+                      "id": "50ea2ce8-ddb6-47b1-a595-c68eccb10849",
+                      "name": "response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/lists/:id/extended",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "lists",
+                            ":id",
+                            "extended"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"aliases\": [\n      {\n        \"language\": \"<string>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"entities\": [\n      {\n        \"movieId\": \"<integer>\",\n        \"order\": \"<long>\",\n        \"seriesId\": \"<integer>\"\n      },\n      {\n        \"movieId\": \"<integer>\",\n        \"order\": \"<long>\",\n        \"seriesId\": \"<integer>\"\n      }\n    ],\n    \"id\": \"<long>\",\n    \"image\": \"<string>\",\n    \"imageIsFallback\": \"<boolean>\",\n    \"isOfficial\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"nameTranslations\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"overview\": \"<string>\",\n    \"overviewTranslations\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"score\": \"<long>\",\n    \"url\": \"<string>\"\n  },\n  \"status\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:53:02.000Z",
+                      "updatedAt": "2026-10-21T19:53:02.000Z",
+                      "uid": "35240-50ea2ce8-ddb6-47b1-a595-c68eccb10849"
+                    },
+                    {
+                      "id": "72994eaf-740e-426c-8b02-1471d8c9c727",
+                      "name": "Invalid list id",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/lists/:id/extended",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "lists",
+                            ":id",
+                            "extended"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T19:53:02.000Z",
+                      "updatedAt": "2026-10-21T19:53:02.000Z",
+                      "uid": "35240-72994eaf-740e-426c-8b02-1471d8c9c727"
+                    },
+                    {
+                      "id": "fede8cfe-e66f-4531-9e7e-539d5197ed9c",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/lists/:id/extended",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "lists",
+                            ":id",
+                            "extended"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T19:53:02.000Z",
+                      "updatedAt": "2026-10-21T19:53:02.000Z",
+                      "uid": "35240-fede8cfe-e66f-4531-9e7e-539d5197ed9c"
+                    },
+                    {
+                      "id": "2673cf5e-85f3-4eb0-8865-c5647534fda0",
+                      "name": "Lists not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/lists/:id/extended",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "lists",
+                            ":id",
+                            "extended"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T19:53:02.000Z",
+                      "updatedAt": "2026-10-21T19:53:02.000Z",
+                      "uid": "35240-2673cf5e-85f3-4eb0-8865-c5647534fda0"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:53:02.000Z",
+                  "updatedAt": "2026-10-21T19:53:02.000Z",
+                  "uid": "35240-2c56f6c8-3a4a-4bb5-81ed-a1e605190ada"
+                }
+              ],
+              "id": "9cea11a3-10ba-4c13-b65b-691263f10c5e",
+              "createdAt": "2026-10-21T19:53:02.000Z",
+              "updatedAt": "2026-10-21T19:53:02.000Z",
+              "uid": "35240-9cea11a3-10ba-4c13-b65b-691263f10c5e"
             },
+            {
+              "name": "translations",
+              "item": [
+                {
+                  "name": "{language}",
+                  "item": [
+                    {
+                      "name": "TheTVDB Get List Translation",
+                      "id": "993594c7-d001-421f-b178-d3b5eb7e00a8",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/lists/:id/translations/:language",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "lists",
+                            ":id",
+                            "translations",
+                            ":language"
+                          ],
+                          "variable": [
+                            {
+                              "id": "38fb2735-4bb5-4d7a-8629-2b4a31b94c06",
+                              "key": "id",
+                              "value": "<number>",
+                              "description": "(Required) id"
+                            },
+                            {
+                              "id": "b1cd4577-2302-4260-92f5-36fc030bd480",
+                              "key": "language",
+                              "value": "<string>",
+                              "description": "(Required) language"
+                            }
+                          ]
+                        },
+                        "description": "Returns list translation record"
+                      },
+                      "response": [
+                        {
+                          "id": "32967934-bb80-46cb-a8a0-621bfc1f2251",
+                          "name": "response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/lists/:id/translations/:language",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "lists",
+                                ":id",
+                                "translations",
+                                ":language"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "language"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": [\n    {\n      \"aliases\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"isAlias\": \"<boolean>\",\n      \"isPrimary\": \"<boolean>\",\n      \"language\": \"<string>\",\n      \"name\": \"<string>\",\n      \"overview\": \"<string>\",\n      \"tagline\": \"<string>\"\n    },\n    {\n      \"aliases\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"isAlias\": \"<boolean>\",\n      \"isPrimary\": \"<boolean>\",\n      \"language\": \"<string>\",\n      \"name\": \"<string>\",\n      \"overview\": \"<string>\",\n      \"tagline\": \"<string>\"\n    }\n  ],\n  \"status\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T19:53:02.000Z",
+                          "updatedAt": "2026-10-21T19:53:02.000Z",
+                          "uid": "35240-32967934-bb80-46cb-a8a0-621bfc1f2251"
+                        },
+                        {
+                          "id": "7753a169-9926-4548-a832-450b7a26f596",
+                          "name": "Invalid lists id",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/lists/:id/translations/:language",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "lists",
+                                ":id",
+                                "translations",
+                                ":language"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "language"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T19:53:02.000Z",
+                          "updatedAt": "2026-10-21T19:53:02.000Z",
+                          "uid": "35240-7753a169-9926-4548-a832-450b7a26f596"
+                        },
+                        {
+                          "id": "1670d873-cf65-40b3-93dc-5db313569c17",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/lists/:id/translations/:language",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "lists",
+                                ":id",
+                                "translations",
+                                ":language"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "language"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T19:53:02.000Z",
+                          "updatedAt": "2026-10-21T19:53:02.000Z",
+                          "uid": "35240-1670d873-cf65-40b3-93dc-5db313569c17"
+                        },
+                        {
+                          "id": "5ee35286-77a9-4b69-83cb-1386b013ece0",
+                          "name": "Lists not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/lists/:id/translations/:language",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "lists",
+                                ":id",
+                                "translations",
+                                ":language"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "language"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T19:53:02.000Z",
+                          "updatedAt": "2026-10-21T19:53:02.000Z",
+                          "uid": "35240-5ee35286-77a9-4b69-83cb-1386b013ece0"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:53:02.000Z",
+                      "updatedAt": "2026-10-21T19:53:02.000Z",
+                      "uid": "35240-993594c7-d001-421f-b178-d3b5eb7e00a8"
+                    }
+                  ],
+                  "id": "0ed6a7e6-52cd-4da1-ab47-c656b64b13a6",
+                  "createdAt": "2026-10-21T19:53:02.000Z",
+                  "updatedAt": "2026-10-21T19:53:02.000Z",
+                  "uid": "35240-0ed6a7e6-52cd-4da1-ab47-c656b64b13a6"
+                }
+              ],
+              "id": "0d6162ba-815e-4e80-b554-93402b8aa84c",
+              "createdAt": "2026-10-21T19:53:02.000Z",
+              "updatedAt": "2026-10-21T19:53:02.000Z",
+              "uid": "35240-0d6162ba-815e-4e80-b554-93402b8aa84c"
+            },
+            {
+              "name": "TheTVDB Get List",
+              "id": "6ba55e75-3303-49bb-84ba-d99813c3b72a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/lists/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "lists",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "aaa1ed59-8193-4342-97b2-e81f162d35af",
+                      "key": "id",
+                      "value": "<number>",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "description": "returns an list base record"
+              },
+              "response": [
+                {
+                  "id": "d35f0456-fb99-47af-a982-ba0ae61463b9",
+                  "name": "response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/lists/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "lists",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"aliases\": [\n      {\n        \"language\": \"<string>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"id\": \"<long>\",\n    \"image\": \"<string>\",\n    \"imageIsFallback\": \"<boolean>\",\n    \"isOfficial\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"nameTranslations\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"overview\": \"<string>\",\n    \"overviewTranslations\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"remoteIds\": [\n      {\n        \"id\": \"<string>\",\n        \"type\": \"<long>\",\n        \"sourceName\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"type\": \"<long>\",\n        \"sourceName\": \"<string>\"\n      }\n    ],\n    \"tags\": [\n      {\n        \"helpText\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"tag\": \"<long>\",\n        \"tagName\": \"<string>\"\n      },\n      {\n        \"helpText\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"tag\": \"<long>\",\n        \"tagName\": \"<string>\"\n      }\n    ],\n    \"score\": \"<integer>\",\n    \"url\": \"<string>\"\n  },\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T19:53:02.000Z",
+                  "updatedAt": "2026-10-21T19:53:02.000Z",
+                  "uid": "35240-d35f0456-fb99-47af-a982-ba0ae61463b9"
+                },
+                {
+                  "id": "dd309e62-c149-47b1-afce-72b8dec22adf",
+                  "name": "Invalid list id",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/lists/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "lists",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:53:02.000Z",
+                  "updatedAt": "2026-10-21T19:53:02.000Z",
+                  "uid": "35240-dd309e62-c149-47b1-afce-72b8dec22adf"
+                },
+                {
+                  "id": "e806bc71-01f2-4652-a3ef-0b1abbef2e49",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/lists/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "lists",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:53:02.000Z",
+                  "updatedAt": "2026-10-21T19:53:02.000Z",
+                  "uid": "35240-e806bc71-01f2-4652-a3ef-0b1abbef2e49"
+                },
+                {
+                  "id": "82992666-f295-4c99-acf3-a0481d4a4433",
+                  "name": "List not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/lists/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "lists",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:53:02.000Z",
+                  "updatedAt": "2026-10-21T19:53:02.000Z",
+                  "uid": "35240-82992666-f295-4c99-acf3-a0481d4a4433"
+                }
+              ],
+              "createdAt": "2026-10-21T19:53:02.000Z",
+              "updatedAt": "2026-10-21T19:53:02.000Z",
+              "uid": "35240-6ba55e75-3303-49bb-84ba-d99813c3b72a"
+            }
+          ],
+          "id": "8d040b94-d72a-4576-b1ed-bf4f41c14b69",
+          "createdAt": "2026-10-21T19:53:02.000Z",
+          "updatedAt": "2026-10-21T19:53:02.000Z",
+          "uid": "35240-8d040b94-d72a-4576-b1ed-bf4f41c14b69"
+        },
+        {
+          "name": "slug",
+          "item": [
+            {
+              "name": "{slug}",
+              "item": [
+                {
+                  "name": "TheTVDB Get List by Slug",
+                  "id": "7663851a-ecb9-40ed-a570-f5f32e01480f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/lists/slug/:slug",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "lists",
+                        "slug",
+                        ":slug"
+                      ],
+                      "variable": [
+                        {
+                          "id": "305ead93-0668-4a14-b747-c3773d738d2a",
+                          "key": "slug",
+                          "value": "<string>",
+                          "description": "(Required) slug"
+                        }
+                      ]
+                    },
+                    "description": "returns an list base record search by slug"
+                  },
+                  "response": [
+                    {
+                      "id": "0c4c8d09-50fc-4231-8b01-f805bd52c4f8",
+                      "name": "response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/lists/slug/:slug",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "lists",
+                            "slug",
+                            ":slug"
+                          ],
+                          "variable": [
+                            {
+                              "key": "slug"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"aliases\": [\n      {\n        \"language\": \"<string>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"id\": \"<long>\",\n    \"image\": \"<string>\",\n    \"imageIsFallback\": \"<boolean>\",\n    \"isOfficial\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"nameTranslations\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"overview\": \"<string>\",\n    \"overviewTranslations\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"remoteIds\": [\n      {\n        \"id\": \"<string>\",\n        \"type\": \"<long>\",\n        \"sourceName\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"type\": \"<long>\",\n        \"sourceName\": \"<string>\"\n      }\n    ],\n    \"tags\": [\n      {\n        \"helpText\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"tag\": \"<long>\",\n        \"tagName\": \"<string>\"\n      },\n      {\n        \"helpText\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"tag\": \"<long>\",\n        \"tagName\": \"<string>\"\n      }\n    ],\n    \"score\": \"<integer>\",\n    \"url\": \"<string>\"\n  },\n  \"status\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:53:02.000Z",
+                      "updatedAt": "2026-10-21T19:53:02.000Z",
+                      "uid": "35240-0c4c8d09-50fc-4231-8b01-f805bd52c4f8"
+                    },
+                    {
+                      "id": "7baef43b-5545-4d6e-b572-17b4878feb7b",
+                      "name": "Invalid list slug",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/lists/slug/:slug",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "lists",
+                            "slug",
+                            ":slug"
+                          ],
+                          "variable": [
+                            {
+                              "key": "slug"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T19:53:02.000Z",
+                      "updatedAt": "2026-10-21T19:53:02.000Z",
+                      "uid": "35240-7baef43b-5545-4d6e-b572-17b4878feb7b"
+                    },
+                    {
+                      "id": "2f90089b-6dfe-4d59-9782-122eb46efd92",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/lists/slug/:slug",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "lists",
+                            "slug",
+                            ":slug"
+                          ],
+                          "variable": [
+                            {
+                              "key": "slug"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T19:53:02.000Z",
+                      "updatedAt": "2026-10-21T19:53:02.000Z",
+                      "uid": "35240-2f90089b-6dfe-4d59-9782-122eb46efd92"
+                    },
+                    {
+                      "id": "59479dd4-3a4d-4206-aedd-d49ea45f53aa",
+                      "name": "List not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/lists/slug/:slug",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "lists",
+                            "slug",
+                            ":slug"
+                          ],
+                          "variable": [
+                            {
+                              "key": "slug"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T19:53:02.000Z",
+                      "updatedAt": "2026-10-21T19:53:02.000Z",
+                      "uid": "35240-59479dd4-3a4d-4206-aedd-d49ea45f53aa"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:53:02.000Z",
+                  "updatedAt": "2026-10-21T19:53:02.000Z",
+                  "uid": "35240-7663851a-ecb9-40ed-a570-f5f32e01480f"
+                }
+              ],
+              "id": "53610ba6-8f42-4a71-80e1-03ff14691996",
+              "createdAt": "2026-10-21T19:53:02.000Z",
+              "updatedAt": "2026-10-21T19:53:02.000Z",
+              "uid": "35240-53610ba6-8f42-4a71-80e1-03ff14691996"
+            }
+          ],
+          "id": "594d9003-68ae-43c4-a3d8-19ce97a1c99a",
+          "createdAt": "2026-10-21T19:53:02.000Z",
+          "updatedAt": "2026-10-21T19:53:02.000Z",
+          "uid": "35240-594d9003-68ae-43c4-a3d8-19ce97a1c99a"
+        },
+        {
+          "name": "TheTVDB Get All Lists",
+          "id": "ea52ab7a-7ba3-424f-8195-e26f40276851",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
             "url": {
+              "raw": "{{baseUrl}}/lists?page=<number>",
+              "host": [
+                "{{baseUrl}}"
+              ],
               "path": [
                 "lists"
               ],
-              "host": [
-                "{{baseUrl}}"
-              ],
               "query": [
                 {
-                  "disabled": false,
+                  "description": "page number",
                   "key": "page",
-                  "value": "<number>",
-                  "description": "page number"
+                  "value": "<number>"
                 }
-              ],
-              "variable": []
+              ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
+            "description": "returns list of list base records"
           },
           "response": [
             {
-              "id": "9aa1771f-2c45-45e2-85ec-bdb505ec6ba7",
+              "id": "2a2234a7-8182-409c-a79b-7679471abc0c",
               "name": "response",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/lists?page=<number>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "lists"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "page number",
                       "key": "page",
-                      "value": "1"
+                      "value": "<number>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"data\": [\n    {\n      \"aliases\": [\n        {\n          \"language\": \"eng\",\n          \"name\": \"Example Name\"\n        }\n      ],\n      \"id\": 12345,\n      \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n      \"imageIsFallback\": true,\n      \"isOfficial\": true,\n      \"name\": \"Example Name\",\n      \"nameTranslations\": [\n        \"example\"\n      ],\n      \"overview\": \"A descriptive paragraph of text.\",\n      \"overviewTranslations\": [\n        \"example\"\n      ],\n      \"remoteIds\": [\n        {\n          \"id\": \"abc123\",\n          \"type\": 12345,\n          \"sourceName\": \"example\"\n        }\n      ],\n      \"tags\": [\n        {\n          \"helpText\": \"example\",\n          \"id\": 12345,\n          \"name\": \"Example Name\",\n          \"tag\": 12345,\n          \"tagName\": \"example\"\n        }\n      ],\n      \"score\": 100,\n      \"url\": \"https://artworks.thetvdb.com/banners/example.jpg\"\n    }\n  ],\n  \"status\": \"Continuing\",\n  \"links\": {\n    \"prev\": \"example\",\n    \"self\": \"example\",\n    \"next\": \"example\",\n    \"total_items\": 1,\n    \"page_size\": 1\n  }\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"aliases\": [\n        {\n          \"language\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"language\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ],\n      \"id\": \"<long>\",\n      \"image\": \"<string>\",\n      \"imageIsFallback\": \"<boolean>\",\n      \"isOfficial\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"nameTranslations\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"overview\": \"<string>\",\n      \"overviewTranslations\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"remoteIds\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<long>\",\n          \"sourceName\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<long>\",\n          \"sourceName\": \"<string>\"\n        }\n      ],\n      \"tags\": [\n        {\n          \"helpText\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"tag\": \"<long>\",\n          \"tagName\": \"<string>\"\n        },\n        {\n          \"helpText\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"tag\": \"<long>\",\n          \"tagName\": \"<string>\"\n        }\n      ],\n      \"score\": \"<integer>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"aliases\": [\n        {\n          \"language\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"language\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ],\n      \"id\": \"<long>\",\n      \"image\": \"<string>\",\n      \"imageIsFallback\": \"<boolean>\",\n      \"isOfficial\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"nameTranslations\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"overview\": \"<string>\",\n      \"overviewTranslations\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"remoteIds\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<long>\",\n          \"sourceName\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<long>\",\n          \"sourceName\": \"<string>\"\n        }\n      ],\n      \"tags\": [\n        {\n          \"helpText\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"tag\": \"<long>\",\n          \"tagName\": \"<string>\"\n        },\n        {\n          \"helpText\": \"<string>\",\n          \"id\": \"<long>\",\n          \"name\": \"<string>\",\n          \"tag\": \"<long>\",\n          \"tagName\": \"<string>\"\n        }\n      ],\n      \"score\": \"<integer>\",\n      \"url\": \"<string>\"\n    }\n  ],\n  \"status\": \"<string>\",\n  \"links\": {\n    \"prev\": \"<string,null>\",\n    \"self\": \"<string,null>\",\n    \"next\": \"<string>\",\n    \"total_items\": \"<integer>\",\n    \"page_size\": \"<integer>\"\n  }\n}",
+              "createdAt": "2026-10-21T19:53:02.000Z",
+              "updatedAt": "2026-10-21T19:53:02.000Z",
+              "uid": "35240-2a2234a7-8182-409c-a79b-7679471abc0c"
             },
             {
-              "id": "76c747a7-b7c1-40a8-9873-ffd77dfee500",
+              "id": "0db567bf-8c5a-4b6d-a4c8-9c79117a9a77",
               "name": "Unauthorized",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/lists?page=<number>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "lists"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "page number",
                       "key": "page",
-                      "value": "1"
+                      "value": "<number>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "Unauthorized",
               "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:53:02.000Z",
+              "updatedAt": "2026-10-21T19:53:02.000Z",
+              "uid": "35240-0db567bf-8c5a-4b6d-a4c8-9c79117a9a77"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a5edf6e7-3401-4690-96a0-c227077f1e88",
-          "name": "TheTVDB Get List",
-          "request": {
-            "name": "TheTVDB Get List",
-            "description": {
-              "content": "returns an list base record",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "lists",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<number>",
-                  "key": "id",
-                  "description": "(Required) id"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "86bf6cd9-5ada-447b-91ba-d9a8e5a6b23a",
-              "name": "response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "lists",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": {\n    \"aliases\": [\n      {\n        \"language\": \"eng\",\n        \"name\": \"Example Name\"\n      }\n    ],\n    \"id\": 12345,\n    \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n    \"imageIsFallback\": true,\n    \"isOfficial\": true,\n    \"name\": \"Example Name\",\n    \"nameTranslations\": [\n      \"example\"\n    ],\n    \"overview\": \"A descriptive paragraph of text.\",\n    \"overviewTranslations\": [\n      \"example\"\n    ],\n    \"remoteIds\": [\n      {\n        \"id\": \"abc123\",\n        \"type\": 12345,\n        \"sourceName\": \"example\"\n      }\n    ],\n    \"tags\": [\n      {\n        \"helpText\": \"example\",\n        \"id\": 12345,\n        \"name\": \"Example Name\",\n        \"tag\": 12345,\n        \"tagName\": \"example\"\n      }\n    ],\n    \"score\": 100,\n    \"url\": \"https://artworks.thetvdb.com/banners/example.jpg\"\n  },\n  \"status\": \"Continuing\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "01374585-f7a7-4131-8881-82f276709af7",
-              "name": "Invalid list id",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "lists",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "9f9682c9-602b-4c40-b969-17d0b4cfacdd",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "lists",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "17366168-0c1e-4b85-8995-41ccacd55d07",
-              "name": "List not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "lists",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "3ff394dd-843e-4b94-80d9-5710ca875f33",
-          "name": "TheTVDB Get List by Slug",
-          "request": {
-            "name": "TheTVDB Get List by Slug",
-            "description": {
-              "content": "returns an list base record search by slug",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "lists",
-                "slug",
-                ":slug"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "slug",
-                  "description": "(Required) slug"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "c4371af7-f180-4a25-ad5b-4d1b3e0b10c4",
-              "name": "response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "lists",
-                    "slug",
-                    ":slug"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "slug",
-                      "description": "(Required) slug"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": {\n    \"aliases\": [\n      {\n        \"language\": \"eng\",\n        \"name\": \"Example Name\"\n      }\n    ],\n    \"id\": 12345,\n    \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n    \"imageIsFallback\": true,\n    \"isOfficial\": true,\n    \"name\": \"Example Name\",\n    \"nameTranslations\": [\n      \"example\"\n    ],\n    \"overview\": \"A descriptive paragraph of text.\",\n    \"overviewTranslations\": [\n      \"example\"\n    ],\n    \"remoteIds\": [\n      {\n        \"id\": \"abc123\",\n        \"type\": 12345,\n        \"sourceName\": \"example\"\n      }\n    ],\n    \"tags\": [\n      {\n        \"helpText\": \"example\",\n        \"id\": 12345,\n        \"name\": \"Example Name\",\n        \"tag\": 12345,\n        \"tagName\": \"example\"\n      }\n    ],\n    \"score\": 100,\n    \"url\": \"https://artworks.thetvdb.com/banners/example.jpg\"\n  },\n  \"status\": \"Continuing\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "db0552a8-29e2-4147-9dbe-50c6128062e3",
-              "name": "Invalid list slug",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "lists",
-                    "slug",
-                    ":slug"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "slug",
-                      "description": "(Required) slug"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "352437b5-32e4-42e8-800f-8effcd430bcb",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "lists",
-                    "slug",
-                    ":slug"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "slug",
-                      "description": "(Required) slug"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "5e5dc982-c03f-41cc-902a-dd6fbd8ff76b",
-              "name": "List not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "lists",
-                    "slug",
-                    ":slug"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "slug",
-                      "description": "(Required) slug"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "89e65386-252a-4a64-bda3-ca5756611bb6",
-          "name": "TheTVDB Get List Extended",
-          "request": {
-            "name": "TheTVDB Get List Extended",
-            "description": {
-              "content": "returns a list extended record",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "lists",
-                ":id",
-                "extended"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<number>",
-                  "key": "id",
-                  "description": "(Required) id"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "3ff526db-6a92-4569-a346-688c38cbe611",
-              "name": "response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "lists",
-                    ":id",
-                    "extended"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": {\n    \"aliases\": [\n      {\n        \"language\": \"eng\",\n        \"name\": \"Example Name\"\n      }\n    ],\n    \"entities\": [\n      {\n        \"movieId\": 12345,\n        \"order\": 12345,\n        \"seriesId\": 12345\n      }\n    ],\n    \"id\": 12345,\n    \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n    \"imageIsFallback\": true,\n    \"isOfficial\": true,\n    \"name\": \"Example Name\",\n    \"nameTranslations\": [\n      \"example\"\n    ],\n    \"overview\": \"A descriptive paragraph of text.\",\n    \"overviewTranslations\": [\n      \"example\"\n    ],\n    \"score\": 100,\n    \"url\": \"https://artworks.thetvdb.com/banners/example.jpg\"\n  },\n  \"status\": \"Continuing\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "1a44a2b2-42b4-48d7-93d0-cd7fe607f222",
-              "name": "Invalid list id",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "lists",
-                    ":id",
-                    "extended"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "0ea788ff-6c1d-4782-b276-157318352126",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "lists",
-                    ":id",
-                    "extended"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "a811914a-95de-42d0-89bf-0020ef1b90b4",
-              "name": "Lists not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "lists",
-                    ":id",
-                    "extended"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e826d998-f741-443d-84a2-617071431993",
-          "name": "TheTVDB Get List Translation",
-          "request": {
-            "name": "TheTVDB Get List Translation",
-            "description": {
-              "content": "Returns list translation record",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "lists",
-                ":id",
-                "translations",
-                ":language"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<number>",
-                  "key": "id",
-                  "description": "(Required) id"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "language",
-                  "description": "(Required) language"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "1c35d500-28cd-4203-8273-53d962b954f5",
-              "name": "response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "lists",
-                    ":id",
-                    "translations",
-                    ":language"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "language",
-                      "description": "(Required) language"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": [\n    {\n      \"aliases\": [\n        \"example\"\n      ],\n      \"isAlias\": true,\n      \"isPrimary\": true,\n      \"language\": \"eng\",\n      \"name\": \"Example Name\",\n      \"overview\": \"A descriptive paragraph of text.\",\n      \"tagline\": \"example\"\n    }\n  ],\n  \"status\": \"Continuing\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "87bbce1e-e361-4a4d-af24-c8337379d802",
-              "name": "Invalid lists id",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "lists",
-                    ":id",
-                    "translations",
-                    ":language"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "language",
-                      "description": "(Required) language"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "7504afd9-9df7-4477-90ca-0c6f37694df6",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "lists",
-                    ":id",
-                    "translations",
-                    ":language"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "language",
-                      "description": "(Required) language"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "c5ef0738-2a33-4469-803f-2b92a8a9beba",
-              "name": "Lists not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "lists",
-                    ":id",
-                    "translations",
-                    ":language"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "language",
-                      "description": "(Required) language"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-21T19:53:02.000Z",
+          "updatedAt": "2026-10-21T19:53:02.000Z",
+          "uid": "35240-ea52ab7a-7ba3-424f-8195-e26f40276851"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api4.thetvdb.com/v4",
-      "key": "baseUrl"
+      "id": "db6a3369-e485-4745-9fe8-3629e5f4bab4",
+      "createdAt": "2026-10-21T19:53:02.000Z",
+      "updatedAt": "2026-10-21T19:53:02.000Z",
+      "uid": "35240-db6a3369-e485-4745-9fe8-3629e5f4bab4"
     }
   ],
   "auth": {
@@ -1174,17 +1064,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "5fc3a9c7-5032-47c6-a822-f043f9648352",
-    "name": "TVDB API V4 Artwork Lists API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Documentation of [TheTVDB](https://thetvdb.com/) API V4. All related information is linked from our [Github repo](https://github.com/thetvdb/v4-api). You might also want to use our [Postman collection] (https://www.getpostman.com/collections/7a9397ce69ff246f74d0)\n## Authentication\n1. Use the /login endpoint and provide your API key as \"apikey\". If you have a user-supported key, also provide your subscriber PIN as \"pin\". Otherwise completely remove \"pin\" from your call.\n2. Executing this call will provide you with a bearer token, which is valid for 1 month.\n3. Provide your bearer token for subsequent API calls by clicking Authorize below or including in the header of all direct API calls: `Authorization: Bearer [your-token]`\n\n## Notes\n1. \"score\" is a field across almost all entities.  We generate scores for different types of entities in various ways, so no assumptions should be made about the meaning of this value.  It is simply used to hint at relative popularity for sorting purposes.\n",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api4.thetvdb.com/v4"
     }
-  }
+  ]
 }

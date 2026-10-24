@@ -1,143 +1,141 @@
 {
+  "info": {
+    "_postman_id": "55cf71ec-5fda-495c-b458-26885a77b7b9",
+    "name": "TVDB API V4 Movie Statuses API",
+    "description": "Documentation of TheTVDB API V4.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:53:13.000Z",
+    "updatedAt": "2026-10-21T19:53:14.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-55cf71ec-5fda-495c-b458-26885a77b7b9"
+  },
   "item": [
     {
-      "id": "cc627db9-5afa-42ce-a2e9-d963845b6f1a",
-      "name": "Movie Statuses",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "movies",
       "item": [
         {
-          "id": "be4cd20c-693d-405c-a73e-484faca2896b",
-          "name": "TheTVDB Get All Movie Statuses",
-          "request": {
-            "name": "TheTVDB Get All Movie Statuses",
-            "description": {
-              "content": "returns list of status records",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "movies",
-                "statuses"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "statuses",
+          "item": [
             {
-              "id": "ba0d7057-16cd-4dff-838c-5f2d15e5df2c",
-              "name": "response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "movies",
-                    "statuses"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+              "name": "TheTVDB Get All Movie Statuses",
+              "id": "3f6585e4-a837-47f9-86ce-2c730061ca79",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": [\n    {\n      \"id\": 12345,\n      \"keepUpdated\": \"2024-01-15\",\n      \"name\": \"Example Name\",\n      \"recordType\": \"example\"\n    }\n  ],\n  \"status\": \"Continuing\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "7eec6a45-f4d1-462a-9e58-c97650874d72",
-              "name": "Unauthorized",
-              "originalRequest": {
                 "url": {
-                  "path": [
-                    "movies",
-                    "statuses"
-                  ],
+                  "raw": "{{baseUrl}}/movies/statuses",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": []
+                  "path": [
+                    "movies",
+                    "statuses"
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                "description": "returns list of status records"
               },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "74416d26-476a-482c-866e-b3c7d4d3474a",
+                  "name": "response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/movies/statuses",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "movies",
+                        "statuses"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"id\": \"<integer,null-int64>\",\n      \"keepUpdated\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"recordType\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer,null-int64>\",\n      \"keepUpdated\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"recordType\": \"<string>\"\n    }\n  ],\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T19:53:14.000Z",
+                  "updatedAt": "2026-10-21T19:53:14.000Z",
+                  "uid": "35240-74416d26-476a-482c-866e-b3c7d4d3474a"
+                },
+                {
+                  "id": "ac894b11-5bdf-4c38-b09d-931727dcb2e7",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/movies/statuses",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "movies",
+                        "statuses"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:53:14.000Z",
+                  "updatedAt": "2026-10-21T19:53:14.000Z",
+                  "uid": "35240-ac894b11-5bdf-4c38-b09d-931727dcb2e7"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-21T19:53:14.000Z",
+              "updatedAt": "2026-10-21T19:53:14.000Z",
+              "uid": "35240-3f6585e4-a837-47f9-86ce-2c730061ca79"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "014144db-d4a3-4380-8878-82fcc390a326",
+          "createdAt": "2026-10-21T19:53:14.000Z",
+          "updatedAt": "2026-10-21T19:53:14.000Z",
+          "uid": "35240-014144db-d4a3-4380-8878-82fcc390a326"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api4.thetvdb.com/v4",
-      "key": "baseUrl"
+      "id": "5eabc98b-d718-42ac-96b2-caf01bed36e0",
+      "createdAt": "2026-10-21T19:53:14.000Z",
+      "updatedAt": "2026-10-21T19:53:14.000Z",
+      "uid": "35240-5eabc98b-d718-42ac-96b2-caf01bed36e0"
     }
   ],
   "auth": {
@@ -145,17 +143,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "6ae7a4c3-2f2b-44c7-acd8-a682148417e8",
-    "name": "TVDB API V4 Artwork Movie Statuses API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Documentation of [TheTVDB](https://thetvdb.com/) API V4. All related information is linked from our [Github repo](https://github.com/thetvdb/v4-api). You might also want to use our [Postman collection] (https://www.getpostman.com/collections/7a9397ce69ff246f74d0)\n## Authentication\n1. Use the /login endpoint and provide your API key as \"apikey\". If you have a user-supported key, also provide your subscriber PIN as \"pin\". Otherwise completely remove \"pin\" from your call.\n2. Executing this call will provide you with a bearer token, which is valid for 1 month.\n3. Provide your bearer token for subsequent API calls by clicking Authorize below or including in the header of all direct API calls: `Authorization: Bearer [your-token]`\n\n## Notes\n1. \"score\" is a field across almost all entities.  We generate scores for different types of entities in various ways, so no assumptions should be made about the meaning of this value.  It is simply used to hint at relative popularity for sorting purposes.\n",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api4.thetvdb.com/v4"
     }
-  }
+  ]
 }

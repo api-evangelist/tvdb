@@ -1,1529 +1,1442 @@
 {
+  "info": {
+    "_postman_id": "bd83a00b-ac45-471a-96be-f98f788793ea",
+    "name": "TVDB API V4 Movies API",
+    "description": "Documentation of TheTVDB API V4.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:53:20.000Z",
+    "updatedAt": "2026-10-21T19:53:20.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-bd83a00b-ac45-471a-96be-f98f788793ea"
+  },
   "item": [
     {
-      "id": "fcc4d243-3ed6-4147-b98e-412b196d65c1",
-      "name": "Movies",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "movies",
       "item": [
         {
-          "id": "d180e2ee-f933-428a-82d7-ab34595baabe",
-          "name": "TheTVDB Get All Movie",
-          "request": {
-            "name": "TheTVDB Get All Movie",
-            "description": {
-              "content": "returns list of movie base records",
-              "type": "text/plain"
+          "name": "{id}",
+          "item": [
+            {
+              "name": "extended",
+              "item": [
+                {
+                  "name": "TheTVDB Get Movie Extended",
+                  "id": "63886d13-5189-4b55-8cd4-d6ae589eabe6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/movies/:id/extended?meta=translations&short=true",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "movies",
+                        ":id",
+                        "extended"
+                      ],
+                      "query": [
+                        {
+                          "description": "meta",
+                          "key": "meta",
+                          "value": "translations"
+                        },
+                        {
+                          "description": "reduce the payload and returns the short version of this record without characters, artworks and trailers.",
+                          "key": "short",
+                          "value": "true"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "2c53de6c-6296-4859-b15e-8e6036b8dde6",
+                          "key": "id",
+                          "value": "<number>",
+                          "description": "(Required) id"
+                        }
+                      ]
+                    },
+                    "description": "Returns movie extended record"
+                  },
+                  "response": [
+                    {
+                      "id": "f70acecf-8bb9-4df1-9fc4-dc0b62854406",
+                      "name": "response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/movies/:id/extended?meta=translations&short=true",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "movies",
+                            ":id",
+                            "extended"
+                          ],
+                          "query": [
+                            {
+                              "description": "meta",
+                              "key": "meta",
+                              "value": "translations"
+                            },
+                            {
+                              "description": "reduce the payload and returns the short version of this record without characters, artworks and trailers.",
+                              "key": "short",
+                              "value": "true"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"aliases\": [\n      {\n        \"language\": \"<string>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"artworks\": [\n      {\n        \"height\": \"<long>\",\n        \"id\": \"<integer>\",\n        \"image\": \"<string>\",\n        \"includesText\": \"<boolean>\",\n        \"language\": \"<string>\",\n        \"score\": \"<number>\",\n        \"thumbnail\": \"<string>\",\n        \"type\": \"<long>\",\n        \"width\": \"<long>\"\n      },\n      {\n        \"height\": \"<long>\",\n        \"id\": \"<integer>\",\n        \"image\": \"<string>\",\n        \"includesText\": \"<boolean>\",\n        \"language\": \"<string>\",\n        \"score\": \"<number>\",\n        \"thumbnail\": \"<string>\",\n        \"type\": \"<long>\",\n        \"width\": \"<long>\"\n      }\n    ],\n    \"audioLanguages\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"awards\": [\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"boxOffice\": \"<string>\",\n    \"boxOfficeUS\": \"<string>\",\n    \"budget\": \"<string>\",\n    \"characters\": [\n      {\n        \"aliases\": [\n          {\n            \"language\": \"<string>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"language\": \"<string>\",\n            \"name\": \"<string>\"\n          }\n        ],\n        \"episode\": {\n          \"image\": \"<string>\",\n          \"name\": \"<string>\",\n          \"year\": \"<string>\"\n        },\n        \"episodeId\": \"<integer,null>\",\n        \"id\": \"<long>\",\n        \"image\": \"<string>\",\n        \"isFeatured\": \"<boolean>\",\n        \"movieId\": \"<integer,null>\",\n        \"movie\": {\n          \"image\": \"<string>\",\n          \"name\": \"<string>\",\n          \"year\": \"<string>\"\n        },\n        \"name\": \"<string>\",\n        \"nameTranslations\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"overviewTranslations\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"peopleId\": \"<integer>\",\n        \"personImgURL\": \"<string>\",\n        \"peopleType\": \"<string>\",\n        \"seriesId\": \"<integer,null>\",\n        \"series\": {\n          \"image\": \"<string>\",\n          \"name\": \"<string>\",\n          \"year\": \"<string>\"\n        },\n        \"sort\": \"<long>\",\n        \"tagOptions\": [\n          {\n            \"helpText\": \"<string>\",\n            \"id\": \"<long>\",\n            \"name\": \"<string>\",\n            \"tag\": \"<long>\",\n            \"tagName\": \"<string>\"\n          },\n          {\n            \"helpText\": \"<string>\",\n            \"id\": \"<long>\",\n            \"name\": \"<string>\",\n            \"tag\": \"<long>\",\n            \"tagName\": \"<string>\"\n          }\n        ],\n        \"type\": \"<long>\",\n        \"url\": \"<string>\",\n        \"personName\": \"<string>\"\n      },\n      {\n        \"aliases\": [\n          {\n            \"language\": \"<string>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"language\": \"<string>\",\n            \"name\": \"<string>\"\n          }\n        ],\n        \"episode\": {\n          \"image\": \"<string>\",\n          \"name\": \"<string>\",\n          \"year\": \"<string>\"\n        },\n        \"episodeId\": \"<integer,null>\",\n        \"id\": \"<long>\",\n        \"image\": \"<string>\",\n        \"isFeatured\": \"<boolean>\",\n        \"movieId\": \"<integer,null>\",\n        \"movie\": {\n          \"image\": \"<string>\",\n          \"name\": \"<string>\",\n          \"year\": \"<string>\"\n        },\n        \"name\": \"<string>\",\n        \"nameTranslations\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"overviewTranslations\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"peopleId\": \"<integer>\",\n        \"personImgURL\": \"<string>\",\n        \"peopleType\": \"<string>\",\n        \"seriesId\": \"<integer,null>\",\n        \"series\": {\n          \"image\": \"<string>\",\n          \"name\": \"<string>\",\n          \"year\": \"<string>\"\n        },\n        \"sort\": \"<long>\",\n        \"tagOptions\": [\n          {\n            \"helpText\": \"<string>\",\n            \"id\": \"<long>\",\n            \"name\": \"<string>\",\n            \"tag\": \"<long>\",\n            \"tagName\": \"<string>\"\n          },\n          {\n            \"helpText\": \"<string>\",\n            \"id\": \"<long>\",\n            \"name\": \"<string>\",\n            \"tag\": \"<long>\",\n            \"tagName\": \"<string>\"\n          }\n        ],\n        \"type\": \"<long>\",\n        \"url\": \"<string>\",\n        \"personName\": \"<string>\"\n      }\n    ],\n    \"companies\": {\n      \"studio\": [\n        {\n          \"activeDate\": \"<string>\",\n          \"aliases\": [\n            {\n              \"language\": \"<string>\",\n              \"name\": \"<string>\"\n            },\n            {\n              \"language\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          ],\n          \"country\": \"<string>\",\n          \"id\": \"<long>\",\n          \"inactiveDate\": \"<string>\",\n          \"name\": \"<string>\",\n          \"nameTranslations\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"overviewTranslations\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"primaryCompanyType\": \"<integer,null-int64>\",\n          \"slug\": \"<string>\",\n          \"parentCompany\": {\n            \"id\": \"<integer,null>\",\n            \"name\": \"<string>\",\n            \"relation\": {\n              \"id\": \"<integer,null>\",\n              \"typeName\": \"<string>\"\n            }\n          },\n          \"tagOptions\": [\n            {\n              \"helpText\": \"<string>\",\n              \"id\": \"<long>\",\n              \"name\": \"<string>\",\n              \"tag\": \"<long>\",\n              \"tagName\": \"<string>\"\n            },\n            {\n              \"helpText\": \"<string>\",\n              \"id\": \"<long>\",\n              \"name\": \"<string>\",\n              \"tag\": \"<long>\",\n              \"tagName\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"activeDate\": \"<string>\",\n          \"aliases\": [\n            {\n              \"language\": \"<string>\",\n              \"name\": \"<string>\"\n            },\n            {\n              \"language\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          ],\n          \"country\": \"<string>\",\n          \"id\": \"<long>\",\n          \"inactiveDate\": \"<string>\",\n          \"name\": \"<string>\",\n          \"nameTranslations\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"overviewTranslations\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"primaryCompanyType\": \"<integer,null-int64>\",\n          \"slug\": \"<string>\",\n          \"parentCompany\": {\n            \"id\": \"<integer,null>\",\n            \"name\": \"<string>\",\n            \"relation\": {\n              \"id\": \"<integer,null>\",\n              \"typeName\": \"<string>\"\n            }\n          },\n          \"tagOptions\": [\n            {\n              \"helpText\": \"<string>\",\n              \"id\": \"<long>\",\n              \"name\": \"<string>\",\n              \"tag\": \"<long>\",\n              \"tagName\": \"<string>\"\n            },\n            {\n              \"helpText\": \"<string>\",\n              \"id\": \"<long>\",\n              \"name\": \"<string>\",\n              \"tag\": \"<long>\",\n              \"tagName\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"network\": [\n        {\n          \"activeDate\": \"<string>\",\n          \"aliases\": [\n            {\n              \"language\": \"<string>\",\n              \"name\": \"<string>\"\n            },\n            {\n              \"language\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          ],\n          \"country\": \"<string>\",\n          \"id\": \"<long>\",\n          \"inactiveDate\": \"<string>\",\n          \"name\": \"<string>\",\n          \"nameTranslations\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"overviewTranslations\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"primaryCompanyType\": \"<integer,null-int64>\",\n          \"slug\": \"<string>\",\n          \"parentCompany\": {\n            \"id\": \"<integer,null>\",\n            \"name\": \"<string>\",\n            \"relation\": {\n              \"id\": \"<integer,null>\",\n              \"typeName\": \"<string>\"\n            }\n          },\n          \"tagOptions\": [\n            {\n              \"helpText\": \"<string>\",\n              \"id\": \"<long>\",\n              \"name\": \"<string>\",\n              \"tag\": \"<long>\",\n              \"tagName\": \"<string>\"\n            },\n            {\n              \"helpText\": \"<string>\",\n              \"id\": \"<long>\",\n              \"name\": \"<string>\",\n              \"tag\": \"<long>\",\n              \"tagName\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"activeDate\": \"<string>\",\n          \"aliases\": [\n            {\n              \"language\": \"<string>\",\n              \"name\": \"<string>\"\n            },\n            {\n              \"language\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          ],\n          \"country\": \"<string>\",\n          \"id\": \"<long>\",\n          \"inactiveDate\": \"<string>\",\n          \"name\": \"<string>\",\n          \"nameTranslations\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"overviewTranslations\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"primaryCompanyType\": \"<integer,null-int64>\",\n          \"slug\": \"<string>\",\n          \"parentCompany\": {\n            \"id\": \"<integer,null>\",\n            \"name\": \"<string>\",\n            \"relation\": {\n              \"id\": \"<integer,null>\",\n              \"typeName\": \"<string>\"\n            }\n          },\n          \"tagOptions\": [\n            {\n              \"helpText\": \"<string>\",\n              \"id\": \"<long>\",\n              \"name\": \"<string>\",\n              \"tag\": \"<long>\",\n              \"tagName\": \"<string>\"\n            },\n            {\n              \"helpText\": \"<string>\",\n              \"id\": \"<long>\",\n              \"name\": \"<string>\",\n              \"tag\": \"<long>\",\n              \"tagName\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"production\": [\n        {\n          \"activeDate\": \"<string>\",\n          \"aliases\": [\n            {\n              \"language\": \"<string>\",\n              \"name\": \"<string>\"\n            },\n            {\n              \"language\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          ],\n          \"country\": \"<string>\",\n          \"id\": \"<long>\",\n          \"inactiveDate\": \"<string>\",\n          \"name\": \"<string>\",\n          \"nameTranslations\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"overviewTranslations\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"primaryCompanyType\": \"<integer,null-int64>\",\n          \"slug\": \"<string>\",\n          \"parentCompany\": {\n            \"id\": \"<integer,null>\",\n            \"name\": \"<string>\",\n            \"relation\": {\n              \"id\": \"<integer,null>\",\n              \"typeName\": \"<string>\"\n            }\n          },\n          \"tagOptions\": [\n            {\n              \"helpText\": \"<string>\",\n              \"id\": \"<long>\",\n              \"name\": \"<string>\",\n              \"tag\": \"<long>\",\n              \"tagName\": \"<string>\"\n            },\n            {\n              \"helpText\": \"<string>\",\n              \"id\": \"<long>\",\n              \"name\": \"<string>\",\n              \"tag\": \"<long>\",\n              \"tagName\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"activeDate\": \"<string>\",\n          \"aliases\": [\n            {\n              \"language\": \"<string>\",\n              \"name\": \"<string>\"\n            },\n            {\n              \"language\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          ],\n          \"country\": \"<string>\",\n          \"id\": \"<long>\",\n          \"inactiveDate\": \"<string>\",\n          \"name\": \"<string>\",\n          \"nameTranslations\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"overviewTranslations\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"primaryCompanyType\": \"<integer,null-int64>\",\n          \"slug\": \"<string>\",\n          \"parentCompany\": {\n            \"id\": \"<integer,null>\",\n            \"name\": \"<string>\",\n            \"relation\": {\n              \"id\": \"<integer,null>\",\n              \"typeName\": \"<string>\"\n            }\n          },\n          \"tagOptions\": [\n            {\n              \"helpText\": \"<string>\",\n              \"id\": \"<long>\",\n              \"name\": \"<string>\",\n              \"tag\": \"<long>\",\n              \"tagName\": \"<string>\"\n            },\n            {\n              \"helpText\": \"<string>\",\n              \"id\": \"<long>\",\n              \"name\": \"<string>\",\n              \"tag\": \"<long>\",\n              \"tagName\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"distributor\": [\n        {\n          \"activeDate\": \"<string>\",\n          \"aliases\": [\n            {\n              \"language\": \"<string>\",\n              \"name\": \"<string>\"\n            },\n            {\n              \"language\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          ],\n          \"country\": \"<string>\",\n          \"id\": \"<long>\",\n          \"inactiveDate\": \"<string>\",\n          \"name\": \"<string>\",\n          \"nameTranslations\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"overviewTranslations\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"primaryCompanyType\": \"<integer,null-int64>\",\n          \"slug\": \"<string>\",\n          \"parentCompany\": {\n            \"id\": \"<integer,null>\",\n            \"name\": \"<string>\",\n            \"relation\": {\n              \"id\": \"<integer,null>\",\n              \"typeName\": \"<string>\"\n            }\n          },\n          \"tagOptions\": [\n            {\n              \"helpText\": \"<string>\",\n              \"id\": \"<long>\",\n              \"name\": \"<string>\",\n              \"tag\": \"<long>\",\n              \"tagName\": \"<string>\"\n            },\n            {\n              \"helpText\": \"<string>\",\n              \"id\": \"<long>\",\n              \"name\": \"<string>\",\n              \"tag\": \"<long>\",\n              \"tagName\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"activeDate\": \"<string>\",\n          \"aliases\": [\n            {\n              \"language\": \"<string>\",\n              \"name\": \"<string>\"\n            },\n            {\n              \"language\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          ],\n          \"country\": \"<string>\",\n          \"id\": \"<long>\",\n          \"inactiveDate\": \"<string>\",\n          \"name\": \"<string>\",\n          \"nameTranslations\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"overviewTranslations\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"primaryCompanyType\": \"<integer,null-int64>\",\n          \"slug\": \"<string>\",\n          \"parentCompany\": {\n            \"id\": \"<integer,null>\",\n            \"name\": \"<string>\",\n            \"relation\": {\n              \"id\": \"<integer,null>\",\n              \"typeName\": \"<string>\"\n            }\n          },\n          \"tagOptions\": [\n            {\n              \"helpText\": \"<string>\",\n              \"id\": \"<long>\",\n              \"name\": \"<string>\",\n              \"tag\": \"<long>\",\n              \"tagName\": \"<string>\"\n            },\n            {\n              \"helpText\": \"<string>\",\n              \"id\": \"<long>\",\n              \"name\": \"<string>\",\n              \"tag\": \"<long>\",\n              \"tagName\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"special_effects\": [\n        {\n          \"activeDate\": \"<string>\",\n          \"aliases\": [\n            {\n              \"language\": \"<string>\",\n              \"name\": \"<string>\"\n            },\n            {\n              \"language\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          ],\n          \"country\": \"<string>\",\n          \"id\": \"<long>\",\n          \"inactiveDate\": \"<string>\",\n          \"name\": \"<string>\",\n          \"nameTranslations\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"overviewTranslations\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"primaryCompanyType\": \"<integer,null-int64>\",\n          \"slug\": \"<string>\",\n          \"parentCompany\": {\n            \"id\": \"<integer,null>\",\n            \"name\": \"<string>\",\n            \"relation\": {\n              \"id\": \"<integer,null>\",\n              \"typeName\": \"<string>\"\n            }\n          },\n          \"tagOptions\": [\n            {\n              \"helpText\": \"<string>\",\n              \"id\": \"<long>\",\n              \"name\": \"<string>\",\n              \"tag\": \"<long>\",\n              \"tagName\": \"<string>\"\n            },\n            {\n              \"helpText\": \"<string>\",\n              \"id\": \"<long>\",\n              \"name\": \"<string>\",\n              \"tag\": \"<long>\",\n              \"tagName\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"activeDate\": \"<string>\",\n          \"aliases\": [\n            {\n              \"language\": \"<string>\",\n              \"name\": \"<string>\"\n            },\n            {\n              \"language\": \"<string>\",\n              \"name\": \"<string>\"\n            }\n          ],\n          \"country\": \"<string>\",\n          \"id\": \"<long>\",\n          \"inactiveDate\": \"<string>\",\n          \"name\": \"<string>\",\n          \"nameTranslations\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"overviewTranslations\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"primaryCompanyType\": \"<integer,null-int64>\",\n          \"slug\": \"<string>\",\n          \"parentCompany\": {\n            \"id\": \"<integer,null>\",\n            \"name\": \"<string>\",\n            \"relation\": {\n              \"id\": \"<integer,null>\",\n              \"typeName\": \"<string>\"\n            }\n          },\n          \"tagOptions\": [\n            {\n              \"helpText\": \"<string>\",\n              \"id\": \"<long>\",\n              \"name\": \"<string>\",\n              \"tag\": \"<long>\",\n              \"tagName\": \"<string>\"\n            },\n            {\n              \"helpText\": \"<string>\",\n              \"id\": \"<long>\",\n              \"name\": \"<string>\",\n              \"tag\": \"<long>\",\n              \"tagName\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"contentRatings\": [\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"country\": \"<string>\",\n        \"contentType\": \"<string>\",\n        \"order\": \"<integer>\",\n        \"fullName\": \"<string>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"country\": \"<string>\",\n        \"contentType\": \"<string>\",\n        \"order\": \"<integer>\",\n        \"fullName\": \"<string>\"\n      }\n    ],\n    \"first_release\": {\n      \"country\": \"<string>\",\n      \"date\": \"<string>\",\n      \"detail\": \"<string>\"\n    },\n    \"genres\": [\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"slug\": \"<string>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"slug\": \"<string>\"\n      }\n    ],\n    \"id\": \"<long>\",\n    \"image\": \"<string>\",\n    \"inspirations\": [\n      {\n        \"id\": \"<long>\",\n        \"type\": \"<string>\",\n        \"type_name\": \"<string>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"type\": \"<string>\",\n        \"type_name\": \"<string>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"lastUpdated\": \"<string>\",\n    \"lists\": [\n      {\n        \"aliases\": [\n          {\n            \"language\": \"<string>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"language\": \"<string>\",\n            \"name\": \"<string>\"\n          }\n        ],\n        \"id\": \"<long>\",\n        \"image\": \"<string>\",\n        \"imageIsFallback\": \"<boolean>\",\n        \"isOfficial\": \"<boolean>\",\n        \"name\": \"<string>\",\n        \"nameTranslations\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"overview\": \"<string>\",\n        \"overviewTranslations\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"remoteIds\": [\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<long>\",\n            \"sourceName\": \"<string>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<long>\",\n            \"sourceName\": \"<string>\"\n          }\n        ],\n        \"tags\": [\n          {\n            \"helpText\": \"<string>\",\n            \"id\": \"<long>\",\n            \"name\": \"<string>\",\n            \"tag\": \"<long>\",\n            \"tagName\": \"<string>\"\n          },\n          {\n            \"helpText\": \"<string>\",\n            \"id\": \"<long>\",\n            \"name\": \"<string>\",\n            \"tag\": \"<long>\",\n            \"tagName\": \"<string>\"\n          }\n        ],\n        \"score\": \"<integer>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"aliases\": [\n          {\n            \"language\": \"<string>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"language\": \"<string>\",\n            \"name\": \"<string>\"\n          }\n        ],\n        \"id\": \"<long>\",\n        \"image\": \"<string>\",\n        \"imageIsFallback\": \"<boolean>\",\n        \"isOfficial\": \"<boolean>\",\n        \"name\": \"<string>\",\n        \"nameTranslations\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"overview\": \"<string>\",\n        \"overviewTranslations\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"remoteIds\": [\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<long>\",\n            \"sourceName\": \"<string>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<long>\",\n            \"sourceName\": \"<string>\"\n          }\n        ],\n        \"tags\": [\n          {\n            \"helpText\": \"<string>\",\n            \"id\": \"<long>\",\n            \"name\": \"<string>\",\n            \"tag\": \"<long>\",\n            \"tagName\": \"<string>\"\n          },\n          {\n            \"helpText\": \"<string>\",\n            \"id\": \"<long>\",\n            \"name\": \"<string>\",\n            \"tag\": \"<long>\",\n            \"tagName\": \"<string>\"\n          }\n        ],\n        \"score\": \"<integer>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\",\n    \"nameTranslations\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"originalCountry\": \"<string>\",\n    \"originalLanguage\": \"<string>\",\n    \"overviewTranslations\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"production_countries\": [\n      {\n        \"id\": \"<long>\",\n        \"country\": \"<string>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"country\": \"<string>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"releases\": [\n      {\n        \"country\": \"<string>\",\n        \"date\": \"<string>\",\n        \"detail\": \"<string>\"\n      },\n      {\n        \"country\": \"<string>\",\n        \"date\": \"<string>\",\n        \"detail\": \"<string>\"\n      }\n    ],\n    \"remoteIds\": [\n      {\n        \"id\": \"<string>\",\n        \"type\": \"<long>\",\n        \"sourceName\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"type\": \"<long>\",\n        \"sourceName\": \"<string>\"\n      }\n    ],\n    \"runtime\": \"<integer,null>\",\n    \"score\": \"<double>\",\n    \"slug\": \"<string>\",\n    \"spoken_languages\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"status\": {\n      \"id\": \"<integer,null-int64>\",\n      \"keepUpdated\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"recordType\": \"<string>\"\n    },\n    \"studios\": [\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"parentStudio\": \"<integer>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"parentStudio\": \"<integer>\"\n      }\n    ],\n    \"subtitleLanguages\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tagOptions\": [\n      {\n        \"helpText\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"tag\": \"<long>\",\n        \"tagName\": \"<string>\"\n      },\n      {\n        \"helpText\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"tag\": \"<long>\",\n        \"tagName\": \"<string>\"\n      }\n    ],\n    \"trailers\": [\n      {\n        \"id\": \"<long>\",\n        \"language\": \"<string>\",\n        \"name\": \"<string>\",\n        \"url\": \"<string>\",\n        \"runtime\": \"<integer>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"language\": \"<string>\",\n        \"name\": \"<string>\",\n        \"url\": \"<string>\",\n        \"runtime\": \"<integer>\"\n      }\n    ],\n    \"translations\": {\n      \"nameTranslations\": [\n        {\n          \"aliases\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"isAlias\": \"<boolean>\",\n          \"isPrimary\": \"<boolean>\",\n          \"language\": \"<string>\",\n          \"name\": \"<string>\",\n          \"overview\": \"<string>\",\n          \"tagline\": \"<string>\"\n        },\n        {\n          \"aliases\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"isAlias\": \"<boolean>\",\n          \"isPrimary\": \"<boolean>\",\n          \"language\": \"<string>\",\n          \"name\": \"<string>\",\n          \"overview\": \"<string>\",\n          \"tagline\": \"<string>\"\n        }\n      ],\n      \"overviewTranslations\": [\n        {\n          \"aliases\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"isAlias\": \"<boolean>\",\n          \"isPrimary\": \"<boolean>\",\n          \"language\": \"<string>\",\n          \"name\": \"<string>\",\n          \"overview\": \"<string>\",\n          \"tagline\": \"<string>\"\n        },\n        {\n          \"aliases\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"isAlias\": \"<boolean>\",\n          \"isPrimary\": \"<boolean>\",\n          \"language\": \"<string>\",\n          \"name\": \"<string>\",\n          \"overview\": \"<string>\",\n          \"tagline\": \"<string>\"\n        }\n      ],\n      \"alias\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"year\": \"<string>\"\n  },\n  \"status\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:53:21.000Z",
+                      "updatedAt": "2026-10-21T19:53:21.000Z",
+                      "uid": "35240-f70acecf-8bb9-4df1-9fc4-dc0b62854406"
+                    },
+                    {
+                      "id": "0d3971d1-946a-4f0d-8db8-a9f22fc3897b",
+                      "name": "Invalid movie id",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/movies/:id/extended?meta=translations&short=true",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "movies",
+                            ":id",
+                            "extended"
+                          ],
+                          "query": [
+                            {
+                              "description": "meta",
+                              "key": "meta",
+                              "value": "translations"
+                            },
+                            {
+                              "description": "reduce the payload and returns the short version of this record without characters, artworks and trailers.",
+                              "key": "short",
+                              "value": "true"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T19:53:21.000Z",
+                      "updatedAt": "2026-10-21T19:53:21.000Z",
+                      "uid": "35240-0d3971d1-946a-4f0d-8db8-a9f22fc3897b"
+                    },
+                    {
+                      "id": "e86058dc-cdf2-4ed3-ac80-b36b5f3c4672",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/movies/:id/extended?meta=translations&short=true",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "movies",
+                            ":id",
+                            "extended"
+                          ],
+                          "query": [
+                            {
+                              "description": "meta",
+                              "key": "meta",
+                              "value": "translations"
+                            },
+                            {
+                              "description": "reduce the payload and returns the short version of this record without characters, artworks and trailers.",
+                              "key": "short",
+                              "value": "true"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T19:53:21.000Z",
+                      "updatedAt": "2026-10-21T19:53:21.000Z",
+                      "uid": "35240-e86058dc-cdf2-4ed3-ac80-b36b5f3c4672"
+                    },
+                    {
+                      "id": "8d8e3b03-5e16-43e4-b648-1c2cba2c0c1c",
+                      "name": "Movie not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/movies/:id/extended?meta=translations&short=true",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "movies",
+                            ":id",
+                            "extended"
+                          ],
+                          "query": [
+                            {
+                              "description": "meta",
+                              "key": "meta",
+                              "value": "translations"
+                            },
+                            {
+                              "description": "reduce the payload and returns the short version of this record without characters, artworks and trailers.",
+                              "key": "short",
+                              "value": "true"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T19:53:21.000Z",
+                      "updatedAt": "2026-10-21T19:53:21.000Z",
+                      "uid": "35240-8d8e3b03-5e16-43e4-b648-1c2cba2c0c1c"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:53:21.000Z",
+                  "updatedAt": "2026-10-21T19:53:21.000Z",
+                  "uid": "35240-63886d13-5189-4b55-8cd4-d6ae589eabe6"
+                }
+              ],
+              "id": "949c7c09-8091-4010-a020-3b9daf111e91",
+              "createdAt": "2026-10-21T19:53:20.000Z",
+              "updatedAt": "2026-10-21T19:53:20.000Z",
+              "uid": "35240-949c7c09-8091-4010-a020-3b9daf111e91"
             },
+            {
+              "name": "translations",
+              "item": [
+                {
+                  "name": "{language}",
+                  "item": [
+                    {
+                      "name": "TheTVDB Get Movie Translation",
+                      "id": "7c326445-cd76-4cdd-87f1-56a870040639",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/movies/:id/translations/:language",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "movies",
+                            ":id",
+                            "translations",
+                            ":language"
+                          ],
+                          "variable": [
+                            {
+                              "id": "72bd2ac6-e58c-4900-827c-9133b904eb3d",
+                              "key": "id",
+                              "value": "<number>",
+                              "description": "(Required) id"
+                            },
+                            {
+                              "id": "6093f42b-6d56-45f8-aac0-fd827b0d2850",
+                              "key": "language",
+                              "value": "<string>",
+                              "description": "(Required) language"
+                            }
+                          ]
+                        },
+                        "description": "Returns movie translation record"
+                      },
+                      "response": [
+                        {
+                          "id": "fb78917e-52c3-4297-9a19-25e83f05652e",
+                          "name": "response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/movies/:id/translations/:language",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "movies",
+                                ":id",
+                                "translations",
+                                ":language"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "language"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": {\n    \"aliases\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"isAlias\": \"<boolean>\",\n    \"isPrimary\": \"<boolean>\",\n    \"language\": \"<string>\",\n    \"name\": \"<string>\",\n    \"overview\": \"<string>\",\n    \"tagline\": \"<string>\"\n  },\n  \"status\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T19:53:21.000Z",
+                          "updatedAt": "2026-10-21T19:53:21.000Z",
+                          "uid": "35240-fb78917e-52c3-4297-9a19-25e83f05652e"
+                        },
+                        {
+                          "id": "053f5864-3f87-4268-9e4f-9a1da14b48b3",
+                          "name": "Invalid movie id, invalid language.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/movies/:id/translations/:language",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "movies",
+                                ":id",
+                                "translations",
+                                ":language"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "language"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T19:53:21.000Z",
+                          "updatedAt": "2026-10-21T19:53:21.000Z",
+                          "uid": "35240-053f5864-3f87-4268-9e4f-9a1da14b48b3"
+                        },
+                        {
+                          "id": "1ec9d0ec-48f3-4349-8faf-a127956cfc61",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/movies/:id/translations/:language",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "movies",
+                                ":id",
+                                "translations",
+                                ":language"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "language"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T19:53:21.000Z",
+                          "updatedAt": "2026-10-21T19:53:21.000Z",
+                          "uid": "35240-1ec9d0ec-48f3-4349-8faf-a127956cfc61"
+                        },
+                        {
+                          "id": "b1c64065-0813-4749-a61f-80bc395448a6",
+                          "name": "Movie not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/movies/:id/translations/:language",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "movies",
+                                ":id",
+                                "translations",
+                                ":language"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                },
+                                {
+                                  "key": "language"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T19:53:21.000Z",
+                          "updatedAt": "2026-10-21T19:53:21.000Z",
+                          "uid": "35240-b1c64065-0813-4749-a61f-80bc395448a6"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T19:53:21.000Z",
+                      "updatedAt": "2026-10-21T19:53:21.000Z",
+                      "uid": "35240-7c326445-cd76-4cdd-87f1-56a870040639"
+                    }
+                  ],
+                  "id": "235a6fc0-7e14-4c61-a984-e9e1910aa437",
+                  "createdAt": "2026-10-21T19:53:20.000Z",
+                  "updatedAt": "2026-10-21T19:53:20.000Z",
+                  "uid": "35240-235a6fc0-7e14-4c61-a984-e9e1910aa437"
+                }
+              ],
+              "id": "5abde666-95cf-419e-b37f-2b957b0f4aac",
+              "createdAt": "2026-10-21T19:53:20.000Z",
+              "updatedAt": "2026-10-21T19:53:20.000Z",
+              "uid": "35240-5abde666-95cf-419e-b37f-2b957b0f4aac"
+            },
+            {
+              "name": "TheTVDB Get Movie Base",
+              "id": "d071337d-bce4-4048-9d67-83f12e9a880f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/movies/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "movies",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "1b8163cb-0093-42b0-b45d-a65735ac5daa",
+                      "key": "id",
+                      "value": "<number>",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "description": "Returns movie base record"
+              },
+              "response": [
+                {
+                  "id": "fbbe9f2b-ccbe-456a-a54c-99863aca8317",
+                  "name": "response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/movies/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "movies",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"aliases\": [\n      {\n        \"language\": \"<string>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"id\": \"<long>\",\n    \"image\": \"<string>\",\n    \"lastUpdated\": \"<string>\",\n    \"name\": \"<string>\",\n    \"nameTranslations\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"overviewTranslations\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"score\": \"<double>\",\n    \"slug\": \"<string>\",\n    \"status\": {\n      \"id\": \"<integer,null-int64>\",\n      \"keepUpdated\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"recordType\": \"<string>\"\n    },\n    \"runtime\": \"<integer,null>\",\n    \"year\": \"<string>\"\n  },\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T19:53:21.000Z",
+                  "updatedAt": "2026-10-21T19:53:21.000Z",
+                  "uid": "35240-fbbe9f2b-ccbe-456a-a54c-99863aca8317"
+                },
+                {
+                  "id": "7f869be6-cae8-44d8-a81a-9a64054cd472",
+                  "name": "Invalid movie id",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/movies/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "movies",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:53:21.000Z",
+                  "updatedAt": "2026-10-21T19:53:21.000Z",
+                  "uid": "35240-7f869be6-cae8-44d8-a81a-9a64054cd472"
+                },
+                {
+                  "id": "4ad3ada4-1833-4c68-a91e-e8397c273017",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/movies/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "movies",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:53:21.000Z",
+                  "updatedAt": "2026-10-21T19:53:21.000Z",
+                  "uid": "35240-4ad3ada4-1833-4c68-a91e-e8397c273017"
+                },
+                {
+                  "id": "4cfdd0e7-a8b9-46ec-b439-50e857abb745",
+                  "name": "Movie not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/movies/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "movies",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:53:21.000Z",
+                  "updatedAt": "2026-10-21T19:53:21.000Z",
+                  "uid": "35240-4cfdd0e7-a8b9-46ec-b439-50e857abb745"
+                }
+              ],
+              "createdAt": "2026-10-21T19:53:21.000Z",
+              "updatedAt": "2026-10-21T19:53:21.000Z",
+              "uid": "35240-d071337d-bce4-4048-9d67-83f12e9a880f"
+            }
+          ],
+          "id": "ea73f0c4-0cf9-4c18-9d72-2b3286f3b77d",
+          "createdAt": "2026-10-21T19:53:20.000Z",
+          "updatedAt": "2026-10-21T19:53:20.000Z",
+          "uid": "35240-ea73f0c4-0cf9-4c18-9d72-2b3286f3b77d"
+        },
+        {
+          "name": "filter",
+          "item": [
+            {
+              "name": "TheTVDB Get Movies Filter",
+              "id": "7de05f7f-4152-4459-ac9f-8f44111cbe5e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/movies/filter?company=<number>&contentRating=<number>&country=<string>&genre=25&lang=<string>&sort=score&status=1&year=<number>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "movies",
+                    "filter"
+                  ],
+                  "query": [
+                    {
+                      "description": "production company",
+                      "key": "company",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "content rating id base on a country",
+                      "key": "contentRating",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "(Required) country of origin",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "genre",
+                      "key": "genre",
+                      "value": "25"
+                    },
+                    {
+                      "description": "(Required) original language",
+                      "key": "lang",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "sort by results",
+                      "key": "sort",
+                      "value": "score"
+                    },
+                    {
+                      "description": "status",
+                      "key": "status",
+                      "value": "1"
+                    },
+                    {
+                      "description": "release year",
+                      "key": "year",
+                      "value": "<number>"
+                    }
+                  ]
+                },
+                "description": "Search movies based on filter parameters"
+              },
+              "response": [
+                {
+                  "id": "bacfc7c0-1c8a-48e4-b42d-c4f54ceb866a",
+                  "name": "response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/movies/filter?company=<number>&contentRating=<number>&country=<string>&genre=25&lang=<string>&sort=score&status=1&year=<number>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "movies",
+                        "filter"
+                      ],
+                      "query": [
+                        {
+                          "description": "production company",
+                          "key": "company",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "content rating id base on a country",
+                          "key": "contentRating",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "(Required) country of origin",
+                          "key": "country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "genre",
+                          "key": "genre",
+                          "value": "25"
+                        },
+                        {
+                          "description": "(Required) original language",
+                          "key": "lang",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "sort by results",
+                          "key": "sort",
+                          "value": "score"
+                        },
+                        {
+                          "description": "status",
+                          "key": "status",
+                          "value": "1"
+                        },
+                        {
+                          "description": "release year",
+                          "key": "year",
+                          "value": "<number>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"aliases\": [\n        {\n          \"language\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"language\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ],\n      \"id\": \"<long>\",\n      \"image\": \"<string>\",\n      \"lastUpdated\": \"<string>\",\n      \"name\": \"<string>\",\n      \"nameTranslations\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"overviewTranslations\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"score\": \"<double>\",\n      \"slug\": \"<string>\",\n      \"status\": {\n        \"id\": \"<integer,null-int64>\",\n        \"keepUpdated\": \"<boolean>\",\n        \"name\": \"<string>\",\n        \"recordType\": \"<string>\"\n      },\n      \"runtime\": \"<integer,null>\",\n      \"year\": \"<string>\"\n    },\n    {\n      \"aliases\": [\n        {\n          \"language\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"language\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ],\n      \"id\": \"<long>\",\n      \"image\": \"<string>\",\n      \"lastUpdated\": \"<string>\",\n      \"name\": \"<string>\",\n      \"nameTranslations\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"overviewTranslations\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"score\": \"<double>\",\n      \"slug\": \"<string>\",\n      \"status\": {\n        \"id\": \"<integer,null-int64>\",\n        \"keepUpdated\": \"<boolean>\",\n        \"name\": \"<string>\",\n        \"recordType\": \"<string>\"\n      },\n      \"runtime\": \"<integer,null>\",\n      \"year\": \"<string>\"\n    }\n  ],\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T19:53:21.000Z",
+                  "updatedAt": "2026-10-21T19:53:21.000Z",
+                  "uid": "35240-bacfc7c0-1c8a-48e4-b42d-c4f54ceb866a"
+                },
+                {
+                  "id": "b6fb0ce5-5c47-4c8b-9522-1baccfcc2784",
+                  "name": "Invalid format parameter.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/movies/filter?company=<number>&contentRating=<number>&country=<string>&genre=25&lang=<string>&sort=score&status=1&year=<number>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "movies",
+                        "filter"
+                      ],
+                      "query": [
+                        {
+                          "description": "production company",
+                          "key": "company",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "content rating id base on a country",
+                          "key": "contentRating",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "(Required) country of origin",
+                          "key": "country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "genre",
+                          "key": "genre",
+                          "value": "25"
+                        },
+                        {
+                          "description": "(Required) original language",
+                          "key": "lang",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "sort by results",
+                          "key": "sort",
+                          "value": "score"
+                        },
+                        {
+                          "description": "status",
+                          "key": "status",
+                          "value": "1"
+                        },
+                        {
+                          "description": "release year",
+                          "key": "year",
+                          "value": "<number>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:53:21.000Z",
+                  "updatedAt": "2026-10-21T19:53:21.000Z",
+                  "uid": "35240-b6fb0ce5-5c47-4c8b-9522-1baccfcc2784"
+                },
+                {
+                  "id": "9cbc56bd-5cea-4636-bd1c-7c427b450656",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/movies/filter?company=<number>&contentRating=<number>&country=<string>&genre=25&lang=<string>&sort=score&status=1&year=<number>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "movies",
+                        "filter"
+                      ],
+                      "query": [
+                        {
+                          "description": "production company",
+                          "key": "company",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "content rating id base on a country",
+                          "key": "contentRating",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "(Required) country of origin",
+                          "key": "country",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "genre",
+                          "key": "genre",
+                          "value": "25"
+                        },
+                        {
+                          "description": "(Required) original language",
+                          "key": "lang",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "sort by results",
+                          "key": "sort",
+                          "value": "score"
+                        },
+                        {
+                          "description": "status",
+                          "key": "status",
+                          "value": "1"
+                        },
+                        {
+                          "description": "release year",
+                          "key": "year",
+                          "value": "<number>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:53:21.000Z",
+                  "updatedAt": "2026-10-21T19:53:21.000Z",
+                  "uid": "35240-9cbc56bd-5cea-4636-bd1c-7c427b450656"
+                }
+              ],
+              "createdAt": "2026-10-21T19:53:21.000Z",
+              "updatedAt": "2026-10-21T19:53:21.000Z",
+              "uid": "35240-7de05f7f-4152-4459-ac9f-8f44111cbe5e"
+            }
+          ],
+          "id": "10629f79-51b1-4303-8f18-f18c6dc33d9d",
+          "createdAt": "2026-10-21T19:53:20.000Z",
+          "updatedAt": "2026-10-21T19:53:20.000Z",
+          "uid": "35240-10629f79-51b1-4303-8f18-f18c6dc33d9d"
+        },
+        {
+          "name": "slug",
+          "item": [
+            {
+              "name": "{slug}",
+              "item": [
+                {
+                  "name": "TheTVDB Get Movie Base by Slug",
+                  "id": "5e70b4a1-c59a-4738-a040-d42cc3395e58",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/movies/slug/:slug",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "movies",
+                        "slug",
+                        ":slug"
+                      ],
+                      "variable": [
+                        {
+                          "id": "7ddfb1a5-5277-48c6-a699-970dfc450491",
+                          "key": "slug",
+                          "value": "<string>",
+                          "description": "(Required) slug"
+                        }
+                      ]
+                    },
+                    "description": "Returns movie base record search by slug"
+                  },
+                  "response": [
+                    {
+                      "id": "126c600b-59e7-4294-9e95-575e2ff86c39",
+                      "name": "response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/movies/slug/:slug",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "movies",
+                            "slug",
+                            ":slug"
+                          ],
+                          "variable": [
+                            {
+                              "key": "slug"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"aliases\": [\n      {\n        \"language\": \"<string>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"id\": \"<long>\",\n    \"image\": \"<string>\",\n    \"lastUpdated\": \"<string>\",\n    \"name\": \"<string>\",\n    \"nameTranslations\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"overviewTranslations\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"score\": \"<double>\",\n    \"slug\": \"<string>\",\n    \"status\": {\n      \"id\": \"<integer,null-int64>\",\n      \"keepUpdated\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"recordType\": \"<string>\"\n    },\n    \"runtime\": \"<integer,null>\",\n    \"year\": \"<string>\"\n  },\n  \"status\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T19:53:21.000Z",
+                      "updatedAt": "2026-10-21T19:53:21.000Z",
+                      "uid": "35240-126c600b-59e7-4294-9e95-575e2ff86c39"
+                    },
+                    {
+                      "id": "c8cf0397-9d9b-4316-98d9-20ec27e1abda",
+                      "name": "Invalid movie slug",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/movies/slug/:slug",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "movies",
+                            "slug",
+                            ":slug"
+                          ],
+                          "variable": [
+                            {
+                              "key": "slug"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T19:53:21.000Z",
+                      "updatedAt": "2026-10-21T19:53:21.000Z",
+                      "uid": "35240-c8cf0397-9d9b-4316-98d9-20ec27e1abda"
+                    },
+                    {
+                      "id": "a9b26327-d162-44b5-9995-cc59af895cab",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/movies/slug/:slug",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "movies",
+                            "slug",
+                            ":slug"
+                          ],
+                          "variable": [
+                            {
+                              "key": "slug"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T19:53:21.000Z",
+                      "updatedAt": "2026-10-21T19:53:21.000Z",
+                      "uid": "35240-a9b26327-d162-44b5-9995-cc59af895cab"
+                    },
+                    {
+                      "id": "dccf37f9-1bfd-4a45-b368-d0c87d0ba50b",
+                      "name": "Movie not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/movies/slug/:slug",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "movies",
+                            "slug",
+                            ":slug"
+                          ],
+                          "variable": [
+                            {
+                              "key": "slug"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-21T19:53:21.000Z",
+                      "updatedAt": "2026-10-21T19:53:21.000Z",
+                      "uid": "35240-dccf37f9-1bfd-4a45-b368-d0c87d0ba50b"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T19:53:21.000Z",
+                  "updatedAt": "2026-10-21T19:53:21.000Z",
+                  "uid": "35240-5e70b4a1-c59a-4738-a040-d42cc3395e58"
+                }
+              ],
+              "id": "7e0416cd-f2c1-4e11-8ad1-fb717a5a4358",
+              "createdAt": "2026-10-21T19:53:20.000Z",
+              "updatedAt": "2026-10-21T19:53:20.000Z",
+              "uid": "35240-7e0416cd-f2c1-4e11-8ad1-fb717a5a4358"
+            }
+          ],
+          "id": "d33fb7ce-617e-453a-a84b-b44cc925fc9d",
+          "createdAt": "2026-10-21T19:53:20.000Z",
+          "updatedAt": "2026-10-21T19:53:20.000Z",
+          "uid": "35240-d33fb7ce-617e-453a-a84b-b44cc925fc9d"
+        },
+        {
+          "name": "TheTVDB Get All Movie",
+          "id": "48db4071-51c0-4f24-95ae-c94d7dde906c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
             "url": {
+              "raw": "{{baseUrl}}/movies?page=<number>",
+              "host": [
+                "{{baseUrl}}"
+              ],
               "path": [
                 "movies"
               ],
-              "host": [
-                "{{baseUrl}}"
-              ],
               "query": [
                 {
-                  "disabled": false,
+                  "description": "page number",
                   "key": "page",
-                  "value": "<number>",
-                  "description": "page number"
+                  "value": "<number>"
                 }
-              ],
-              "variable": []
+              ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
+            "description": "returns list of movie base records"
           },
           "response": [
             {
-              "id": "c2ff048f-98cb-413d-a3c7-e241cd2be57e",
+              "id": "6a5aedc6-dad6-46ad-b4d6-bf0f4cf4ad9e",
               "name": "response",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/movies?page=<number>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "movies"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "page number",
                       "key": "page",
-                      "value": "1"
+                      "value": "<number>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"data\": [\n    {\n      \"aliases\": [\n        {\n          \"language\": \"eng\",\n          \"name\": \"Example Name\"\n        }\n      ],\n      \"id\": 12345,\n      \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n      \"lastUpdated\": \"2024-01-15\",\n      \"name\": \"Example Name\",\n      \"nameTranslations\": [\n        \"example\"\n      ],\n      \"overviewTranslations\": [\n        \"example\"\n      ],\n      \"score\": 100,\n      \"slug\": \"example-slug\",\n      \"status\": {\n        \"id\": 12345,\n        \"keepUpdated\": \"2024-01-15\",\n        \"name\": \"Example Name\",\n        \"recordType\": \"example\"\n      },\n      \"runtime\": 1,\n      \"year\": \"2024\"\n    }\n  ],\n  \"status\": \"Continuing\",\n  \"links\": {\n    \"prev\": \"example\",\n    \"self\": \"example\",\n    \"next\": \"example\",\n    \"total_items\": 1,\n    \"page_size\": 1\n  }\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"aliases\": [\n        {\n          \"language\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"language\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ],\n      \"id\": \"<long>\",\n      \"image\": \"<string>\",\n      \"lastUpdated\": \"<string>\",\n      \"name\": \"<string>\",\n      \"nameTranslations\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"overviewTranslations\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"score\": \"<double>\",\n      \"slug\": \"<string>\",\n      \"status\": {\n        \"id\": \"<integer,null-int64>\",\n        \"keepUpdated\": \"<boolean>\",\n        \"name\": \"<string>\",\n        \"recordType\": \"<string>\"\n      },\n      \"runtime\": \"<integer,null>\",\n      \"year\": \"<string>\"\n    },\n    {\n      \"aliases\": [\n        {\n          \"language\": \"<string>\",\n          \"name\": \"<string>\"\n        },\n        {\n          \"language\": \"<string>\",\n          \"name\": \"<string>\"\n        }\n      ],\n      \"id\": \"<long>\",\n      \"image\": \"<string>\",\n      \"lastUpdated\": \"<string>\",\n      \"name\": \"<string>\",\n      \"nameTranslations\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"overviewTranslations\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"score\": \"<double>\",\n      \"slug\": \"<string>\",\n      \"status\": {\n        \"id\": \"<integer,null-int64>\",\n        \"keepUpdated\": \"<boolean>\",\n        \"name\": \"<string>\",\n        \"recordType\": \"<string>\"\n      },\n      \"runtime\": \"<integer,null>\",\n      \"year\": \"<string>\"\n    }\n  ],\n  \"status\": \"<string>\",\n  \"links\": {\n    \"prev\": \"<string,null>\",\n    \"self\": \"<string,null>\",\n    \"next\": \"<string>\",\n    \"total_items\": \"<integer>\",\n    \"page_size\": \"<integer>\"\n  }\n}",
+              "createdAt": "2026-10-21T19:53:21.000Z",
+              "updatedAt": "2026-10-21T19:53:21.000Z",
+              "uid": "35240-6a5aedc6-dad6-46ad-b4d6-bf0f4cf4ad9e"
             },
             {
-              "id": "3a1907f0-e4cc-4a38-ac64-02f7908048b3",
+              "id": "a170eb2f-a514-4c98-9d9b-2299d8defbd6",
               "name": "Unauthorized",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/movies?page=<number>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "movies"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "page number",
                       "key": "page",
-                      "value": "1"
+                      "value": "<number>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "Unauthorized",
               "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:53:21.000Z",
+              "updatedAt": "2026-10-21T19:53:21.000Z",
+              "uid": "35240-a170eb2f-a514-4c98-9d9b-2299d8defbd6"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a2c15bbc-ff9b-46e3-bc60-375fb35607f8",
-          "name": "TheTVDB Get Movie Base",
-          "request": {
-            "name": "TheTVDB Get Movie Base",
-            "description": {
-              "content": "Returns movie base record",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "movies",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<number>",
-                  "key": "id",
-                  "description": "(Required) id"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "f5df5e44-7dca-494a-ae58-e678ea769eb1",
-              "name": "response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "movies",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": {\n    \"aliases\": [\n      {\n        \"language\": \"eng\",\n        \"name\": \"Example Name\"\n      }\n    ],\n    \"id\": 12345,\n    \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n    \"lastUpdated\": \"2024-01-15\",\n    \"name\": \"Example Name\",\n    \"nameTranslations\": [\n      \"example\"\n    ],\n    \"overviewTranslations\": [\n      \"example\"\n    ],\n    \"score\": 100,\n    \"slug\": \"example-slug\",\n    \"status\": {\n      \"id\": 12345,\n      \"keepUpdated\": \"2024-01-15\",\n      \"name\": \"Example Name\",\n      \"recordType\": \"example\"\n    },\n    \"runtime\": 1,\n    \"year\": \"2024\"\n  },\n  \"status\": \"Continuing\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "72dcdc6e-bb7d-4623-9529-5fe17659b544",
-              "name": "Invalid movie id",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "movies",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "5afb88c4-fa46-49a4-b6d9-d66772f33fce",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "movies",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "ed9256ad-faf8-46f0-8ff0-6313415c0c94",
-              "name": "Movie not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "movies",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "52076ec0-817f-4926-a1ed-f75b9c7f4b67",
-          "name": "TheTVDB Get Movie Extended",
-          "request": {
-            "name": "TheTVDB Get Movie Extended",
-            "description": {
-              "content": "Returns movie extended record",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "movies",
-                ":id",
-                "extended"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "meta",
-                  "value": "<string>",
-                  "description": "meta"
-                },
-                {
-                  "disabled": false,
-                  "key": "short",
-                  "value": "<boolean>",
-                  "description": "reduce the payload and returns the short version of this record without characters, artworks and trailers."
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<number>",
-                  "key": "id",
-                  "description": "(Required) id"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "23f1f375-2fc8-462b-a946-bebd4e582a84",
-              "name": "response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "movies",
-                    ":id",
-                    "extended"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "meta",
-                      "value": "translations"
-                    },
-                    {
-                      "key": "short",
-                      "value": "true"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": {\n    \"aliases\": [\n      {\n        \"language\": \"eng\",\n        \"name\": \"Example Name\"\n      }\n    ],\n    \"artworks\": [\n      {\n        \"height\": 12345,\n        \"id\": 12345,\n        \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"includesText\": true,\n        \"language\": \"eng\",\n        \"score\": 100,\n        \"thumbnail\": \"example\",\n        \"type\": 12345,\n        \"width\": 12345\n      }\n    ],\n    \"audioLanguages\": [\n      \"example\"\n    ],\n    \"awards\": [\n      {\n        \"id\": 12345,\n        \"name\": \"Example Name\"\n      }\n    ],\n    \"boxOffice\": \"example\",\n    \"boxOfficeUS\": \"example\",\n    \"budget\": \"example\",\n    \"characters\": [\n      {\n        \"aliases\": [\n          {\n            \"language\": \"eng\",\n            \"name\": \"Example Name\"\n          }\n        ],\n        \"episode\": {\n          \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n          \"name\": \"Example Name\",\n          \"year\": \"2024\"\n        },\n        \"episodeId\": 12345,\n        \"id\": 12345,\n        \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"isFeatured\": true,\n        \"movieId\": 12345,\n        \"movie\": {\n          \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n          \"name\": \"Example Name\",\n          \"year\": \"2024\"\n        },\n        \"name\": \"Example Name\",\n        \"nameTranslations\": [\n          \"example\"\n        ],\n        \"overviewTranslations\": [\n          \"example\"\n        ],\n        \"peopleId\": 12345,\n        \"personImgURL\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"peopleType\": \"example\",\n        \"seriesId\": 12345,\n        \"series\": {\n          \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n          \"name\": \"Example Name\",\n          \"year\": \"2024\"\n        },\n        \"sort\": 12345,\n        \"tagOptions\": [\n          {\n            \"helpText\": \"example\",\n            \"id\": 12345,\n            \"name\": \"Example Name\",\n            \"tag\": 12345,\n            \"tagName\": \"example\"\n          }\n        ],\n        \"type\": 12345,\n        \"url\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"personName\": \"example\"\n      }\n    ],\n    \"companies\": {\n      \"studio\": [\n        {\n          \"activeDate\": \"2024-01-15\",\n          \"aliases\": [\n            {\n              \"language\": null,\n              \"name\": null\n            }\n          ],\n          \"country\": \"usa\",\n          \"id\": 12345,\n          \"inactiveDate\": \"2024-01-15\",\n          \"name\": \"Example Name\",\n          \"nameTranslations\": [\n            \"example\"\n          ],\n          \"overviewTranslations\": [\n            \"example\"\n          ],\n          \"primaryCompanyType\": 12345,\n          \"slug\": \"example-slug\",\n          \"parentCompany\": {\n            \"id\": null,\n            \"name\": null,\n            \"relation\": {}\n          },\n          \"tagOptions\": [\n            {\n              \"helpText\": null,\n              \"id\": null,\n              \"name\": null,\n              \"tag\": null,\n              \"tagName\": null\n            }\n          ]\n        }\n      ],\n      \"network\": [\n        {\n          \"activeDate\": \"2024-01-15\",\n          \"aliases\": [\n            {\n              \"language\": null,\n              \"name\": null\n            }\n          ],\n          \"country\": \"usa\",\n          \"id\": 12345,\n          \"inactiveDate\": \"2024-01-15\",\n          \"name\": \"Example Name\",\n          \"nameTranslations\": [\n            \"example\"\n          ],\n          \"overviewTranslations\": [\n            \"example\"\n          ],\n          \"primaryCompanyType\": 12345,\n          \"slug\": \"example-slug\",\n          \"parentCompany\": {\n            \"id\": null,\n            \"name\": null,\n            \"relation\": {}\n          },\n          \"tagOptions\": [\n            {\n              \"helpText\": null,\n              \"id\": null,\n              \"name\": null,\n              \"tag\": null,\n              \"tagName\": null\n            }\n          ]\n        }\n      ],\n      \"production\": [\n        {\n          \"activeDate\": \"2024-01-15\",\n          \"aliases\": [\n            {\n              \"language\": null,\n              \"name\": null\n            }\n          ],\n          \"country\": \"usa\",\n          \"id\": 12345,\n          \"inactiveDate\": \"2024-01-15\",\n          \"name\": \"Example Name\",\n          \"nameTranslations\": [\n            \"example\"\n          ],\n          \"overviewTranslations\": [\n            \"example\"\n          ],\n          \"primaryCompanyType\": 12345,\n          \"slug\": \"example-slug\",\n          \"parentCompany\": {\n            \"id\": null,\n            \"name\": null,\n            \"relation\": {}\n          },\n          \"tagOptions\": [\n            {\n              \"helpText\": null,\n              \"id\": null,\n              \"name\": null,\n              \"tag\": null,\n              \"tagName\": null\n            }\n          ]\n        }\n      ],\n      \"distributor\": [\n        {\n          \"activeDate\": \"2024-01-15\",\n          \"aliases\": [\n            {\n              \"language\": null,\n              \"name\": null\n            }\n          ],\n          \"country\": \"usa\",\n          \"id\": 12345,\n          \"inactiveDate\": \"2024-01-15\",\n          \"name\": \"Example Name\",\n          \"nameTranslations\": [\n            \"example\"\n          ],\n          \"overviewTranslations\": [\n            \"example\"\n          ],\n          \"primaryCompanyType\": 12345,\n          \"slug\": \"example-slug\",\n          \"parentCompany\": {\n            \"id\": null,\n            \"name\": null,\n            \"relation\": {}\n          },\n          \"tagOptions\": [\n            {\n              \"helpText\": null,\n              \"id\": null,\n              \"name\": null,\n              \"tag\": null,\n              \"tagName\": null\n            }\n          ]\n        }\n      ],\n      \"special_effects\": [\n        {\n          \"activeDate\": \"2024-01-15\",\n          \"aliases\": [\n            {\n              \"language\": null,\n              \"name\": null\n            }\n          ],\n          \"country\": \"usa\",\n          \"id\": 12345,\n          \"inactiveDate\": \"2024-01-15\",\n          \"name\": \"Example Name\",\n          \"nameTranslations\": [\n            \"example\"\n          ],\n          \"overviewTranslations\": [\n            \"example\"\n          ],\n          \"primaryCompanyType\": 12345,\n          \"slug\": \"example-slug\",\n          \"parentCompany\": {\n            \"id\": null,\n            \"name\": null,\n            \"relation\": {}\n          },\n          \"tagOptions\": [\n            {\n              \"helpText\": null,\n              \"id\": null,\n              \"name\": null,\n              \"tag\": null,\n              \"tagName\": null\n            }\n          ]\n        }\n      ]\n    },\n    \"contentRatings\": [\n      {\n        \"id\": 12345,\n        \"name\": \"Example Name\",\n        \"description\": \"A descriptive paragraph of text.\",\n        \"country\": \"usa\",\n        \"contentType\": \"example\",\n        \"order\": 1,\n        \"fullName\": \"example\"\n      }\n    ],\n    \"first_release\": {\n      \"country\": \"usa\",\n      \"date\": \"2024-01-15\",\n      \"detail\": \"example\"\n    },\n    \"genres\": [\n      {\n        \"id\": 12345,\n        \"name\": \"Example Name\",\n        \"slug\": \"example-slug\"\n      }\n    ],\n    \"id\": 12345,\n    \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n    \"inspirations\": [\n      {\n        \"id\": 12345,\n        \"type\": \"example\",\n        \"type_name\": \"example\",\n        \"url\": \"https://artworks.thetvdb.com/banners/example.jpg\"\n      }\n    ],\n    \"lastUpdated\": \"2024-01-15\",\n    \"lists\": [\n      {\n        \"aliases\": [\n          {\n            \"language\": \"eng\",\n            \"name\": \"Example Name\"\n          }\n        ],\n        \"id\": 12345,\n        \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"imageIsFallback\": true,\n        \"isOfficial\": true,\n        \"name\": \"Example Name\",\n        \"nameTranslations\": [\n          \"example\"\n        ],\n        \"overview\": \"A descriptive paragraph of text.\",\n        \"overviewTranslations\": [\n          \"example\"\n        ],\n        \"remoteIds\": [\n          {\n            \"id\": \"abc123\",\n            \"type\": 12345,\n            \"sourceName\": \"example\"\n          }\n        ],\n        \"tags\": [\n          {\n            \"helpText\": \"example\",\n            \"id\": 12345,\n            \"name\": \"Example Name\",\n            \"tag\": 12345,\n            \"tagName\": \"example\"\n          }\n        ],\n        \"score\": 100,\n        \"url\": \"https://artworks.thetvdb.com/banners/example.jpg\"\n      }\n    ],\n    \"name\": \"Example Name\",\n    \"nameTranslations\": [\n      \"example\"\n    ],\n    \"originalCountry\": \"example\",\n    \"originalLanguage\": \"example\",\n    \"overviewTranslations\": [\n      \"example\"\n    ],\n    \"production_countries\": [\n      {\n        \"id\": 12345,\n        \"country\": \"usa\",\n        \"name\": \"Example Name\"\n      }\n    ],\n    \"releases\": [\n      {\n        \"country\": \"usa\",\n        \"date\": \"2024-01-15\",\n        \"detail\": \"example\"\n      }\n    ],\n    \"remoteIds\": [\n      {\n        \"id\": \"abc123\",\n        \"type\": 12345,\n        \"sourceName\": \"example\"\n      }\n    ],\n    \"runtime\": 1,\n    \"score\": 100,\n    \"slug\": \"example-slug\",\n    \"spoken_languages\": [\n      \"example\"\n    ],\n    \"status\": {\n      \"id\": 12345,\n      \"keepUpdated\": \"2024-01-15\",\n      \"name\": \"Example Name\",\n      \"recordType\": \"example\"\n    },\n    \"studios\": [\n      {\n        \"id\": 12345,\n        \"name\": \"Example Name\",\n        \"parentStudio\": 1\n      }\n    ],\n    \"subtitleLanguages\": [\n      \"example\"\n    ],\n    \"tagOptions\": [\n      {\n        \"helpText\": \"example\",\n        \"id\": 12345,\n        \"name\": \"Example Name\",\n        \"tag\": 12345,\n        \"tagName\": \"example\"\n      }\n    ],\n    \"trailers\": [\n      {\n        \"id\": 12345,\n        \"language\": \"eng\",\n        \"name\": \"Example Name\",\n        \"url\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n        \"runtime\": 1\n      }\n    ],\n    \"translations\": {\n      \"nameTranslations\": [\n        {\n          \"aliases\": [\n            \"example\"\n          ],\n          \"isAlias\": true,\n          \"isPrimary\": true,\n          \"language\": \"eng\",\n          \"name\": \"Example Name\",\n          \"overview\": \"A descriptive paragraph of text.\",\n          \"tagline\": \"example\"\n        }\n      ],\n      \"overviewTranslations\": [\n        {\n          \"aliases\": [\n            \"example\"\n          ],\n          \"isAlias\": true,\n          \"isPrimary\": true,\n          \"language\": \"eng\",\n          \"name\": \"Example Name\",\n          \"overview\": \"A descriptive paragraph of text.\",\n          \"tagline\": \"example\"\n        }\n      ],\n      \"alias\": [\n        \"example\"\n      ]\n    },\n    \"year\": \"2024\"\n  },\n  \"status\": \"Continuing\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "887d1601-096c-4de0-a66b-b42731f2f20e",
-              "name": "Invalid movie id",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "movies",
-                    ":id",
-                    "extended"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "meta",
-                      "value": "translations"
-                    },
-                    {
-                      "key": "short",
-                      "value": "true"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "f30b21a3-46f2-454c-ac31-85215d97ad72",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "movies",
-                    ":id",
-                    "extended"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "meta",
-                      "value": "translations"
-                    },
-                    {
-                      "key": "short",
-                      "value": "true"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "04036504-cebf-4136-9f4a-46183857a265",
-              "name": "Movie not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "movies",
-                    ":id",
-                    "extended"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "meta",
-                      "value": "translations"
-                    },
-                    {
-                      "key": "short",
-                      "value": "true"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "1868c595-a97d-4037-9eee-7e52f8292aa8",
-          "name": "TheTVDB Get Movies Filter",
-          "request": {
-            "name": "TheTVDB Get Movies Filter",
-            "description": {
-              "content": "Search movies based on filter parameters",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "movies",
-                "filter"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "company",
-                  "value": "<number>",
-                  "description": "production company"
-                },
-                {
-                  "disabled": false,
-                  "key": "contentRating",
-                  "value": "<number>",
-                  "description": "content rating id base on a country"
-                },
-                {
-                  "disabled": false,
-                  "key": "country",
-                  "value": "<string>",
-                  "description": "(Required) country of origin"
-                },
-                {
-                  "disabled": false,
-                  "key": "genre",
-                  "value": "<number>",
-                  "description": "genre"
-                },
-                {
-                  "disabled": false,
-                  "key": "lang",
-                  "value": "<string>",
-                  "description": "(Required) original language"
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>",
-                  "description": "sort by results"
-                },
-                {
-                  "disabled": false,
-                  "key": "status",
-                  "value": "<number>",
-                  "description": "status"
-                },
-                {
-                  "disabled": false,
-                  "key": "year",
-                  "value": "<number>",
-                  "description": "release year"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "c2e5e7f0-32ac-4e53-9a06-8539d3476e38",
-              "name": "response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "movies",
-                    "filter"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "company",
-                      "value": "1"
-                    },
-                    {
-                      "key": "contentRating",
-                      "value": "245"
-                    },
-                    {
-                      "key": "country",
-                      "value": "usa"
-                    },
-                    {
-                      "key": "genre",
-                      "value": "3"
-                    },
-                    {
-                      "key": "lang",
-                      "value": "eng"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "score"
-                    },
-                    {
-                      "key": "status",
-                      "value": "1"
-                    },
-                    {
-                      "key": "year",
-                      "value": "2020"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": [\n    {\n      \"aliases\": [\n        {\n          \"language\": \"eng\",\n          \"name\": \"Example Name\"\n        }\n      ],\n      \"id\": 12345,\n      \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n      \"lastUpdated\": \"2024-01-15\",\n      \"name\": \"Example Name\",\n      \"nameTranslations\": [\n        \"example\"\n      ],\n      \"overviewTranslations\": [\n        \"example\"\n      ],\n      \"score\": 100,\n      \"slug\": \"example-slug\",\n      \"status\": {\n        \"id\": 12345,\n        \"keepUpdated\": \"2024-01-15\",\n        \"name\": \"Example Name\",\n        \"recordType\": \"example\"\n      },\n      \"runtime\": 1,\n      \"year\": \"2024\"\n    }\n  ],\n  \"status\": \"Continuing\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "35b41bcb-e1f8-46fc-8501-3a2909477380",
-              "name": "Invalid format parameter.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "movies",
-                    "filter"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "company",
-                      "value": "1"
-                    },
-                    {
-                      "key": "contentRating",
-                      "value": "245"
-                    },
-                    {
-                      "key": "country",
-                      "value": "usa"
-                    },
-                    {
-                      "key": "genre",
-                      "value": "3"
-                    },
-                    {
-                      "key": "lang",
-                      "value": "eng"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "score"
-                    },
-                    {
-                      "key": "status",
-                      "value": "1"
-                    },
-                    {
-                      "key": "year",
-                      "value": "2020"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "92e214f0-15b2-447c-8aca-fae5ab93fe11",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "movies",
-                    "filter"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "company",
-                      "value": "1"
-                    },
-                    {
-                      "key": "contentRating",
-                      "value": "245"
-                    },
-                    {
-                      "key": "country",
-                      "value": "usa"
-                    },
-                    {
-                      "key": "genre",
-                      "value": "3"
-                    },
-                    {
-                      "key": "lang",
-                      "value": "eng"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "score"
-                    },
-                    {
-                      "key": "status",
-                      "value": "1"
-                    },
-                    {
-                      "key": "year",
-                      "value": "2020"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5058cb1f-54a2-40d2-95e6-37da5f62d82e",
-          "name": "TheTVDB Get Movie Base by Slug",
-          "request": {
-            "name": "TheTVDB Get Movie Base by Slug",
-            "description": {
-              "content": "Returns movie base record search by slug",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "movies",
-                "slug",
-                ":slug"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "slug",
-                  "description": "(Required) slug"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "5aa7769b-2306-4c2e-8b43-8dbffc16431c",
-              "name": "response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "movies",
-                    "slug",
-                    ":slug"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "slug",
-                      "description": "(Required) slug"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": {\n    \"aliases\": [\n      {\n        \"language\": \"eng\",\n        \"name\": \"Example Name\"\n      }\n    ],\n    \"id\": 12345,\n    \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n    \"lastUpdated\": \"2024-01-15\",\n    \"name\": \"Example Name\",\n    \"nameTranslations\": [\n      \"example\"\n    ],\n    \"overviewTranslations\": [\n      \"example\"\n    ],\n    \"score\": 100,\n    \"slug\": \"example-slug\",\n    \"status\": {\n      \"id\": 12345,\n      \"keepUpdated\": \"2024-01-15\",\n      \"name\": \"Example Name\",\n      \"recordType\": \"example\"\n    },\n    \"runtime\": 1,\n    \"year\": \"2024\"\n  },\n  \"status\": \"Continuing\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "b5ddfccd-e3d9-4274-9fc8-928b3b0c2534",
-              "name": "Invalid movie slug",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "movies",
-                    "slug",
-                    ":slug"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "slug",
-                      "description": "(Required) slug"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "de793bb5-c3e7-48ab-b407-2867ef37a691",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "movies",
-                    "slug",
-                    ":slug"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "slug",
-                      "description": "(Required) slug"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "b44b2815-f77e-4ff0-9c0a-d56bbe9189a0",
-              "name": "Movie not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "movies",
-                    "slug",
-                    ":slug"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "slug",
-                      "description": "(Required) slug"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "d3d7fb75-e2a3-4b10-ba2e-3c4f8ab24738",
-          "name": "TheTVDB Get Movie Translation",
-          "request": {
-            "name": "TheTVDB Get Movie Translation",
-            "description": {
-              "content": "Returns movie translation record",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "movies",
-                ":id",
-                "translations",
-                ":language"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<number>",
-                  "key": "id",
-                  "description": "(Required) id"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "language",
-                  "description": "(Required) language"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "7284a8d3-c9e9-4741-899d-b94ab675115d",
-              "name": "response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "movies",
-                    ":id",
-                    "translations",
-                    ":language"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "language",
-                      "description": "(Required) language"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": {\n    \"aliases\": [\n      \"example\"\n    ],\n    \"isAlias\": true,\n    \"isPrimary\": true,\n    \"language\": \"eng\",\n    \"name\": \"Example Name\",\n    \"overview\": \"A descriptive paragraph of text.\",\n    \"tagline\": \"example\"\n  },\n  \"status\": \"Continuing\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "36ac05ff-586c-41da-8993-15c8575738e3",
-              "name": "Invalid movie id, invalid language.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "movies",
-                    ":id",
-                    "translations",
-                    ":language"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "language",
-                      "description": "(Required) language"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "ba936635-190d-4e93-952e-0c0296e35486",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "movies",
-                    ":id",
-                    "translations",
-                    ":language"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "language",
-                      "description": "(Required) language"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "85c93671-a216-4451-b84b-d2811c6b6a9d",
-              "name": "Movie not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "movies",
-                    ":id",
-                    "translations",
-                    ":language"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "language",
-                      "description": "(Required) language"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-21T19:53:21.000Z",
+          "updatedAt": "2026-10-21T19:53:21.000Z",
+          "uid": "35240-48db4071-51c0-4f24-95ae-c94d7dde906c"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api4.thetvdb.com/v4",
-      "key": "baseUrl"
+      "id": "f1341b0c-6db6-4323-a264-09bd67797f10",
+      "createdAt": "2026-10-21T19:53:20.000Z",
+      "updatedAt": "2026-10-21T19:53:20.000Z",
+      "uid": "35240-f1341b0c-6db6-4323-a264-09bd67797f10"
     }
   ],
   "auth": {
@@ -1531,17 +1444,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "02aa44c6-ed48-48e1-8a3a-6372d2f1548e",
-    "name": "TVDB API V4 Artwork Movies API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Documentation of [TheTVDB](https://thetvdb.com/) API V4. All related information is linked from our [Github repo](https://github.com/thetvdb/v4-api). You might also want to use our [Postman collection] (https://www.getpostman.com/collections/7a9397ce69ff246f74d0)\n## Authentication\n1. Use the /login endpoint and provide your API key as \"apikey\". If you have a user-supported key, also provide your subscriber PIN as \"pin\". Otherwise completely remove \"pin\" from your call.\n2. Executing this call will provide you with a bearer token, which is valid for 1 month.\n3. Provide your bearer token for subsequent API calls by clicking Authorize below or including in the header of all direct API calls: `Authorization: Bearer [your-token]`\n\n## Notes\n1. \"score\" is a field across almost all entities.  We generate scores for different types of entities in various ways, so no assumptions should be made about the meaning of this value.  It is simply used to hint at relative popularity for sorting purposes.\n",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api4.thetvdb.com/v4"
     }
-  }
+  ]
 }

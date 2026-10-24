@@ -1,263 +1,237 @@
 {
+  "info": {
+    "_postman_id": "5063ba74-ecfe-4453-8582-6510140ea69a",
+    "name": "TVDB API V4 Characters API",
+    "description": "Documentation of TheTVDB API V4.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:51:51.000Z",
+    "updatedAt": "2026-10-21T19:51:51.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5063ba74-ecfe-4453-8582-6510140ea69a"
+  },
   "item": [
     {
-      "id": "b21dca58-74c7-4f35-b9a4-94b934f5f18a",
-      "name": "Characters",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "characters",
       "item": [
         {
-          "id": "4be5875a-98f6-4cd4-9dbf-8c337cc98577",
-          "name": "TheTVDB Get Character Base",
-          "request": {
-            "name": "TheTVDB Get Character Base",
-            "description": {
-              "content": "Returns character base record",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "characters",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<number>",
-                  "key": "id",
-                  "description": "(Required) id"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{id}",
+          "item": [
             {
-              "id": "c8fe54c2-a1be-43c9-aa9c-25402b5a8ffb",
-              "name": "response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "characters",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
+              "name": "TheTVDB Get Character Base",
+              "id": "cc9e01ca-1336-4e5a-8062-a164eb75eae4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": {\n    \"aliases\": [\n      {\n        \"language\": \"eng\",\n        \"name\": \"Example Name\"\n      }\n    ],\n    \"episode\": {\n      \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n      \"name\": \"Example Name\",\n      \"year\": \"2024\"\n    },\n    \"episodeId\": 12345,\n    \"id\": 12345,\n    \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n    \"isFeatured\": true,\n    \"movieId\": 12345,\n    \"movie\": {\n      \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n      \"name\": \"Example Name\",\n      \"year\": \"2024\"\n    },\n    \"name\": \"Example Name\",\n    \"nameTranslations\": [\n      \"example\"\n    ],\n    \"overviewTranslations\": [\n      \"example\"\n    ],\n    \"peopleId\": 12345,\n    \"personImgURL\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n    \"peopleType\": \"example\",\n    \"seriesId\": 12345,\n    \"series\": {\n      \"image\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n      \"name\": \"Example Name\",\n      \"year\": \"2024\"\n    },\n    \"sort\": 12345,\n    \"tagOptions\": [\n      {\n        \"helpText\": \"example\",\n        \"id\": 12345,\n        \"name\": \"Example Name\",\n        \"tag\": 12345,\n        \"tagName\": \"example\"\n      }\n    ],\n    \"type\": 12345,\n    \"url\": \"https://artworks.thetvdb.com/banners/example.jpg\",\n    \"personName\": \"example\"\n  },\n  \"status\": \"Continuing\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "0cf8fe64-e0a9-43ff-9e31-709290540e71",
-              "name": "Invalid character id",
-              "originalRequest": {
                 "url": {
+                  "raw": "{{baseUrl}}/characters/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "characters",
                     ":id"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
                   "variable": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
+                      "id": "1babb165-c263-4b28-8418-f612b8ca17a9",
                       "key": "id",
+                      "value": "<number>",
                       "description": "(Required) id"
                     }
                   ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                "description": "Returns character base record"
               },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "3b64c1bb-76e3-45a3-b79e-4605ec13f965",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "characters",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
+                  "id": "0b6b6699-4ddc-4486-9525-a22851e56606",
+                  "name": "response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/characters/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "characters",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "b80d6ee4-dcb7-4f97-951d-76a16a9cb0ff",
-              "name": "Character not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "characters",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<number>",
-                      "key": "id",
-                      "description": "(Required) id"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
-                  ]
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"aliases\": [\n      {\n        \"language\": \"<string>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"language\": \"<string>\",\n        \"name\": \"<string>\"\n      }\n    ],\n    \"episode\": {\n      \"image\": \"<string>\",\n      \"name\": \"<string>\",\n      \"year\": \"<string>\"\n    },\n    \"episodeId\": \"<integer,null>\",\n    \"id\": \"<long>\",\n    \"image\": \"<string>\",\n    \"isFeatured\": \"<boolean>\",\n    \"movieId\": \"<integer,null>\",\n    \"movie\": {\n      \"image\": \"<string>\",\n      \"name\": \"<string>\",\n      \"year\": \"<string>\"\n    },\n    \"name\": \"<string>\",\n    \"nameTranslations\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"overviewTranslations\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"peopleId\": \"<integer>\",\n    \"personImgURL\": \"<string>\",\n    \"peopleType\": \"<string>\",\n    \"seriesId\": \"<integer,null>\",\n    \"series\": {\n      \"image\": \"<string>\",\n      \"name\": \"<string>\",\n      \"year\": \"<string>\"\n    },\n    \"sort\": \"<long>\",\n    \"tagOptions\": [\n      {\n        \"helpText\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"tag\": \"<long>\",\n        \"tagName\": \"<string>\"\n      },\n      {\n        \"helpText\": \"<string>\",\n        \"id\": \"<long>\",\n        \"name\": \"<string>\",\n        \"tag\": \"<long>\",\n        \"tagName\": \"<string>\"\n      }\n    ],\n    \"type\": \"<long>\",\n    \"url\": \"<string>\",\n    \"personName\": \"<string>\"\n  },\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T19:51:52.000Z",
+                  "updatedAt": "2026-10-21T19:51:52.000Z",
+                  "uid": "35240-0b6b6699-4ddc-4486-9525-a22851e56606"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "2308ad9a-5f7f-4690-8d75-5bc8fa349be7",
+                  "name": "Invalid character id",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/characters/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "characters",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:51:52.000Z",
+                  "updatedAt": "2026-10-21T19:51:52.000Z",
+                  "uid": "35240-2308ad9a-5f7f-4690-8d75-5bc8fa349be7"
+                },
+                {
+                  "id": "ffbcdda4-5ec2-4cf9-a8fb-7c580cb167c4",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/characters/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "characters",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:51:52.000Z",
+                  "updatedAt": "2026-10-21T19:51:52.000Z",
+                  "uid": "35240-ffbcdda4-5ec2-4cf9-a8fb-7c580cb167c4"
+                },
+                {
+                  "id": "f176e7c7-f8e7-4671-b964-033d186bc9aa",
+                  "name": "Character not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/characters/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "characters",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:51:52.000Z",
+                  "updatedAt": "2026-10-21T19:51:52.000Z",
+                  "uid": "35240-f176e7c7-f8e7-4671-b964-033d186bc9aa"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-21T19:51:52.000Z",
+              "updatedAt": "2026-10-21T19:51:52.000Z",
+              "uid": "35240-cc9e01ca-1336-4e5a-8062-a164eb75eae4"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "d71fa95b-7881-4ccb-ab74-adb0309e8c29",
+          "createdAt": "2026-10-21T19:51:52.000Z",
+          "updatedAt": "2026-10-21T19:51:52.000Z",
+          "uid": "35240-d71fa95b-7881-4ccb-ab74-adb0309e8c29"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api4.thetvdb.com/v4",
-      "key": "baseUrl"
+      "id": "7d07ed9d-91c9-41b0-9144-b3105ce5e13b",
+      "createdAt": "2026-10-21T19:51:52.000Z",
+      "updatedAt": "2026-10-21T19:51:52.000Z",
+      "uid": "35240-7d07ed9d-91c9-41b0-9144-b3105ce5e13b"
     }
   ],
   "auth": {
@@ -265,17 +239,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "abc1919b-b3a7-4213-b65d-2753128a9be8",
-    "name": "TVDB API V4 Artwork Characters API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Documentation of [TheTVDB](https://thetvdb.com/) API V4. All related information is linked from our [Github repo](https://github.com/thetvdb/v4-api). You might also want to use our [Postman collection] (https://www.getpostman.com/collections/7a9397ce69ff246f74d0)\n## Authentication\n1. Use the /login endpoint and provide your API key as \"apikey\". If you have a user-supported key, also provide your subscriber PIN as \"pin\". Otherwise completely remove \"pin\" from your call.\n2. Executing this call will provide you with a bearer token, which is valid for 1 month.\n3. Provide your bearer token for subsequent API calls by clicking Authorize below or including in the header of all direct API calls: `Authorization: Bearer [your-token]`\n\n## Notes\n1. \"score\" is a field across almost all entities.  We generate scores for different types of entities in various ways, so no assumptions should be made about the meaning of this value.  It is simply used to hint at relative popularity for sorting purposes.\n",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api4.thetvdb.com/v4"
     }
-  }
+  ]
 }

@@ -1,140 +1,129 @@
 {
+  "info": {
+    "_postman_id": "8b00c2fd-9713-4cd1-83da-41a1c59c8225",
+    "name": "TVDB API V4 Languages API",
+    "description": "Documentation of TheTVDB API V4.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:52:54.000Z",
+    "updatedAt": "2026-10-21T19:52:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8b00c2fd-9713-4cd1-83da-41a1c59c8225"
+  },
   "item": [
     {
-      "id": "d139cf1e-8fb6-412e-9e07-fa5a9d86e203",
-      "name": "Languages",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "languages",
       "item": [
         {
-          "id": "af2631e9-ec5d-4837-904c-117cef035877",
           "name": "TheTVDB Get All Languages",
+          "id": "012a6fd3-5033-4e8d-a529-60015783e16e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "TheTVDB Get All Languages",
-            "description": {
-              "content": "returns list of language records",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "languages"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/languages",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "languages"
+              ]
+            },
+            "description": "returns list of language records"
           },
           "response": [
             {
-              "id": "db1cf633-a52b-4e25-92fe-e379f4eadea7",
+              "id": "d7422f05-b892-4a18-8bbe-7886dedcffbd",
               "name": "response",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "languages"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/languages",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "languages"
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"data\": [\n    {\n      \"id\": \"abc123\",\n      \"name\": \"Example Name\",\n      \"nativeName\": \"example\",\n      \"shortCode\": \"example\"\n    }\n  ],\n  \"status\": \"Continuing\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"nativeName\": \"<string>\",\n      \"shortCode\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"nativeName\": \"<string>\",\n      \"shortCode\": \"<string>\"\n    }\n  ],\n  \"status\": \"<string>\"\n}",
+              "createdAt": "2026-10-21T19:52:55.000Z",
+              "updatedAt": "2026-10-21T19:52:55.000Z",
+              "uid": "35240-d7422f05-b892-4a18-8bbe-7886dedcffbd"
             },
             {
-              "id": "e6e8cfd6-a6f1-4f80-82ba-be5820ae2276",
+              "id": "6e41564f-3e19-47da-8c6e-8b193b7aaa6d",
               "name": "Unauthorized",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "languages"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/languages",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "languages"
+                  ]
+                }
               },
               "status": "Unauthorized",
               "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:52:55.000Z",
+              "updatedAt": "2026-10-21T19:52:55.000Z",
+              "uid": "35240-6e41564f-3e19-47da-8c6e-8b193b7aaa6d"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-21T19:52:55.000Z",
+          "updatedAt": "2026-10-21T19:52:55.000Z",
+          "uid": "35240-012a6fd3-5033-4e8d-a529-60015783e16e"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api4.thetvdb.com/v4",
-      "key": "baseUrl"
+      "id": "9e2ccc21-5361-466e-9c41-4f2d82349e60",
+      "createdAt": "2026-10-21T19:52:55.000Z",
+      "updatedAt": "2026-10-21T19:52:55.000Z",
+      "uid": "35240-9e2ccc21-5361-466e-9c41-4f2d82349e60"
     }
   ],
   "auth": {
@@ -142,17 +131,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "f0ce07a7-7e90-451b-bc4f-2c97d9da2d8c",
-    "name": "TVDB API V4 Artwork Languages API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Documentation of [TheTVDB](https://thetvdb.com/) API V4. All related information is linked from our [Github repo](https://github.com/thetvdb/v4-api). You might also want to use our [Postman collection] (https://www.getpostman.com/collections/7a9397ce69ff246f74d0)\n## Authentication\n1. Use the /login endpoint and provide your API key as \"apikey\". If you have a user-supported key, also provide your subscriber PIN as \"pin\". Otherwise completely remove \"pin\" from your call.\n2. Executing this call will provide you with a bearer token, which is valid for 1 month.\n3. Provide your bearer token for subsequent API calls by clicking Authorize below or including in the header of all direct API calls: `Authorization: Bearer [your-token]`\n\n## Notes\n1. \"score\" is a field across almost all entities.  We generate scores for different types of entities in various ways, so no assumptions should be made about the meaning of this value.  It is simply used to hint at relative popularity for sorting purposes.\n",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api4.thetvdb.com/v4"
     }
-  }
+  ]
 }

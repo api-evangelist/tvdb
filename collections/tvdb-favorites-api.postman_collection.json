@@ -1,332 +1,327 @@
 {
+  "info": {
+    "_postman_id": "ac2a8f87-c113-44c0-921f-b8a3846f61fe",
+    "name": "TVDB API V4 Favorites API",
+    "description": "Documentation of TheTVDB API V4.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:52:29.000Z",
+    "updatedAt": "2026-10-21T19:52:30.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ac2a8f87-c113-44c0-921f-b8a3846f61fe"
+  },
   "item": [
     {
-      "id": "266507bd-1a87-4928-9d7c-f45c04b31b5f",
-      "name": "Favorites",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "user",
       "item": [
         {
-          "id": "d2b476ab-3b74-4345-802f-ed376be9d618",
-          "name": "TheTVDB Get User Favorites",
-          "request": {
-            "name": "TheTVDB Get User Favorites",
-            "description": {
-              "content": "returns user favorites",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "user",
-                "favorites"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "favorites",
+          "item": [
             {
-              "id": "e55abeef-9974-45f0-b926-bed19f02034d",
-              "name": "response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "favorites"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+              "name": "TheTVDB Get User Favorites",
+              "id": "0102a5a4-14a2-4a5f-86d6-902cd80779c3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"data\": null,\n  \"status\": \"Continuing\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "2351f9db-42b5-471e-bce0-09a429211b21",
-              "name": "Unauthorized",
-              "originalRequest": {
                 "url": {
-                  "path": [
-                    "user",
-                    "favorites"
-                  ],
+                  "raw": "{{baseUrl}}/user/favorites",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": []
+                  "path": [
+                    "user",
+                    "favorites"
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                "description": "returns user favorites"
               },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "3f4ae463-8a66-4fe5-b2ae-8cfa31784030",
+                  "name": "response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/user/favorites",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        "favorites"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T19:52:30.000Z",
+                  "updatedAt": "2026-10-21T19:52:30.000Z",
+                  "uid": "35240-3f4ae463-8a66-4fe5-b2ae-8cfa31784030"
+                },
+                {
+                  "id": "1e197a15-8860-4418-950d-a899668cd6ff",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/user/favorites",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        "favorites"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:52:30.000Z",
+                  "updatedAt": "2026-10-21T19:52:30.000Z",
+                  "uid": "35240-1e197a15-8860-4418-950d-a899668cd6ff"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-21T19:52:30.000Z",
+              "updatedAt": "2026-10-21T19:52:30.000Z",
+              "uid": "35240-0102a5a4-14a2-4a5f-86d6-902cd80779c3"
+            },
+            {
+              "name": "TheTVDB Create User Favorites",
+              "id": "f3996960-b9cf-4c24-a245-55d4734450e1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"series\": \"<integer>\",\n  \"movie\": \"<integer>\",\n  \"episode\": \"<integer>\",\n  \"artwork\": \"<integer>\",\n  \"people\": \"<integer>\",\n  \"list\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/user/favorites",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user",
+                    "favorites"
+                  ]
+                },
+                "description": "creates a new user favorite"
+              },
+              "response": [
+                {
+                  "id": "84291e45-09cf-4b12-be18-300463882805",
+                  "name": "Ok",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"series\": \"<integer>\",\n  \"movie\": \"<integer>\",\n  \"episode\": \"<integer>\",\n  \"artwork\": \"<integer>\",\n  \"people\": \"<integer>\",\n  \"list\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/user/favorites",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        "favorites"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:52:30.000Z",
+                  "updatedAt": "2026-10-21T19:52:30.000Z",
+                  "uid": "35240-84291e45-09cf-4b12-be18-300463882805"
+                },
+                {
+                  "id": "0209a60c-b483-47e0-9527-9a085b3d5e01",
+                  "name": "Bad format",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"series\": \"<integer>\",\n  \"movie\": \"<integer>\",\n  \"episode\": \"<integer>\",\n  \"artwork\": \"<integer>\",\n  \"people\": \"<integer>\",\n  \"list\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/user/favorites",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        "favorites"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:52:30.000Z",
+                  "updatedAt": "2026-10-21T19:52:30.000Z",
+                  "uid": "35240-0209a60c-b483-47e0-9527-9a085b3d5e01"
+                },
+                {
+                  "id": "1295d0e0-148b-4d42-9e87-6433af0dae7d",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"series\": \"<integer>\",\n  \"movie\": \"<integer>\",\n  \"episode\": \"<integer>\",\n  \"artwork\": \"<integer>\",\n  \"people\": \"<integer>\",\n  \"list\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/user/favorites",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "user",
+                        "favorites"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T19:52:30.000Z",
+                  "updatedAt": "2026-10-21T19:52:30.000Z",
+                  "uid": "35240-1295d0e0-148b-4d42-9e87-6433af0dae7d"
+                }
+              ],
+              "createdAt": "2026-10-21T19:52:30.000Z",
+              "updatedAt": "2026-10-21T19:52:30.000Z",
+              "uid": "35240-f3996960-b9cf-4c24-a245-55d4734450e1"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "bd98dab2-78f1-4f77-814f-267cb69d94d4",
-          "name": "TheTVDB Create User Favorites",
-          "request": {
-            "name": "TheTVDB Create User Favorites",
-            "description": {
-              "content": "creates a new user favorite",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "user",
-                "favorites"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"series\": \"<integer>\",\n  \"movie\": \"<integer>\",\n  \"episode\": \"<integer>\",\n  \"artwork\": \"<integer>\",\n  \"people\": \"<integer>\",\n  \"list\": \"<integer>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "36e32eac-82ea-4f2e-aa35-a3fa2a2ca3fb",
-              "name": "Ok",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "favorites"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"series\": 1,\n  \"movie\": 1,\n  \"episode\": 1,\n  \"artwork\": 1,\n  \"people\": 1,\n  \"list\": 1\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "f125da14-6fc5-497e-9932-cb8d4ae4e579",
-              "name": "Bad format",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "favorites"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"series\": 1,\n  \"movie\": 1,\n  \"episode\": 1,\n  \"artwork\": 1,\n  \"people\": 1,\n  \"list\": 1\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "a44c27bd-8876-4926-abce-344f723b2212",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "user",
-                    "favorites"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"series\": 1,\n  \"movie\": 1,\n  \"episode\": 1,\n  \"artwork\": 1,\n  \"people\": 1,\n  \"list\": 1\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "a8f805e8-5c2f-4a28-b229-da0b2b10fe68",
+          "createdAt": "2026-10-21T19:52:30.000Z",
+          "updatedAt": "2026-10-21T19:52:30.000Z",
+          "uid": "35240-a8f805e8-5c2f-4a28-b229-da0b2b10fe68"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api4.thetvdb.com/v4",
-      "key": "baseUrl"
+      "id": "841b06c1-6ba8-4561-8511-bb0b16968fe5",
+      "createdAt": "2026-10-21T19:52:30.000Z",
+      "updatedAt": "2026-10-21T19:52:30.000Z",
+      "uid": "35240-841b06c1-6ba8-4561-8511-bb0b16968fe5"
     }
   ],
   "auth": {
@@ -334,17 +329,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "4878a862-97ac-4f23-b7a0-5a63cb87d842",
-    "name": "TVDB API V4 Artwork Favorites API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Documentation of [TheTVDB](https://thetvdb.com/) API V4. All related information is linked from our [Github repo](https://github.com/thetvdb/v4-api). You might also want to use our [Postman collection] (https://www.getpostman.com/collections/7a9397ce69ff246f74d0)\n## Authentication\n1. Use the /login endpoint and provide your API key as \"apikey\". If you have a user-supported key, also provide your subscriber PIN as \"pin\". Otherwise completely remove \"pin\" from your call.\n2. Executing this call will provide you with a bearer token, which is valid for 1 month.\n3. Provide your bearer token for subsequent API calls by clicking Authorize below or including in the header of all direct API calls: `Authorization: Bearer [your-token]`\n\n## Notes\n1. \"score\" is a field across almost all entities.  We generate scores for different types of entities in various ways, so no assumptions should be made about the meaning of this value.  It is simply used to hint at relative popularity for sorting purposes.\n",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api4.thetvdb.com/v4"
     }
-  }
+  ]
 }

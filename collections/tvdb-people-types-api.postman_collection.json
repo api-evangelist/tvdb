@@ -1,103 +1,107 @@
 {
+  "info": {
+    "_postman_id": "4e776248-05fb-46fd-b174-d0171216827d",
+    "name": "TVDB API V4 People Types API",
+    "description": "Documentation of TheTVDB API V4.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:53:34.000Z",
+    "updatedAt": "2026-10-21T19:53:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4e776248-05fb-46fd-b174-d0171216827d"
+  },
   "item": [
     {
-      "id": "bfa77422-f841-4dff-8bb7-40972a25ca2d",
-      "name": "People Types",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "people",
       "item": [
         {
-          "id": "db23c550-f724-4718-ae68-e5c929fd6b51",
-          "name": "TheTVDB Get All People Types",
-          "request": {
-            "name": "TheTVDB Get All People Types",
-            "description": {
-              "content": "returns list of peopleType records",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "people",
-                "types"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "types",
+          "item": [
             {
-              "id": "9ddfc0b6-bf7b-46c8-a156-40a20b810dc0",
-              "name": "response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "people",
-                    "types"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+              "name": "TheTVDB Get All People Types",
+              "id": "26655b8f-1238-4483-827c-7d4b22ed57ba",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/people/types",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "people",
+                    "types"
+                  ]
+                },
+                "description": "returns list of peopleType records"
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "1ebd847a-1926-413f-a479-732115b5bceb",
+                  "name": "response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/people/types",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "people",
+                        "types"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"name\": \"<string>\"\n    }\n  ],\n  \"status\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T19:53:35.000Z",
+                  "updatedAt": "2026-10-21T19:53:35.000Z",
+                  "uid": "35240-1ebd847a-1926-413f-a479-732115b5bceb"
                 }
               ],
-              "body": "{\n  \"data\": [\n    {\n      \"id\": 12345,\n      \"name\": \"Example Name\"\n    }\n  ],\n  \"status\": \"Continuing\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T19:53:35.000Z",
+              "updatedAt": "2026-10-21T19:53:35.000Z",
+              "uid": "35240-26655b8f-1238-4483-827c-7d4b22ed57ba"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "293c75a5-73cf-4804-95bc-ca9249f4ee6b",
+          "createdAt": "2026-10-21T19:53:35.000Z",
+          "updatedAt": "2026-10-21T19:53:35.000Z",
+          "uid": "35240-293c75a5-73cf-4804-95bc-ca9249f4ee6b"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api4.thetvdb.com/v4",
-      "key": "baseUrl"
+      "id": "a8996b3c-3f4b-4b7c-b8e2-44853c242d18",
+      "createdAt": "2026-10-21T19:53:35.000Z",
+      "updatedAt": "2026-10-21T19:53:35.000Z",
+      "uid": "35240-a8996b3c-3f4b-4b7c-b8e2-44853c242d18"
     }
   ],
   "auth": {
@@ -105,17 +109,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "115f47b0-dc6d-4519-8063-68fd3e73a693",
-    "name": "TVDB API V4 Artwork People Types API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Documentation of [TheTVDB](https://thetvdb.com/) API V4. All related information is linked from our [Github repo](https://github.com/thetvdb/v4-api). You might also want to use our [Postman collection] (https://www.getpostman.com/collections/7a9397ce69ff246f74d0)\n## Authentication\n1. Use the /login endpoint and provide your API key as \"apikey\". If you have a user-supported key, also provide your subscriber PIN as \"pin\". Otherwise completely remove \"pin\" from your call.\n2. Executing this call will provide you with a bearer token, which is valid for 1 month.\n3. Provide your bearer token for subsequent API calls by clicking Authorize below or including in the header of all direct API calls: `Authorization: Bearer [your-token]`\n\n## Notes\n1. \"score\" is a field across almost all entities.  We generate scores for different types of entities in various ways, so no assumptions should be made about the meaning of this value.  It is simply used to hint at relative popularity for sorting purposes.\n",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api4.thetvdb.com/v4"
     }
-  }
+  ]
 }
